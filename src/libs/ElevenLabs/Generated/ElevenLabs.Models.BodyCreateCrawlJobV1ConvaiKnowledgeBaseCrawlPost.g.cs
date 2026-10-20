@@ -39,6 +39,12 @@ namespace ElevenLabs
         public string? Pattern { get; set; }
 
         /// <summary>
+        /// If set, URLs that match any of these patterns are skipped, even if they match `pattern`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("exclude_patterns")]
+        public global::System.Collections.Generic.IList<string>? ExcludePatterns { get; set; }
+
+        /// <summary>
         /// List of URLs to crawl from sitemap (optional, overrides automatic URL discovery).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sitemap_urls")]
@@ -96,6 +102,9 @@ namespace ElevenLabs
         /// <param name="pattern">
         /// If set, only URLs that match this pattern are included.
         /// </param>
+        /// <param name="excludePatterns">
+        /// If set, URLs that match any of these patterns are skipped, even if they match `pattern`.
+        /// </param>
         /// <param name="sitemapUrls">
         /// List of URLs to crawl from sitemap (optional, overrides automatic URL discovery).
         /// </param>
@@ -124,6 +133,7 @@ namespace ElevenLabs
             string url,
             int? maxPages,
             string? pattern,
+            global::System.Collections.Generic.IList<string>? excludePatterns,
             global::System.Collections.Generic.IList<string>? sitemapUrls,
             string? parentFolderId,
             bool? enableAutoSync,
@@ -134,6 +144,7 @@ namespace ElevenLabs
             this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.MaxPages = maxPages;
             this.Pattern = pattern;
+            this.ExcludePatterns = excludePatterns;
             this.SitemapUrls = sitemapUrls;
             this.ParentFolderId = parentFolderId;
             this.EnableAutoSync = enableAutoSync;

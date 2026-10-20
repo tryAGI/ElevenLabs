@@ -99,6 +99,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AnalysisCharging? Analysis { get; set; }
 
         /// <summary>
+        /// Credits charged as the voice actor reward for the Voice Library voices this conversation used. It is not included in `cost`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_surcharge_charge")]
+        public int? VoiceSurchargeCharge { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -132,6 +138,9 @@ namespace ElevenLabs
         /// <param name="ttsUsage"></param>
         /// <param name="asrUsage"></param>
         /// <param name="analysis"></param>
+        /// <param name="voiceSurchargeCharge">
+        /// Credits charged as the voice actor reward for the Voice Library voices this conversation used. It is not included in `cost`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -150,7 +159,8 @@ namespace ElevenLabs
             double? freeLlmDollarsConsumed,
             global::ElevenLabs.ConversationTTSUsageModel? ttsUsage,
             global::ElevenLabs.ConversationASRUsageModel? asrUsage,
-            global::ElevenLabs.AnalysisCharging? analysis)
+            global::ElevenLabs.AnalysisCharging? analysis,
+            int? voiceSurchargeCharge)
         {
             this.DevDiscount = devDiscount;
             this.IsBurst = isBurst;
@@ -167,6 +177,7 @@ namespace ElevenLabs
             this.TtsUsage = ttsUsage;
             this.AsrUsage = asrUsage;
             this.Analysis = analysis;
+            this.VoiceSurchargeCharge = voiceSurchargeCharge;
         }
 
         /// <summary>

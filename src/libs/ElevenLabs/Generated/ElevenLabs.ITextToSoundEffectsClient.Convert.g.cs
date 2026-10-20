@@ -89,7 +89,7 @@ namespace ElevenLabs
         /// The text that will get converted into a sound effect.
         /// </param>
         /// <param name="loop">
-        /// Whether to create a sound effect that loops smoothly. Only available for the 'eleven_text_to_sound_v2 model'.<br/>
+        /// Whether to create a sound effect that loops smoothly.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="durationSeconds">
