@@ -7,7 +7,7 @@ namespace ElevenLabs
     public partial interface ISpeechToSpeechClient
     {
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -37,14 +37,14 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::System.IO.Stream> StreamAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -74,14 +74,14 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> StreamAsResponseAsync(
             string voiceId,
 
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPost request,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPost request,
             bool? enableLogging = default,
             int? optimizeStreamingLatency = default,
             global::ElevenLabs.SpeechToSpeechStreamOutputFormat? outputFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -142,12 +142,12 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -208,11 +208,11 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Speech To Speech Streaming<br/>
+        /// Voice Changer Streaming<br/>
         /// Stream audio from one voice to another. Maintain full control over emotion, timing and delivery.
         /// </summary>
         /// <param name="voiceId">
@@ -273,7 +273,7 @@ namespace ElevenLabs
             string? voiceSettings = default,
             int? seed = default,
             bool? removeBackgroundNoise = default,
-            global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat? fileFormat = default,
+            global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat? fileFormat = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

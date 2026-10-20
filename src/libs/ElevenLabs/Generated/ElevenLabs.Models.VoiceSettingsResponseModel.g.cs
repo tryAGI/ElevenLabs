@@ -44,6 +44,12 @@ namespace ElevenLabs
         public double? Speed { get; set; }
 
         /// <summary>
+        /// Controls how closely the voice matches the professional voice clone samples, from 0 (low) to 1 (high). We recommend 0 for most use cases. Increase this value only if you experience issues with the default settings. Only applies to professional voice clones fine-tuned for the selected v4 model.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("clone_strength")]
+        public double? CloneStrength { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -72,6 +78,9 @@ namespace ElevenLabs
         /// Adjusts the speed of the voice. A value of 1.0 is the default speed, while values less than 1.0 slow down the speech, and values greater than 1.0 speed it up.<br/>
         /// Default Value: 1F
         /// </param>
+        /// <param name="cloneStrength">
+        /// Controls how closely the voice matches the professional voice clone samples, from 0 (low) to 1 (high). We recommend 0 for most use cases. Increase this value only if you experience issues with the default settings. Only applies to professional voice clones fine-tuned for the selected v4 model.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,13 +89,15 @@ namespace ElevenLabs
             bool? useSpeakerBoost,
             double? similarityBoost,
             double? style,
-            double? speed)
+            double? speed,
+            double? cloneStrength)
         {
             this.Stability = stability;
             this.UseSpeakerBoost = useSpeakerBoost;
             this.SimilarityBoost = similarityBoost;
             this.Style = style;
             this.Speed = speed;
+            this.CloneStrength = cloneStrength;
         }
 
         /// <summary>

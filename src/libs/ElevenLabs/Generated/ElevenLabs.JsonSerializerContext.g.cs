@@ -587,14 +587,6 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRole?)
 
-                    || typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat)
-
-                    || typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat)
-
-                    || typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat?)
-
                     || typeToConvert == typeof(global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity)
 
                     || typeToConvert == typeof(global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity?)
@@ -618,6 +610,14 @@ namespace ElevenLabs
                     || typeToConvert == typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization)
 
                     || typeToConvert == typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat)
+
+                    || typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat?)
+
+                    || typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat)
+
+                    || typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat?)
 
                     || typeToConvert == typeof(global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions)
 
@@ -3286,26 +3286,6 @@ namespace ElevenLabs
                     return new global::ElevenLabs.JsonConverters.BodyShareWorkspaceResourceV1WorkspaceResourcesResourceIdSharePostRoleNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat))
-                {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormat?))
-                {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechStreamingV1SpeechToSpeechVoiceIdStreamPostFileFormatNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat))
-                {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat?))
-                {
-                    return new global::ElevenLabs.JsonConverters.BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatNullableJsonConverter();
-                }
-
                 if (typeToConvert == typeof(global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostTimestampsGranularity))
                 {
                     return new global::ElevenLabs.JsonConverters.BodySpeechToTextV1SpeechToTextPostTimestampsGranularityJsonConverter();
@@ -3364,6 +3344,26 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalization?))
                 {
                     return new global::ElevenLabs.JsonConverters.BodyTextToDialogueMultiVoiceV1TextToDialoguePostApplyTextNormalizationNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat))
+                {
+                    return new global::ElevenLabs.JsonConverters.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat?))
+                {
+                    return new global::ElevenLabs.JsonConverters.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat))
+                {
+                    return new global::ElevenLabs.JsonConverters.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat?))
+                {
+                    return new global::ElevenLabs.JsonConverters.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions))

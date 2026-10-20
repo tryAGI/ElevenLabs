@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     ///
     /// </summary>
-    public enum BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat
+    public enum BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat
     {
         /// <summary>
         ///
@@ -21,29 +21,29 @@ namespace ElevenLabs
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormatExtensions
+    public static class BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat value)
+        public static string ToValueString(this BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat value)
         {
             return value switch
             {
-                BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat.Other => "other",
-                BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat.PcmS16le16 => "pcm_s16le_16",
+                BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat.Other => "other",
+                BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat.PcmS16le16 => "pcm_s16le_16",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat? ToEnum(string value)
+        public static BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat? ToEnum(string value)
         {
             return value switch
             {
-                "other" => BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat.Other,
-                "pcm_s16le_16" => BodySpeechToSpeechV1SpeechToSpeechVoiceIdPostFileFormat.PcmS16le16,
+                "other" => BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat.Other,
+                "pcm_s16le_16" => BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat.PcmS16le16,
                 _ => null,
             };
         }
