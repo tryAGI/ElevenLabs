@@ -18858,6 +18858,81 @@
           "invocations"
         ],
         "x-fern-sdk-method-name": "get"
+      },
+      "patch": {
+        "summary": "Update Test Invocation",
+        "description": "Updates the user-provided name of a test invocation.",
+        "operationId": "update_test_invocation_route",
+        "parameters": [
+          {
+            "name": "test_invocation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The id of a test invocation. This is returned when tests are run.",
+              "embed": true,
+              "title": "Test Invocation Id"
+            },
+            "description": "The id of a test invocation. This is returned when tests are run."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTestSuiteInvocationRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTestSuiteInvocationResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "conversational_ai",
+          "tests",
+          "invocations"
+        ],
+        "x-fern-sdk-method-name": "update"
       }
     },
     "/v1/convai/test-invocations/{test_invocation_id}/cancel": {
@@ -31737,6 +31812,15 @@
             "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_Rebase_a_branch_onto_main_v1_convai_agents__agent_id__branches__branch_id__rebase_post"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -53417,6 +53501,11 @@
           "hold_audio_file"
         ],
         "title": "Body_Post_Agent_hold_audio_v1_convai_agents__agent_id__hold_audio_post"
+      },
+      "Body_Rebase_a_branch_onto_main_v1_convai_agents__agent_id__branches__branch_id__rebase_post": {
+        "properties": {},
+        "type": "object",
+        "title": "Body_Rebase_a_branch_onto_main_v1_convai_agents__agent_id__branches__branch_id__rebase_post"
       },
       "Body_Register_a_Twilio_call_and_return_TwiML_v1_convai_twilio_register_call_post": {
         "properties": {
@@ -80372,6 +80461,18 @@
             "type": "string",
             "title": "Id"
           },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "The user-provided name of the test invocation, if one was set."
+          },
           "agent_id": {
             "anyOf": [
               {
@@ -99237,6 +99338,20 @@
       },
       "RunAgentTestsRequestModel": {
         "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 256,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "Optional name for the test invocation."
+          },
           "tests": {
             "items": {
               "$ref": "#/components/schemas/SingleTestRunRequestModel"
@@ -107487,6 +107602,18 @@
             "title": "Id",
             "description": "The ID of the test invocation"
           },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "The user-provided name of the test invocation, if one was set."
+          },
           "agent_id": {
             "anyOf": [
               {
@@ -107568,7 +107695,7 @@
           "title": {
             "type": "string",
             "title": "Title",
-            "description": "Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests"
+            "description": "Display title of the test invocation: the user-provided name when set, otherwise the folder name, single test name, or test count."
           },
           "access_info": {
             "anyOf": [
@@ -112239,6 +112366,29 @@
         "type": "object",
         "title": "UpdateStaffParams",
         "description": "Update an existing staff member's information."
+      },
+      "UpdateTestSuiteInvocationRequestModel": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 256,
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "New name for the test invocation. Set to null to restore the generated title."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "UpdateTestSuiteInvocationRequestModel"
       },
       "UpdateToolCallUnitTestRequest": {
         "properties": {

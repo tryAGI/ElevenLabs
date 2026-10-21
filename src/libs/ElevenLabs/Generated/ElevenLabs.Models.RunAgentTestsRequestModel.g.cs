@@ -9,6 +9,12 @@ namespace ElevenLabs
     public sealed partial class RunAgentTestsRequestModel
     {
         /// <summary>
+        /// Optional name for the test invocation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
         /// List of tests to run on the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tests")]
@@ -46,6 +52,9 @@ namespace ElevenLabs
         /// <param name="tests">
         /// List of tests to run on the agent
         /// </param>
+        /// <param name="name">
+        /// Optional name for the test invocation.
+        /// </param>
         /// <param name="agentConfigOverride">
         /// Configuration overrides to use for testing. If not provided, the agent's default configuration will be used.
         /// </param>
@@ -61,10 +70,12 @@ namespace ElevenLabs
 #endif
         public RunAgentTestsRequestModel(
             global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> tests,
+            string? name,
             global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride,
             string? branchId,
             int? repeatCount)
         {
+            this.Name = name;
             this.Tests = tests ?? throw new global::System.ArgumentNullException(nameof(tests));
             this.AgentConfigOverride = agentConfigOverride;
             this.BranchId = branchId;

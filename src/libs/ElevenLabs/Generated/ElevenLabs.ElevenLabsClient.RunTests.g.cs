@@ -490,6 +490,9 @@ namespace ElevenLabs
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
+        /// <param name="name">
+        /// Optional name for the test invocation.
+        /// </param>
         /// <param name="tests">
         /// List of tests to run on the agent
         /// </param>
@@ -509,6 +512,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestSuiteInvocationResponseModel> RunTestsAsync(
             string agentId,
             global::System.Collections.Generic.IList<global::ElevenLabs.SingleTestRunRequestModel> tests,
+            string? name = default,
             global::ElevenLabs.AdhocAgentConfigOverrideForTestRequestModel? agentConfigOverride = default,
             string? branchId = default,
             int? repeatCount = default,
@@ -517,6 +521,7 @@ namespace ElevenLabs
         {
             var __request = new global::ElevenLabs.RunAgentTestsRequestModel
             {
+                Name = name,
                 Tests = tests,
                 AgentConfigOverride = agentConfigOverride,
                 BranchId = branchId,
