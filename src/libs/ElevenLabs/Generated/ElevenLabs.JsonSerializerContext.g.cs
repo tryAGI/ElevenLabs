@@ -1403,6 +1403,10 @@ namespace ElevenLabs
 
                     || typeToConvert == typeof(global::ElevenLabs.LLMReasoningEffort?)
 
+                    || typeToConvert == typeof(global::ElevenLabs.LLMServiceTier)
+
+                    || typeToConvert == typeof(global::ElevenLabs.LLMServiceTier?)
+
                     || typeToConvert == typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind)
 
                     || typeToConvert == typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind?)
@@ -5324,6 +5328,16 @@ namespace ElevenLabs
                 if (typeToConvert == typeof(global::ElevenLabs.LLMReasoningEffort?))
                 {
                     return new global::ElevenLabs.JsonConverters.LLMReasoningEffortNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.LLMServiceTier))
+                {
+                    return new global::ElevenLabs.JsonConverters.LLMServiceTierJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::ElevenLabs.LLMServiceTier?))
+                {
+                    return new global::ElevenLabs.JsonConverters.LLMServiceTierNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind))

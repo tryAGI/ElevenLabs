@@ -65720,7 +65720,7 @@
           "enable_procedure_ids_from_client": {
             "type": "boolean",
             "title": "Enable Procedure Ids From Client",
-            "description": "Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.",
+            "description": "Whether clients may pass procedure_ids and start_procedure_ids in initiation client data. procedure_ids selects which of the agent's procedures are available. start_procedure_ids starts free-form procedures when the conversation starts. If false, sending either field fails conversation start.",
             "default": false
           }
         },
@@ -65760,7 +65760,7 @@
           "enable_procedure_ids_from_client": {
             "type": "boolean",
             "title": "Enable Procedure Ids From Client",
-            "description": "Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.",
+            "description": "Whether clients may pass procedure_ids and start_procedure_ids in initiation client data. procedure_ids selects which of the agent's procedures are available. start_procedure_ids starts free-form procedures when the conversation starts. If false, sending either field fails conversation start.",
             "default": false
           }
         },
@@ -65848,6 +65848,21 @@
             ],
             "title": "Procedure Ids",
             "description": "If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client."
+          },
+          "start_procedure_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Procedure Ids",
+            "description": "If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client."
           },
           "dynamic_variables": {
             "additionalProperties": {
@@ -65951,6 +65966,21 @@
             "title": "Procedure Ids",
             "description": "If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client."
           },
+          "start_procedure_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Procedure Ids",
+            "description": "If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client."
+          },
           "dynamic_variables": {
             "additionalProperties": true,
             "type": "object",
@@ -66035,6 +66065,21 @@
             ],
             "title": "Procedure Ids",
             "description": "If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client."
+          },
+          "start_procedure_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Procedure Ids",
+            "description": "If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client."
           },
           "dynamic_variables": {
             "additionalProperties": true,
@@ -83188,6 +83233,14 @@
             "title": "Available Reasoning Efforts",
             "description": "Available reasoning effort levels for this model. Null if the model does not support configurable reasoning."
           },
+          "available_service_tiers": {
+            "items": {
+              "$ref": "#/components/schemas/LLMServiceTier"
+            },
+            "type": "array",
+            "title": "Available Service Tiers",
+            "description": "Available service tiers for this model. Always includes at least the standard tier."
+          },
           "deprecation_info": {
             "anyOf": [
               {
@@ -83219,10 +83272,14 @@
           "max_context_limit",
           "supports_image_input",
           "supports_document_input",
-          "supports_parallel_tool_calls"
+          "supports_parallel_tool_calls",
+          "available_service_tiers"
         ],
         "title": "LLMInfoModel",
         "example": {
+          "available_service_tiers": [
+            "standard"
+          ],
           "is_checkpoint": false,
           "llm": "gemini-2.5-flash",
           "max_context_limit": 1048576,
@@ -83281,6 +83338,9 @@
           },
           "llms": [
             {
+              "available_service_tiers": [
+                "standard"
+              ],
               "is_checkpoint": false,
               "llm": "gemini-2.5-flash",
               "max_context_limit": 1048576,
@@ -83401,6 +83461,16 @@
         "type": "object",
         "title": "LLMSchemaOverride"
       },
+      "LLMServiceTier": {
+        "type": "string",
+        "enum": [
+          "standard",
+          "fast"
+        ],
+        "title": "LLMServiceTier",
+        "description": "Request-time processing tier for a model.\n\nSTANDARD: default price and throughput.\nFAST: pays a per-token price premium for higher throughput / lower latency.\n    See OpenAI's fast mode: https://openai.com/api-fast-mode/",
+        "default": "standard"
+      },
       "LLMTokensCategoryUsage": {
         "properties": {
           "tokens": {
@@ -83487,6 +83557,17 @@
             "type": "boolean",
             "title": "Rag Enabled",
             "description": "Whether RAG is enabled."
+          },
+          "service_tier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLMServiceTier"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Service tier to price against. Only affects models that offer the tier; others fall back to their standard price."
           }
         },
         "type": "object",
@@ -83534,6 +83615,17 @@
             ],
             "title": "Rag Enabled",
             "description": "Whether RAG is enabled."
+          },
+          "service_tier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLMServiceTier"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Service tier to price against. Only affects models that offer the tier; others fall back to their standard price."
           }
         },
         "type": "object",
@@ -95557,6 +95649,11 @@
             "description": "Reasoning effort of the model. Only available for some models.",
             "x-convai-runtime-override": true
           },
+          "service_tier": {
+            "$ref": "#/components/schemas/LLMServiceTier",
+            "description": "Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.",
+            "default": "standard"
+          },
           "thinking_budget": {
             "anyOf": [
               {
@@ -95803,6 +95900,11 @@
             ],
             "description": "Reasoning effort of the model. Only available for some models.",
             "x-convai-runtime-override": true
+          },
+          "service_tier": {
+            "$ref": "#/components/schemas/LLMServiceTier",
+            "description": "Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.",
+            "default": "standard"
           },
           "thinking_budget": {
             "anyOf": [
@@ -96303,6 +96405,17 @@
             "description": "Reasoning effort of the model. Only available for some models.",
             "x-convai-runtime-override": true
           },
+          "service_tier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLMServiceTier"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models."
+          },
           "thinking_budget": {
             "anyOf": [
               {
@@ -96628,6 +96741,17 @@
             ],
             "description": "Reasoning effort of the model. Only available for some models.",
             "x-convai-runtime-override": true
+          },
+          "service_tier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLMServiceTier"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models."
           },
           "thinking_budget": {
             "anyOf": [
