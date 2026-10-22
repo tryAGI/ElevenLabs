@@ -259,6 +259,30 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        OwnerGetClientAppointments,
+        /// <summary>
+        ///
+        /// </summary>
+        OwnerListAssets,
+        /// <summary>
+        ///
+        /// </summary>
+        OwnerListLocations,
+        /// <summary>
+        ///
+        /// </summary>
+        OwnerListProducts,
+        /// <summary>
+        ///
+        /// </summary>
+        OwnerListServices,
+        /// <summary>
+        ///
+        /// </summary>
+        OwnerListStaff,
+        /// <summary>
+        ///
+        /// </summary>
         RegisterForGroupSession,
         /// <summary>
         ///
@@ -440,6 +464,12 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.ListTransferRules => "list_transfer_rules",
                 SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder => "opt_in_sms_reminder",
                 SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder => "opt_out_sms_reminder",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OwnerGetClientAppointments => "owner_get_client_appointments",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListAssets => "owner_list_assets",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListLocations => "owner_list_locations",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListProducts => "owner_list_products",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListServices => "owner_list_services",
+                SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListStaff => "owner_list_staff",
                 SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession => "register_for_group_session",
                 SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap => "report_knowledge_gap",
                 SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent => "restore_calendar_event",
@@ -539,6 +569,12 @@ namespace ElevenLabs
                 "list_transfer_rules" => SMBToolConfigParamsDiscriminatorSmbToolType.ListTransferRules,
                 "opt_in_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptInSmsReminder,
                 "opt_out_sms_reminder" => SMBToolConfigParamsDiscriminatorSmbToolType.OptOutSmsReminder,
+                "owner_get_client_appointments" => SMBToolConfigParamsDiscriminatorSmbToolType.OwnerGetClientAppointments,
+                "owner_list_assets" => SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListAssets,
+                "owner_list_locations" => SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListLocations,
+                "owner_list_products" => SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListProducts,
+                "owner_list_services" => SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListServices,
+                "owner_list_staff" => SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListStaff,
                 "register_for_group_session" => SMBToolConfigParamsDiscriminatorSmbToolType.RegisterForGroupSession,
                 "report_knowledge_gap" => SMBToolConfigParamsDiscriminatorSmbToolType.ReportKnowledgeGap,
                 "restore_calendar_event" => SMBToolConfigParamsDiscriminatorSmbToolType.RestoreCalendarEvent,
