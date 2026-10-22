@@ -58,6 +58,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ProcedureIds { get; set; }
 
         /// <summary>
+        /// If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("start_procedure_ids")]
+        public global::System.Collections.Generic.IList<string>? StartProcedureIds { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dynamic_variables")]
@@ -94,6 +100,9 @@ namespace ElevenLabs
         /// <param name="procedureIds">
         /// If set, only these procedures are available to the starting agent. Each ID must be attached to that agent; unknown IDs fail conversation start. An empty list disables all of that agent's procedures. Not applied after an agent transfer. Requires enable_procedure_ids_from_client.
         /// </param>
+        /// <param name="startProcedureIds">
+        /// If set, these free-form procedures start when the conversation starts. Accepts at most five IDs. Each ID must be available after procedure_ids is applied. Unknown IDs and structured procedures fail conversation start. Requires enable_procedure_ids_from_client.
+        /// </param>
         /// <param name="dynamicVariables"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -107,6 +116,7 @@ namespace ElevenLabs
             string? environment,
             string? startingWorkflowNodeId,
             global::System.Collections.Generic.IList<string>? procedureIds,
+            global::System.Collections.Generic.IList<string>? startProcedureIds,
             object? dynamicVariables)
         {
             this.ConversationConfigOverride = conversationConfigOverride;
@@ -117,6 +127,7 @@ namespace ElevenLabs
             this.Environment = environment;
             this.StartingWorkflowNodeId = startingWorkflowNodeId;
             this.ProcedureIds = procedureIds;
+            this.StartProcedureIds = startProcedureIds;
             this.DynamicVariables = dynamicVariables;
         }
 

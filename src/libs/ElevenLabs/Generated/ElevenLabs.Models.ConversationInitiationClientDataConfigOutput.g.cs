@@ -36,7 +36,7 @@ namespace ElevenLabs
         public bool? EnableStartingWorkflowNodeIdFromClient { get; set; }
 
         /// <summary>
-        /// Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.<br/>
+        /// Whether clients may pass procedure_ids and start_procedure_ids in initiation client data. procedure_ids selects which of the agent's procedures are available. start_procedure_ids starts free-form procedures when the conversation starts. If false, sending either field fails conversation start.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_procedure_ids_from_client")]
@@ -67,7 +67,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="enableProcedureIdsFromClient">
-        /// Whether clients may pass procedure_ids in initiation client data to select which of the agent's procedures are available for the conversation; if false, sending it fails conversation start.<br/>
+        /// Whether clients may pass procedure_ids and start_procedure_ids in initiation client data. procedure_ids selects which of the agent's procedures are available. start_procedure_ids starts free-form procedures when the conversation starts. If false, sending either field fails conversation start.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

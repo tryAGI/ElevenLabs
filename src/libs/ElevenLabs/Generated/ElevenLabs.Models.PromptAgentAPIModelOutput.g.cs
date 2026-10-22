@@ -31,6 +31,14 @@ namespace ElevenLabs
         public global::ElevenLabs.LLMReasoningEffort? ReasoningEffort { get; set; }
 
         /// <summary>
+        /// Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.<br/>
+        /// Default Value: standard
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LLMServiceTierJsonConverter))]
+        public global::ElevenLabs.LLMServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
         /// Max number of tokens used for thinking. Use 0 to turn off if supported by the model.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("thinking_budget")]
@@ -166,6 +174,10 @@ namespace ElevenLabs
         /// <param name="reasoningEffort">
         /// Reasoning effort of the model. Only available for some models.
         /// </param>
+        /// <param name="serviceTier">
+        /// Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.<br/>
+        /// Default Value: standard
+        /// </param>
         /// <param name="thinkingBudget">
         /// Max number of tokens used for thinking. Use 0 to turn off if supported by the model.
         /// </param>
@@ -231,6 +243,7 @@ namespace ElevenLabs
             string? prompt,
             global::ElevenLabs.Llm? llm,
             global::ElevenLabs.LLMReasoningEffort? reasoningEffort,
+            global::ElevenLabs.LLMServiceTier? serviceTier,
             int? thinkingBudget,
             bool? enableReasoningSummary,
             double? temperature,
@@ -252,6 +265,7 @@ namespace ElevenLabs
             this.Prompt = prompt;
             this.Llm = llm;
             this.ReasoningEffort = reasoningEffort;
+            this.ServiceTier = serviceTier;
             this.ThinkingBudget = thinkingBudget;
             this.EnableReasoningSummary = enableReasoningSummary;
             this.Temperature = temperature;

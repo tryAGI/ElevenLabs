@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"is_checkpoint":false,"llm":"gemini-2.5-flash","max_context_limit":1048576,"max_tokens_limit":8192,"supports_document_input":true,"supports_image_input":true,"supports_parallel_tool_calls":true}
+    /// Example: {"available_service_tiers":["standard"],"is_checkpoint":false,"llm":"gemini-2.5-flash","max_context_limit":1048576,"max_tokens_limit":8192,"supports_document_input":true,"supports_image_input":true,"supports_parallel_tool_calls":true}
     /// </summary>
     public sealed partial class LLMInfoModel
     {
@@ -65,6 +65,13 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.LLMReasoningEffort>? AvailableReasoningEfforts { get; set; }
 
         /// <summary>
+        /// Available service tiers for this model. Always includes at least the standard tier.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("available_service_tiers")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.LLMServiceTier> AvailableServiceTiers { get; set; }
+
+        /// <summary>
         /// Deprecation information if this model is deprecated or scheduled for deprecation. Null if the model is not affected.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deprecation_info")]
@@ -106,6 +113,9 @@ namespace ElevenLabs
         /// <param name="supportsParallelToolCalls">
         /// Whether the model supports calling multiple tools in parallel.
         /// </param>
+        /// <param name="availableServiceTiers">
+        /// Available service tiers for this model. Always includes at least the standard tier.
+        /// </param>
         /// <param name="availableReasoningEfforts">
         /// Available reasoning effort levels for this model. Null if the model does not support configurable reasoning.
         /// </param>
@@ -126,6 +136,7 @@ namespace ElevenLabs
             bool supportsImageInput,
             bool supportsDocumentInput,
             bool supportsParallelToolCalls,
+            global::System.Collections.Generic.IList<global::ElevenLabs.LLMServiceTier> availableServiceTiers,
             global::System.Collections.Generic.IList<global::ElevenLabs.LLMReasoningEffort>? availableReasoningEfforts,
             global::ElevenLabs.LLMDeprecationInfoModel? deprecationInfo,
             global::ElevenLabs.RegionalProcessingSurchargeInfo? regionalProcessingSurcharge)
@@ -138,6 +149,7 @@ namespace ElevenLabs
             this.SupportsDocumentInput = supportsDocumentInput;
             this.SupportsParallelToolCalls = supportsParallelToolCalls;
             this.AvailableReasoningEfforts = availableReasoningEfforts;
+            this.AvailableServiceTiers = availableServiceTiers ?? throw new global::System.ArgumentNullException(nameof(availableServiceTiers));
             this.DeprecationInfo = deprecationInfo;
             this.RegionalProcessingSurcharge = regionalProcessingSurcharge;
         }
