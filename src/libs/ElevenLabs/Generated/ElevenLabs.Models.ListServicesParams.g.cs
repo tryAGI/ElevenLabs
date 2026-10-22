@@ -21,13 +21,6 @@ namespace ElevenLabs
         public string? SmbToolType { get; set; }
 
         /// <summary>
-        /// List every owner-editable field, including inactive options and a quoted service's prices. Only for the owner's assistant: the customer-facing listing withholds those from callers.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("owner_view")]
-        public bool? OwnerView { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,21 +33,15 @@ namespace ElevenLabs
         /// <param name="smbToolType">
         /// Default Value: list_services
         /// </param>
-        /// <param name="ownerView">
-        /// List every owner-editable field, including inactive options and a quoted service's prices. Only for the owner's assistant: the customer-facing listing withholds those from callers.<br/>
-        /// Default Value: false
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ListServicesParams(
             object? listKwargs,
-            string? smbToolType,
-            bool? ownerView)
+            string? smbToolType)
         {
             this.ListKwargs = listKwargs;
             this.SmbToolType = smbToolType;
-            this.OwnerView = ownerView;
         }
 
         /// <summary>

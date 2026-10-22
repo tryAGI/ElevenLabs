@@ -43224,7 +43224,8 @@
         "type": "string",
         "enum": [
           "manual",
-          "branch_merge"
+          "branch_merge",
+          "duplicate"
         ],
         "title": "AgentDeploymentSource"
       },
@@ -67509,6 +67510,12 @@
             "const": "create_asset",
             "title": "Smb Tool Type",
             "default": "create_asset"
+          },
+          "per_resource_timezones": {
+            "type": "boolean",
+            "title": "Per Resource Timezones",
+            "description": "Whether to offer an available_hours timezone, set from the workspace's enable_per_resource_timezones.",
+            "default": false
           }
         },
         "type": "object",
@@ -77589,16 +77596,16 @@
       },
       "GetClientAppointmentsParams": {
         "properties": {
+          "include_cancelled": {
+            "type": "boolean",
+            "title": "Include Cancelled",
+            "default": false
+          },
           "smb_tool_type": {
             "type": "string",
             "const": "get_client_appointments",
             "title": "Smb Tool Type",
             "default": "get_client_appointments"
-          },
-          "include_cancelled": {
-            "type": "boolean",
-            "title": "Include Cancelled",
-            "default": false
           }
         },
         "type": "object",
@@ -84663,12 +84670,6 @@
             "const": "list_products",
             "title": "Smb Tool Type",
             "default": "list_products"
-          },
-          "owner_view": {
-            "type": "boolean",
-            "title": "Owner View",
-            "description": "List every owner-editable field, including stock counts and a quoted product's price. Only for the owner's assistant: the customer-facing listing withholds those from callers.",
-            "default": false
           }
         },
         "type": "object",
@@ -84765,12 +84766,6 @@
             "const": "list_services",
             "title": "Smb Tool Type",
             "default": "list_services"
-          },
-          "owner_view": {
-            "type": "boolean",
-            "title": "Owner View",
-            "description": "List every owner-editable field, including inactive options and a quoted service's prices. Only for the owner's assistant: the customer-facing listing withholds those from callers.",
-            "default": false
           }
         },
         "type": "object",
@@ -91411,6 +91406,109 @@
           "markdown"
         ],
         "title": "OutputFormat"
+      },
+      "OwnerGetClientAppointmentsParams": {
+        "properties": {
+          "include_cancelled": {
+            "type": "boolean",
+            "title": "Include Cancelled",
+            "default": false
+          },
+          "smb_tool_type": {
+            "type": "string",
+            "const": "owner_get_client_appointments",
+            "title": "Smb Tool Type",
+            "default": "owner_get_client_appointments"
+          }
+        },
+        "type": "object",
+        "title": "OwnerGetClientAppointmentsParams",
+        "description": "Appointments with the booking channel, internal notes and intake answers."
+      },
+      "OwnerListAssetsParams": {
+        "properties": {
+          "list_kwargs": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "List Kwargs"
+          },
+          "smb_tool_type": {
+            "type": "string",
+            "const": "owner_list_assets",
+            "title": "Smb Tool Type",
+            "default": "owner_list_assets"
+          }
+        },
+        "type": "object",
+        "title": "OwnerListAssetsParams",
+        "description": "Every owner-editable field, available hours included."
+      },
+      "OwnerListLocationsParams": {
+        "properties": {
+          "smb_tool_type": {
+            "type": "string",
+            "const": "owner_list_locations",
+            "title": "Smb Tool Type",
+            "default": "owner_list_locations"
+          }
+        },
+        "type": "object",
+        "title": "OwnerListLocationsParams",
+        "description": "Every location, inactive ones included, with every owner-editable field."
+      },
+      "OwnerListProductsParams": {
+        "properties": {
+          "list_kwargs": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "List Kwargs"
+          },
+          "smb_tool_type": {
+            "type": "string",
+            "const": "owner_list_products",
+            "title": "Smb Tool Type",
+            "default": "owner_list_products"
+          }
+        },
+        "type": "object",
+        "title": "OwnerListProductsParams",
+        "description": "Every owner-editable field, including what callers must not hear."
+      },
+      "OwnerListServicesParams": {
+        "properties": {
+          "list_kwargs": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "List Kwargs"
+          },
+          "smb_tool_type": {
+            "type": "string",
+            "const": "owner_list_services",
+            "title": "Smb Tool Type",
+            "default": "owner_list_services"
+          }
+        },
+        "type": "object",
+        "title": "OwnerListServicesParams",
+        "description": "Every owner-editable field, including what callers must not hear."
+      },
+      "OwnerListStaffParams": {
+        "properties": {
+          "list_kwargs": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "List Kwargs"
+          },
+          "smb_tool_type": {
+            "type": "string",
+            "const": "owner_list_staff",
+            "title": "Smb Tool Type",
+            "default": "owner_list_staff"
+          }
+        },
+        "type": "object",
+        "title": "OwnerListStaffParams",
+        "description": "Every owner-editable field, working hours included."
       },
       "PaginatedResult_AgentMergeProposalResponse_": {
         "properties": {
@@ -100138,6 +100236,24 @@
               },
               {
                 "$ref": "#/components/schemas/ValidateUserVerificationCodeParams"
+              },
+              {
+                "$ref": "#/components/schemas/OwnerListStaffParams"
+              },
+              {
+                "$ref": "#/components/schemas/OwnerListAssetsParams"
+              },
+              {
+                "$ref": "#/components/schemas/OwnerListLocationsParams"
+              },
+              {
+                "$ref": "#/components/schemas/OwnerListServicesParams"
+              },
+              {
+                "$ref": "#/components/schemas/OwnerListProductsParams"
+              },
+              {
+                "$ref": "#/components/schemas/OwnerGetClientAppointmentsParams"
               }
             ],
             "title": "Params",
@@ -100206,6 +100322,12 @@
                 "list_transfer_rules": "#/components/schemas/ListTransferRulesParams",
                 "opt_in_sms_reminder": "#/components/schemas/OptInSmsReminderParams",
                 "opt_out_sms_reminder": "#/components/schemas/OptOutSmsReminderParams",
+                "owner_get_client_appointments": "#/components/schemas/OwnerGetClientAppointmentsParams",
+                "owner_list_assets": "#/components/schemas/OwnerListAssetsParams",
+                "owner_list_locations": "#/components/schemas/OwnerListLocationsParams",
+                "owner_list_products": "#/components/schemas/OwnerListProductsParams",
+                "owner_list_services": "#/components/schemas/OwnerListServicesParams",
+                "owner_list_staff": "#/components/schemas/OwnerListStaffParams",
                 "register_for_group_session": "#/components/schemas/RegisterForGroupSessionParams",
                 "report_knowledge_gap": "#/components/schemas/ReportKnowledgeGapParams",
                 "restore_calendar_event": "#/components/schemas/RestoreCalendarEventParams",
@@ -111324,6 +111446,12 @@
             "const": "update_asset",
             "title": "Smb Tool Type",
             "default": "update_asset"
+          },
+          "per_resource_timezones": {
+            "type": "boolean",
+            "title": "Per Resource Timezones",
+            "description": "Whether to offer an available_hours timezone, set from the workspace's enable_per_resource_timezones.",
+            "default": false
           }
         },
         "type": "object",

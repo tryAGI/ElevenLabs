@@ -644,6 +644,48 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ValidateUserVerificationCodeParams)}");
                 validateUserVerificationCode = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.OwnerListStaffParams? ownerListStaff = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListStaff)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListStaffParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListStaffParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OwnerListStaffParams)}");
+                ownerListStaff = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.OwnerListAssetsParams? ownerListAssets = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListAssets)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListAssetsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListAssetsParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OwnerListAssetsParams)}");
+                ownerListAssets = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.OwnerListLocationsParams? ownerListLocations = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListLocations)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListLocationsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListLocationsParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OwnerListLocationsParams)}");
+                ownerListLocations = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.OwnerListServicesParams? ownerListServices = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListServices)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListServicesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListServicesParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OwnerListServicesParams)}");
+                ownerListServices = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.OwnerListProductsParams? ownerListProducts = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OwnerListProducts)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListProductsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListProductsParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OwnerListProductsParams)}");
+                ownerListProducts = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.OwnerGetClientAppointmentsParams? ownerGetClientAppointments = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.OwnerGetClientAppointments)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerGetClientAppointmentsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerGetClientAppointmentsParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OwnerGetClientAppointmentsParams)}");
+                ownerGetClientAppointments = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
 
             var __value = new global::ElevenLabs.Params(
                 discriminator?.SmbToolType,
@@ -823,7 +865,19 @@ namespace ElevenLabs.JsonConverters
 
                 triggerUserVerification,
 
-                validateUserVerificationCode
+                validateUserVerificationCode,
+
+                ownerListStaff,
+
+                ownerListAssets,
+
+                ownerListLocations,
+
+                ownerListServices,
+
+                ownerListProducts,
+
+                ownerGetClientAppointments
                 );
 
             return __value;
@@ -1371,6 +1425,42 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ValidateUserVerificationCodeParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ValidateUserVerificationCodeParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ValidateUserVerificationCodeParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickValidateUserVerificationCode(), typeInfo);
+            }
+            else if (value.IsOwnerListStaff)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListStaffParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListStaffParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OwnerListStaffParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickOwnerListStaff(), typeInfo);
+            }
+            else if (value.IsOwnerListAssets)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListAssetsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListAssetsParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OwnerListAssetsParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickOwnerListAssets(), typeInfo);
+            }
+            else if (value.IsOwnerListLocations)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListLocationsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListLocationsParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OwnerListLocationsParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickOwnerListLocations(), typeInfo);
+            }
+            else if (value.IsOwnerListServices)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListServicesParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListServicesParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OwnerListServicesParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickOwnerListServices(), typeInfo);
+            }
+            else if (value.IsOwnerListProducts)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerListProductsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerListProductsParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OwnerListProductsParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickOwnerListProducts(), typeInfo);
+            }
+            else if (value.IsOwnerGetClientAppointments)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OwnerGetClientAppointmentsParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OwnerGetClientAppointmentsParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OwnerGetClientAppointmentsParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickOwnerGetClientAppointments(), typeInfo);
             }
         }
     }
