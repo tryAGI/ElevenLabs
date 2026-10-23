@@ -1,0 +1,54 @@
+// AutoSDK.JsonMetadata manifest-format: 3
+
+#nullable enable
+namespace ElevenLabs.TextToDialogueRealtime
+{
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+        GenerationMode = global::System.Text.Json.Serialization.JsonSourceGenerationMode.Metadata)]
+// AutoSDK.JsonMetadata factory-batch: ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextMetadata0|0|Boolean,DialogueTextAlignment,Double,Int32,JsonElement,NullableBoolean,NullableDouble,NullableInt32,NullableJsonElement,NullableServerEvent2,Object,PronunciationDictionaryLocator,ServerEvent2,String,TextToDialogueRealtimeJsonContextMetadataType_05BF36C073875770,TextToDialogueRealtimeJsonContextMetadataType_2058AC0D316B5916
+// AutoSDK.JsonMetadata factory-batch: ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextMetadata0|1|TextToDialogueRealtimeJsonContextMetadataType_3F34DBFD50DE05D2,TextToDialogueRealtimeJsonContextMetadataType_5ED5B86811B15226,TextToDialogueRealtimeJsonContextMetadataType_7024F6984ED20EB8,TextToDialogueRealtimeJsonContextMetadataType_8219E7AD6AEFA4B4,TextToDialogueRealtimeJsonContextMetadataType_827998FE1115C670,TextToDialogueRealtimeJsonContextMetadataType_92E1ACA86984772C,TextToDialogueRealtimeJsonContextMetadataType_9961997CE790293E,TextToDialogueRealtimeJsonContextMetadataType_A4BA5EAA2D7BC81F,TextToDialogueRealtimeJsonContextMetadataType_F4016A0E42956E25,TextToDialogueRealtimeJsonContextMetadataType_FC0ACBA26C044EC8,TextToDialogueWebsocketAudioChunk,TextToDialogueWebsocketClientMessage,TextToDialogueWebsocketError,TextToDialogueWebsocketFinal,TextToDialogueWebsocketFinalAudioForTurn,TextToDialogueWebsocketVoiceInput
+// AutoSDK.JsonMetadata factory-batch: ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextMetadata0|2|TextToDialogueWebsocketVoiceSettings
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_FC0ACBA26C044EC8")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_8219E7AD6AEFA4B4")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_92E1ACA86984772C")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?), TypeInfoPropertyName = "NullableJsonElement")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IDictionary<string, object>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_7024F6984ED20EB8")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string), TypeInfoPropertyName = "String")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object), TypeInfoPropertyName = "Object")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement), TypeInfoPropertyName = "JsonElement")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.DialogueTextAlignment), TypeInfoPropertyName = "DialogueTextAlignment")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_05BF36C073875770")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<int>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_827998FE1115C670")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int), TypeInfoPropertyName = "Int32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketAudioChunk), TypeInfoPropertyName = "TextToDialogueWebsocketAudioChunk")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinalAudioForTurn), TypeInfoPropertyName = "TextToDialogueWebsocketFinalAudioForTurn")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool), TypeInfoPropertyName = "Boolean")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketFinal), TypeInfoPropertyName = "TextToDialogueWebsocketFinal")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError), TypeInfoPropertyName = "TextToDialogueWebsocketError")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceInput), TypeInfoPropertyName = "TextToDialogueWebsocketVoiceInput")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceSettings), TypeInfoPropertyName = "TextToDialogueWebsocketVoiceSettings")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double), TypeInfoPropertyName = "Double")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.PronunciationDictionaryLocator), TypeInfoPropertyName = "PronunciationDictionaryLocator")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketClientMessage), TypeInfoPropertyName = "TextToDialogueWebsocketClientMessage")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceInput>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_A4BA5EAA2D7BC81F")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TextToDialogueRealtime.PronunciationDictionaryLocator>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_9961997CE790293E")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.ServerEvent), TypeInfoPropertyName = "ServerEvent2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?), TypeInfoPropertyName = "NullableInt32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?), TypeInfoPropertyName = "NullableBoolean")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?), TypeInfoPropertyName = "NullableDouble")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueRealtime.ServerEvent?), TypeInfoPropertyName = "NullableServerEvent2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_3F34DBFD50DE05D2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<int>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_2058AC0D316B5916")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceInput>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_5ED5B86811B15226")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.TextToDialogueRealtime.PronunciationDictionaryLocator>), TypeInfoPropertyName = "TextToDialogueRealtimeJsonContextMetadataType_F4016A0E42956E25")]
+    internal sealed partial class TextToDialogueRealtimeJsonContextMetadata0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+
+    // Missing support means the CLI and analyzer package are not protocol-compatible.
+    internal static class TextToDialogueRealtimeJsonContextMetadataProtocolGuard
+    {
+        internal const int Version = global::AutoSDK.JsonMetadata.Generated.ManifestProtocol.Version3;
+    }
+}

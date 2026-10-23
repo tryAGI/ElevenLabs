@@ -12,8 +12,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         {
             return global::System.Text.Json.JsonSerializer.Serialize(
                 this,
-                this.GetType(),
-                jsonSerializerContext);
+                jsonSerializerContext.Options.GetTypeInfo(this.GetType()));
         }
 
         /// <summary>
@@ -21,7 +20,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         /// </summary>
         public string ToJson()
         {
-            return ToJson(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContext.Default);
+            return ToJson(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextComponent_91194FEA58A0A8A9.Default);
         }
 
         /// <summary>
@@ -36,7 +35,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         {
             if (jsonSerializerOptions is null)
             {
-                return ToJson(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContext.Default);
+                return ToJson(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextComponent_91194FEA58A0A8A9.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.Serialize(
@@ -53,8 +52,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError),
-                jsonSerializerContext) as global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError))) as global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError;
         }
 
         /// <summary>
@@ -65,7 +63,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         {
             return FromJson(
                 json,
-                global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContext.Default);
+                global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextComponent_91194FEA58A0A8A9.Default);
         }
 
         /// <summary>
@@ -83,7 +81,7 @@ namespace ElevenLabs.TextToDialogueRealtime
             {
                 return FromJson(
                     json,
-                    global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContext.Default);
+                    global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextComponent_91194FEA58A0A8A9.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError>(
@@ -100,8 +98,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError))).ConfigureAwait(false)) as global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError;
         }
 
         /// <summary>
@@ -112,7 +109,7 @@ namespace ElevenLabs.TextToDialogueRealtime
         {
             return FromJsonStreamAsync(
                 jsonStream,
-                global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContext.Default);
+                global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextComponent_91194FEA58A0A8A9.Default);
         }
 
         /// <summary>
@@ -130,7 +127,7 @@ namespace ElevenLabs.TextToDialogueRealtime
             {
                 return FromJsonStreamAsync(
                     jsonStream,
-                    global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContext.Default);
+                    global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextComponent_91194FEA58A0A8A9.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketError?>(

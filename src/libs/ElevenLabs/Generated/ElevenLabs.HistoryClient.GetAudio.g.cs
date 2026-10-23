@@ -79,6 +79,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_7B09C62334735D57.Default;
             PrepareArguments(
                 client: HttpClient);
             PrepareGetAudioArguments(
@@ -433,6 +435,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_7B09C62334735D57.Default;
             PrepareArguments(
                 client: HttpClient);
             PrepareGetAudioArguments(

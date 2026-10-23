@@ -16,7 +16,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         {
             message = message ?? throw new global::System.ArgumentNullException(nameof(message));
 
-            var json = global::System.Text.Json.JsonSerializer.Serialize(message, typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketClientMessageMulti), JsonSerializerContext);
+            var json = global::System.Text.Json.JsonSerializer.Serialize(message, (JsonSerializerContextProvider?.Value ?? global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_96EC429B499EAB97.Default).Options.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueWebsocketClientMessageMulti)));
 
             await SendAsync(json, cancellationToken).ConfigureAwait(false);
         }

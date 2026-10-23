@@ -12,8 +12,7 @@ namespace ElevenLabs
         {
             return global::System.Text.Json.JsonSerializer.Serialize(
                 this,
-                this.GetType(),
-                jsonSerializerContext);
+                jsonSerializerContext.Options.GetTypeInfo(this.GetType()));
         }
 
         /// <summary>
@@ -21,7 +20,7 @@ namespace ElevenLabs
         /// </summary>
         public string ToJson()
         {
-            return ToJson(global::ElevenLabs.SourceGenerationContext.Default);
+            return ToJson(global::ElevenLabs.SourceGenerationContextComponent_96BD68DE5C3E4D68.Default);
         }
 
         /// <summary>
@@ -36,7 +35,7 @@ namespace ElevenLabs
         {
             if (jsonSerializerOptions is null)
             {
-                return ToJson(global::ElevenLabs.SourceGenerationContext.Default);
+                return ToJson(global::ElevenLabs.SourceGenerationContextComponent_96BD68DE5C3E4D68.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.Serialize(
@@ -53,8 +52,7 @@ namespace ElevenLabs
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator),
-                jsonSerializerContext) as global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator))) as global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator;
         }
 
         /// <summary>
@@ -65,7 +63,7 @@ namespace ElevenLabs
         {
             return FromJson(
                 json,
-                global::ElevenLabs.SourceGenerationContext.Default);
+                global::ElevenLabs.SourceGenerationContextComponent_96BD68DE5C3E4D68.Default);
         }
 
         /// <summary>
@@ -83,7 +81,7 @@ namespace ElevenLabs
             {
                 return FromJson(
                     json,
-                    global::ElevenLabs.SourceGenerationContext.Default);
+                    global::ElevenLabs.SourceGenerationContextComponent_96BD68DE5C3E4D68.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator>(
@@ -100,8 +98,7 @@ namespace ElevenLabs
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator))).ConfigureAwait(false)) as global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator;
         }
 
         /// <summary>
@@ -112,7 +109,7 @@ namespace ElevenLabs
         {
             return FromJsonStreamAsync(
                 jsonStream,
-                global::ElevenLabs.SourceGenerationContext.Default);
+                global::ElevenLabs.SourceGenerationContextComponent_96BD68DE5C3E4D68.Default);
         }
 
         /// <summary>
@@ -130,7 +127,7 @@ namespace ElevenLabs
             {
                 return FromJsonStreamAsync(
                     jsonStream,
-                    global::ElevenLabs.SourceGenerationContext.Default);
+                    global::ElevenLabs.SourceGenerationContextComponent_96BD68DE5C3E4D68.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.AgentAnalysisItemsInputDataCollectionItemDiscriminator?>(

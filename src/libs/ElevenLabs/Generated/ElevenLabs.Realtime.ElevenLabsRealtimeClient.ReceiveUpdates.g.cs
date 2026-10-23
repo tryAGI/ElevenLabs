@@ -108,7 +108,7 @@ namespace ElevenLabs.Realtime
                     global::ElevenLabs.Realtime.ServerEvent @event;
                     try
                     {
-                        @event = (global::ElevenLabs.Realtime.ServerEvent)global::System.Text.Json.JsonSerializer.Deserialize(json, typeof(global::ElevenLabs.Realtime.ServerEvent), JsonSerializerContext)!;
+                        @event = (global::ElevenLabs.Realtime.ServerEvent)global::System.Text.Json.JsonSerializer.Deserialize(json, (JsonSerializerContextProvider?.Value ?? global::ElevenLabs.Realtime.RealtimeSourceGenerationContextComponent_DC1370134BA9FB1C.Default).Options.GetTypeInfo(typeof(global::ElevenLabs.Realtime.ServerEvent)))!;
                     }
                     catch (global::System.Exception exception) when (
                         exception is global::System.Text.Json.JsonException ||

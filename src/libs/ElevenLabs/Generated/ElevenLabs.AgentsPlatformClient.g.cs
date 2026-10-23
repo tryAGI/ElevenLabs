@@ -42,7 +42,7 @@ namespace ElevenLabs
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
-            get => JsonSerializerContextProvider?.Value ?? global::ElevenLabs.AgentsPlatformSourceGenerationContext.Default;
+            get => JsonSerializerContextProvider?.Value ?? global::ElevenLabs.SourceGenerationContext.Default;
             set => JsonSerializerContextProvider = new(() => value);
         }
 

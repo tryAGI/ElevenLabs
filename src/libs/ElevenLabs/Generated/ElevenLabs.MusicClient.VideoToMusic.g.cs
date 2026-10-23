@@ -104,6 +104,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_E51132EE6A9DA331.Default;
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -579,6 +581,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_E51132EE6A9DA331.Default;
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -1214,6 +1218,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_E51132EE6A9DA331.Default;
 
             videos = videos ?? throw new global::System.ArgumentNullException(nameof(videos));
             var request = new global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost
@@ -1802,6 +1808,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_E51132EE6A9DA331.Default;
 
             videos = videos ?? throw new global::System.ArgumentNullException(nameof(videos));
             var request = new global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost
@@ -2361,6 +2369,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_E51132EE6A9DA331.Default;
 
             videos = videos ?? throw new global::System.ArgumentNullException(nameof(videos));
             var request = new global::ElevenLabs.BodyVideoToMusicV1MusicVideoToMusicPost

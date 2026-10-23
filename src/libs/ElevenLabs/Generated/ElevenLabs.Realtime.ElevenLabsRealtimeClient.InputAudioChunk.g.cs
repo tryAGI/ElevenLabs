@@ -16,7 +16,7 @@ namespace ElevenLabs.Realtime
         {
             message = message ?? throw new global::System.ArgumentNullException(nameof(message));
 
-            var json = global::System.Text.Json.JsonSerializer.Serialize(message, typeof(global::ElevenLabs.Realtime.InputAudioChunkPayload), JsonSerializerContext);
+            var json = global::System.Text.Json.JsonSerializer.Serialize(message, (JsonSerializerContextProvider?.Value ?? global::ElevenLabs.Realtime.RealtimeSourceGenerationContextComponent_B39640CCC9FC3212.Default).Options.GetTypeInfo(typeof(global::ElevenLabs.Realtime.InputAudioChunkPayload)));
 
             await SendAsync(json, cancellationToken).ConfigureAwait(false);
         }

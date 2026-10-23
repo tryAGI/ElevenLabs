@@ -89,6 +89,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_7489CD0DE01B41A1.Default;
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -578,6 +580,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_7489CD0DE01B41A1.Default;
 
             avatarFile = avatarFile ?? throw new global::System.ArgumentNullException(nameof(avatarFile));
             var request = new global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost
@@ -1028,6 +1032,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_7489CD0DE01B41A1.Default;
 
             avatarFile = avatarFile ?? throw new global::System.ArgumentNullException(nameof(avatarFile));
             var request = new global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost

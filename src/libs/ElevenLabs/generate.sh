@@ -31,7 +31,11 @@ if [[ "${TRYAGI_PINNED_SPEC:-0}" == "1" ]]; then
   use_pinned_spec=true
 fi
 
-install_autosdk_cli
+if [[ -n "${AUTOSDK_EXECUTABLE:-}" ]]; then
+  autosdk() { "$AUTOSDK_EXECUTABLE" "$@"; }
+else
+  install_autosdk_cli
+fi
 rm -rf Generated
 if [[ "$use_pinned_spec" == false ]]; then
   fetch_spec --fail --silent --show-error -L https://api.elevenlabs.io/openapi.json | jq '
@@ -72,6 +76,7 @@ fi
 autosdk generate openapi.json \
   --namespace ElevenLabs \
   --clientClassName ElevenLabsClient \
+  --shared-json-metadata \
   --targetFramework net10.0 \
   --output Generated \
   --exclude-deprecated-operations \
@@ -88,6 +93,7 @@ autosdk generate asyncapi.json \
   --namespace ElevenLabs.Realtime \
   --websocket-class-name ElevenLabsRealtimeClient \
   --json-serializer-context RealtimeSourceGenerationContext \
+  --shared-json-metadata \
   --targetFramework net10.0 \
   --output Generated \
   --security-scheme ApiKey:Header:xi-api-key \
@@ -101,6 +107,7 @@ autosdk generate text-to-dialogue-asyncapi.json \
   --namespace ElevenLabs.TextToDialogueRealtime \
   --websocket-class-name TextToDialogueRealtimeClient \
   --json-serializer-context TextToDialogueRealtimeJsonContext \
+  --shared-json-metadata \
   --targetFramework net10.0 \
   --output Generated \
   --security-scheme ApiKey:Header:xi-api-key \
@@ -111,6 +118,7 @@ autosdk generate text-to-dialogue-multi-context-asyncapi.json \
   --namespace ElevenLabs.TextToDialogueMultiContextRealtime \
   --websocket-class-name TextToDialogueMultiContextRealtimeClient \
   --json-serializer-context TextToDialogueMultiContextRealtimeJsonContext \
+  --shared-json-metadata \
   --targetFramework net10.0 \
   --output Generated \
   --security-scheme ApiKey:Header:xi-api-key \

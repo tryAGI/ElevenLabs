@@ -1,276 +1,38 @@
 
 #nullable enable
-
 namespace ElevenLabs
 {
-    /// <summary>
-    ///
-    /// </summary>
-    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
-    )]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>), TypeInfoPropertyName = "IListString_System_Collections_Generic_IList_string")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string?>), TypeInfoPropertyName = "IListString_System_Collections_Generic_IList_string_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string?>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string_3")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyUpdateOrderV1ProductionsOrdersOrderIdPatch))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOrderRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.BodyUpsertOrderItemV1ProductionsOrdersOrderIdItemsPost))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpsertOrderItemRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateOrderRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CreateOrderResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.CueOptionsRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DeliverableInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.DubOrderItemRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguageInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagePairInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.LanguageInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponse), TypeInfoPropertyName = "LanguagesResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.PairedLanguagesResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SingleLanguagesResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponseDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind), TypeInfoPropertyName = "LanguagesResponseDiscriminatorKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ListOrdersResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.OrderSummary>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderSummary))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderDeliverablesResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DeliverableInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestOutput), TypeInfoPropertyName = "OrderItemRequestOutput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.QuoteInfo))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemKind), TypeInfoPropertyName = "OrderItemKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestInput), TypeInfoPropertyName = "OrderItemRequestInput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SubtitleOrderItemRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TranscriptionOrderItemRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestInputDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestInputDiscriminatorKind), TypeInfoPropertyName = "OrderItemRequestInputDiscriminatorKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestOutputDiscriminator))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind), TypeInfoPropertyName = "OrderItemRequestOutputDiscriminatorKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderMediaResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderState), TypeInfoPropertyName = "OrderState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.OrderItemInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.LanguagePairInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RegisterMediaResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.RemoveOrderItemResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SubmitOrderResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdateOrderResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpsertOrderItemResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.OrderState>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponse?), TypeInfoPropertyName = "NullableLanguagesResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind?), TypeInfoPropertyName = "NullableLanguagesResponseDiscriminatorKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestOutput?), TypeInfoPropertyName = "NullableOrderItemRequestOutput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemKind?), TypeInfoPropertyName = "NullableOrderItemKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestInput?), TypeInfoPropertyName = "NullableOrderItemRequestInput2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestInputDiscriminatorKind?), TypeInfoPropertyName = "NullableOrderItemRequestInputDiscriminatorKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind?), TypeInfoPropertyName = "NullableOrderItemRequestOutputDiscriminatorKind2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.OrderState?), TypeInfoPropertyName = "NullableOrderState2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.LanguageInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OrderSummary>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.DeliverableInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OrderItemInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.LanguagePairInfo>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.OrderState>))]
-    internal sealed partial class ProductionsSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
-    {
-    }
-    /// <summary>
-    ///
-    /// </summary>
+    /// <summary>Source-generated JSON metadata for this scope.</summary>
     public sealed partial class ProductionsSourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
-        private static readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver Resolver = new LazyChunkResolver();
 
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        internal static global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver TypeInfoResolver => Resolver;
-
-
-        private static readonly global::System.Text.Json.JsonSerializerOptions DefaultOptions = CreateDefaultOptions();
-
-        /// <summary>
-        ///
-        /// </summary>
-        public static ProductionsSourceGenerationContext Default { get; } = new(DefaultOptions);
-
-        private ProductionsSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options)
-            : base(options)
+        internal static global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope => ScopeHolder.Value;
+        internal static global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver TypeInfoResolver => MetadataScope;
+        private static class ScopeHolder
         {
+            internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope Value = new(
+                null,
+                new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_23B379E076841DB0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_31171BED0CC09C02.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A05A78A372F28723.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B3529EB4648A2417.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E14746C747567671.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DF89FB849BD21781.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_8003CADA57BA0E06.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9A2790F84CF406E2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_05BF36C073875770.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B6DE176DEB34352A.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_01C87B18F7DAF90F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C5D3DBFC94759AD2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DCBB27CAC0BA7B94.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_82DDB5F7AC27328C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6DA88C34BA124C41.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C6CC4F838648B175.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4DCDDC9DABC8E703.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_22F5BAB330CEDB2D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_265E0EFB8DD3CA18.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1EB3CDC128223190.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E454CC82124E789A.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9E7C80C8CE57E569.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E56F9E9D156A59B4.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_F383F91C64C0519C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_554224A19854A885.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_8D60AD02318266AB.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C2AF487210A089FC.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E287161281C36F74.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_67BB759C6BC299CE.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_F50EFC5A30DFEDAE.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_60DABDD7B8A3A89E.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C9C850820082D2CA.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CEAE93E76D1F661D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_84D3DCF21A81D22F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_04A5D3BD3492835C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_F65AAC0D3F590E99.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_FC0ACBA26C044EC8.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_03EBD04AB1393B85.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5D872189BC0B10C3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_350C73119E935147.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_147049BAB8B0A70F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_AF525BC955473331.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A6DACA59DB850FE1.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_06F82E7C4B7E8A36.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D28139115C06A6C5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_EF768EF842657185.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B6C112757E27F773.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_8CBC39DD7D008FCC.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3AB4CB0AE90ECC2B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2CE06A9E7F8C3E6B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5CF17D5D5D9281A2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5841E51DC7396F84.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6ACDB94323B5F51D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6DE9E9940566CE8B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_EAA4C65CC4DC9A43.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2FB8CD028ABFDB50.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_843BF2BD77603618.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_AA64CF613175F46B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_31125C2897FE1AFD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_F1B6CD914AF38EC0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5DA2C6E1E567F089.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3B77BA6EDA264AEF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_F22D0CB62CA099B4.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_FC66F021C67D064C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4B24D6ECE86A5D52.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1909718D9ABE7BDE.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A9638498E1711F25.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D3983D7E353B058C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6C585D79FE0383D3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CB8EF567569EA34C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C25D83C477F7D046.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A7584CC2AC70BC6F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4CEA021C553B1112.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_06E73F445B6ACFE7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4AAB3D895144A9F7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_554FB5AA4EA2A8A6.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_95710C75414ADCDC.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B8BB0849831F3AE5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_65108775E29E82A7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9EAC769F89736D6B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_401F9CF510C31E42.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CDB1462D9F782F4D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9F465D0F4ED0DCA7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_33300E5F6E2ABF21.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5A9B55E871EA875C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BB1713E906A0E775.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4C1AFFD273FD36E5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_69B53F5D9444E437.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1B1FC758AA7AF647.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E4816358DF666EED.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_71DD4ABBE78F76D8.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_763C98C04204663B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_60735FC2FF3A16DB.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_36C52F7948CC861A.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A0BFAF4D5A4FC00B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_7EE44DAED9B5C036.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B1C55A7233C619C1.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B6638C06B9C61422.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_977B96B4C6155080.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B8D9F0C97918C83E.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9811ED0378920349.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3FA4594390199F23.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1A91BDFC298D39B8.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D488BDD363AEFEB8.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5B467034C7230237.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_63E91A79D91A6D9C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BAFAD2844911E850.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_051FD3B8346C2E8A.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1529EFD16EE828A2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_7C6D68F116EA980F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2764FE788BB9809C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5E645B2D0C5B3A27.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_579254FD6682C053.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_5A9B172050A01EF6.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1B2DA42605221800.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_17E49A1687929074.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2128BC26872AC43F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_09C42B8ECDCB9B30.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4EB5AEFD6374A584.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A1664DC33CF650FC.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_79A5F54982E107E6.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DE72E2C397925EBC.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_095C83F4AAA3F219.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1904BBA7D5C835D6.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_823FFA45AE5E9CA1.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C0A82B3D6A6BAE47.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_685767F64C1D80E2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B2A1C0D9A3C3BD22.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9D3580EBFBC56614.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D8409C95ACA46329.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_41AE04435D076D7C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DD40E26660CD63F7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9EC7BFD215F56255.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BD9FFD691CCDBCA1.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BEE6FFDE076E090D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_899BBA3A5AC1794F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1AC7DF21481CF8E7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2606770C80EEB612.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_FD6AAFCAA8F9D470.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E9E262012D96820C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_ECF3972F11976373.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_15015BB518655F23.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B4EEB4D0A9B504A3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3E0D836C9747C20A.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D2928B1B165EE73E.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_77A2EB4809B586AE.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_584C0E7587C94EF3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_32280BAA927A44AA.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_F007A841818F6C3B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D1283245EFFA63D3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CFF138303F28A8C3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_7E7714B8DA85D5B8.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6DBFEBAA80236F23.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2247FA9110426BD6.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DA2C925AF8EC3716.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_0D080C0F68D346C2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E414812DB5AFCD17.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3D00167CB7B960EE.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_425048A2428E0EED.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3F0D872B1DD5A577.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A411B24AAA35CDC9.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_23B90B156FDA33B3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2677690238D7C310.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E0ED0E11F2AE90CD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2958D416D08AA5A4.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_F470634E32358D50.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BFA7368BA14CA4FB.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CF51F6C19FE98E20.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_18590B07E47509F9.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_912338EEAACC94BD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_7D160F3D736B2728.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DF7B31786B191DFE.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_001C26C1AC1A96F6.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_107697616F4734EB.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3E15FC06DF55AEAC.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E582BD3F52227752.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_0A4920DF4AB9D36C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E869A04216F27987.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_652702137C339654.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D777FC5C8A381242.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BDBDABEAD5367B2D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2A2465D622CF3648.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BBF8B4F1D9394504.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_0D75A2BB6783C3E1.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A529C0CA64412AF5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DF348199233255C0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_897B8A515C324701.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DD1CB2085D312280.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CC6E5F3BF3FACD64.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3516DB6796B46ABD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4BE59D47B902D740.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_EB84E762B4A5A480.MetadataScope,
+                }, null);
         }
-
+        private static class DefaultHolder
+        {
+            internal static readonly global::System.Text.Json.JsonSerializerOptions Options = MetadataScope.CreateOptions();
+            internal static readonly ProductionsSourceGenerationContext Instance = new(Options);
+        }
+        /// <summary>The default context for this scope.</summary>
+        public static ProductionsSourceGenerationContext Default => DefaultHolder.Instance;
+        private ProductionsSourceGenerationContext(global::System.Text.Json.JsonSerializerOptions options) : base(options) { }
         /// <inheritdoc />
-        protected override global::System.Text.Json.JsonSerializerOptions? GeneratedSerializerOptions => DefaultOptions;
-
+        protected override global::System.Text.Json.JsonSerializerOptions? GeneratedSerializerOptions => DefaultHolder.Options;
         /// <inheritdoc />
-        public override global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(global::System.Type type)
-        {
-            return Resolver.GetTypeInfo(type, Options);
-        }
+        public override global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(global::System.Type type) =>
+            MetadataScope.GetTypeInfo(type, Options);
 
-        /// <summary>
-        /// Adds this package's converters to <paramref name="options"/>.
-        /// </summary>
-        /// <remarks>
-        /// A converter has to be on the options a chained resolver builds its JsonTypeInfo against,
-        /// and a context resolves types from every package below it. Each package contributes only
-        /// what it owns and calls down the chain for the rest, so the family's converter table is
-        /// written once rather than copied into all of them.
-        /// </remarks>
+        /// <summary>Adds converters required by this scope.</summary>
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options)
-        {
-            global::ElevenLabs.PartitionCoreSourceGenerationContext.AddConverters(options);
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.LanguagesResponseJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.OrderItemRequestInputJsonConverter());
-            options.Converters.Add(new global::ElevenLabs.JsonConverters.OrderItemRequestOutputJsonConverter());
-            options.Converters.Add(new LazyEnumJsonConverterFactory());
-        }
+        public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options) => MetadataScope.AddConverters(options);
 
-        private static global::System.Text.Json.JsonSerializerOptions CreateDefaultOptions()
-        {
-            var options = new global::System.Text.Json.JsonSerializerOptions
-            {
-                DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
-                TypeInfoResolver = Resolver,
-            };
-            AddConverters(options);
-
-            return options;
-        }
-
-
-        private sealed class LazyEnumJsonConverterFactory : global::System.Text.Json.Serialization.JsonConverterFactory
-        {
-            public override bool CanConvert(global::System.Type typeToConvert)
-            {
-                return
-                    typeToConvert == typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind)
-
-                    || typeToConvert == typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderItemKind)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderItemKind?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderItemRequestInputDiscriminatorKind)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderItemRequestInputDiscriminatorKind?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind?)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderState)
-
-                    || typeToConvert == typeof(global::ElevenLabs.OrderState?);
-            }
-
-            public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
-                global::System.Type typeToConvert,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                if (typeToConvert == typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind))
-                {
-                    return new global::ElevenLabs.JsonConverters.LanguagesResponseDiscriminatorKindJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.LanguagesResponseDiscriminatorKind?))
-                {
-                    return new global::ElevenLabs.JsonConverters.LanguagesResponseDiscriminatorKindNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderItemKind))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderItemKindJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderItemKind?))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderItemKindNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderItemRequestInputDiscriminatorKind))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderItemRequestInputDiscriminatorKindJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderItemRequestInputDiscriminatorKind?))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderItemRequestInputDiscriminatorKindNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderItemRequestOutputDiscriminatorKindJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderItemRequestOutputDiscriminatorKind?))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderItemRequestOutputDiscriminatorKindNullableJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderState))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderStateJsonConverter();
-                }
-
-                if (typeToConvert == typeof(global::ElevenLabs.OrderState?))
-                {
-                    return new global::ElevenLabs.JsonConverters.OrderStateNullableJsonConverter();
-                }
-                throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
-            }
-        }
-
-        private sealed class LazyChunkResolver : global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver
-        {
-            private readonly object _gate = new();
-            private readonly global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[] _resolvers = new global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver?[2];
-
-            public global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(
-                global::System.Type type,
-                global::System.Text.Json.JsonSerializerOptions options)
-            {
-                for (var index = 0; index < _resolvers.Length; index++)
-                {
-                    var typeInfo = GetResolver(index).GetTypeInfo(type, options);
-                    if (typeInfo is not null)
-                    {
-                        return typeInfo;
-                    }
-                }
-
-                return null;
-            }
-
-            private global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver GetResolver(int index)
-            {
-                var resolver = global::System.Threading.Volatile.Read(ref _resolvers[index]);
-                if (resolver is not null)
-                {
-                    return resolver;
-                }
-
-                lock (_gate)
-                {
-                    return _resolvers[index] ??= CreateResolver(index);
-                }
-            }
-
-            private static global::System.Text.Json.Serialization.Metadata.IJsonTypeInfoResolver CreateResolver(int index)
-            {
-                return index switch
-                {
-                    0 => new ProductionsSourceGenerationContextChunk0(new global::System.Text.Json.JsonSerializerOptions()),
-
-                    1 => global::ElevenLabs.PartitionCoreSourceGenerationContext.TypeInfoResolver,
-                    _ => throw new global::System.ArgumentOutOfRangeException(nameof(index)),
-                };
-            }
-        }
     }
 }

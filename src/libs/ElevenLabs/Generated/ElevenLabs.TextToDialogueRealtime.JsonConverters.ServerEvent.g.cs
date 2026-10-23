@@ -14,6 +14,7 @@ namespace ElevenLabs.TextToDialogueRealtime.JsonConverters
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            typeInfoResolver = global::ElevenLabs.TextToDialogueRealtime.AutoSDKJsonMetadataCachedResolver.Instance;
 
             using var __jsonDocument = global::System.Text.Json.JsonDocument.ParseValue(ref reader);
             var __rawJson = __jsonDocument.RootElement.GetRawText();
@@ -249,6 +250,7 @@ namespace ElevenLabs.TextToDialogueRealtime.JsonConverters
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            typeInfoResolver = global::ElevenLabs.TextToDialogueRealtime.AutoSDKJsonMetadataCachedResolver.Instance;
 
             if (value.IsTextToDialogueWebsocketAudioChunk)
             {

@@ -78,6 +78,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_5CD425F518C2E59A.Default;
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -492,6 +494,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_5CD425F518C2E59A.Default;
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -999,6 +1003,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_5CD425F518C2E59A.Default;
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
             var request = new global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost
@@ -1463,6 +1469,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_5CD425F518C2E59A.Default;
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
             var request = new global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost
@@ -1898,6 +1906,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_5CD425F518C2E59A.Default;
 
             audio = audio ?? throw new global::System.ArgumentNullException(nameof(audio));
             var request = new global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost

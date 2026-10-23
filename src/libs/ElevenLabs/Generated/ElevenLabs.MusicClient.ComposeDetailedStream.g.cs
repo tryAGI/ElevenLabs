@@ -65,6 +65,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             [global::System.Runtime.CompilerServices.EnumeratorCancellation] global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_F1EFA6EE25E89CC5.Default;
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -378,7 +380,7 @@ namespace ElevenLabs
                                     yield break;
                                 }
 
-                                var __streamedResponse = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(string), JsonSerializerContext) ??
+                                var __streamedResponse = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(string))) ??
                                                        throw global::ElevenLabs.ApiException.Create(
                                                            statusCode: __response.StatusCode,
                                                            message: $"Response deserialization failed for \"{__content}\" ",

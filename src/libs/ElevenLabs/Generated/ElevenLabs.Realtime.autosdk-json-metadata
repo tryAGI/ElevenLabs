@@ -1,0 +1,66 @@
+// AutoSDK.JsonMetadata manifest-format: 3
+
+#nullable enable
+namespace ElevenLabs.Realtime
+{
+    [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+        GenerationMode = global::System.Text.Json.Serialization.JsonSourceGenerationMode.Metadata)]
+// AutoSDK.JsonMetadata factory-batch: ElevenLabs.Realtime.RealtimeSourceGenerationContextMetadata0|0|Boolean,CommittedTranscriptPayload,CommittedTranscriptPayloadMessageType2,CommittedTranscriptWithTimestampsPayload,CommittedTranscriptWithTimestampsPayloadMessageType2,Double,ErrorPayload,ErrorPayloadMessageType2,InputAudioChunkPayload,InputAudioChunkPayloadMessageType2,Int32,JsonElement,NullableBoolean,NullableCommittedTranscriptPayloadMessageType2,NullableCommittedTranscriptWithTimestampsPayloadMessageType2,NullableDouble
+// AutoSDK.JsonMetadata factory-batch: ElevenLabs.Realtime.RealtimeSourceGenerationContextMetadata0|1|NullableErrorPayloadMessageType2,NullableInputAudioChunkPayloadMessageType2,NullableInt32,NullableJsonElement,NullablePartialTranscriptPayloadMessageType2,NullableServerEvent2,NullableServerEventDiscriminatorMessageType2,NullableSessionStartedPayloadMessageType2,NullableTranscriptionWordType2,Object,PartialTranscriptPayload,PartialTranscriptPayloadMessageType2,RealtimeSourceGenerationContextMetadataType_05BF36C073875770,RealtimeSourceGenerationContextMetadataType_241C93FEEADCF5E9,RealtimeSourceGenerationContextMetadataType_3F34DBFD50DE05D2,RealtimeSourceGenerationContextMetadataType_4EFE2E4FA269E026
+// AutoSDK.JsonMetadata factory-batch: ElevenLabs.Realtime.RealtimeSourceGenerationContextMetadata0|2|RealtimeSourceGenerationContextMetadataType_7024F6984ED20EB8,RealtimeSourceGenerationContextMetadataType_8219E7AD6AEFA4B4,RealtimeSourceGenerationContextMetadataType_92E1ACA86984772C,RealtimeSourceGenerationContextMetadataType_FC0ACBA26C044EC8,ServerEvent2,ServerEventDiscriminator,ServerEventDiscriminatorMessageType2,SessionConfig,SessionStartedPayload,SessionStartedPayloadMessageType2,String,TranscriptionWord,TranscriptionWordType2
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_FC0ACBA26C044EC8")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_8219E7AD6AEFA4B4")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_92E1ACA86984772C")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?), TypeInfoPropertyName = "NullableJsonElement")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IDictionary<string, object>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_7024F6984ED20EB8")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string), TypeInfoPropertyName = "String")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(object), TypeInfoPropertyName = "Object")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement), TypeInfoPropertyName = "JsonElement")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.InputAudioChunkPayload), TypeInfoPropertyName = "InputAudioChunkPayload")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.InputAudioChunkPayloadMessageType), TypeInfoPropertyName = "InputAudioChunkPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool), TypeInfoPropertyName = "Boolean")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int), TypeInfoPropertyName = "Int32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.SessionConfig), TypeInfoPropertyName = "SessionConfig")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double), TypeInfoPropertyName = "Double")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.SessionStartedPayload), TypeInfoPropertyName = "SessionStartedPayload")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.SessionStartedPayloadMessageType), TypeInfoPropertyName = "SessionStartedPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.PartialTranscriptPayload), TypeInfoPropertyName = "PartialTranscriptPayload")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.PartialTranscriptPayloadMessageType), TypeInfoPropertyName = "PartialTranscriptPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.CommittedTranscriptPayload), TypeInfoPropertyName = "CommittedTranscriptPayload")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.CommittedTranscriptPayloadMessageType), TypeInfoPropertyName = "CommittedTranscriptPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.TranscriptionWord), TypeInfoPropertyName = "TranscriptionWord")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.TranscriptionWordType), TypeInfoPropertyName = "TranscriptionWordType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_05BF36C073875770")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayload), TypeInfoPropertyName = "CommittedTranscriptWithTimestampsPayload")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayloadMessageType), TypeInfoPropertyName = "CommittedTranscriptWithTimestampsPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.Realtime.TranscriptionWord>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_4EFE2E4FA269E026")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ErrorPayload), TypeInfoPropertyName = "ErrorPayload")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ErrorPayloadMessageType), TypeInfoPropertyName = "ErrorPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ServerEvent), TypeInfoPropertyName = "ServerEvent2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ServerEventDiscriminator), TypeInfoPropertyName = "ServerEventDiscriminator")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ServerEventDiscriminatorMessageType), TypeInfoPropertyName = "ServerEventDiscriminatorMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.InputAudioChunkPayloadMessageType?), TypeInfoPropertyName = "NullableInputAudioChunkPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?), TypeInfoPropertyName = "NullableBoolean")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?), TypeInfoPropertyName = "NullableInt32")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?), TypeInfoPropertyName = "NullableDouble")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.SessionStartedPayloadMessageType?), TypeInfoPropertyName = "NullableSessionStartedPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.PartialTranscriptPayloadMessageType?), TypeInfoPropertyName = "NullablePartialTranscriptPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.CommittedTranscriptPayloadMessageType?), TypeInfoPropertyName = "NullableCommittedTranscriptPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.TranscriptionWordType?), TypeInfoPropertyName = "NullableTranscriptionWordType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.CommittedTranscriptWithTimestampsPayloadMessageType?), TypeInfoPropertyName = "NullableCommittedTranscriptWithTimestampsPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ErrorPayloadMessageType?), TypeInfoPropertyName = "NullableErrorPayloadMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ServerEvent?), TypeInfoPropertyName = "NullableServerEvent2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.Realtime.ServerEventDiscriminatorMessageType?), TypeInfoPropertyName = "NullableServerEventDiscriminatorMessageType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_3F34DBFD50DE05D2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::ElevenLabs.Realtime.TranscriptionWord>), TypeInfoPropertyName = "RealtimeSourceGenerationContextMetadataType_241C93FEEADCF5E9")]
+    internal sealed partial class RealtimeSourceGenerationContextMetadata0 : global::System.Text.Json.Serialization.JsonSerializerContext
+    {
+    }
+
+    // Missing support means the CLI and analyzer package are not protocol-compatible.
+    internal static class RealtimeSourceGenerationContextMetadataProtocolGuard
+    {
+        internal const int Version = global::AutoSDK.JsonMetadata.Generated.ManifestProtocol.Version3;
+    }
+}

@@ -304,7 +304,13 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         ///
         /// </summary>
 
-        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; } = global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default;
+        private global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext>? JsonSerializerContextProvider;
+        /// <summary>Gets or sets the context used to override per-message defaults.</summary>
+        public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
+        {
+            get => JsonSerializerContextProvider?.Value ?? global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default;
+            set => JsonSerializerContextProvider = new(() => value);
+        }
 
         /// <summary>
         /// Gets a value indicating whether the WebSocket connection is open.

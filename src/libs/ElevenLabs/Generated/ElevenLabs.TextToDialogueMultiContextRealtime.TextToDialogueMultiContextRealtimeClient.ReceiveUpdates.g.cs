@@ -108,7 +108,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
                     global::ElevenLabs.TextToDialogueMultiContextRealtime.ServerEvent @event;
                     try
                     {
-                        @event = (global::ElevenLabs.TextToDialogueMultiContextRealtime.ServerEvent)global::System.Text.Json.JsonSerializer.Deserialize(json, typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.ServerEvent), JsonSerializerContext)!;
+                        @event = (global::ElevenLabs.TextToDialogueMultiContextRealtime.ServerEvent)global::System.Text.Json.JsonSerializer.Deserialize(json, (JsonSerializerContextProvider?.Value ?? global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_5994A40CC6840DF8.Default).Options.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.ServerEvent)))!;
                     }
                     catch (global::System.Exception exception) when (
                         exception is global::System.Text.Json.JsonException ||

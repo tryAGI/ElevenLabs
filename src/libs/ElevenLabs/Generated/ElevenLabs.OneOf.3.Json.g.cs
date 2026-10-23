@@ -12,8 +12,7 @@ namespace ElevenLabs
         {
             return global::System.Text.Json.JsonSerializer.Serialize(
                 this,
-                this.GetType(),
-                jsonSerializerContext);
+                jsonSerializerContext.Options.GetTypeInfo(this.GetType()));
         }
 
         /// <summary>
@@ -53,8 +52,7 @@ namespace ElevenLabs
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.OneOf<T1, T2, T3>),
-                jsonSerializerContext) as global::ElevenLabs.OneOf<T1, T2, T3>?;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.OneOf<T1, T2, T3>))) as global::ElevenLabs.OneOf<T1, T2, T3>?;
         }
 
         /// <summary>
@@ -100,8 +98,7 @@ namespace ElevenLabs
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.OneOf<T1, T2, T3>),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.OneOf<T1, T2, T3>?;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.OneOf<T1, T2, T3>))).ConfigureAwait(false)) as global::ElevenLabs.OneOf<T1, T2, T3>?;
         }
 
         /// <summary>

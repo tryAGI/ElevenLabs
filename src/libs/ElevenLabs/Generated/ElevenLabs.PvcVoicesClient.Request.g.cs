@@ -89,6 +89,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_59F03D642B41E22F.Default;
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -567,6 +569,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_59F03D642B41E22F.Default;
 
             files = files ?? throw new global::System.ArgumentNullException(nameof(files));
             var request = new global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost
@@ -1038,6 +1042,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_59F03D642B41E22F.Default;
 
             files = files ?? throw new global::System.ArgumentNullException(nameof(files));
             var request = new global::ElevenLabs.BodyRequestManualVerificationV1VoicesPvcVoiceIdVerificationPost

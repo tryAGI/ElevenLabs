@@ -125,6 +125,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_AA07CFAE11A38684.Default;
             PrepareArguments(
                 client: HttpClient);
             PrepareList19Arguments(

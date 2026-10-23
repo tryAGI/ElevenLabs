@@ -68,6 +68,8 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
+                global::ElevenLabs.SourceGenerationContextOperation_E204E6D8DC8C5F45.Default;
             PrepareArguments(
                 client: HttpClient);
             PrepareList6Arguments(
@@ -376,7 +378,7 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>), JsonSerializerContext) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>))) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                                     return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>>(
                                         statusCode: __response.StatusCode,
@@ -408,7 +410,7 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>), JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>))).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                                     return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceMemberResponseModel>>(
                                         statusCode: __response.StatusCode,

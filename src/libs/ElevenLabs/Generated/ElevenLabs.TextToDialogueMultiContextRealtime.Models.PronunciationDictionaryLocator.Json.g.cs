@@ -12,8 +12,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         {
             return global::System.Text.Json.JsonSerializer.Serialize(
                 this,
-                this.GetType(),
-                jsonSerializerContext);
+                jsonSerializerContext.Options.GetTypeInfo(this.GetType()));
         }
 
         /// <summary>
@@ -21,7 +20,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         /// </summary>
         public string ToJson()
         {
-            return ToJson(global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default);
+            return ToJson(global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_4C1769551F7F69EA.Default);
         }
 
         /// <summary>
@@ -36,7 +35,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         {
             if (jsonSerializerOptions is null)
             {
-                return ToJson(global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default);
+                return ToJson(global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_4C1769551F7F69EA.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.Serialize(
@@ -53,8 +52,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator),
-                jsonSerializerContext) as global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator))) as global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator;
         }
 
         /// <summary>
@@ -65,7 +63,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         {
             return FromJson(
                 json,
-                global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default);
+                global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_4C1769551F7F69EA.Default);
         }
 
         /// <summary>
@@ -83,7 +81,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
             {
                 return FromJson(
                     json,
-                    global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default);
+                    global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_4C1769551F7F69EA.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.Deserialize<global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator>(
@@ -100,8 +98,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator),
-                jsonSerializerContext).ConfigureAwait(false)) as global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator;
+                jsonSerializerContext.Options.GetTypeInfo(typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator))).ConfigureAwait(false)) as global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator;
         }
 
         /// <summary>
@@ -112,7 +109,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
         {
             return FromJsonStreamAsync(
                 jsonStream,
-                global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default);
+                global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_4C1769551F7F69EA.Default);
         }
 
         /// <summary>
@@ -130,7 +127,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
             {
                 return FromJsonStreamAsync(
                     jsonStream,
-                    global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContext.Default);
+                    global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextComponent_4C1769551F7F69EA.Default);
             }
 
             return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::ElevenLabs.TextToDialogueMultiContextRealtime.PronunciationDictionaryLocator?>(

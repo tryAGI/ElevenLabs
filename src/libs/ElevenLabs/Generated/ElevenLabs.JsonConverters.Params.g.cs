@@ -14,6 +14,7 @@ namespace ElevenLabs.JsonConverters
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            typeInfoResolver = global::ElevenLabs.AutoSDKJsonMetadataCachedResolver.Instance;
 
 
             var readerCopy = reader;
@@ -837,6 +838,7 @@ namespace ElevenLabs.JsonConverters
         {
             options = options ?? throw new global::System.ArgumentNullException(nameof(options));
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            typeInfoResolver = global::ElevenLabs.AutoSDKJsonMetadataCachedResolver.Instance;
 
             if (value.IsSearchClients)
             {
