@@ -8366,19 +8366,19 @@ namespace ElevenLabs
 
                     6 => global::ElevenLabs.DubbingSourceGenerationContext.TypeInfoResolver,
 
-                    7 => global::ElevenLabs.Dubbing2SourceGenerationContext.TypeInfoResolver,
+                    7 => global::ElevenLabs.ModelsSourceGenerationContext.TypeInfoResolver,
 
-                    8 => global::ElevenLabs.ModelsSourceGenerationContext.TypeInfoResolver,
+                    8 => global::ElevenLabs.MusicFinetunesSourceGenerationContext.TypeInfoResolver,
 
-                    9 => global::ElevenLabs.MusicFinetunesSourceGenerationContext.TypeInfoResolver,
+                    9 => global::ElevenLabs.MusicGenerationSourceGenerationContext.TypeInfoResolver,
 
-                    10 => global::ElevenLabs.MusicGenerationSourceGenerationContext.TypeInfoResolver,
+                    10 => global::ElevenLabs.PartitionOrphan0SourceGenerationContext.TypeInfoResolver,
 
-                    11 => global::ElevenLabs.PartitionOrphan0SourceGenerationContext.TypeInfoResolver,
+                    11 => global::ElevenLabs.PartitionOrphan1SourceGenerationContext.TypeInfoResolver,
 
-                    12 => global::ElevenLabs.PartitionOrphan1SourceGenerationContext.TypeInfoResolver,
+                    12 => global::ElevenLabs.PartitionOrphan10SourceGenerationContext.TypeInfoResolver,
 
-                    13 => global::ElevenLabs.PartitionOrphan10SourceGenerationContext.TypeInfoResolver,
+                    13 => global::ElevenLabs.PartitionOrphan11SourceGenerationContext.TypeInfoResolver,
 
                     14 => global::ElevenLabs.PartitionOrphan2SourceGenerationContext.TypeInfoResolver,
 
