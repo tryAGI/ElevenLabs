@@ -317,6 +317,13 @@ namespace ElevenLabs
         public bool? EndConfirmationEnabled { get; set; }
 
         /// <summary>
+        /// Whether the widget opens fullscreen on mobile<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mobile_fullscreen")]
+        public bool? MobileFullscreen { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -542,6 +549,10 @@ namespace ElevenLabs
         /// Whether to ask the user to confirm before ending a chat or call<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="mobileFullscreen">
+        /// Whether the widget opens fullscreen on mobile<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="supportedLanguageOverrides"></param>
         /// <param name="languagePresets">
         /// Language presets for the widget
@@ -612,6 +623,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetStyles? styles,
             bool? showResizeButton,
             bool? endConfirmationEnabled,
+            bool? mobileFullscreen,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
@@ -666,6 +678,7 @@ namespace ElevenLabs
             this.Styles = styles;
             this.ShowResizeButton = showResizeButton;
             this.EndConfirmationEnabled = endConfirmationEnabled;
+            this.MobileFullscreen = mobileFullscreen;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
             this.LanguagePresets = languagePresets;

@@ -101,11 +101,6 @@ namespace ElevenLabs
         public DubbingClient Dubbing { get; }
 
         /// <summary>
-        /// Dub audio and video content into other languages while preserving the original speaker's voice.
-        /// </summary>
-        public Dubbing2Client Dubbing2 { get; }
-
-        /// <summary>
         ///
         /// </summary>
         public EnvironmentVariablesClient EnvironmentVariables { get; }

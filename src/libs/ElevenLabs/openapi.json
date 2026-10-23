@@ -9750,6 +9750,7 @@
         "summary": "List Dubs",
         "description": "List the dubs you have access to.",
         "operationId": "list_dubs",
+        "deprecated": true,
         "parameters": [
           {
             "name": "cursor",
@@ -10005,6 +10006,7 @@
         "summary": "Dub A Video Or An Audio File",
         "description": "Dubs a provided audio or video file into given language.",
         "operationId": "create_dubbing",
+        "deprecated": true,
         "parameters": [
           {
             "name": "xi-api-key",
@@ -10070,6 +10072,7 @@
         "summary": "Get Dubbing",
         "description": "Returns metadata about a dubbing project, including whether it's still in progress or not",
         "operationId": "get_dubbed_metadata",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -10135,6 +10138,7 @@
         "summary": "Delete Dubbing",
         "description": "Deletes a dubbing project.",
         "operationId": "delete_dubbing",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -10202,6 +10206,7 @@
         "summary": "Get Dubbed File",
         "description": "Returns dub as a streamed MP3 or MP4 file. If this dub has been edited using Dubbing Studio you need to use the resource render endpoint as this endpoint only returns the original automatic dub result.",
         "operationId": "get_dubbed_file",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -10475,6 +10480,7 @@
         "summary": "Retrieve A Transcript",
         "description": "Fetch the transcript for one of the languages in a dub.",
         "operationId": "get_dubbing_transcripts",
+        "deprecated": true,
         "parameters": [
           {
             "name": "dubbing_id",
@@ -17298,7 +17304,7 @@
           "Agents Platform"
         ],
         "summary": "Duplicate Agent",
-        "description": "Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. Version history, drafts, archived branches and traffic deployments are not copied, so the new agent routes all traffic to its main branch.",
+        "description": "Create a new agent by duplicating an existing one. The new agent gets a copy of every unarchived branch of the source agent, each with the same name and description and starting from the latest version on that branch. The live traffic split is copied onto the new branches, with any share held by a branch that was not copied moved to main. Version history, drafts, archived branches, past traffic splits and experiments are not copied.",
         "operationId": "duplicate_agent_route",
         "parameters": [
           {
@@ -43054,6 +43060,7 @@
           "ui",
           "api",
           "template",
+          "architect",
           "unknown"
         ],
         "title": "AgentDefinitionSource",
@@ -104821,6 +104828,7 @@
               "$ref": "#/components/schemas/MediaId"
             },
             "type": "array",
+            "maxItems": 50,
             "title": "Media Ids",
             "description": "The IDs of the uploaded media files to generate subtitles for."
           },
@@ -109397,6 +109405,7 @@
               "$ref": "#/components/schemas/MediaId"
             },
             "type": "array",
+            "maxItems": 50,
             "title": "Media Ids",
             "description": "The IDs of the uploaded media files to transcribe."
           },
@@ -118021,6 +118030,12 @@
             "description": "Whether to ask the user to confirm before ending a chat or call",
             "default": false
           },
+          "mobile_fullscreen": {
+            "type": "boolean",
+            "title": "Mobile Fullscreen",
+            "description": "Whether the widget opens fullscreen on mobile",
+            "default": true
+          },
           "language_selector": {
             "type": "boolean",
             "title": "Language Selector",
@@ -118442,6 +118457,12 @@
             "description": "Whether to ask the user to confirm before ending a chat or call",
             "default": false
           },
+          "mobile_fullscreen": {
+            "type": "boolean",
+            "title": "Mobile Fullscreen",
+            "description": "Whether the widget opens fullscreen on mobile",
+            "default": true
+          },
           "language_selector": {
             "type": "boolean",
             "title": "Language Selector",
@@ -118862,6 +118883,12 @@
             "title": "End Confirmation Enabled",
             "description": "Whether to ask the user to confirm before ending a chat or call",
             "default": false
+          },
+          "mobile_fullscreen": {
+            "type": "boolean",
+            "title": "Mobile Fullscreen",
+            "description": "Whether the widget opens fullscreen on mobile",
+            "default": true
           },
           "language": {
             "type": "string",

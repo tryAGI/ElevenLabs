@@ -317,6 +317,13 @@ namespace ElevenLabs
         public bool? EndConfirmationEnabled { get; set; }
 
         /// <summary>
+        /// Whether the widget opens fullscreen on mobile<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mobile_fullscreen")]
+        public bool? MobileFullscreen { get; set; }
+
+        /// <summary>
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
@@ -516,6 +523,10 @@ namespace ElevenLabs
         /// Whether to ask the user to confirm before ending a chat or call<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="mobileFullscreen">
+        /// Whether the widget opens fullscreen on mobile<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
         /// Default Value: false
@@ -580,6 +591,7 @@ namespace ElevenLabs
             global::ElevenLabs.WidgetStyles? styles,
             bool? showResizeButton,
             bool? endConfirmationEnabled,
+            bool? mobileFullscreen,
             bool? languageSelector,
             bool? supportsTextOnly,
             string? customAvatarPath,
@@ -631,6 +643,7 @@ namespace ElevenLabs
             this.Styles = styles;
             this.ShowResizeButton = showResizeButton;
             this.EndConfirmationEnabled = endConfirmationEnabled;
+            this.MobileFullscreen = mobileFullscreen;
             this.LanguageSelector = languageSelector;
             this.SupportsTextOnly = supportsTextOnly;
             this.CustomAvatarPath = customAvatarPath;
