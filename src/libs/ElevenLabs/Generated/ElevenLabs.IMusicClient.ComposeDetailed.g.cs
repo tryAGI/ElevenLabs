@@ -62,6 +62,29 @@ namespace ElevenLabs
         /// Default Value: true
         /// </param>
         /// <param name="request"></param>
+        /// <returns>The response metadata and an unbuffered body stream. The caller must dispose Body to release the HTTP response.</returns>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> ComposeDetailedAsStreamAsResponseAsync(
+
+            global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost request,
+            global::ElevenLabs.ComposeDetailedOutputFormat? outputFormat = default,
+            bool? enableLogging = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Compose Music With A Detailed Response<br/>
+        /// Compose a song from a prompt or a composition plan.
+        /// </summary>
+        /// <param name="outputFormat">
+        /// Default Value: auto
+        /// </param>
+        /// <param name="enableLogging">
+        /// When enable_logging is set to false zero retention mode will be used for the request. Zero retention mode may only be used by enterprise customers.<br/>
+        /// Default Value: true
+        /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>

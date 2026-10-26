@@ -35,6 +35,20 @@ namespace ElevenLabs
         /// Removes background noise from audio
         /// </summary>
         /// <param name="request"></param>
+        /// <returns>The response metadata and an unbuffered body stream. The caller must dispose Body to release the HTTP response.</returns>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> ConvertAsStreamAsResponseAsync(
+
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPost request,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Audio Isolation<br/>
+        /// Removes background noise from audio
+        /// </summary>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -119,6 +133,34 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.IO.Stream> ConvertAsStreamAsync(
+            global::System.IO.Stream audio,
+            string audioname,
+            global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
+            string? previewB64 = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Audio Isolation<br/>
+        /// Removes background noise from audio
+        /// </summary>
+        /// <param name="audio">
+        /// The audio file from which vocals/speech will be isolated from.
+        /// </param>
+        /// <param name="audioname">
+        /// The audio file from which vocals/speech will be isolated from.
+        /// </param>
+        /// <param name="fileFormat">
+        /// The format of input audio. Options are 'pcm_s16le_16' or 'other' For `pcm_s16le_16`, the input audio must be 16-bit PCM at a 16kHz sample rate, single channel (mono), and little-endian byte order. Latency will be lower than with passing an encoded waveform.<br/>
+        /// Default Value: other
+        /// </param>
+        /// <param name="previewB64">
+        /// Optional preview image base64 for tracking this generation.
+        /// </param>
+        /// <returns>The response metadata and an unbuffered body stream. The caller must dispose Body to release the HTTP response.</returns>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::ElevenLabs.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> ConvertAsStreamAsResponseAsync(
             global::System.IO.Stream audio,
             string audioname,
             global::ElevenLabs.BodyAudioIsolationV1AudioIsolationPostFileFormat? fileFormat = default,
