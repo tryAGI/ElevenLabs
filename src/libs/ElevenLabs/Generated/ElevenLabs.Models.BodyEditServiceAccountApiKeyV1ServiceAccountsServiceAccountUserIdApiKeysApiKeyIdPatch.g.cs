@@ -79,6 +79,14 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?>? MusicConcurrencyLimit { get; set; }
 
         /// <summary>
+        /// Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).<br/>
+        /// Default Value: no_update
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("expires_at_unix")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix?>))]
+        public global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix?>? ExpiresAtUnix { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -122,6 +130,10 @@ namespace ElevenLabs
         /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.<br/>
         /// Default Value: no_update
         /// </param>
+        /// <param name="expiresAtUnix">
+        /// Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).<br/>
+        /// Default Value: no_update
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -134,7 +146,8 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchThirdPartyDisableAllowed?>? thirdPartyDisableAllowed,
             global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit?>? ttsConcurrencyLimit,
             global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit?>? dubbingConcurrencyLimit,
-            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?>? musicConcurrencyLimit)
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?>? musicConcurrencyLimit,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix?>? expiresAtUnix)
         {
             this.IsEnabled = isEnabled;
             this.Name = name;
@@ -145,6 +158,7 @@ namespace ElevenLabs
             this.TtsConcurrencyLimit = ttsConcurrencyLimit;
             this.DubbingConcurrencyLimit = dubbingConcurrencyLimit;
             this.MusicConcurrencyLimit = musicConcurrencyLimit;
+            this.ExpiresAtUnix = expiresAtUnix;
         }
 
         /// <summary>

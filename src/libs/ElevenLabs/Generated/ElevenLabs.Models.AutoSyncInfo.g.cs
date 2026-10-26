@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace ElevenLabs
@@ -23,14 +21,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_remove")]
         public bool? AutoRemove { get; set; }
-
-        /// <summary>
-        /// Deprecated. This field no longer has any effect and will be removed in a future release.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("auto_discover")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public bool? AutoDiscover { get; set; }
 
         /// <summary>
         /// Number of consecutive sync failures<br/>

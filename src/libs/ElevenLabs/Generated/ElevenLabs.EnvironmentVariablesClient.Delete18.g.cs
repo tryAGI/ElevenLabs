@@ -3,7 +3,7 @@
 
 namespace ElevenLabs
 {
-    public partial class EnvironmentsClient
+    public partial class EnvironmentVariablesClient
     {
 
 
@@ -27,48 +27,44 @@ namespace ElevenLabs
             };
         partial void PrepareDelete18Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string environment);
+            ref string envVarId);
         partial void PrepareDelete18Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string environment);
+            string envVarId);
         partial void ProcessDelete18Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
         /// <summary>
-        /// Delete Environment<br/>
-        /// Delete a workspace environment and remove its values from all environment variables. 'production' cannot be deleted.
+        /// Delete Environment Variable<br/>
+        /// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
         /// </summary>
-        /// <param name="environment">
-        /// Name of the environment to delete, e.g. 'staging'.
-        /// </param>
+        /// <param name="envVarId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task Delete18Async(
-            string environment,
+            string envVarId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             await Delete18AsResponseAsync(
-                environment: environment,
+                envVarId: envVarId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
         }
         /// <summary>
-        /// Delete Environment<br/>
-        /// Delete a workspace environment and remove its values from all environment variables. 'production' cannot be deleted.
+        /// Delete Environment Variable<br/>
+        /// Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.
         /// </summary>
-        /// <param name="environment">
-        /// Name of the environment to delete, e.g. 'staging'.
-        /// </param>
+        /// <param name="envVarId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> Delete18AsResponseAsync(
-            string environment,
+            string envVarId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -76,7 +72,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete18Arguments(
                 httpClient: HttpClient,
-                environment: ref environment);
+                envVarId: ref envVarId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -102,7 +98,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/environments/{environment}",
+                                path: $"/v1/convai/environment-variables/{envVarId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -144,7 +140,7 @@ namespace ElevenLabs
                 PrepareDelete18Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    environment: environment);
+                    envVarId: envVarId);
 
                 return __httpRequest;
             }
@@ -163,7 +159,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/environments/{environment}\"",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -197,7 +193,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/environments/{environment}\"",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -238,7 +234,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/environments/{environment}\"",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -286,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/environments/{environment}\"",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -308,7 +304,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/environments/{environment}\"",
+                                pathTemplate: "$\"/v1/convai/environment-variables/{envVarId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -323,38 +319,6 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            //
-                            if ((int)__response.StatusCode == 400)
-                            {
-                                string? __content_400 = null;
-                                global::System.Exception? __exception_400 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                    else
-                                    {
-                                        __content_400 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_400 = __ex;
-                                }
-
-
-                                throw global::ElevenLabs.ApiException.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_400 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_400,
-                                    responseBody: __content_400,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             //
                             if ((int)__response.StatusCode == 404)
                             {
@@ -382,6 +346,38 @@ namespace ElevenLabs
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
                                     responseBody: __content_404,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            //
+                            if ((int)__response.StatusCode == 409)
+                            {
+                                string? __content_409 = null;
+                                global::System.Exception? __exception_409 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_409 = __ex;
+                                }
+
+
+                                throw global::ElevenLabs.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_409,
+                                    responseBody: __content_409,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
