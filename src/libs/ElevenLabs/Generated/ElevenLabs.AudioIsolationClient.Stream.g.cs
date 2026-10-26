@@ -431,6 +431,10 @@ namespace ElevenLabs
                                     requestUri: __response.RequestMessage?.RequestUri,
                                     body: new global::ElevenLabs.ResponseStream(__response, __content));
                             }
+                            catch (global::System.OperationCanceledException)
+                            {
+                                throw;
+                            }
                             catch (global::System.Exception __ex)
                             {
                                 string? __content = null;
@@ -890,6 +894,10 @@ namespace ElevenLabs
 
                                 return new global::ElevenLabs.ResponseStream(__response, __content);
                             }
+                            catch (global::System.OperationCanceledException)
+                            {
+                                throw;
+                            }
                             catch (global::System.Exception __ex)
                             {
                                 string? __content = null;
@@ -1315,6 +1323,10 @@ namespace ElevenLabs
                                     headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                     requestUri: __response.RequestMessage?.RequestUri,
                                     body: new global::ElevenLabs.ResponseStream(__response, __content));
+                            }
+                            catch (global::System.OperationCanceledException)
+                            {
+                                throw;
                             }
                             catch (global::System.Exception __ex)
                             {
