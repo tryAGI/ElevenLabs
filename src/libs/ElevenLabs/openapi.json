@@ -22888,7 +22888,7 @@
       },
       "patch": {
         "summary": "Update Agent Conversation Ticket",
-        "description": "Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.",
+        "description": "Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.",
         "operationId": "update_agent_conversation_ticket_route",
         "parameters": [
           {
@@ -34802,6 +34802,66 @@
         },
         "x-fern-sdk-group-name": "environment_variables",
         "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "Agents Platform"
+        ],
+        "summary": "Delete Environment Variable",
+        "description": "Delete an environment variable and its values in all environments. WARNING: Agents are not checked. A variable that an agent still uses (custom LLM, webhooks or cloud storage export, on any branch or version) is deleted anyway, and that agent's conversations then fail. The delete is only rejected while tools, MCP servers or the workspace conversation initiation webhook use the variable.",
+        "operationId": "delete_environment_variable",
+        "parameters": [
+          {
+            "name": "env_var_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Env Var Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Environment variable deleted"
+          },
+          "404": {
+            "description": "Environment variable not found"
+          },
+          "409": {
+            "description": "Environment variable is still in use"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": "environment_variables",
+        "x-fern-sdk-method-name": "delete"
       }
     },
     "/v1/convai/environments": {
@@ -48343,13 +48403,6 @@
             "description": "Whether to remove the document if the URL becomes unavailable",
             "default": false
           },
-          "auto_discover": {
-            "type": "boolean",
-            "title": "Auto Discover",
-            "description": "Deprecated. This field no longer has any effect and will be removed in a future release.",
-            "default": false,
-            "deprecated": true
-          },
           "consec_failures": {
             "type": "integer",
             "minimum": 0.0,
@@ -56555,6 +56608,21 @@
             ],
             "title": "Music Concurrency Limit",
             "description": "Maximum concurrent music generation requests for this API key. Only available for enterprise customers."
+          },
+          "expires_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At Unix",
+            "description": "Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass \"clear\" to remove the expiry (never expires).",
+            "examples": [
+              1735689600
+            ]
           }
         },
         "type": "object",
@@ -56761,6 +56829,26 @@
             "title": "Music Concurrency Limit",
             "description": "Maximum concurrent music generation requests for this API key. Only available for enterprise customers.",
             "default": "no_update"
+          },
+          "expires_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "no_update"
+                ]
+              }
+            ],
+            "title": "Expires At Unix",
+            "description": "Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass \"clear\" to remove the expiry (never expires).",
+            "default": "no_update",
+            "examples": [
+              1735689600
+            ]
           }
         },
         "type": "object",
@@ -121902,6 +121990,18 @@
               }
             ],
             "description": "Per-API-key concurrency limits (TTS/dubbing/music). Enterprise-only."
+          },
+          "expires_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At Unix",
+            "description": "Unix timestamp (seconds) after which this API key stops working. Null means the key never expires."
           }
         },
         "type": "object",

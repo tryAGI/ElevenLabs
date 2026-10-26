@@ -525,6 +525,10 @@ namespace ElevenLabs
         /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.<br/>
         /// Default Value: no_update
         /// </param>
+        /// <param name="expiresAtUnix">
+        /// Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).<br/>
+        /// Default Value: no_update
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -540,6 +544,7 @@ namespace ElevenLabs
             global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchTtsConcurrencyLimit?>? ttsConcurrencyLimit = default,
             global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchDubbingConcurrencyLimit?>? dubbingConcurrencyLimit = default,
             global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?>? musicConcurrencyLimit = default,
+            global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchExpiresAtUnix?>? expiresAtUnix = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -554,6 +559,7 @@ namespace ElevenLabs
                 TtsConcurrencyLimit = ttsConcurrencyLimit,
                 DubbingConcurrencyLimit = dubbingConcurrencyLimit,
                 MusicConcurrencyLimit = musicConcurrencyLimit,
+                ExpiresAtUnix = expiresAtUnix,
             };
 
             return await UpdateAsync(

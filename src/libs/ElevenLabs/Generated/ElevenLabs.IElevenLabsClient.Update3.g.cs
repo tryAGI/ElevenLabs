@@ -6,7 +6,7 @@ namespace ElevenLabs
     {
         /// <summary>
         /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -21,7 +21,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -36,7 +36,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Agent Conversation Ticket<br/>
-        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires editor access to the ticket's agent.
+        /// Update a ticket's title, comment, status, priority, and/or assignee. Requires viewer access to the ticket's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="title">

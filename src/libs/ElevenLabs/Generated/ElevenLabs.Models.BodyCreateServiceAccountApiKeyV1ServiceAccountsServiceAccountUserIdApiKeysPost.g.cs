@@ -60,6 +60,12 @@ namespace ElevenLabs
         public int? MusicConcurrencyLimit { get; set; }
 
         /// <summary>
+        /// Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("expires_at_unix")]
+        public int? ExpiresAtUnix { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -90,6 +96,9 @@ namespace ElevenLabs
         /// <param name="musicConcurrencyLimit">
         /// Maximum concurrent music generation requests for this API key. Only available for enterprise customers.
         /// </param>
+        /// <param name="expiresAtUnix">
+        /// Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass "clear" to remove the expiry (never expires).
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -101,7 +110,8 @@ namespace ElevenLabs
             bool? thirdPartyDisableAllowed,
             int? ttsConcurrencyLimit,
             int? dubbingConcurrencyLimit,
-            int? musicConcurrencyLimit)
+            int? musicConcurrencyLimit,
+            int? expiresAtUnix)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Permissions = permissions;
@@ -111,6 +121,7 @@ namespace ElevenLabs
             this.TtsConcurrencyLimit = ttsConcurrencyLimit;
             this.DubbingConcurrencyLimit = dubbingConcurrencyLimit;
             this.MusicConcurrencyLimit = musicConcurrencyLimit;
+            this.ExpiresAtUnix = expiresAtUnix;
         }
 
         /// <summary>

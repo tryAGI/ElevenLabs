@@ -98,6 +98,12 @@ namespace ElevenLabs
         public global::ElevenLabs.PlatformLimits? PlatformLimits { get; set; }
 
         /// <summary>
+        /// Unix timestamp (seconds) after which this API key stops working. Null means the key never expires.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("expires_at_unix")]
+        public int? ExpiresAtUnix { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -128,6 +134,9 @@ namespace ElevenLabs
         /// <param name="platformLimits">
         /// Per-API-key concurrency limits (TTS/dubbing/music). Enterprise-only.
         /// </param>
+        /// <param name="expiresAtUnix">
+        /// Unix timestamp (seconds) after which this API key stops working. Null means the key never expires.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -145,7 +154,8 @@ namespace ElevenLabs
             int? characterCount,
             global::System.Collections.Generic.IList<string>? allowedIps,
             bool? thirdPartyDisableAllowed,
-            global::ElevenLabs.PlatformLimits? platformLimits)
+            global::ElevenLabs.PlatformLimits? platformLimits,
+            int? expiresAtUnix)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Hint = hint ?? throw new global::System.ArgumentNullException(nameof(hint));
@@ -161,6 +171,7 @@ namespace ElevenLabs
             this.AllowedIps = allowedIps;
             this.ThirdPartyDisableAllowed = thirdPartyDisableAllowed;
             this.PlatformLimits = platformLimits;
+            this.ExpiresAtUnix = expiresAtUnix;
         }
 
         /// <summary>
