@@ -16,6 +16,7 @@ namespace ElevenLabs.TextToDialogueMultiContextRealtime
     #pragma warning restore CS3016
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.TextToDialogueMultiContextRealtimeJsonContextTypes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.TextToDialogueMultiContextRealtime.DialogueTextAlignment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(string))]

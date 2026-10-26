@@ -18,6 +18,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(string[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Text.Json.JsonElement?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASRConversationalConfigWorkflowOverride))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ASTAdditionOperatorNodeInput))]
@@ -516,7 +517,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SearchHighlightSegment>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.SearchHighlightSegment))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDependentType), TypeInfoPropertyName = "KnowledgeBaseDependentType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel))]
     internal sealed partial class AgentsPlatformSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -533,6 +533,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValue>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValue>>?), TypeInfoPropertyName = "EnvironmentVariableAuthConnectionValue_a6ccb8fc0ba4a327")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string?>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseDocumentChunksResponseModel))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.KnowledgeBaseSortBy), TypeInfoPropertyName = "KnowledgeBaseSortBy2")]
@@ -1028,7 +1029,6 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ListPhoneNumbersRouteResponseItem?), TypeInfoPropertyName = "NullableListPhoneNumbersRouteResponseItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.ListPhoneNumbersRouteResponseItemDiscriminatorProvider?), TypeInfoPropertyName = "NullableListPhoneNumbersRouteResponseItemDiscriminatorProvider2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetPhoneNumberRouteResponse?), TypeInfoPropertyName = "NullableGetPhoneNumberRouteResponse2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetPhoneNumberRouteResponseDiscriminatorProvider?), TypeInfoPropertyName = "NullableGetPhoneNumberRouteResponseDiscriminatorProvider2")]
     internal sealed partial class AgentsPlatformSourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -1045,6 +1045,7 @@ namespace ElevenLabs
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.Dictionary<string, string>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableSecretValue>, global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.EnvironmentVariableAuthConnectionValue>>?), TypeInfoPropertyName = "EnvironmentVariableAuthConnectionValue_a6ccb8fc0ba4a327")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string?>), TypeInfoPropertyName = "ListString_System_Collections_Generic_List_string_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetPhoneNumberRouteResponseDiscriminatorProvider?), TypeInfoPropertyName = "NullableGetPhoneNumberRouteResponseDiscriminatorProvider2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdatePhoneNumberRouteResponse?), TypeInfoPropertyName = "NullableUpdatePhoneNumberRouteResponse2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminatorProvider?), TypeInfoPropertyName = "NullableUpdatePhoneNumberRouteResponseDiscriminatorProvider2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponse2?), TypeInfoPropertyName = "NullableGetAgentKnowledgeBaseSummariesRouteResponse22")]
