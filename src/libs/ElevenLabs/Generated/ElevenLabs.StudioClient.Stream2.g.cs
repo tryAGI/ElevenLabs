@@ -427,6 +427,10 @@ namespace ElevenLabs
                                     requestUri: __response.RequestMessage?.RequestUri,
                                     body: new global::ElevenLabs.ResponseStream(__response, __content));
                             }
+                            catch (global::System.OperationCanceledException)
+                            {
+                                throw;
+                            }
                             catch (global::System.Exception __ex)
                             {
                                 string? __content = null;

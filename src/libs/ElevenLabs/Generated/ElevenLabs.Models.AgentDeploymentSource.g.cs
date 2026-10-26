@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Duplicate,
+        /// <summary>
+        ///
+        /// </summary>
         Manual,
     }
 
@@ -31,6 +35,7 @@ namespace ElevenLabs
             return value switch
             {
                 AgentDeploymentSource.BranchMerge => "branch_merge",
+                AgentDeploymentSource.Duplicate => "duplicate",
                 AgentDeploymentSource.Manual => "manual",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace ElevenLabs
             return value switch
             {
                 "branch_merge" => AgentDeploymentSource.BranchMerge,
+                "duplicate" => AgentDeploymentSource.Duplicate,
                 "manual" => AgentDeploymentSource.Manual,
                 _ => null,
             };

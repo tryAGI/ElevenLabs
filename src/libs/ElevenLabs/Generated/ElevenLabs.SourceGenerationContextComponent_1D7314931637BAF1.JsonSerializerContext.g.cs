@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponse2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0147.Create_PostKnowledgeBaseBulkDeleteRouteResponse22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0148.Create_PostKnowledgeBaseBulkDeleteRouteResponse22(options);
                 }
                 if (type == typeof(global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponse2?))
                 {

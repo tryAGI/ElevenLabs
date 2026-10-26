@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.Gemini31FlashLiteImageRequestAspectRatio))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0067.Create_Gemini31FlashLiteImageRequestAspectRatio2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0068.Create_Gemini31FlashLiteImageRequestAspectRatio2(options);
                 }
                 if (type == typeof(global::ElevenLabs.Gemini31FlashLiteImageRequestAspectRatio?))
                 {

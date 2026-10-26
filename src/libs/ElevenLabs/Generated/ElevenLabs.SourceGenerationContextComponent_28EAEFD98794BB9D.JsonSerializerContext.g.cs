@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.VideoReferenceDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0237.Create_VideoReferenceDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0238.Create_VideoReferenceDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.VideoReferenceDiscriminatorType?))
                 {

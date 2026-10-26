@@ -16,6 +16,12 @@ namespace ElevenLabs
         public required string Id { get; set; }
 
         /// <summary>
+        /// The user-provided name of the test invocation, if one was set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
         /// The ID of the agent this test invocation belongs to
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
@@ -90,7 +96,7 @@ namespace ElevenLabs
         public required int CancelledCount { get; set; }
 
         /// <summary>
-        /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
+        /// Display title of the test invocation: the user-provided name when set, otherwise the folder name, single test name, or test count.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -159,7 +165,10 @@ namespace ElevenLabs
         /// Number of test runs that were cancelled
         /// </param>
         /// <param name="title">
-        /// Title of the test invocation - the folder name for folder runs, otherwise the single test name or count of tests
+        /// Display title of the test invocation: the user-provided name when set, otherwise the folder name, single test name, or test count.
+        /// </param>
+        /// <param name="name">
+        /// The user-provided name of the test invocation, if one was set.
         /// </param>
         /// <param name="agentId">
         /// The ID of the agent this test invocation belongs to
@@ -207,6 +216,7 @@ namespace ElevenLabs
             int pendingCount,
             int cancelledCount,
             string title,
+            string? name,
             string? agentId,
             string? branchId,
             string? versionId,
@@ -219,6 +229,7 @@ namespace ElevenLabs
             double? totalPrice)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Name = name;
             this.AgentId = agentId;
             this.BranchId = branchId;
             this.VersionId = versionId;

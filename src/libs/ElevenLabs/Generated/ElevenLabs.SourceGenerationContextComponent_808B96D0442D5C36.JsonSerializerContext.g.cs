@@ -32,27 +32,27 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TemplateArrayOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0219.Create_TemplateArrayOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0220.Create_TemplateArrayOutput(options);
                 }
                 if (type == typeof(global::ElevenLabs.TemplateObjectOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0220.Create_TemplateObjectOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0221.Create_TemplateObjectOutput(options);
                 }
                 if (type == typeof(global::ElevenLabs.TemplateOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0220.Create_TemplateOutput2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0221.Create_TemplateOutput2(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0179.Create_SourceGenerationContextMetadataType_4A3D90ED4C34DCD4(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0180.Create_SourceGenerationContextMetadataType_4A3D90ED4C34DCD4(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0172.Create_SourceGenerationContextMetadataType_2ACC4D87341A8030(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_SourceGenerationContextMetadataType_2ACC4D87341A8030(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplateOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0175.Create_SourceGenerationContextMetadataType_3C3B4FD9850DDFF2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0176.Create_SourceGenerationContextMetadataType_3C3B4FD9850DDFF2(options);
                 }
                 if (type == typeof(global::ElevenLabs.TemplateOutput?))
                 {

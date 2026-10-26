@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UserFeedbackScore))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0235.Create_UserFeedbackScore2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0236.Create_UserFeedbackScore2(options);
                 }
                 if (type == typeof(global::ElevenLabs.UserFeedbackScore?))
                 {

@@ -18,75 +18,75 @@ namespace ElevenLabs
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.SongSourceContext? MusicExploreSong1 { get; init; }
+        public global::ElevenLabs.SongSourceContext? Song { get; init; }
 #else
-        public global::ElevenLabs.SongSourceContext? MusicExploreSong1 { get; }
+        public global::ElevenLabs.SongSourceContext? Song { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MusicExploreSong1))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Song))]
 #endif
-        public bool IsMusicExploreSong1 => MusicExploreSong1 != null;
+        public bool IsSong => Song != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickMusicExploreSong1(
+        public bool TryPickSong(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
             out global::ElevenLabs.SongSourceContext? value)
         {
-            value = MusicExploreSong1;
-            return IsMusicExploreSong1;
+            value = Song;
+            return IsSong;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SongSourceContext PickMusicExploreSong1() => MusicExploreSong1 is { } value
+        public global::ElevenLabs.SongSourceContext PickSong() => Song is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'MusicExploreSong1' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Song' but the value was {ToString()}.");
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.MusicExploreSongSourceContext? MusicExploreSong2 { get; init; }
+        public global::ElevenLabs.MusicExploreSongSourceContext? MusicExploreSong { get; init; }
 #else
-        public global::ElevenLabs.MusicExploreSongSourceContext? MusicExploreSong2 { get; }
+        public global::ElevenLabs.MusicExploreSongSourceContext? MusicExploreSong { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MusicExploreSong2))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(MusicExploreSong))]
 #endif
-        public bool IsMusicExploreSong2 => MusicExploreSong2 != null;
+        public bool IsMusicExploreSong => MusicExploreSong != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickMusicExploreSong2(
+        public bool TryPickMusicExploreSong(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
             out global::ElevenLabs.MusicExploreSongSourceContext? value)
         {
-            value = MusicExploreSong2;
-            return IsMusicExploreSong2;
+            value = MusicExploreSong;
+            return IsMusicExploreSong;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.MusicExploreSongSourceContext PickMusicExploreSong2() => MusicExploreSong2 is { } value
+        public global::ElevenLabs.MusicExploreSongSourceContext PickMusicExploreSong() => MusicExploreSong is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'MusicExploreSong2' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'MusicExploreSong' but the value was {ToString()}.");
 
         /// <summary>
         /// Context for sound effect clips.
@@ -132,20 +132,20 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.SongSourceContext?(SourceContextVariant1 @this) => @this.MusicExploreSong1;
+        public static implicit operator global::ElevenLabs.SongSourceContext?(SourceContextVariant1 @this) => @this.Song;
 
         /// <summary>
         ///
         /// </summary>
         public SourceContextVariant1(global::ElevenLabs.SongSourceContext? value)
         {
-            MusicExploreSong1 = value;
+            Song = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static SourceContextVariant1 FromMusicExploreSong1(global::ElevenLabs.SongSourceContext? value) => new SourceContextVariant1(value);
+        public static SourceContextVariant1 FromSong(global::ElevenLabs.SongSourceContext? value) => new SourceContextVariant1(value);
 
         /// <summary>
         ///
@@ -155,20 +155,20 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.MusicExploreSongSourceContext?(SourceContextVariant1 @this) => @this.MusicExploreSong2;
+        public static implicit operator global::ElevenLabs.MusicExploreSongSourceContext?(SourceContextVariant1 @this) => @this.MusicExploreSong;
 
         /// <summary>
         ///
         /// </summary>
         public SourceContextVariant1(global::ElevenLabs.MusicExploreSongSourceContext? value)
         {
-            MusicExploreSong2 = value;
+            MusicExploreSong = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static SourceContextVariant1 FromMusicExploreSong2(global::ElevenLabs.MusicExploreSongSourceContext? value) => new SourceContextVariant1(value);
+        public static SourceContextVariant1 FromMusicExploreSong(global::ElevenLabs.MusicExploreSongSourceContext? value) => new SourceContextVariant1(value);
 
         /// <summary>
         ///
@@ -198,15 +198,15 @@ namespace ElevenLabs
         /// </summary>
         public SourceContextVariant1(
             global::ElevenLabs.ProjectExternalAudioResponseModelSourceContextVariant1DiscriminatorSourceType? sourceType,
-            global::ElevenLabs.SongSourceContext? musicExploreSong1,
-            global::ElevenLabs.MusicExploreSongSourceContext? musicExploreSong2,
+            global::ElevenLabs.SongSourceContext? song,
+            global::ElevenLabs.MusicExploreSongSourceContext? musicExploreSong,
             global::ElevenLabs.SfxSourceContext? sfx
             )
         {
             SourceType = sourceType;
 
-            MusicExploreSong1 = musicExploreSong1;
-            MusicExploreSong2 = musicExploreSong2;
+            Song = song;
+            MusicExploreSong = musicExploreSong;
             Sfx = sfx;
         }
 
@@ -215,16 +215,16 @@ namespace ElevenLabs
         /// </summary>
         public object? Object =>
             Sfx as object ??
-            MusicExploreSong2 as object ??
-            MusicExploreSong1 as object
+            MusicExploreSong as object ??
+            Song as object
             ;
 
         /// <summary>
         ///
         /// </summary>
         public override string? ToString() =>
-            MusicExploreSong1?.ToString() ??
-            MusicExploreSong2?.ToString() ??
+            Song?.ToString() ??
+            MusicExploreSong?.ToString() ??
             Sfx?.ToString()
             ;
 
@@ -233,15 +233,15 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsMusicExploreSong1 && !IsMusicExploreSong2 && !IsSfx || !IsMusicExploreSong1 && IsMusicExploreSong2 && !IsSfx || !IsMusicExploreSong1 && !IsMusicExploreSong2 && IsSfx;
+            return IsSong && !IsMusicExploreSong && !IsSfx || !IsSong && IsMusicExploreSong && !IsSfx || !IsSong && !IsMusicExploreSong && IsSfx;
         }
 
         /// <summary>
         ///
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.SongSourceContext, TResult>? musicExploreSong1 = null,
-            global::System.Func<global::ElevenLabs.MusicExploreSongSourceContext, TResult>? musicExploreSong2 = null,
+            global::System.Func<global::ElevenLabs.SongSourceContext, TResult>? song = null,
+            global::System.Func<global::ElevenLabs.MusicExploreSongSourceContext, TResult>? musicExploreSong = null,
             global::System.Func<global::ElevenLabs.SfxSourceContext, TResult>? sfx = null,
             bool validate = true)
         {
@@ -250,13 +250,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (MusicExploreSong1 is { } __value0 && musicExploreSong1 != null)
+            if (Song is { } __value0 && song != null)
             {
-                return musicExploreSong1(__value0);
+                return song(__value0);
             }
-            else if (MusicExploreSong2 is { } __value1 && musicExploreSong2 != null)
+            else if (MusicExploreSong is { } __value1 && musicExploreSong != null)
             {
-                return musicExploreSong2(__value1);
+                return musicExploreSong(__value1);
             }
             else if (Sfx is { } __value2 && sfx != null)
             {
@@ -270,9 +270,9 @@ namespace ElevenLabs
         ///
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.SongSourceContext>? musicExploreSong1 = null,
+            global::System.Action<global::ElevenLabs.SongSourceContext>? song = null,
 
-            global::System.Action<global::ElevenLabs.MusicExploreSongSourceContext>? musicExploreSong2 = null,
+            global::System.Action<global::ElevenLabs.MusicExploreSongSourceContext>? musicExploreSong = null,
 
             global::System.Action<global::ElevenLabs.SfxSourceContext>? sfx = null,
             bool validate = true)
@@ -282,13 +282,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (MusicExploreSong1 is { } __value0)
+            if (Song is { } __value0)
             {
-                musicExploreSong1?.Invoke(__value0);
+                song?.Invoke(__value0);
             }
-            else if (MusicExploreSong2 is { } __value1)
+            else if (MusicExploreSong is { } __value1)
             {
-                musicExploreSong2?.Invoke(__value1);
+                musicExploreSong?.Invoke(__value1);
             }
             else if (Sfx is { } __value2)
             {
@@ -300,8 +300,8 @@ namespace ElevenLabs
         ///
         /// </summary>
         public void Switch(
-            global::System.Action<global::ElevenLabs.SongSourceContext>? musicExploreSong1 = null,
-            global::System.Action<global::ElevenLabs.MusicExploreSongSourceContext>? musicExploreSong2 = null,
+            global::System.Action<global::ElevenLabs.SongSourceContext>? song = null,
+            global::System.Action<global::ElevenLabs.MusicExploreSongSourceContext>? musicExploreSong = null,
             global::System.Action<global::ElevenLabs.SfxSourceContext>? sfx = null,
             bool validate = true)
         {
@@ -310,13 +310,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (MusicExploreSong1 is { } __value0)
+            if (Song is { } __value0)
             {
-                musicExploreSong1?.Invoke(__value0);
+                song?.Invoke(__value0);
             }
-            else if (MusicExploreSong2 is { } __value1)
+            else if (MusicExploreSong is { } __value1)
             {
-                musicExploreSong2?.Invoke(__value1);
+                musicExploreSong?.Invoke(__value1);
             }
             else if (Sfx is { } __value2)
             {
@@ -331,9 +331,9 @@ namespace ElevenLabs
         {
             var fields = new object?[]
             {
-                MusicExploreSong1,
+                Song,
                 typeof(global::ElevenLabs.SongSourceContext),
-                MusicExploreSong2,
+                MusicExploreSong,
                 typeof(global::ElevenLabs.MusicExploreSongSourceContext),
                 Sfx,
                 typeof(global::ElevenLabs.SfxSourceContext),
@@ -353,8 +353,8 @@ namespace ElevenLabs
         public bool Equals(SourceContextVariant1 other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SongSourceContext?>.Default.Equals(MusicExploreSong1, other.MusicExploreSong1) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MusicExploreSongSourceContext?>.Default.Equals(MusicExploreSong2, other.MusicExploreSong2) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SongSourceContext?>.Default.Equals(Song, other.Song) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.MusicExploreSongSourceContext?>.Default.Equals(MusicExploreSong, other.MusicExploreSong) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.SfxSourceContext?>.Default.Equals(Sfx, other.Sfx)
                 ;
         }

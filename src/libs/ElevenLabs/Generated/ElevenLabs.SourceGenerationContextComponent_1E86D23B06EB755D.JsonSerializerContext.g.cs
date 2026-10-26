@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WhatsAppAccountType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0240.Create_WhatsAppAccountType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0242.Create_WhatsAppAccountType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WhatsAppAccountType?))
                 {

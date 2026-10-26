@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TemplateNumberOutputFailureReason))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0220.Create_TemplateNumberOutputFailureReason2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0221.Create_TemplateNumberOutputFailureReason2(options);
                 }
                 if (type == typeof(global::ElevenLabs.TemplateNumberOutputFailureReason?))
                 {

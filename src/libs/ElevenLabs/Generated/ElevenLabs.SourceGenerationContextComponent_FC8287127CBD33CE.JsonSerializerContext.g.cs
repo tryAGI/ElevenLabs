@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WhatsAppConversationInfoDirection))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0241.Create_WhatsAppConversationInfoDirection2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0242.Create_WhatsAppConversationInfoDirection2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WhatsAppConversationInfoDirection?))
                 {

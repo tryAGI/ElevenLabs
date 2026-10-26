@@ -29,13 +29,15 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string branchId,
-            ref string? sourceBranchId);
+            ref string? sourceBranchId,
+            global::ElevenLabs.BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost request);
         partial void PrepareRebaseRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string branchId,
-            string? sourceBranchId);
+            string? sourceBranchId,
+            global::ElevenLabs.BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost request);
         partial void ProcessRebaseResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,12 +60,15 @@ namespace ElevenLabs
         /// <param name="sourceBranchId">
         /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
         /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<string> RebaseAsync(
             string agentId,
             string branchId,
+
+            global::ElevenLabs.BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost request,
             string? sourceBranchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -71,6 +76,8 @@ namespace ElevenLabs
             var __response = await RebaseAsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
+
+                request: request,
                 sourceBranchId: sourceBranchId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -91,25 +98,31 @@ namespace ElevenLabs
         /// <param name="sourceBranchId">
         /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
         /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> RebaseAsResponseAsync(
             string agentId,
             string branchId,
+
+            global::ElevenLabs.BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost request,
             string? sourceBranchId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
                 global::ElevenLabs.SourceGenerationContextOperation_9EB5B275C3A0FA43.Default;
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
             PrepareRebaseArguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 branchId: ref branchId,
-                sourceBranchId: ref sourceBranchId);
+                sourceBranchId: ref sourceBranchId,
+                request: request);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -169,6 +182,12 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -182,7 +201,8 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
                     branchId: branchId,
-                    sourceBranchId: sourceBranchId);
+                    sourceBranchId: sourceBranchId,
+                    request: request);
 
                 return __httpRequest;
             }
@@ -489,6 +509,41 @@ namespace ElevenLabs
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Rebase A Branch Onto Main<br/>
+        /// Pull changes from a source branch (defaults to main) into this branch as a new version, preserving this branch's own changes on conflicts.
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="branchId">
+        /// Unique identifier for the source branch to merge from.
+        /// </param>
+        /// <param name="sourceBranchId">
+        /// The ID of the branch to pull changes from. Defaults to the agent's main branch.
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<string> RebaseAsync(
+            string agentId,
+            string branchId,
+            string? sourceBranchId = default,
+            global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::ElevenLabs.BodyRebaseABranchOntoMainV1ConvaiAgentsAgentIdBranchesBranchIdRebasePost
+            {
+            };
+
+            return await RebaseAsync(
+                agentId: agentId,
+                branchId: branchId,
+                sourceBranchId: sourceBranchId,
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

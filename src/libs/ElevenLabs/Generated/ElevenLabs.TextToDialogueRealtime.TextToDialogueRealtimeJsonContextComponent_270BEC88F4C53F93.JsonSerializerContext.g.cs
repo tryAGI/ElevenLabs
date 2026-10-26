@@ -24,7 +24,7 @@ namespace ElevenLabs.TextToDialogueRealtime
             {
                 if (type == typeof(global::ElevenLabs.TextToDialogueRealtime.TextToDialogueWebsocketVoiceInput))
                 {
-                    return global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextMetadata0FactoryBatch0001.Create_TextToDialogueWebsocketVoiceInput(options);
+                    return global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextMetadata0FactoryBatch0002.Create_TextToDialogueWebsocketVoiceInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -28,7 +28,7 @@ namespace ElevenLabs.TextToDialogueRealtime
                 }
                 if (type == typeof(global::System.Collections.Generic.List<int>))
                 {
-                    return global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextMetadata0FactoryBatch0000.Create_TextToDialogueRealtimeJsonContextMetadataType_2058AC0D316B5916(options);
+                    return global::ElevenLabs.TextToDialogueRealtime.TextToDialogueRealtimeJsonContextMetadata0FactoryBatch0001.Create_TextToDialogueRealtimeJsonContextMetadataType_2058AC0D316B5916(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

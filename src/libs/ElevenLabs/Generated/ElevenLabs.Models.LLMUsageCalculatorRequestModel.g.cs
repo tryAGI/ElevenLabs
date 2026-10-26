@@ -27,6 +27,12 @@ namespace ElevenLabs
         public bool? RagEnabled { get; set; }
 
         /// <summary>
+        /// Service tier to price against. Only affects models that offer the tier; others fall back to their standard price.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        public global::ElevenLabs.LLMServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +50,22 @@ namespace ElevenLabs
         /// <param name="ragEnabled">
         /// Whether RAG is enabled.
         /// </param>
+        /// <param name="serviceTier">
+        /// Service tier to price against. Only affects models that offer the tier; others fall back to their standard price.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LLMUsageCalculatorRequestModel(
             int? promptLength,
             int? numberOfPages,
-            bool? ragEnabled)
+            bool? ragEnabled,
+            global::ElevenLabs.LLMServiceTier? serviceTier)
         {
             this.PromptLength = promptLength;
             this.NumberOfPages = numberOfPages;
             this.RagEnabled = ragEnabled;
+            this.ServiceTier = serviceTier;
         }
 
         /// <summary>

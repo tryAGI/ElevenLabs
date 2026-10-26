@@ -13,8 +13,8 @@ namespace ElevenLabs
             internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope Value = new(
                 null,
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_3B2D00190CB00D76.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4ED53CF565504AE0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_863FF5BA6DA00A7D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_02FE4B0B09206D33.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CCAE89D576D5A437.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_ACB27E86B00E03A4.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_05BF36C073875770.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_16D70ACA0D58A95C.MetadataScope,                    static () => global::ElevenLabs.PartitionCoreSourceGenerationContext.MetadataScope,
-                }, ContributeConverters);
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_646B55FE7E38495E.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_05BF36C073875770.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_16D70ACA0D58A95C.MetadataScope,                    static () => global::ElevenLabs.PartitionCoreSourceGenerationContext.MetadataScope,
+                }, null);
         }
         private static class DefaultHolder
         {
@@ -33,20 +33,6 @@ namespace ElevenLabs
         /// <summary>Adds converters required by this scope.</summary>
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options) => MetadataScope.AddConverters(options);
-
-        #pragma warning disable CS0612, CS0618 // Generated converters may target deprecated API models.
-        private static void ContributeConverters(global::ElevenLabs.SourceGenerationContextMetadataScope.ConverterCollector collector)
-        {
-            collector.AddEnum(typeof(global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat), static () => new global::ElevenLabs.JsonConverters.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormat?), static () => new global::ElevenLabs.JsonConverters.BodyVoiceChangerStreamingV1VoiceChangerVoiceIdStreamPostFileFormatNullableJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat), static () => new global::ElevenLabs.JsonConverters.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormat?), static () => new global::ElevenLabs.JsonConverters.BodyVoiceChangerV1VoiceChangerVoiceIdPostFileFormatNullableJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat), static () => new global::ElevenLabs.JsonConverters.SpeechToSpeechFullOutputFormatJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.SpeechToSpeechFullOutputFormat?), static () => new global::ElevenLabs.JsonConverters.SpeechToSpeechFullOutputFormatNullableJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat), static () => new global::ElevenLabs.JsonConverters.SpeechToSpeechStreamOutputFormatJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.SpeechToSpeechStreamOutputFormat?), static () => new global::ElevenLabs.JsonConverters.SpeechToSpeechStreamOutputFormatNullableJsonConverter());
-        }
-        #pragma warning restore CS0612, CS0618
 
     }
 }

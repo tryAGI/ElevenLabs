@@ -147,15 +147,6 @@ namespace ElevenLabs
         };
 
         /// <summary>
-        /// Dub audio and video content into other languages while preserving the original speaker's voice.
-        /// </summary>
-        public Dubbing2Client Dubbing2 => new Dubbing2Client(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
         ///
         /// </summary>
         public EnvironmentVariablesClient EnvironmentVariables => new EnvironmentVariablesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WebhookToolApiSchemaConfigOutputMethod))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0240.Create_WebhookToolApiSchemaConfigOutputMethod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0241.Create_WebhookToolApiSchemaConfigOutputMethod2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WebhookToolApiSchemaConfigOutputMethod?))
                 {

@@ -16,6 +16,12 @@ namespace ElevenLabs
         public required string Id { get; set; }
 
         /// <summary>
+        /// The user-provided name of the test invocation, if one was set.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("name")]
+        public string? Name { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_id")]
@@ -93,6 +99,9 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="id"></param>
         /// <param name="testRuns"></param>
+        /// <param name="name">
+        /// The user-provided name of the test invocation, if one was set.
+        /// </param>
         /// <param name="agentId"></param>
         /// <param name="branchId"></param>
         /// <param name="versionId"></param>
@@ -117,6 +126,7 @@ namespace ElevenLabs
         public GetTestSuiteInvocationResponseModel(
             string id,
             global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestRunResponseModel> testRuns,
+            string? name,
             string? agentId,
             string? branchId,
             string? versionId,
@@ -129,6 +139,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.TestRunResultSummary>? resultGroups)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Name = name;
             this.AgentId = agentId;
             this.BranchId = branchId;
             this.VersionId = versionId;

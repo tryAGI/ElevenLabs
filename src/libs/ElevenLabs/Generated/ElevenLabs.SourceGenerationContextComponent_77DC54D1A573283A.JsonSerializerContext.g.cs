@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SchemaOverridesVariant12))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0159.Create_SchemaOverridesVariant122(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0160.Create_SchemaOverridesVariant122(options);
                 }
                 if (type == typeof(global::ElevenLabs.SchemaOverridesVariant12?))
                 {

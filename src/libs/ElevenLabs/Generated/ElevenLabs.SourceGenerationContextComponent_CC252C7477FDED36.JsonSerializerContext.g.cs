@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0140.Create_OpenAISessionConfigInputToolDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0141.Create_OpenAISessionConfigInputToolDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType?))
                 {

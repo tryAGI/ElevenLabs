@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0037.Create_ConvAIStoredSecretDependenciesToolDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0038.Create_ConvAIStoredSecretDependenciesToolDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesToolDiscriminatorType?))
                 {

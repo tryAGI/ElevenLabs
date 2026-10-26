@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Architect,
+        /// <summary>
+        ///
+        /// </summary>
         Cli,
         /// <summary>
         ///
@@ -43,6 +47,7 @@ namespace ElevenLabs
             return value switch
             {
                 AgentDefinitionSource.Api => "api",
+                AgentDefinitionSource.Architect => "architect",
                 AgentDefinitionSource.Cli => "cli",
                 AgentDefinitionSource.Template => "template",
                 AgentDefinitionSource.Ui => "ui",
@@ -58,6 +63,7 @@ namespace ElevenLabs
             return value switch
             {
                 "api" => AgentDefinitionSource.Api,
+                "architect" => AgentDefinitionSource.Architect,
                 "cli" => AgentDefinitionSource.Cli,
                 "template" => AgentDefinitionSource.Template,
                 "ui" => AgentDefinitionSource.Ui,

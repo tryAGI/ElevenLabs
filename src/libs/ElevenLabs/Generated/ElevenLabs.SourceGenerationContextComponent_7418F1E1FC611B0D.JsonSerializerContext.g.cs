@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminatorProvider))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0233.Create_UpdatePhoneNumberRouteResponseDiscriminatorProvider2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0234.Create_UpdatePhoneNumberRouteResponseDiscriminatorProvider2(options);
                 }
                 if (type == typeof(global::ElevenLabs.UpdatePhoneNumberRouteResponseDiscriminatorProvider?))
                 {

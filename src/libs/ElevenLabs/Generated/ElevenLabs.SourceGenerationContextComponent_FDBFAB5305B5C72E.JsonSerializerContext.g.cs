@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetTestsSummariesByIdsResponseModelTests))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0076.Create_GetTestsSummariesByIdsResponseModelTests(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0077.Create_GetTestsSummariesByIdsResponseModelTests(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

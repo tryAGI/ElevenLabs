@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.VeoImageReferenceRole))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0236.Create_VeoImageReferenceRole2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0237.Create_VeoImageReferenceRole2(options);
                 }
                 if (type == typeof(global::ElevenLabs.VeoImageReferenceRole?))
                 {

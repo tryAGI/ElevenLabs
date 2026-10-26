@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0222.Create_TextToSpeechGenerationRequestDiscriminatorModelId2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0224.Create_TextToSpeechGenerationRequestDiscriminatorModelId2(options);
                 }
                 if (type == typeof(global::ElevenLabs.TextToSpeechGenerationRequestDiscriminatorModelId?))
                 {

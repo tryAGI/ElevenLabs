@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WidgetConfigResponseModelSyntaxHighlightTheme))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0242.Create_WidgetConfigResponseModelSyntaxHighlightTheme2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0244.Create_WidgetConfigResponseModelSyntaxHighlightTheme2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WidgetConfigResponseModelSyntaxHighlightTheme?))
                 {

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.McpServersItem))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0091.Create_McpServersItem2_3(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0092.Create_McpServersItem2_3(options);
                 }
                 if (type == typeof(global::ElevenLabs.McpServersItem?))
                 {

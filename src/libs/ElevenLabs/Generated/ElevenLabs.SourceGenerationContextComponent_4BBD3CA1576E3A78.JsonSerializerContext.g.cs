@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CaptionStyleCharacterAnimationModelEnterType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0031.Create_CaptionStyleCharacterAnimationModelEnterType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0032.Create_CaptionStyleCharacterAnimationModelEnterType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.CaptionStyleCharacterAnimationModelEnterType?))
                 {

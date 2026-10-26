@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostWebhookMetadata))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0025.Create_BodySpeechToTextV1SpeechToTextPostWebhookMetadata(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0026.Create_BodySpeechToTextV1SpeechToTextPostWebhookMetadata(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

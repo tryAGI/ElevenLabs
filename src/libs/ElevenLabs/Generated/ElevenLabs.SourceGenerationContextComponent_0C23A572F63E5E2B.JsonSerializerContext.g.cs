@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ToolCallSoundBehavior))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0223.Create_ToolCallSoundBehavior2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0225.Create_ToolCallSoundBehavior2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ToolCallSoundBehavior?))
                 {

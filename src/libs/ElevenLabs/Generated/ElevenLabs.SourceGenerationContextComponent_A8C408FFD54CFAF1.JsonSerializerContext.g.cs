@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBAgentType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0158.Create_SMBAgentType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0159.Create_SMBAgentType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SMBAgentType?))
                 {

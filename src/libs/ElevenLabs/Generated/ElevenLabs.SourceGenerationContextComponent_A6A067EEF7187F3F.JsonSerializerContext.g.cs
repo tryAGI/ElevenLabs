@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.Veo31FastRequestResolution))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0236.Create_Veo31FastRequestResolution2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0237.Create_Veo31FastRequestResolution2(options);
                 }
                 if (type == typeof(global::ElevenLabs.Veo31FastRequestResolution?))
                 {

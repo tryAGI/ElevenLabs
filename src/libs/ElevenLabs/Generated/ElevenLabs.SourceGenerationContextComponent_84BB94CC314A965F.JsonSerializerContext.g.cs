@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.LiteralJsonSchemaPropertyType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0087.Create_LiteralJsonSchemaPropertyType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0088.Create_LiteralJsonSchemaPropertyType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.LiteralJsonSchemaPropertyType?))
                 {
