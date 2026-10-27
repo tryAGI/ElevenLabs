@@ -117410,6 +117410,16 @@
                 "type": "null"
               }
             ]
+          },
+          "call_result": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CallResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
