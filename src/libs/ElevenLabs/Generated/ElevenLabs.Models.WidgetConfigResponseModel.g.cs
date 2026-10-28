@@ -324,6 +324,13 @@ namespace ElevenLabs
         public bool? MobileFullscreen { get; set; }
 
         /// <summary>
+        /// Whether voice call transcripts are revealed as the agent speaks<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcript_speech_sync_enabled")]
+        public bool? TranscriptSpeechSyncEnabled { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -553,6 +560,10 @@ namespace ElevenLabs
         /// Whether the widget opens fullscreen on mobile<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="transcriptSpeechSyncEnabled">
+        /// Whether voice call transcripts are revealed as the agent speaks<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="supportedLanguageOverrides"></param>
         /// <param name="languagePresets">
         /// Language presets for the widget
@@ -624,6 +635,7 @@ namespace ElevenLabs
             bool? showResizeButton,
             bool? endConfirmationEnabled,
             bool? mobileFullscreen,
+            bool? transcriptSpeechSyncEnabled,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
@@ -679,6 +691,7 @@ namespace ElevenLabs
             this.ShowResizeButton = showResizeButton;
             this.EndConfirmationEnabled = endConfirmationEnabled;
             this.MobileFullscreen = mobileFullscreen;
+            this.TranscriptSpeechSyncEnabled = transcriptSpeechSyncEnabled;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
             this.LanguagePresets = languagePresets;

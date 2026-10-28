@@ -53,6 +53,12 @@ namespace ElevenLabs
         public global::ElevenLabs.CallResult? CallResult { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("opening_message")]
+        public global::ElevenLabs.WhatsAppOpeningMessage? OpeningMessage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -70,6 +76,7 @@ namespace ElevenLabs
         /// <param name="recipient"></param>
         /// <param name="callPermissionRequest"></param>
         /// <param name="callResult"></param>
+        /// <param name="openingMessage"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -80,7 +87,8 @@ namespace ElevenLabs
             bool? awaitingFirstUserMessage,
             global::ElevenLabs.WhatsAppRecipient? recipient,
             global::ElevenLabs.WhatsAppCallPermissionRequest? callPermissionRequest,
-            global::ElevenLabs.CallResult? callResult)
+            global::ElevenLabs.CallResult? callResult,
+            global::ElevenLabs.WhatsAppOpeningMessage? openingMessage)
         {
             this.Direction = direction;
             this.WhatsappPhoneNumberId = whatsappPhoneNumberId;
@@ -89,6 +97,7 @@ namespace ElevenLabs
             this.Recipient = recipient;
             this.CallPermissionRequest = callPermissionRequest;
             this.CallResult = callResult;
+            this.OpeningMessage = openingMessage;
         }
 
         /// <summary>

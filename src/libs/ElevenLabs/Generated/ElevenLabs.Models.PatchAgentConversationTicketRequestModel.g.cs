@@ -15,6 +15,12 @@ namespace ElevenLabs
         public string? Title { get; set; }
 
         /// <summary>
+        /// If provided, updates the ticket description. Omit to leave unchanged.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("qa_comment")]
+        public string? QaComment { get; set; }
+
+        /// <summary>
         /// If provided, updates the ticket status. Omit to leave unchanged.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
@@ -44,6 +50,9 @@ namespace ElevenLabs
         /// <param name="title">
         /// If provided, updates the ticket title. Omit to leave unchanged.
         /// </param>
+        /// <param name="qaComment">
+        /// If provided, updates the ticket description. Omit to leave unchanged.
+        /// </param>
         /// <param name="status">
         /// If provided, updates the ticket status. Omit to leave unchanged.
         /// </param>
@@ -58,11 +67,13 @@ namespace ElevenLabs
 #endif
         public PatchAgentConversationTicketRequestModel(
             string? title,
+            string? qaComment,
             global::ElevenLabs.AgentConversationTicketStatus? status,
             string? assigneeUserId,
             global::ElevenLabs.AgentConversationTicketPriority? priority)
         {
             this.Title = title;
+            this.QaComment = qaComment;
             this.Status = status;
             this.AssigneeUserId = assigneeUserId;
             this.Priority = priority;

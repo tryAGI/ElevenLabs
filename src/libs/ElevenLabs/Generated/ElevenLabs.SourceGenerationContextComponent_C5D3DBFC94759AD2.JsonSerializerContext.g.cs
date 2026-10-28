@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(byte[]))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0030.Create_ByteArray(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0031.Create_ByteArray(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

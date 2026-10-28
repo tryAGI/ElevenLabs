@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetBookingSlugStatusParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0070.Create_GetBookingSlugStatusParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0072.Create_GetBookingSlugStatusParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

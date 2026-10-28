@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_17744AA2F59C1D1D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DE81726402092602.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E8D3704E27A1CDDD.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_17744AA2F59C1D1D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B8A97A392C091F5B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DE81726402092602.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E8D3704E27A1CDDD.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UnitTestToolCallEvaluationModelInput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0231.Create_UnitTestToolCallEvaluationModelInput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0243.Create_UnitTestToolCallEvaluationModelInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

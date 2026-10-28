@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AgentsArchitect,
+        /// <summary>
+        ///
+        /// </summary>
         AudioIsolation,
         /// <summary>
         ///
@@ -227,6 +231,7 @@ namespace ElevenLabs
             return value switch
             {
                 PermissionType.AddVoiceFromVoiceLibrary => "add_voice_from_voice_library",
+                PermissionType.AgentsArchitect => "agents_architect",
                 PermissionType.AudioIsolation => "audio_isolation",
                 PermissionType.AudioNativeRead => "audio_native_read",
                 PermissionType.AudioNativeWrite => "audio_native_write",
@@ -288,6 +293,7 @@ namespace ElevenLabs
             return value switch
             {
                 "add_voice_from_voice_library" => PermissionType.AddVoiceFromVoiceLibrary,
+                "agents_architect" => PermissionType.AgentsArchitect,
                 "audio_isolation" => PermissionType.AudioIsolation,
                 "audio_native_read" => PermissionType.AudioNativeRead,
                 "audio_native_write" => PermissionType.AudioNativeWrite,

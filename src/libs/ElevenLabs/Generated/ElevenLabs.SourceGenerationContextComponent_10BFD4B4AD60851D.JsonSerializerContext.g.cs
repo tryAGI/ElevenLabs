@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0098.Create_NullableApiIntegrationOAuth2CustomAppResponseScopeSeparator2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0100.Create_NullableApiIntegrationOAuth2CustomAppResponseScopeSeparator2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

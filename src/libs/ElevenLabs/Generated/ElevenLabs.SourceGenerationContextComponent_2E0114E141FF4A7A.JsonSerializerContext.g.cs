@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyBulkMoveEntitiesToFolderV1ConvaiKnowledgeBaseBulkMovePost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0018.Create_BodyBulkMoveEntitiesToFolderV1ConvaiKnowledgeBaseBulkMovePost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0019.Create_BodyBulkMoveEntitiesToFolderV1ConvaiKnowledgeBaseBulkMovePost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

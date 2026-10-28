@@ -88,15 +88,15 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ASTNodeInput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0186.Create_SourceGenerationContextMetadataType_6EF5E0FE9F74B870(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0196.Create_SourceGenerationContextMetadataType_6EF5E0FE9F74B870(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.ASTNodeInput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0169.Create_SourceGenerationContextMetadataType_18F9B20DD805F230(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0178.Create_SourceGenerationContextMetadataType_18F9B20DD805F230(options);
                 }
                 if (type == typeof(global::ElevenLabs.ASTNodeInput?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0096.Create_NullableASTNodeInput2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0098.Create_NullableASTNodeInput2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

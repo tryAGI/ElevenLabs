@@ -34,6 +34,12 @@ namespace ElevenLabs
         public global::ElevenLabs.UnitTestWorkflowNodeTransitionEvaluationNodeId? WorkflowNodeTransition { get; set; }
 
         /// <summary>
+        /// Evaluate guardrails triggered by the generated agent turn.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("guardrail_trigger")]
+        public global::ElevenLabs.UnitTestGuardrailTriggerEvaluationModel? GuardrailTrigger { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -55,6 +61,9 @@ namespace ElevenLabs
         /// <param name="workflowNodeTransition">
         /// Configuration for testing workflow node transitions. When set, the test will verify the agent transitions to the specified workflow node.
         /// </param>
+        /// <param name="guardrailTrigger">
+        /// Evaluate guardrails triggered by the generated agent turn.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,12 +71,14 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<global::ElevenLabs.UnitTestToolCallParameter>? parameters,
             global::ElevenLabs.ReferencedToolCommonModel? referencedTool,
             bool? verifyAbsence,
-            global::ElevenLabs.UnitTestWorkflowNodeTransitionEvaluationNodeId? workflowNodeTransition)
+            global::ElevenLabs.UnitTestWorkflowNodeTransitionEvaluationNodeId? workflowNodeTransition,
+            global::ElevenLabs.UnitTestGuardrailTriggerEvaluationModel? guardrailTrigger)
         {
             this.Parameters = parameters;
             this.ReferencedTool = referencedTool;
             this.VerifyAbsence = verifyAbsence;
             this.WorkflowNodeTransition = workflowNodeTransition;
+            this.GuardrailTrigger = guardrailTrigger;
         }
 
         /// <summary>
