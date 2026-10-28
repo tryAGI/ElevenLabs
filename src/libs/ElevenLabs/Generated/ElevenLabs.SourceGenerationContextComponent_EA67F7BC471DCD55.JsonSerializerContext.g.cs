@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MCPServerConfigOutputRequestMeta))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0089.Create_MCPServerConfigOutputRequestMeta(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0091.Create_MCPServerConfigOutputRequestMeta(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

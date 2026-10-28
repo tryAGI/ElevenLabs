@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ListHolidaysParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0086.Create_ListHolidaysParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0088.Create_ListHolidaysParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.EnvironmentVariableAuthConnectionValueRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0062.Create_EnvironmentVariableAuthConnectionValueRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0064.Create_EnvironmentVariableAuthConnectionValueRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

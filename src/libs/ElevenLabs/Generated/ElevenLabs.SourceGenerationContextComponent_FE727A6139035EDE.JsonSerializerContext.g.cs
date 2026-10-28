@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0027.Create_BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0028.Create_BodyUnshareWorkspaceResourceV1WorkspaceResourcesResourceIdUnsharePost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

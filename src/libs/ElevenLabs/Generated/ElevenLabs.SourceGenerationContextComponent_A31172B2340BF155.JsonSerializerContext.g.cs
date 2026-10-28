@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MusicOnlyOutputFormats))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0095.Create_MusicOnlyOutputFormats2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0097.Create_MusicOnlyOutputFormats2(options);
                 }
                 if (type == typeof(global::ElevenLabs.MusicOnlyOutputFormats?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0121.Create_NullableMusicOnlyOutputFormats2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0124.Create_NullableMusicOnlyOutputFormats2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

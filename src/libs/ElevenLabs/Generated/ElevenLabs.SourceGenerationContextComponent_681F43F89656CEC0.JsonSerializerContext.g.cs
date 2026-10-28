@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TurnConfigWorkflowOverride))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0230.Create_TurnConfigWorkflowOverride(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0242.Create_TurnConfigWorkflowOverride(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

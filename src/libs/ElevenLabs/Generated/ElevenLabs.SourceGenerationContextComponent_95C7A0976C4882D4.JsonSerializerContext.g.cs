@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DynamicVariablesConfigDynamicVariablePlaceholders))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0060.Create_DynamicVariablesConfigDynamicVariablePlaceholders(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0062.Create_DynamicVariablesConfigDynamicVariablePlaceholders(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

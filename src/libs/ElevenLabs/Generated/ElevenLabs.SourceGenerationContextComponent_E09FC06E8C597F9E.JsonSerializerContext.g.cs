@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DashboardCriteriaChartModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0051.Create_DashboardCriteriaChartModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0053.Create_DashboardCriteriaChartModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

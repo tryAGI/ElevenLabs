@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DeleteMcpServerRouteResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0053.Create_DeleteMcpServerRouteResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0055.Create_DeleteMcpServerRouteResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.VideoAnalysis))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0237.Create_VideoAnalysis(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0249.Create_VideoAnalysis(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

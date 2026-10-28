@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationInitiationClientDataInternalToolMockOverrides))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0042.Create_ConversationInitiationClientDataInternalToolMockOverrides(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0044.Create_ConversationInitiationClientDataInternalToolMockOverrides(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

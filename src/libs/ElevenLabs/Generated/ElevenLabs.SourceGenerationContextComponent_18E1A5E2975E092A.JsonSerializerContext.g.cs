@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CustomGuardrailInput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0050.Create_CustomGuardrailInput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0052.Create_CustomGuardrailInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

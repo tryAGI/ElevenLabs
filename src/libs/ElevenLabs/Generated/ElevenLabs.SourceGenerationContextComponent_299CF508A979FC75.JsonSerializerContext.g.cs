@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistoryMetadataCommonModelPhoneCallVariant1Discriminator))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0039.Create_ConversationHistoryMetadataCommonModelPhoneCallVariant1Discriminator(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0041.Create_ConversationHistoryMetadataCommonModelPhoneCallVariant1Discriminator(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

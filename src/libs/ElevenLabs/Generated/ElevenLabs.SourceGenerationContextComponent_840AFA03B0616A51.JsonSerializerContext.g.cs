@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetGroupsEndpointResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0072.Create_GetGroupsEndpointResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0073.Create_GetGroupsEndpointResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

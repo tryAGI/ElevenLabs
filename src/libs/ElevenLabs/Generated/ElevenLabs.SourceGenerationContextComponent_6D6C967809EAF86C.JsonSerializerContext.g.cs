@@ -32,12 +32,12 @@ namespace ElevenLabs
                 #pragma warning disable CS0618 // Metadata references a deprecated API model.
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0186.Create_SourceGenerationContextMetadataType_6D6C967809EAF86C(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0195.Create_SourceGenerationContextMetadataType_6D6C967809EAF86C(options);
                 }
                 #pragma warning restore CS0618
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0179.Create_SourceGenerationContextMetadataType_45646E70ACCB3B6E(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0188.Create_SourceGenerationContextMetadataType_45646E70ACCB3B6E(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0028.Create_BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0029.Create_BodyUpdateChapterV1StudioProjectsProjectIdChaptersChapterIdPost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

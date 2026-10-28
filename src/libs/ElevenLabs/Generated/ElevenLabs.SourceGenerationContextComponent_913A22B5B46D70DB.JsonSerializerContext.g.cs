@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.BatchCallRecipientStatus?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0099.Create_NullableBatchCallRecipientStatus2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0101.Create_NullableBatchCallRecipientStatus2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

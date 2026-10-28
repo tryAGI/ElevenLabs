@@ -32,15 +32,15 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0183.Create_SourceGenerationContextMetadataType_5DA2C6E1E567F089(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0193.Create_SourceGenerationContextMetadataType_5DA2C6E1E567F089(options);
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<global::ElevenLabs.PermissionType>, string>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0164.Create_SourceGenerationContextMetadataType_008AC879981209E6(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0172.Create_SourceGenerationContextMetadataType_008AC879981209E6(options);
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, string>?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0165.Create_SourceGenerationContextMetadataType_07BFA6AA834E071D(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0174.Create_SourceGenerationContextMetadataType_07BFA6AA834E071D(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

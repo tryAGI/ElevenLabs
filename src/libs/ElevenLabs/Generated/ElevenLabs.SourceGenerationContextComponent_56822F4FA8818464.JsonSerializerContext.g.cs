@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationalConfigAPIModelOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0045.Create_ConversationalConfigAPIModelOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0046.Create_ConversationalConfigAPIModelOutput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

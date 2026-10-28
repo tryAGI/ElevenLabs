@@ -489,6 +489,9 @@ namespace ElevenLabs
         /// <param name="title">
         /// If provided, updates the ticket title. Omit to leave unchanged.
         /// </param>
+        /// <param name="qaComment">
+        /// If provided, updates the ticket description. Omit to leave unchanged.
+        /// </param>
         /// <param name="status">
         /// If provided, updates the ticket status. Omit to leave unchanged.
         /// </param>
@@ -504,6 +507,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentConversationTicketResponseModel> Update3Async(
             string agentqaTicketId,
             string? title = default,
+            string? qaComment = default,
             global::ElevenLabs.AgentConversationTicketStatus? status = default,
             string? assigneeUserId = default,
             global::ElevenLabs.AgentConversationTicketPriority? priority = default,
@@ -513,6 +517,7 @@ namespace ElevenLabs
             var __request = new global::ElevenLabs.PatchAgentConversationTicketRequestModel
             {
                 Title = title,
+                QaComment = qaComment,
                 Status = status,
                 AssigneeUserId = assigneeUserId,
                 Priority = priority,

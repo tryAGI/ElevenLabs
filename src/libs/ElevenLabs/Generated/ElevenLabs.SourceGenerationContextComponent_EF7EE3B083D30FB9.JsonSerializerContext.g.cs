@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DubbingTargetTranscriptSegment))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0059.Create_DubbingTargetTranscriptSegment(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0061.Create_DubbingTargetTranscriptSegment(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

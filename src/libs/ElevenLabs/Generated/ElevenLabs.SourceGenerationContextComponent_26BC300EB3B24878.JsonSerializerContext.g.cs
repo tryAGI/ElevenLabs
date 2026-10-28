@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MediaGenerationInProgressResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0092.Create_MediaGenerationInProgressResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0094.Create_MediaGenerationInProgressResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

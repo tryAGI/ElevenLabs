@@ -31,11 +31,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.MCPToolConfigOverrideInput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0168.Create_SourceGenerationContextMetadataType_16C9D4B72E8E4083(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0177.Create_SourceGenerationContextMetadataType_16C9D4B72E8E4083(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.MCPToolConfigOverrideInput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0170.Create_SourceGenerationContextMetadataType_1C37819151792AF1(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0179.Create_SourceGenerationContextMetadataType_1C37819151792AF1(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DeleteHistoryItemResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0053.Create_DeleteHistoryItemResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0054.Create_DeleteHistoryItemResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

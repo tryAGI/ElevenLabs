@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.IntegerSchema))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0080.Create_IntegerSchema(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0082.Create_IntegerSchema(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

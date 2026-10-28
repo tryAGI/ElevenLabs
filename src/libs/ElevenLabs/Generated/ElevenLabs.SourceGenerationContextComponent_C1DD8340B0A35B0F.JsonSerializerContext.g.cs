@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyTextToSpeechStreamWithTimestamps))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0027.Create_BodyTextToSpeechStreamWithTimestamps(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0028.Create_BodyTextToSpeechStreamWithTimestamps(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

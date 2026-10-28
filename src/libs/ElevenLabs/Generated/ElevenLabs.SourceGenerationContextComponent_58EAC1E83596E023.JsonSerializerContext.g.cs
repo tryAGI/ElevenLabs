@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.StudioTextStyleShadowModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0218.Create_StudioTextStyleShadowModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0229.Create_StudioTextStyleShadowModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.QueryParamsJsonSchemaInputProperties))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0153.Create_QueryParamsJsonSchemaInputProperties(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0158.Create_QueryParamsJsonSchemaInputProperties(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallMCPDetailsParameters))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0042.Create_ConversationHistoryTranscriptToolCallMCPDetailsParameters(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0043.Create_ConversationHistoryTranscriptToolCallMCPDetailsParameters(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

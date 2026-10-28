@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BillingPeriod))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0017.Create_BillingPeriod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0018.Create_BillingPeriod2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BillingPeriod?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0099.Create_NullableBillingPeriod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0101.Create_NullableBillingPeriod2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.RemoveOrderItemResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0156.Create_RemoveOrderItemResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0161.Create_RemoveOrderItemResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

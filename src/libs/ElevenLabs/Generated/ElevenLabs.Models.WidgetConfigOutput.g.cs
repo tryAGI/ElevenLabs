@@ -324,6 +324,13 @@ namespace ElevenLabs
         public bool? MobileFullscreen { get; set; }
 
         /// <summary>
+        /// Whether voice call transcripts are revealed as the agent speaks<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transcript_speech_sync_enabled")]
+        public bool? TranscriptSpeechSyncEnabled { get; set; }
+
+        /// <summary>
         /// Whether to show the language selector<br/>
         /// Default Value: false
         /// </summary>
@@ -527,6 +534,10 @@ namespace ElevenLabs
         /// Whether the widget opens fullscreen on mobile<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="transcriptSpeechSyncEnabled">
+        /// Whether voice call transcripts are revealed as the agent speaks<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="languageSelector">
         /// Whether to show the language selector<br/>
         /// Default Value: false
@@ -592,6 +603,7 @@ namespace ElevenLabs
             bool? showResizeButton,
             bool? endConfirmationEnabled,
             bool? mobileFullscreen,
+            bool? transcriptSpeechSyncEnabled,
             bool? languageSelector,
             bool? supportsTextOnly,
             string? customAvatarPath,
@@ -644,6 +656,7 @@ namespace ElevenLabs
             this.ShowResizeButton = showResizeButton;
             this.EndConfirmationEnabled = endConfirmationEnabled;
             this.MobileFullscreen = mobileFullscreen;
+            this.TranscriptSpeechSyncEnabled = transcriptSpeechSyncEnabled;
             this.LanguageSelector = languageSelector;
             this.SupportsTextOnly = supportsTextOnly;
             this.CustomAvatarPath = customAvatarPath;

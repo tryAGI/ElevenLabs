@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.InlineImageReference))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0079.Create_InlineImageReference(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0081.Create_InlineImageReference(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

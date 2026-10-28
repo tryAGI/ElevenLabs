@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OpenAITurnDetection))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0141.Create_OpenAITurnDetection(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_OpenAITurnDetection(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistoryFeedbackCommonModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0039.Create_ConversationHistoryFeedbackCommonModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0041.Create_ConversationHistoryFeedbackCommonModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

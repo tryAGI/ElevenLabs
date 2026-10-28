@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WidgetTextContentsTranslationSource))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0244.Create_WidgetTextContentsTranslationSource(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0256.Create_WidgetTextContentsTranslationSource(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

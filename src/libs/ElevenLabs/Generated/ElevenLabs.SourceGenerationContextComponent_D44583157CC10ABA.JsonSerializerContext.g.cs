@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ToolCallDetailsVariant1))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0225.Create_ToolCallDetailsVariant1(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0236.Create_ToolCallDetailsVariant1(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

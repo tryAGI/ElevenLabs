@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DeleteKnowledgeBaseDocumentResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0053.Create_DeleteKnowledgeBaseDocumentResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0054.Create_DeleteKnowledgeBaseDocumentResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

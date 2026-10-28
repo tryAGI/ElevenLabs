@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetPhoneNumberRouteResponseDiscriminator))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0074.Create_GetPhoneNumberRouteResponseDiscriminator(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0076.Create_GetPhoneNumberRouteResponseDiscriminator(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConvAIStoredSecretDependenciesMcpServerDiscriminator))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0037.Create_ConvAIStoredSecretDependenciesMcpServerDiscriminator(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0039.Create_ConvAIStoredSecretDependenciesMcpServerDiscriminator(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CaptionStyleModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0032.Create_CaptionStyleModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0033.Create_CaptionStyleModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

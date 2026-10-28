@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ListAssetsParamsListKwargs))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0085.Create_ListAssetsParamsListKwargs(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0087.Create_ListAssetsParamsListKwargs(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

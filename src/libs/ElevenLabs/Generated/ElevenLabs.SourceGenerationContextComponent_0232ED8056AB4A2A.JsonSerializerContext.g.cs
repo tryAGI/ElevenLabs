@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OpenAITracingConfigurationMetadata))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0141.Create_OpenAITracingConfigurationMetadata(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_OpenAITracingConfigurationMetadata(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateBookingPageSettingsParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0233.Create_UpdateBookingPageSettingsParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0244.Create_UpdateBookingPageSettingsParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

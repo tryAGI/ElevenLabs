@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ResourceMetadataResponseModelRoleToGroupIds))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0157.Create_ResourceMetadataResponseModelRoleToGroupIds(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0162.Create_ResourceMetadataResponseModelRoleToGroupIds(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetWorkspacePlanParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0077.Create_GetWorkspacePlanParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0079.Create_GetWorkspacePlanParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

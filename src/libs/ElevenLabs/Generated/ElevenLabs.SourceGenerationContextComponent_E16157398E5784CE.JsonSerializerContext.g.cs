@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.FineTuningResponseModelState2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0065.Create_FineTuningResponseModelState22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0067.Create_FineTuningResponseModelState22(options);
                 }
                 if (type == typeof(global::ElevenLabs.FineTuningResponseModelState2?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0111.Create_NullableFineTuningResponseModelState22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0113.Create_NullableFineTuningResponseModelState22(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

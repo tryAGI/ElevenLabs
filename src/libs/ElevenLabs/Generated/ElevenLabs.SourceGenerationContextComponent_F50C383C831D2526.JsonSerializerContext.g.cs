@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CreateStringEnvironmentVariableRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0049.Create_CreateStringEnvironmentVariableRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0051.Create_CreateStringEnvironmentVariableRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

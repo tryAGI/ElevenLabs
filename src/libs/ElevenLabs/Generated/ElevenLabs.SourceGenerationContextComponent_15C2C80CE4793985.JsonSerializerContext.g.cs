@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.LLMSchemaOverride))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0083.Create_LLMSchemaOverride(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0085.Create_LLMSchemaOverride(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

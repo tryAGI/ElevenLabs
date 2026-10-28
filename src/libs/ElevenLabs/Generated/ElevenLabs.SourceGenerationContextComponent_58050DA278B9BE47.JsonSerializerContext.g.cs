@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AudioKeyMoment))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0014.Create_AudioKeyMoment(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0015.Create_AudioKeyMoment(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

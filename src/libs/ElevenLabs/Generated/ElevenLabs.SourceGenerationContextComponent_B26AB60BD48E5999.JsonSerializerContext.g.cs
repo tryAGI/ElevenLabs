@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DeleteAuthConnectionResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0052.Create_DeleteAuthConnectionResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0054.Create_DeleteAuthConnectionResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

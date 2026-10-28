@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0023.Create_BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0024.Create_BodyInviteMultipleUsersV1WorkspaceInvitesAddBulkPost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

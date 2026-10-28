@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SFXModelId))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0158.Create_SFXModelId2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0163.Create_SFXModelId2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SFXModelId?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0126.Create_NullableSFXModelId2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0129.Create_NullableSFXModelId2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

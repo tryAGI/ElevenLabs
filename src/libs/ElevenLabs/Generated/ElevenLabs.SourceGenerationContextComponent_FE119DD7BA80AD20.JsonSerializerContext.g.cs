@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GPTImage25SunburstRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0067.Create_GPTImage25SunburstRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0068.Create_GPTImage25SunburstRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

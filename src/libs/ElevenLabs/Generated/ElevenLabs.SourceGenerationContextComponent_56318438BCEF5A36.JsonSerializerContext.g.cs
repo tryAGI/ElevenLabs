@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PendingBlocksMetadataModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_PendingBlocksMetadataModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0149.Create_PendingBlocksMetadataModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

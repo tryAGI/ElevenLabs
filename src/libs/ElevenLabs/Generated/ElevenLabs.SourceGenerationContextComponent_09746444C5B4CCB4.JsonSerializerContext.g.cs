@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CaptionStyleVerticalPlacementModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0032.Create_CaptionStyleVerticalPlacementModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0034.Create_CaptionStyleVerticalPlacementModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

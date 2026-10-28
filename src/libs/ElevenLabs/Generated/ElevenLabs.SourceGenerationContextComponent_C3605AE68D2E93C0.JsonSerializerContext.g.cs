@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CreateManualTicketRequestModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0047.Create_CreateManualTicketRequestModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0049.Create_CreateManualTicketRequestModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

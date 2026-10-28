@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ListResponseAgentBranchSummary))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0087.Create_ListResponseAgentBranchSummary(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0089.Create_ListResponseAgentBranchSummary(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

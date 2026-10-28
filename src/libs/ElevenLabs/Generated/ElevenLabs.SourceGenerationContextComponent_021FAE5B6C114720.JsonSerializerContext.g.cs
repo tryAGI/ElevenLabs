@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DeleteProductParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0053.Create_DeleteProductParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0055.Create_DeleteProductParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);
