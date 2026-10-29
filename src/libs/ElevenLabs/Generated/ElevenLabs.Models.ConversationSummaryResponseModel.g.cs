@@ -55,11 +55,23 @@ namespace ElevenLabs
         public required int CallDurationSecs { get; set; }
 
         /// <summary>
-        ///
+        /// Number of transcript turns with text; tool-only turns are not counted.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message_count")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required int MessageCount { get; set; }
+
+        /// <summary>
+        /// Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_message_count")]
+        public int? UserMessageCount { get; set; }
+
+        /// <summary>
+        /// Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_message_count")]
+        public int? AgentMessageCount { get; set; }
 
         /// <summary>
         ///
@@ -168,12 +180,20 @@ namespace ElevenLabs
         /// <param name="conversationId"></param>
         /// <param name="startTimeUnixSecs"></param>
         /// <param name="callDurationSecs"></param>
-        /// <param name="messageCount"></param>
+        /// <param name="messageCount">
+        /// Number of transcript turns with text; tool-only turns are not counted.
+        /// </param>
         /// <param name="status"></param>
         /// <param name="callSuccessful"></param>
         /// <param name="branchId"></param>
         /// <param name="versionId"></param>
         /// <param name="agentName"></param>
+        /// <param name="userMessageCount">
+        /// Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </param>
+        /// <param name="agentMessageCount">
+        /// Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </param>
         /// <param name="terminationReason"></param>
         /// <param name="callSuccessScore"></param>
         /// <param name="transcriptSummary"></param>
@@ -203,6 +223,8 @@ namespace ElevenLabs
             string? branchId,
             string? versionId,
             string? agentName,
+            int? userMessageCount,
+            int? agentMessageCount,
             string? terminationReason,
             double? callSuccessScore,
             string? transcriptSummary,
@@ -225,6 +247,8 @@ namespace ElevenLabs
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
             this.MessageCount = messageCount;
+            this.UserMessageCount = userMessageCount;
+            this.AgentMessageCount = agentMessageCount;
             this.Status = status;
             this.TerminationReason = terminationReason;
             this.CallSuccessful = callSuccessful;

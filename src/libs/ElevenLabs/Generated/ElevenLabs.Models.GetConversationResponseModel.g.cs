@@ -67,6 +67,18 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryAnalysisCommonModel? Analysis { get; set; }
 
         /// <summary>
+        /// Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_message_count")]
+        public int? UserMessageCount { get; set; }
+
+        /// <summary>
+        /// Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("agent_message_count")]
+        public int? AgentMessageCount { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("visited_agents")]
@@ -166,6 +178,12 @@ namespace ElevenLabs
         /// The ID of the agent version used for this conversation
         /// </param>
         /// <param name="analysis"></param>
+        /// <param name="userMessageCount">
+        /// Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </param>
+        /// <param name="agentMessageCount">
+        /// Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
+        /// </param>
         /// <param name="visitedAgents"></param>
         /// <param name="conversationInitiationClientData"></param>
         /// <param name="environment">
@@ -196,6 +214,8 @@ namespace ElevenLabs
             string? branchId,
             string? versionId,
             global::ElevenLabs.ConversationHistoryAnalysisCommonModel? analysis,
+            int? userMessageCount,
+            int? agentMessageCount,
             global::System.Collections.Generic.IList<global::ElevenLabs.VisitedAgentRef>? visitedAgents,
             global::ElevenLabs.ConversationInitiationClientDataRequestOutput? conversationInitiationClientData,
             string? environment,
@@ -211,6 +231,8 @@ namespace ElevenLabs
             this.VersionId = versionId;
             this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
             this.Analysis = analysis;
+            this.UserMessageCount = userMessageCount;
+            this.AgentMessageCount = agentMessageCount;
             this.VisitedAgents = visitedAgents;
             this.ConversationInitiationClientData = conversationInitiationClientData;
             this.Environment = environment;

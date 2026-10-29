@@ -69955,7 +69955,32 @@
           },
           "message_count": {
             "type": "integer",
-            "title": "Message Count"
+            "title": "Message Count",
+            "description": "Number of transcript turns with text; tool-only turns are not counted."
+          },
+          "user_message_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Message Count",
+            "description": "Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted."
+          },
+          "agent_message_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Message Count",
+            "description": "Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted."
           },
           "status": {
             "type": "string",
@@ -81760,6 +81785,30 @@
                 "type": "null"
               }
             ]
+          },
+          "user_message_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User Message Count",
+            "description": "Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted."
+          },
+          "agent_message_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Agent Message Count",
+            "description": "Number of agent transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted."
           },
           "visited_agents": {
             "items": {
