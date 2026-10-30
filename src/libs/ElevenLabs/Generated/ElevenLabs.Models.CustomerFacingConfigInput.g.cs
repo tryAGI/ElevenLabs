@@ -116,12 +116,6 @@ namespace ElevenLabs
         public bool? EnablePlayKeypadTouchToneTool { get; set; }
 
         /// <summary>
-        /// Legacy per-receptionist hold sound, superseded by the workspace's agent-info tool_call_sound. Only read to seed that field for agent info saved before it existed; settings saves keep the stored value.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("tool_call_sound")]
-        public global::ElevenLabs.ToolCallSoundType? ToolCallSound { get; set; }
-
-        /// <summary>
         /// Behavioral rules this agent must follow.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("agent_rules")]
@@ -159,12 +153,6 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_secure_mode")]
         public bool? EnableSecureMode { get; set; }
-
-        /// <summary>
-        /// Configuration for client identity verification codes.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("identity_verification")]
-        public global::ElevenLabs.SMBIdentityVerificationConfig? IdentityVerification { get; set; }
 
         /// <summary>
         /// When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.<br/>
@@ -240,9 +228,6 @@ namespace ElevenLabs
         /// Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="toolCallSound">
-        /// Legacy per-receptionist hold sound, superseded by the workspace's agent-info tool_call_sound. Only read to seed that field for agent info saved before it existed; settings saves keep the stored value.
-        /// </param>
         /// <param name="agentRules">
         /// Behavioral rules this agent must follow.
         /// </param>
@@ -263,9 +248,6 @@ namespace ElevenLabs
         /// <param name="enableSecureMode">
         /// When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.<br/>
         /// Default Value: false
-        /// </param>
-        /// <param name="identityVerification">
-        /// Configuration for client identity verification codes.
         /// </param>
         /// <param name="enableSpamProtection">
         /// When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected.<br/>
@@ -291,14 +273,12 @@ namespace ElevenLabs
             bool? enableEndCallTool,
             bool? enableSkipTurnTool,
             bool? enablePlayKeypadTouchToneTool,
-            global::ElevenLabs.ToolCallSoundType? toolCallSound,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentRule>? agentRules,
             global::System.Collections.Generic.IList<global::ElevenLabs.SMBTransferRule>? transferRules,
             bool? hideCallerNumberOnTransfers,
             bool? recordAfterTransfers,
             global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>? procedures,
             bool? enableSecureMode,
-            global::ElevenLabs.SMBIdentityVerificationConfig? identityVerification,
             bool? enableSpamProtection)
         {
             this.AdditionalInstructions = additionalInstructions;
@@ -317,14 +297,12 @@ namespace ElevenLabs
             this.EnableEndCallTool = enableEndCallTool;
             this.EnableSkipTurnTool = enableSkipTurnTool;
             this.EnablePlayKeypadTouchToneTool = enablePlayKeypadTouchToneTool;
-            this.ToolCallSound = toolCallSound;
             this.AgentRules = agentRules;
             this.TransferRules = transferRules;
             this.HideCallerNumberOnTransfers = hideCallerNumberOnTransfers;
             this.RecordAfterTransfers = recordAfterTransfers;
             this.Procedures = procedures;
             this.EnableSecureMode = enableSecureMode;
-            this.IdentityVerification = identityVerification;
             this.EnableSpamProtection = enableSpamProtection;
         }
 

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MessageSearchSortBy))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0095.Create_MessageSearchSortBy2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0096.Create_MessageSearchSortBy2(options);
                 }
                 if (type == typeof(global::ElevenLabs.MessageSearchSortBy?))
                 {

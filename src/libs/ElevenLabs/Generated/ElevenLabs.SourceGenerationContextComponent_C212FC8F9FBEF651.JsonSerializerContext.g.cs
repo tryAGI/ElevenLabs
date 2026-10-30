@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0051.Create_CustomGuardrailConfigTriggerActionDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0052.Create_CustomGuardrailConfigTriggerActionDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType?))
                 {

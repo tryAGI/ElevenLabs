@@ -88,11 +88,11 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ASTNodeOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0174.Create_SourceGenerationContextMetadataType_092F9E589CAF1B8E(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0177.Create_SourceGenerationContextMetadataType_092F9E589CAF1B8E(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.ASTNodeOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0226.Create_SourceGenerationContextMetadataType_FFB6F64435C8A9EB(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0229.Create_SourceGenerationContextMetadataType_FFB6F64435C8A9EB(options);
                 }
                 if (type == typeof(global::ElevenLabs.ASTNodeOutput?))
                 {

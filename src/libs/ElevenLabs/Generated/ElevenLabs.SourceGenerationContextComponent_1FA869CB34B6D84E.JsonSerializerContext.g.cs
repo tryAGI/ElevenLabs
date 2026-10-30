@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0162.Create_ResourceMetadataResponseModelAnonymousAccessLevelOverride2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0164.Create_ResourceMetadataResponseModelAnonymousAccessLevelOverride2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ResourceMetadataResponseModelAnonymousAccessLevelOverride?))
                 {

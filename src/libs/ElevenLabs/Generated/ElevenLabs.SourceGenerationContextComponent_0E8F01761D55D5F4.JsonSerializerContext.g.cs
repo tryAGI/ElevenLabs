@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.HolidayType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0079.Create_HolidayType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0080.Create_HolidayType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.HolidayType?))
                 {

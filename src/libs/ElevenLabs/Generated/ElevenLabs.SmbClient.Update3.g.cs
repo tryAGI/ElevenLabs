@@ -27,15 +27,15 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string holidayId,
+            ref string agentId,
             ref string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbUpdateHoliday request);
+            global::ElevenLabs.SMBUpdateCustomerFacingAgentRequest request);
         partial void PrepareUpdate3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string holidayId,
+            string agentId,
             string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbUpdateHoliday request);
+            global::ElevenLabs.SMBUpdateCustomerFacingAgentRequest request);
         partial void ProcessUpdate3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,10 +46,10 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Holiday<br/>
-        /// Update an existing holiday. Only the fields sent are changed.
+        /// Update Customer Facing Agent<br/>
+        /// Update a receptionist's display name, config and/or widget appearance.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -57,16 +57,16 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Update3Async(
-            string holidayId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBCustomerFacingAgentResponse> Update3Async(
+            string agentId,
 
-            global::ElevenLabs.BodySmbUpdateHoliday request,
+            global::ElevenLabs.SMBUpdateCustomerFacingAgentRequest request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update3AsResponseAsync(
-                holidayId: holidayId,
+                agentId: agentId,
 
                 request: request,
                 xiWorkspaceId: xiWorkspaceId,
@@ -77,10 +77,10 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Holiday<br/>
-        /// Update an existing holiday. Only the fields sent are changed.
+        /// Update Customer Facing Agent<br/>
+        /// Update a receptionist's display name, config and/or widget appearance.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -88,10 +88,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>> Update3AsResponseAsync(
-            string holidayId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBCustomerFacingAgentResponse>> Update3AsResponseAsync(
+            string agentId,
 
-            global::ElevenLabs.BodySmbUpdateHoliday request,
+            global::ElevenLabs.SMBUpdateCustomerFacingAgentRequest request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -104,7 +104,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate3Arguments(
                 httpClient: HttpClient,
-                holidayId: ref holidayId,
+                agentId: ref agentId,
                 xiWorkspaceId: ref xiWorkspaceId,
                 request: request);
 
@@ -132,7 +132,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/smb/holidays/{holidayId}",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -140,7 +140,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Put,
+                    method: new global::System.Net.Http.HttpMethod("PATCH"),
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -186,7 +186,7 @@ namespace ElevenLabs
                 PrepareUpdate3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    holidayId: holidayId,
+                    agentId: agentId,
                     xiWorkspaceId: xiWorkspaceId,
                     request: request);
 
@@ -207,8 +207,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/smb/holidays/{holidayId}\"",
-                                httpMethod: "PUT",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -241,8 +241,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/smb/holidays/{holidayId}\"",
-                                httpMethod: "PUT",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -282,8 +282,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/smb/holidays/{holidayId}\"",
-                                httpMethod: "PUT",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -330,8 +330,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/smb/holidays/{holidayId}\"",
-                                httpMethod: "PUT",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -352,8 +352,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update3",
                                 methodName: "Update3Async",
-                                pathTemplate: "$\"/v1/smb/holidays/{holidayId}\"",
-                                httpMethod: "PUT",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}\"",
+                                httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -426,9 +426,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.HolidayResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.SMBCustomerFacingAgentResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBCustomerFacingAgentResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -458,9 +458,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.HolidayResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.SMBCustomerFacingAgentResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBCustomerFacingAgentResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -501,31 +501,37 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Holiday<br/>
-        /// Update an existing holiday. Only the fields sent are changed.
+        /// Update Customer Facing Agent<br/>
+        /// Update a receptionist's display name, config and/or widget appearance.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="config"></param>
+        /// <param name="name"></param>
+        /// <param name="widget"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Update3Async(
-            string holidayId,
-            global::ElevenLabs.SMBUpdateHolidayRequestPatch request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBCustomerFacingAgentResponse> Update3Async(
+            string agentId,
             string? xiWorkspaceId = default,
+            global::ElevenLabs.CustomerFacingConfigPatch? config = default,
+            string? name = default,
+            global::ElevenLabs.SMBWidgetAppearance? widget = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySmbUpdateHoliday
+            var __request = new global::ElevenLabs.SMBUpdateCustomerFacingAgentRequest
             {
-                Request = request,
+                Config = config,
+                Name = name,
+                Widget = widget,
             };
 
             return await Update3Async(
-                holidayId: holidayId,
+                agentId: agentId,
                 xiWorkspaceId: xiWorkspaceId,
                 request: __request,
                 requestOptions: requestOptions,

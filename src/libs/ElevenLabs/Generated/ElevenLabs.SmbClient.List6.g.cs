@@ -27,13 +27,21 @@ namespace ElevenLabs
             };
         partial void PrepareList6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? cursor,
-            ref int? pageSize);
+            int? startUnix,
+            int? endUnix,
+            ref global::ElevenLabs.TimeOffType? timeOffType,
+            ref string? resourceId,
+            ref string? locationId,
+            ref string? xiWorkspaceId);
         partial void PrepareList6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? cursor,
-            int? pageSize);
+            int? startUnix,
+            int? endUnix,
+            global::ElevenLabs.TimeOffType? timeOffType,
+            string? resourceId,
+            string? locationId,
+            string? xiWorkspaceId);
         partial void ProcessList6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,28 +52,47 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Reseller Workspaces<br/>
-        /// List workspaces attributed to the caller's reseller, with cursor-based pagination
+        /// Get All Holidays<br/>
+        /// Get all holidays/time-off entries for the current workspace with optional filters
         /// </summary>
-        /// <param name="cursor">
-        /// Pagination cursor from previous response
+        /// <param name="startUnix">
+        /// Filter entries overlapping from this timestamp
         /// </param>
-        /// <param name="pageSize">
-        /// Number of workspaces per page<br/>
-        /// Default Value: 50
+        /// <param name="endUnix">
+        /// Filter entries overlapping before this timestamp
+        /// </param>
+        /// <param name="timeOffType">
+        /// Filter by type: location, staff, or asset
+        /// </param>
+        /// <param name="resourceId">
+        /// Filter by associated resource ID (staff/asset)
+        /// </param>
+        /// <param name="locationId">
+        /// Filter by location ID
+        /// </param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ResellerWorkspacesResponse> List6Async(
-            string? cursor = default,
-            int? pageSize = default,
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>> List6Async(
+            int? startUnix = default,
+            int? endUnix = default,
+            global::ElevenLabs.TimeOffType? timeOffType = default,
+            string? resourceId = default,
+            string? locationId = default,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List6AsResponseAsync(
-                cursor: cursor,
-                pageSize: pageSize,
+                startUnix: startUnix,
+                endUnix: endUnix,
+                timeOffType: timeOffType,
+                resourceId: resourceId,
+                locationId: locationId,
+                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -73,22 +100,37 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Reseller Workspaces<br/>
-        /// List workspaces attributed to the caller's reseller, with cursor-based pagination
+        /// Get All Holidays<br/>
+        /// Get all holidays/time-off entries for the current workspace with optional filters
         /// </summary>
-        /// <param name="cursor">
-        /// Pagination cursor from previous response
+        /// <param name="startUnix">
+        /// Filter entries overlapping from this timestamp
         /// </param>
-        /// <param name="pageSize">
-        /// Number of workspaces per page<br/>
-        /// Default Value: 50
+        /// <param name="endUnix">
+        /// Filter entries overlapping before this timestamp
+        /// </param>
+        /// <param name="timeOffType">
+        /// Filter by type: location, staff, or asset
+        /// </param>
+        /// <param name="resourceId">
+        /// Filter by associated resource ID (staff/asset)
+        /// </param>
+        /// <param name="locationId">
+        /// Filter by location ID
+        /// </param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ResellerWorkspacesResponse>> List6AsResponseAsync(
-            string? cursor = default,
-            int? pageSize = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>> List6AsResponseAsync(
+            int? startUnix = default,
+            int? endUnix = default,
+            global::ElevenLabs.TimeOffType? timeOffType = default,
+            string? resourceId = default,
+            string? locationId = default,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -98,8 +140,12 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList6Arguments(
                 httpClient: HttpClient,
-                cursor: ref cursor,
-                pageSize: ref pageSize);
+                startUnix: startUnix,
+                endUnix: endUnix,
+                timeOffType: ref timeOffType,
+                resourceId: ref resourceId,
+                locationId: ref locationId,
+                xiWorkspaceId: ref xiWorkspaceId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -125,11 +171,14 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/smb/reseller/workspaces",
+                                path: "/v1/smb/holidays",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("cursor", cursor)
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("start_unix", startUnix?.ToString())
+                                .AddOptionalParameter("end_unix", endUnix?.ToString())
+                                .AddOptionalParameter("time_off_type", timeOffType?.ToValueString())
+                                .AddOptionalParameter("resource_id", resourceId)
+                                .AddOptionalParameter("location_id", locationId)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -160,6 +209,12 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiWorkspaceId != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
+            }
+
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -171,8 +226,12 @@ namespace ElevenLabs
                 PrepareList6Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    cursor: cursor,
-                    pageSize: pageSize);
+                    startUnix: startUnix,
+                    endUnix: endUnix,
+                    timeOffType: timeOffType,
+                    resourceId: resourceId,
+                    locationId: locationId,
+                    xiWorkspaceId: xiWorkspaceId);
 
                 return __httpRequest;
             }
@@ -191,7 +250,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "\"/v1/smb/holidays\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -225,7 +284,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "\"/v1/smb/holidays\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -266,7 +325,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "\"/v1/smb/holidays\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -314,7 +373,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "\"/v1/smb/holidays\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -336,7 +395,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List6",
                                 methodName: "List6Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "\"/v1/smb/holidays\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -410,9 +469,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ResellerWorkspacesResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>))) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ResellerWorkspacesResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -442,9 +501,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ResellerWorkspacesResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>))).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ResellerWorkspacesResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -484,33 +543,5 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
-
-        /// <summary>
-        /// Wraps List6Async as an IAsyncEnumerable&lt;global::ElevenLabs.ResellerWorkspaceSummary&gt; that auto-pages over the response.
-        /// </summary>
-        /// <param name="pageSize">
-        /// Number of workspaces per page<br/>
-        /// Default Value: 50
-        /// </param>
-        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
-        /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ResellerWorkspaceSummary> List6AutoPagingAsync(
-              int? pageSize = default,
-            string? cursor = null,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.ResellerWorkspacesResponse, global::ElevenLabs.ResellerWorkspaceSummary>(
-                fetchPage: (__cursor, __ct) => List6Async(
-                    cursor: __cursor,
-                    pageSize: pageSize,
-                    cancellationToken: __ct),
-                extractItems: static __response => __response is null
-                    ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ResellerWorkspaceSummary>?)__response.Workspaces,
-                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
-                initialCursor: cursor,
-                cancellationToken: cancellationToken);
-        }
-
     }
 }

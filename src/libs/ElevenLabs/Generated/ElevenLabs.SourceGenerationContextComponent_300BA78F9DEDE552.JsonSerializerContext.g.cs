@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MergeProposalReviewState))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0095.Create_MergeProposalReviewState2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0096.Create_MergeProposalReviewState2(options);
                 }
                 if (type == typeof(global::ElevenLabs.MergeProposalReviewState?))
                 {

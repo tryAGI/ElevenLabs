@@ -27,15 +27,17 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string locationId,
+            ref string agentId,
+            ref string ruleId,
             ref string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbUpdateLocation request);
+            global::ElevenLabs.BodySmbUpdateAgentRule request);
         partial void PrepareUpdate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string locationId,
+            string agentId,
+            string ruleId,
             string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbUpdateLocation request);
+            global::ElevenLabs.BodySmbUpdateAgentRule request);
         partial void ProcessUpdate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,10 +48,11 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Location<br/>
-        /// Update an existing location. Only the fields sent are changed.
+        /// Update Agent Rule<br/>
+        /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="ruleId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -57,16 +60,18 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Update4Async(
-            string locationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Update4Async(
+            string agentId,
+            string ruleId,
 
-            global::ElevenLabs.BodySmbUpdateLocation request,
+            global::ElevenLabs.BodySmbUpdateAgentRule request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update4AsResponseAsync(
-                locationId: locationId,
+                agentId: agentId,
+                ruleId: ruleId,
 
                 request: request,
                 xiWorkspaceId: xiWorkspaceId,
@@ -77,10 +82,11 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Location<br/>
-        /// Update an existing location. Only the fields sent are changed.
+        /// Update Agent Rule<br/>
+        /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="ruleId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -88,10 +94,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>> Update4AsResponseAsync(
-            string locationId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>> Update4AsResponseAsync(
+            string agentId,
+            string ruleId,
 
-            global::ElevenLabs.BodySmbUpdateLocation request,
+            global::ElevenLabs.BodySmbUpdateAgentRule request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -104,7 +111,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate4Arguments(
                 httpClient: HttpClient,
-                locationId: ref locationId,
+                agentId: ref agentId,
+                ruleId: ref ruleId,
                 xiWorkspaceId: ref xiWorkspaceId,
                 request: request);
 
@@ -132,7 +140,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/smb/locations/{locationId}",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}/rules/{ruleId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -186,7 +194,8 @@ namespace ElevenLabs
                 PrepareUpdate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    locationId: locationId,
+                    agentId: agentId,
+                    ruleId: ruleId,
                     xiWorkspaceId: xiWorkspaceId,
                     request: request);
 
@@ -207,7 +216,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules/{ruleId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -241,7 +250,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules/{ruleId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -282,7 +291,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules/{ruleId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -330,7 +339,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules/{ruleId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -352,7 +361,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update4",
                                 methodName: "Update4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules/{ruleId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -426,9 +435,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.LocationResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AgentRule.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -458,9 +467,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.LocationResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AgentRule.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -501,31 +510,36 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Location<br/>
-        /// Update an existing location. Only the fields sent are changed.
+        /// Update Agent Rule<br/>
+        /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="ruleId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="request">
+        /// Request model for updating an existing agent rule.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Update4Async(
-            string locationId,
-            global::ElevenLabs.SMBLocationRequestPatch request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Update4Async(
+            string agentId,
+            string ruleId,
+            global::ElevenLabs.SMBUpdateAgentRuleRequest request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySmbUpdateLocation
+            var __request = new global::ElevenLabs.BodySmbUpdateAgentRule
             {
                 Request = request,
             };
 
             return await Update4Async(
-                locationId: locationId,
+                agentId: agentId,
+                ruleId: ruleId,
                 xiWorkspaceId: xiWorkspaceId,
                 request: __request,
                 requestOptions: requestOptions,

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PreToolSpeechMode))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0152.Create_PreToolSpeechMode2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0153.Create_PreToolSpeechMode2(options);
                 }
                 if (type == typeof(global::ElevenLabs.PreToolSpeechMode?))
                 {

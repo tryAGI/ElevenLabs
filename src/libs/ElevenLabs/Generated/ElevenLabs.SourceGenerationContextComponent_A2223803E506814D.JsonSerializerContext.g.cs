@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ExperimentAssignmentSource))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0065.Create_ExperimentAssignmentSource2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0066.Create_ExperimentAssignmentSource2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ExperimentAssignmentSource?))
                 {

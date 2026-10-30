@@ -27,11 +27,15 @@ namespace ElevenLabs
             };
         partial void PrepareCreate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request);
+            ref string agentId,
+            ref string? xiWorkspaceId,
+            global::ElevenLabs.BodySmbAddTransferRule request);
         partial void PrepareCreate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request);
+            string agentId,
+            string? xiWorkspaceId,
+            global::ElevenLabs.BodySmbAddTransferRule request);
         partial void ProcessCreate5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,21 +46,30 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Provision Reseller Workspace
+        /// Add Transfer Rule<br/>
+        /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create5Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBTransferRule> Create5Async(
+            string agentId,
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.BodySmbAddTransferRule request,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create5AsResponseAsync(
+                agentId: agentId,
 
                 request: request,
+                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -64,15 +77,22 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Provision Reseller Workspace
+        /// Add Transfer Rule<br/>
+        /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProvisionResellerWorkspaceResponse>> Create5AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBTransferRule>> Create5AsResponseAsync(
+            string agentId,
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.BodySmbAddTransferRule request,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -84,6 +104,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate5Arguments(
                 httpClient: HttpClient,
+                agentId: ref agentId,
+                xiWorkspaceId: ref xiWorkspaceId,
                 request: request);
 
 
@@ -110,7 +132,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/smb/reseller/workspaces",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}/transfer-rules",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -141,6 +163,12 @@ namespace ElevenLabs
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xiWorkspaceId != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
+            }
+
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
                                 content: __httpRequestContentBody,
@@ -158,6 +186,8 @@ namespace ElevenLabs
                 PrepareCreate5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    agentId: agentId,
+                    xiWorkspaceId: xiWorkspaceId,
                     request: request);
 
                 return __httpRequest;
@@ -177,7 +207,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/transfer-rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -211,7 +241,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/transfer-rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -252,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/transfer-rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -300,7 +330,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/transfer-rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -322,7 +352,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "\"/v1/smb/reseller/workspaces\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/transfer-rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -396,9 +426,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ProvisionResellerWorkspaceResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.SMBTransferRule.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProvisionResellerWorkspaceResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBTransferRule>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -428,9 +458,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ProvisionResellerWorkspaceResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.SMBTransferRule.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProvisionResellerWorkspaceResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBTransferRule>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -471,39 +501,34 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Provision Reseller Workspace
+        /// Add Transfer Rule<br/>
+        /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
-        /// <param name="businessName"></param>
-        /// <param name="subscription">
-        /// Paid tier to subscribe to. Omitted leaves the workspace with no subscription.
+        /// <param name="agentId"></param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="phoneNumber">
-        /// A free number from the reseller's phone pool, reserved for the workspace until onboarding binds it to the receptionist.
-        /// </param>
-        /// <param name="members">
-        /// People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.<br/>
-        /// Default Value: []
+        /// <param name="request">
+        /// Request model for creating a new transfer rule.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create5Async(
-            string businessName,
-            global::ElevenLabs.ProvisionResellerWorkspaceSubscription? subscription = default,
-            string? phoneNumber = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.TeamInviteRequest>? members = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBTransferRule> Create5Async(
+            string agentId,
+            global::ElevenLabs.SMBCreateTransferRuleRequest request,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ProvisionResellerWorkspaceRequest
+            var __request = new global::ElevenLabs.BodySmbAddTransferRule
             {
-                BusinessName = businessName,
-                Subscription = subscription,
-                PhoneNumber = phoneNumber,
-                Members = members,
+                Request = request,
             };
 
             return await Create5Async(
+                agentId: agentId,
+                xiWorkspaceId: xiWorkspaceId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

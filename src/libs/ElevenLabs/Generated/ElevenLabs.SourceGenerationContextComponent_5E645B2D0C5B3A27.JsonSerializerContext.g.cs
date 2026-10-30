@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.GetSpeechHistorySource?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0117.Create_NullableGetSpeechHistorySource2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0118.Create_NullableGetSpeechHistorySource2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

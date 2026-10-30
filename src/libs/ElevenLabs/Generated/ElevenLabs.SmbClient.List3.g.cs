@@ -27,20 +27,10 @@ namespace ElevenLabs
             };
         partial void PrepareList3Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            int? startUnix,
-            int? endUnix,
-            ref global::ElevenLabs.TimeOffType? timeOffType,
-            ref string? resourceId,
-            ref string? locationId,
             ref string? xiWorkspaceId);
         partial void PrepareList3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? startUnix,
-            int? endUnix,
-            global::ElevenLabs.TimeOffType? timeOffType,
-            string? resourceId,
-            string? locationId,
             string? xiWorkspaceId);
         partial void ProcessList3Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -52,46 +42,21 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get All Holidays<br/>
-        /// Get all holidays/time-off entries for the current workspace with optional filters
+        /// List Customer Facing Agents<br/>
+        /// List every customer-facing receptionist for the workspace.
         /// </summary>
-        /// <param name="startUnix">
-        /// Filter entries overlapping from this timestamp
-        /// </param>
-        /// <param name="endUnix">
-        /// Filter entries overlapping before this timestamp
-        /// </param>
-        /// <param name="timeOffType">
-        /// Filter by type: location, staff, or asset
-        /// </param>
-        /// <param name="resourceId">
-        /// Filter by associated resource ID (staff/asset)
-        /// </param>
-        /// <param name="locationId">
-        /// Filter by location ID
-        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>> List3Async(
-            int? startUnix = default,
-            int? endUnix = default,
-            global::ElevenLabs.TimeOffType? timeOffType = default,
-            string? resourceId = default,
-            string? locationId = default,
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>> List3Async(
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List3AsResponseAsync(
-                startUnix: startUnix,
-                endUnix: endUnix,
-                timeOffType: timeOffType,
-                resourceId: resourceId,
-                locationId: locationId,
                 xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -100,36 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get All Holidays<br/>
-        /// Get all holidays/time-off entries for the current workspace with optional filters
+        /// List Customer Facing Agents<br/>
+        /// List every customer-facing receptionist for the workspace.
         /// </summary>
-        /// <param name="startUnix">
-        /// Filter entries overlapping from this timestamp
-        /// </param>
-        /// <param name="endUnix">
-        /// Filter entries overlapping before this timestamp
-        /// </param>
-        /// <param name="timeOffType">
-        /// Filter by type: location, staff, or asset
-        /// </param>
-        /// <param name="resourceId">
-        /// Filter by associated resource ID (staff/asset)
-        /// </param>
-        /// <param name="locationId">
-        /// Filter by location ID
-        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>> List3AsResponseAsync(
-            int? startUnix = default,
-            int? endUnix = default,
-            global::ElevenLabs.TimeOffType? timeOffType = default,
-            string? resourceId = default,
-            string? locationId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>>> List3AsResponseAsync(
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -140,11 +85,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList3Arguments(
                 httpClient: HttpClient,
-                startUnix: startUnix,
-                endUnix: endUnix,
-                timeOffType: ref timeOffType,
-                resourceId: ref resourceId,
-                locationId: ref locationId,
                 xiWorkspaceId: ref xiWorkspaceId);
 
 
@@ -171,15 +111,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/smb/holidays",
+                                path: "/v1/smb/customer-facing-agents",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("start_unix", startUnix?.ToString())
-                                .AddOptionalParameter("end_unix", endUnix?.ToString())
-                                .AddOptionalParameter("time_off_type", timeOffType?.ToValueString())
-                                .AddOptionalParameter("resource_id", resourceId)
-                                .AddOptionalParameter("location_id", locationId)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -226,11 +159,6 @@ namespace ElevenLabs
                 PrepareList3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    startUnix: startUnix,
-                    endUnix: endUnix,
-                    timeOffType: timeOffType,
-                    resourceId: resourceId,
-                    locationId: locationId,
                     xiWorkspaceId: xiWorkspaceId);
 
                 return __httpRequest;
@@ -250,7 +178,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "\"/v1/smb/customer-facing-agents\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -284,7 +212,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "\"/v1/smb/customer-facing-agents\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -325,7 +253,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "\"/v1/smb/customer-facing-agents\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -373,7 +301,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "\"/v1/smb/customer-facing-agents\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -395,7 +323,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List3",
                                 methodName: "List3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "\"/v1/smb/customer-facing-agents\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -469,9 +397,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>))) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>))) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -501,9 +429,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>))).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>))).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBCustomerFacingAgentResponse>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

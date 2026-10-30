@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.NonStreamingOutputFormats))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0097.Create_NonStreamingOutputFormats2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0098.Create_NonStreamingOutputFormats2(options);
                 }
                 if (type == typeof(global::ElevenLabs.NonStreamingOutputFormats?))
                 {

@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.ExternalSyncJobTrigger?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0113.Create_NullableExternalSyncJobTrigger2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0114.Create_NullableExternalSyncJobTrigger2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

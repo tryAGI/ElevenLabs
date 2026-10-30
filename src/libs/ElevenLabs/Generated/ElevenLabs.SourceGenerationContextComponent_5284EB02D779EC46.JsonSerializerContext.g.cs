@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GPTImage25FlareRequestResolution))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0068.Create_GPTImage25FlareRequestResolution2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0069.Create_GPTImage25FlareRequestResolution2(options);
                 }
                 if (type == typeof(global::ElevenLabs.GPTImage25FlareRequestResolution?))
                 {

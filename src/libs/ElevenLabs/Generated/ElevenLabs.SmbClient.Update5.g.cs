@@ -27,13 +27,17 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string agentId,
+            ref string procedureId,
             ref string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbUpdateAgentInfo request);
+            global::ElevenLabs.BodySmbUpdateAgentProcedure request);
         partial void PrepareUpdate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string agentId,
+            string procedureId,
             string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbUpdateAgentInfo request);
+            global::ElevenLabs.BodySmbUpdateAgentProcedure request);
         partial void ProcessUpdate5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,9 +48,11 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Agent Info<br/>
-        /// Update all agent-affecting configuration (triggers agent regeneration)
+        /// Update Agent Procedure<br/>
+        /// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
         /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="procedureId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -54,14 +60,18 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAgentInfoResponse> Update5Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Update5Async(
+            string agentId,
+            string procedureId,
 
-            global::ElevenLabs.BodySmbUpdateAgentInfo request,
+            global::ElevenLabs.BodySmbUpdateAgentProcedure request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update5AsResponseAsync(
+                agentId: agentId,
+                procedureId: procedureId,
 
                 request: request,
                 xiWorkspaceId: xiWorkspaceId,
@@ -72,9 +82,11 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Agent Info<br/>
-        /// Update all agent-affecting configuration (triggers agent regeneration)
+        /// Update Agent Procedure<br/>
+        /// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
         /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="procedureId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -82,9 +94,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAgentInfoResponse>> Update5AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>> Update5AsResponseAsync(
+            string agentId,
+            string procedureId,
 
-            global::ElevenLabs.BodySmbUpdateAgentInfo request,
+            global::ElevenLabs.BodySmbUpdateAgentProcedure request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -97,6 +111,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate5Arguments(
                 httpClient: HttpClient,
+                agentId: ref agentId,
+                procedureId: ref procedureId,
                 xiWorkspaceId: ref xiWorkspaceId,
                 request: request);
 
@@ -124,7 +140,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/smb/agent-info",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -178,6 +194,8 @@ namespace ElevenLabs
                 PrepareUpdate5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    agentId: agentId,
+                    procedureId: procedureId,
                     xiWorkspaceId: xiWorkspaceId,
                     request: request);
 
@@ -198,7 +216,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "\"/v1/smb/agent-info\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -232,7 +250,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "\"/v1/smb/agent-info\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -273,7 +291,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "\"/v1/smb/agent-info\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -321,7 +339,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "\"/v1/smb/agent-info\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -343,7 +361,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update5",
                                 methodName: "Update5Async",
-                                pathTemplate: "\"/v1/smb/agent-info\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -417,9 +435,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBAgentInfoResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.SMBProcedure.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAgentInfoResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +467,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBAgentInfoResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.SMBProcedure.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAgentInfoResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -492,30 +510,36 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Agent Info<br/>
-        /// Update all agent-affecting configuration (triggers agent regeneration)
+        /// Update Agent Procedure<br/>
+        /// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
         /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="procedureId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="request">
-        /// Agent-info update payload used by backend route consumers.
+        /// Request model for updating an existing procedure.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAgentInfoResponse> Update5Async(
-            global::ElevenLabs.SMBUpdateAgentInfoRequest request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Update5Async(
+            string agentId,
+            string procedureId,
+            global::ElevenLabs.SMBUpdateProcedureRequest request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySmbUpdateAgentInfo
+            var __request = new global::ElevenLabs.BodySmbUpdateAgentProcedure
             {
                 Request = request,
             };
 
             return await Update5Async(
+                agentId: agentId,
+                procedureId: procedureId,
                 xiWorkspaceId: xiWorkspaceId,
                 request: __request,
                 requestOptions: requestOptions,
