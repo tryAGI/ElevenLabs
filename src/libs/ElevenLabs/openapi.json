@@ -18550,6 +18550,24 @@
             "description": "Filter by branch ID"
           },
           {
+            "name": "created_by_user_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Filter by test run creator user ID",
+              "title": "Created By User Id"
+            },
+            "description": "Filter by test run creator user ID"
+          },
+          {
             "name": "test_id",
             "in": "query",
             "required": false,
@@ -61699,7 +61717,7 @@
               }
             ],
             "title": "Expires At Unix",
-            "description": "Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass \"clear\" to remove the expiry (never expires).",
+            "description": "Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass \"clear\" to remove the expiry (never expires). A workspace may disallow never-expiring keys, or allow them only on service account API keys; creating one or clearing an expiry then fails.",
             "examples": [
               1735689600
             ]
@@ -61924,7 +61942,7 @@
               }
             ],
             "title": "Expires At Unix",
-            "description": "Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass \"clear\" to remove the expiry (never expires).",
+            "description": "Unix timestamp (in seconds) after which this API key stops working. When set, it must be at least 15 minutes and at most 90 days in the future. On create, omit or pass null for a key that never expires. On update, omit to leave it unchanged, or pass \"clear\" to remove the expiry (never expires). A workspace may disallow never-expiring keys, or allow them only on service account API keys; creating one or clearing an expiry then fails.",
             "default": "no_update",
             "examples": [
               1735689600
@@ -90046,6 +90064,17 @@
               }
             ],
             "description": "The translation of the soft timeout message"
+          },
+          "noisy_environment_message_translation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LanguagePresetTranslation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The translation of the noisy environment message"
           }
         },
         "type": "object",
@@ -90081,6 +90110,17 @@
               }
             ],
             "description": "The translation of the soft timeout message"
+          },
+          "noisy_environment_message_translation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LanguagePresetTranslation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The translation of the noisy environment message"
           }
         },
         "type": "object",
@@ -120930,6 +120970,21 @@
           "soft_timeout_config": {
             "$ref": "#/components/schemas/SoftTimeoutConfig",
             "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
+          },
+          "noisy_environment_detection": {
+            "type": "boolean",
+            "title": "Noisy Environment Detection",
+            "description": "When enabled, the agent politely suggests the user move somewhere quieter when it hears other voices in the background. This improves transcription and turn-taking accuracy.",
+            "default": false,
+            "x-convai-override-disallowed": true
+          },
+          "noisy_environment_message": {
+            "type": "string",
+            "title": "Noisy Environment Message",
+            "description": "What the agent says when it detects a noisy environment.",
+            "default": "Uhh ... sorry, I'm picking up some noise in the background. Could you move somewhere quieter?",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           }
         },
         "type": "object",
@@ -120965,6 +121020,20 @@
               }
             ],
             "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
+          },
+          "noisy_environment_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Noisy Environment Message",
+            "description": "What the agent says when it detects a noisy environment.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           }
         },
         "type": "object",
@@ -120980,6 +121049,12 @@
           "soft_timeout_config": {
             "$ref": "#/components/schemas/SoftTimeoutConfigOverrideConfig",
             "description": "Configures overrides for nested fields."
+          },
+          "noisy_environment_message": {
+            "type": "boolean",
+            "title": "Noisy Environment Message",
+            "description": "Whether to allow overriding the noisy_environment_message field.",
+            "default": false
           }
         },
         "type": "object",
@@ -121156,6 +121231,20 @@
               }
             ],
             "description": "Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses."
+          },
+          "noisy_environment_message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Noisy Environment Message",
+            "description": "What the agent says when it detects a noisy environment.",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           }
         },
         "type": "object",

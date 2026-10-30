@@ -109,6 +109,20 @@ namespace ElevenLabs
         public global::ElevenLabs.SoftTimeoutConfig? SoftTimeoutConfig { get; set; }
 
         /// <summary>
+        /// When enabled, the agent politely suggests the user move somewhere quieter when it hears other voices in the background. This improves transcription and turn-taking accuracy.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("noisy_environment_detection")]
+        public bool? NoisyEnvironmentDetection { get; set; }
+
+        /// <summary>
+        /// What the agent says when it detects a noisy environment.<br/>
+        /// Default Value: Uhh ... sorry, I'm picking up some noise in the background. Could you move somewhere quieter?
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("noisy_environment_message")]
+        public string? NoisyEnvironmentMessage { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -170,6 +184,14 @@ namespace ElevenLabs
         /// Configuration for soft timeout functionality. Provides immediate feedback during longer LLM responses.<br/>
         /// Example: {"message":"Hhmmmm...yeah.","timeout_seconds":2.0,"use_llm_generated_message":false}
         /// </param>
+        /// <param name="noisyEnvironmentDetection">
+        /// When enabled, the agent politely suggests the user move somewhere quieter when it hears other voices in the background. This improves transcription and turn-taking accuracy.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="noisyEnvironmentMessage">
+        /// What the agent says when it detects a noisy environment.<br/>
+        /// Default Value: Uhh ... sorry, I'm picking up some noise in the background. Could you move somewhere quieter?
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -187,7 +209,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? interruptionIgnoreTermLanguages,
             bool? mergeWithDefaultIgnoreTerms,
             bool? transcribeOnDisabledInterruptions,
-            global::ElevenLabs.SoftTimeoutConfig? softTimeoutConfig)
+            global::ElevenLabs.SoftTimeoutConfig? softTimeoutConfig,
+            bool? noisyEnvironmentDetection,
+            string? noisyEnvironmentMessage)
         {
             this.TurnTimeout = turnTimeout;
             this.InitialWaitTime = initialWaitTime;
@@ -203,6 +227,8 @@ namespace ElevenLabs
             this.MergeWithDefaultIgnoreTerms = mergeWithDefaultIgnoreTerms;
             this.TranscribeOnDisabledInterruptions = transcribeOnDisabledInterruptions;
             this.SoftTimeoutConfig = softTimeoutConfig;
+            this.NoisyEnvironmentDetection = noisyEnvironmentDetection;
+            this.NoisyEnvironmentMessage = noisyEnvironmentMessage;
         }
 
         /// <summary>

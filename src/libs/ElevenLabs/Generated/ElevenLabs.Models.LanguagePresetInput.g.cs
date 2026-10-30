@@ -30,6 +30,12 @@ namespace ElevenLabs
         public global::ElevenLabs.LanguagePresetTranslation? SoftTimeoutTranslation { get; set; }
 
         /// <summary>
+        /// The translation of the noisy environment message
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("noisy_environment_message_translation")]
+        public global::ElevenLabs.LanguagePresetTranslation? NoisyEnvironmentMessageTranslation { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -48,17 +54,22 @@ namespace ElevenLabs
         /// <param name="softTimeoutTranslation">
         /// The translation of the soft timeout message
         /// </param>
+        /// <param name="noisyEnvironmentMessageTranslation">
+        /// The translation of the noisy environment message
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public LanguagePresetInput(
             global::ElevenLabs.ConversationConfigClientOverrideInput overrides,
             global::ElevenLabs.LanguagePresetTranslation? firstMessageTranslation,
-            global::ElevenLabs.LanguagePresetTranslation? softTimeoutTranslation)
+            global::ElevenLabs.LanguagePresetTranslation? softTimeoutTranslation,
+            global::ElevenLabs.LanguagePresetTranslation? noisyEnvironmentMessageTranslation)
         {
             this.Overrides = overrides ?? throw new global::System.ArgumentNullException(nameof(overrides));
             this.FirstMessageTranslation = firstMessageTranslation;
             this.SoftTimeoutTranslation = softTimeoutTranslation;
+            this.NoisyEnvironmentMessageTranslation = noisyEnvironmentMessageTranslation;
         }
 
         /// <summary>
