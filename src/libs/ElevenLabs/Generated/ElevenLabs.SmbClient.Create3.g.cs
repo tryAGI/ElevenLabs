@@ -27,13 +27,15 @@ namespace ElevenLabs
             };
         partial void PrepareCreate3Arguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string agentId,
             ref string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbCreateHoliday request);
+            global::ElevenLabs.BodySmbAddAgentRule request);
         partial void PrepareCreate3Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string agentId,
             string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbCreateHoliday request);
+            global::ElevenLabs.BodySmbAddAgentRule request);
         partial void ProcessCreate3Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,9 +46,10 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Holiday<br/>
-        /// Create a new holiday
+        /// Add Agent Rule<br/>
+        /// Add a behavioral rule to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -54,14 +57,16 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Create3Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Create3Async(
+            string agentId,
 
-            global::ElevenLabs.BodySmbCreateHoliday request,
+            global::ElevenLabs.BodySmbAddAgentRule request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create3AsResponseAsync(
+                agentId: agentId,
 
                 request: request,
                 xiWorkspaceId: xiWorkspaceId,
@@ -72,9 +77,10 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Holiday<br/>
-        /// Create a new holiday
+        /// Add Agent Rule<br/>
+        /// Add a behavioral rule to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -82,9 +88,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>> Create3AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>> Create3AsResponseAsync(
+            string agentId,
 
-            global::ElevenLabs.BodySmbCreateHoliday request,
+            global::ElevenLabs.BodySmbAddAgentRule request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -97,6 +104,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate3Arguments(
                 httpClient: HttpClient,
+                agentId: ref agentId,
                 xiWorkspaceId: ref xiWorkspaceId,
                 request: request);
 
@@ -124,7 +132,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/smb/holidays",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}/rules",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -178,6 +186,7 @@ namespace ElevenLabs
                 PrepareCreate3Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    agentId: agentId,
                     xiWorkspaceId: xiWorkspaceId,
                     request: request);
 
@@ -198,7 +207,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create3",
                                 methodName: "Create3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -232,7 +241,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create3",
                                 methodName: "Create3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -273,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create3",
                                 methodName: "Create3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -321,7 +330,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create3",
                                 methodName: "Create3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -343,7 +352,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create3",
                                 methodName: "Create3Async",
-                                pathTemplate: "\"/v1/smb/holidays\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/rules\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -417,9 +426,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.HolidayResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AgentRule.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +458,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.HolidayResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AgentRule.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -492,28 +501,33 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Holiday<br/>
-        /// Create a new holiday
+        /// Add Agent Rule<br/>
+        /// Add a behavioral rule to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="request"></param>
+        /// <param name="request">
+        /// Request model for creating a new agent rule.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Create3Async(
-            global::ElevenLabs.SMBCreateHolidayRequest request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Create3Async(
+            string agentId,
+            global::ElevenLabs.SMBCreateAgentRuleRequest request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySmbCreateHoliday
+            var __request = new global::ElevenLabs.BodySmbAddAgentRule
             {
                 Request = request,
             };
 
             return await Create3Async(
+                agentId: agentId,
                 xiWorkspaceId: xiWorkspaceId,
                 request: __request,
                 requestOptions: requestOptions,

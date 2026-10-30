@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.FileInputConfigWorkflowOverride))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0066.Create_FileInputConfigWorkflowOverride(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0067.Create_FileInputConfigWorkflowOverride(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

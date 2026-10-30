@@ -5,10 +5,11 @@ namespace ElevenLabs
     public partial interface ISmbClient
     {
         /// <summary>
-        /// Delete Holiday<br/>
-        /// Delete a holiday
+        /// Delete Agent Rule<br/>
+        /// Delete a rule from the named receptionist.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="ruleId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -16,15 +17,17 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Delete3Async(
-            string holidayId,
+            string agentId,
+            string ruleId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete Holiday<br/>
-        /// Delete a holiday
+        /// Delete Agent Rule<br/>
+        /// Delete a rule from the named receptionist.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="ruleId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -32,7 +35,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Delete3AsResponseAsync(
-            string holidayId,
+            string agentId,
+            string ruleId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

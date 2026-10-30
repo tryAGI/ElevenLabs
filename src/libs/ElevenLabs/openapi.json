@@ -41141,6 +41141,1583 @@
         "x-fern-sdk-method-name": "delete"
       }
     },
+    "/v1/smb/customer-facing-agents": {
+      "get": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "List Customer Facing Agents",
+        "description": "List every customer-facing receptionist for the workspace.",
+        "operationId": "smb_list_customer_facing_agents",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SMBCustomerFacingAgentResponse"
+                  },
+                  "title": "Response Smb List Customer Facing Agents"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists"
+        ],
+        "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}": {
+      "patch": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Update Customer Facing Agent",
+        "description": "Update a receptionist's display name, config and/or widget appearance.",
+        "operationId": "smb_update_customer_facing_agent",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SMBUpdateCustomerFacingAgentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBCustomerFacingAgentResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists"
+        ],
+        "x-fern-sdk-method-name": "update"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}/activate": {
+      "post": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Activate Customer Facing Agent",
+        "description": "Re-activate a deactivated receptionist. Subject to the workspace's tier cap; raises ``quota_exceeded`` if no active slot is free.",
+        "operationId": "smb_activate_customer_facing_agent",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBCustomerFacingAgentResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists"
+        ],
+        "x-fern-sdk-method-name": "activate"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}/rules": {
+      "post": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Add Agent Rule",
+        "description": "Add a behavioral rule to the named receptionist.",
+        "operationId": "smb_add_agent_rule",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_smb_add_agent_rule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRule"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "rules"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}/rules/{rule_id}": {
+      "put": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Update Agent Rule",
+        "description": "Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.",
+        "operationId": "smb_update_agent_rule",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "rule_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Rule Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_smb_update_agent_rule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentRule"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "rules"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Delete Agent Rule",
+        "description": "Delete a rule from the named receptionist.",
+        "operationId": "smb_delete_agent_rule",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "rule_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Rule Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Smb Delete Agent Rule"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "rules"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}/procedures": {
+      "get": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "List Agent Procedures",
+        "description": "List the procedures (SOPs) the named receptionist can run on calls.",
+        "operationId": "smb_list_agent_procedures",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SMBProcedure"
+                  },
+                  "title": "Response Smb List Agent Procedures"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Add Agent Procedure",
+        "description": "Add a procedure (SOP) to the named receptionist.",
+        "operationId": "smb_add_agent_procedure",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_smb_add_agent_procedure"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBProcedure"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}/procedures/{procedure_id}": {
+      "put": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Update Agent Procedure",
+        "description": "Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.",
+        "operationId": "smb_update_agent_procedure",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "procedure_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Procedure Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_smb_update_agent_procedure"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBProcedure"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Delete Agent Procedure",
+        "description": "Delete a procedure from the named receptionist.",
+        "operationId": "smb_delete_agent_procedure",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "procedure_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Procedure Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Smb Delete Agent Procedure"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "procedures"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}/transfer-rules": {
+      "post": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Add Transfer Rule",
+        "description": "Add a phone forwarding rule to the named receptionist.",
+        "operationId": "smb_add_transfer_rule",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_smb_add_transfer_rule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBTransferRule"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "transfer_rules"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/smb/customer-facing-agents/{agent_id}/transfer-rules/{rule_id}": {
+      "put": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Update Transfer Rule",
+        "description": "Replace an existing transfer rule on the named receptionist. Send every field: an omitted `post_dial_digits` clears it.",
+        "operationId": "smb_update_transfer_rule",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "rule_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Rule Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_smb_update_transfer_rule"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBTransferRule"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "transfer_rules"
+        ],
+        "x-fern-sdk-method-name": "update"
+      },
+      "delete": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Delete Transfer Rule",
+        "description": "Delete a transfer rule from the named receptionist.",
+        "operationId": "smb_delete_transfer_rule",
+        "parameters": [
+          {
+            "name": "agent_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Agent Id"
+            }
+          },
+          {
+            "name": "rule_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Rule Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Smb Delete Transfer Rule"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "receptionists",
+          "transfer_rules"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      }
+    },
+    "/v1/smb/phone-numbers/assignments": {
+      "get": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "List Workspace Phone Assignments",
+        "description": "List the workspace's phone numbers and the receptionist each one rings. A number with no `customer_facing_agent_id` is held by the workspace but not attached to a receptionist yet.",
+        "operationId": "smb_list_workspace_phone_assignments",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SMBPhoneAssignmentDBModel"
+                  },
+                  "title": "Response Smb List Workspace Phone Assignments"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "phone_numbers"
+        ],
+        "x-fern-sdk-method-name": "list"
+      },
+      "post": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Assign Phone Number",
+        "description": "Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.",
+        "operationId": "smb_assign_phone_number",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePhoneAssignmentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBPhoneAssignmentDBModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "phone_numbers"
+        ],
+        "x-fern-sdk-method-name": "create"
+      }
+    },
+    "/v1/smb/phone-numbers/assignments/{phone_assignment_id}": {
+      "delete": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Release Phone Assignment",
+        "description": "Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.",
+        "operationId": "smb_release_phone_assignment",
+        "parameters": [
+          {
+            "name": "phone_assignment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Phone Assignment Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "phone_numbers"
+        ],
+        "x-fern-sdk-method-name": "delete"
+      },
+      "patch": {
+        "tags": [
+          "smb",
+          "SMB"
+        ],
+        "summary": "Reassign Phone To Agent",
+        "description": "Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/smb/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.",
+        "operationId": "smb_reassign_phone_to_agent",
+        "parameters": [
+          {
+            "name": "phone_assignment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Phone Assignment Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          },
+          {
+            "name": "xi-workspace-id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The customer workspace a reseller's API key acts on.",
+              "title": "Xi-Workspace-Id"
+            },
+            "description": "The customer workspace a reseller's API key acts on."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReassignPhoneRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMBPhoneAssignmentDBModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "phone_numbers"
+        ],
+        "x-fern-sdk-method-name": "update"
+      }
+    },
     "/v1/smb/holidays": {
       "get": {
         "tags": [
@@ -43249,6 +44826,218 @@
           "tiers"
         ],
         "x-fern-sdk-method-name": "list"
+      }
+    },
+    "/v1/smb/reseller/billing/invoices": {
+      "get": {
+        "tags": [
+          "smb"
+        ],
+        "summary": "List Reseller Invoices",
+        "description": "List the invoices charged to the reseller's card, newest first, one per workspace invoice",
+        "operationId": "smb_list_reseller_invoices",
+        "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Pagination cursor from previous response",
+              "title": "Cursor"
+            },
+            "description": "Pagination cursor from previous response"
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Number of invoices per page",
+              "default": 25,
+              "title": "Page Size"
+            },
+            "description": "Number of invoices per page"
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResellerInvoicesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "billing"
+        ],
+        "x-fern-sdk-method-name": "list_invoices"
+      }
+    },
+    "/v1/smb/reseller/billing/invoices/{invoice_id}": {
+      "get": {
+        "tags": [
+          "smb"
+        ],
+        "summary": "Get Reseller Invoice",
+        "description": "Get one invoice charged to the reseller's card, broken down into the workspace invoice's lines",
+        "operationId": "smb_get_reseller_invoice",
+        "parameters": [
+          {
+            "name": "invoice_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Invoice Id"
+            }
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResellerInvoiceDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "billing"
+        ],
+        "x-fern-sdk-method-name": "get_invoice"
+      }
+    },
+    "/v1/smb/reseller/billing/upcoming": {
+      "get": {
+        "tags": [
+          "smb"
+        ],
+        "summary": "List Reseller Upcoming Payments",
+        "description": "List the next workspace renewals the reseller's card will be charged for, soonest first",
+        "operationId": "smb_list_reseller_upcoming_payments",
+        "parameters": [
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResellerUpcomingPaymentsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "reception",
+          "billing"
+        ],
+        "x-fern-sdk-method-name": "list_upcoming_payments"
       }
     },
     "/docs": {
@@ -49766,6 +51555,15 @@
           "api_schema_overrides"
         ],
         "title": "ApiIntegrationWebhookToolConfig"
+      },
+      "ApplicationNumberType": {
+        "type": "string",
+        "enum": [
+          "local",
+          "mobile"
+        ],
+        "title": "ApplicationNumberType",
+        "description": "Which kind of regulated number a request or an issued number is for.\n\nLives here rather than next to the application model because a phone\nassignment records it too, and the assignment model cannot import from\n``telephony.models`` without a cycle back into this module."
       },
       "AppointmentReminderMode": {
         "type": "string",
@@ -57597,7 +59395,7 @@
           "no_verbatim": {
             "type": "boolean",
             "title": "No Verbatim",
-            "description": "If true, the transcription will not have any filler words, false starts and non-speech sounds. Only supported with scribe_v2 model.",
+            "description": "If true, the transcription will not have any filler words, false starts and non-speech sounds.",
             "default": false
           },
           "use_speaker_library": {
@@ -60136,6 +61934,42 @@
         "type": "object",
         "title": "Body_edit_service_account_api_key_v1_service_accounts__service_account_user_id__api_keys__api_key_id__patch"
       },
+      "Body_smb_add_agent_procedure": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/SMBCreateProcedureRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_smb_add_agent_procedure"
+      },
+      "Body_smb_add_agent_rule": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/SMBCreateAgentRuleRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_smb_add_agent_rule"
+      },
+      "Body_smb_add_transfer_rule": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/SMBCreateTransferRuleRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_smb_add_transfer_rule"
+      },
       "Body_smb_add_url_source": {
         "properties": {
           "request": {
@@ -60220,6 +62054,30 @@
         ],
         "title": "Body_smb_update_agent_info"
       },
+      "Body_smb_update_agent_procedure": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/SMBUpdateProcedureRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_smb_update_agent_procedure"
+      },
+      "Body_smb_update_agent_rule": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/SMBUpdateAgentRuleRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_smb_update_agent_rule"
+      },
       "Body_smb_update_holiday": {
         "properties": {
           "request": {
@@ -60267,6 +62125,18 @@
           "request"
         ],
         "title": "Body_smb_update_staff_member"
+      },
+      "Body_smb_update_transfer_rule": {
+        "properties": {
+          "request": {
+            "$ref": "#/components/schemas/SMBUpdateTransferRuleRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "request"
+        ],
+        "title": "Body_smb_update_transfer_rule"
       },
       "Body_smb_upload_knowledge_source": {
         "properties": {
@@ -71822,6 +73692,47 @@
           "sandbox": false
         }
       },
+      "CreatePhoneAssignmentRequest": {
+        "properties": {
+          "customer_facing_agent_id": {
+            "type": "string",
+            "title": "Customer Facing Agent Id",
+            "description": "The receptionist that answers calls to the number."
+          },
+          "area_codes": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Area Codes",
+            "description": "Preferred US or Canadian area codes, e.g. `[\"415\", \"628\"]`. Codes outside the business's country are ignored, and any number is given when none of these is available."
+          },
+          "number_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationNumberType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Local or mobile, in a country that requires paperwork before a number takes calls. Leave unset to try mobile first. Ignored in the US and Canada."
+          }
+        },
+        "type": "object",
+        "required": [
+          "customer_facing_agent_id"
+        ],
+        "title": "CreatePhoneAssignmentRequest",
+        "description": "Body for giving a receptionist a phone number."
+      },
       "CreatePhoneNumberResponseModel": {
         "properties": {
           "phone_number_id": {
@@ -73434,17 +75345,6 @@
             "description": "Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.",
             "default": false
           },
-          "tool_call_sound": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ToolCallSoundType"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Legacy per-receptionist hold sound, superseded by the workspace's agent-info tool_call_sound. Only read to seed that field for agent info saved before it existed; settings saves keep the stored value."
-          },
           "agent_rules": {
             "items": {
               "$ref": "#/components/schemas/AgentRule"
@@ -73489,10 +75389,6 @@
             "title": "Enable Secure Mode",
             "description": "When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.",
             "default": false
-          },
-          "identity_verification": {
-            "$ref": "#/components/schemas/SMBIdentityVerificationConfig",
-            "description": "Configuration for client identity verification codes."
           },
           "enable_spam_protection": {
             "type": "boolean",
@@ -73622,17 +75518,6 @@
             "description": "Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step.",
             "default": false
           },
-          "tool_call_sound": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ToolCallSoundType"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Legacy per-receptionist hold sound, superseded by the workspace's agent-info tool_call_sound. Only read to seed that field for agent info saved before it existed; settings saves keep the stored value."
-          },
           "agent_rules": {
             "items": {
               "$ref": "#/components/schemas/AgentRule"
@@ -73678,10 +75563,6 @@
             "description": "When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number.",
             "default": false
           },
-          "identity_verification": {
-            "$ref": "#/components/schemas/SMBIdentityVerificationConfig",
-            "description": "Configuration for client identity verification codes."
-          },
           "enable_spam_protection": {
             "type": "boolean",
             "title": "Enable Spam Protection",
@@ -73691,6 +75572,135 @@
         },
         "type": "object",
         "title": "CustomerFacingConfig"
+      },
+      "CustomerFacingConfigPatch": {
+        "properties": {
+          "additional_instructions": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "description": "Extra instructions for the agent (e.g., 'Always ask callers to spell out their name')"
+          },
+          "tone_traits": {
+            "items": {
+              "$ref": "#/components/schemas/StrippedStr",
+              "maxLength": 50,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Tone Traits",
+            "description": "Personality/tone trait keys that drive the Personality prompt section (e.g. ['professional', 'concise'])."
+          },
+          "details_to_collect": {
+            "items": {
+              "$ref": "#/components/schemas/StrippedStr",
+              "maxLength": 100,
+              "minLength": 1
+            },
+            "type": "array",
+            "title": "Details To Collect",
+            "description": "Details the agent should always try to collect from callers (presets + custom labels, e.g. ['full name', 'phone number'])."
+          },
+          "llm": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLM"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Concrete LLM powering the receptionist. Constrained to SMB_ALLOWED_LLMS (see validate_reasoning_effort). None means no explicit model was chosen; the factory falls back to the historical default (SMB_DEFAULT_LEGACY_LLM) so configs predating this field keep their original model. New agents are created with SMB_DEFAULT_NEW_AGENT_LLM."
+          },
+          "reasoning_effort": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLMReasoningEffort"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Reasoning effort for the receptionist's model. Must be one of the model's supported efforts (see LLM.available_reasoning_efforts) and is capped at MEDIUM for SMB (see SMB_RECEPTIONIST_REASONING_EFFORTS); use null for the model default / models without configurable reasoning."
+          },
+          "disable_rag": {
+            "type": "boolean",
+            "title": "Disable Rag",
+            "description": "When true, the receptionist's knowledge base is injected in full into the system prompt instead of being retrieved via vector RAG on every turn. This removes the per-turn embedding + vector-search latency, but is only viable for small knowledge bases that fit within the prompt budget (KNOWLEDGE_BASE_IN_PROMPT_MAX_LEN). Knowledge bases too large to inline fall back to RAG at build time."
+          },
+          "background_voice_detection": {
+            "type": "boolean",
+            "title": "Background Voice Detection",
+            "description": "Filter out far-field human speech before transcription."
+          },
+          "turn_eagerness": {
+            "$ref": "#/components/schemas/SMBTurnEagerness",
+            "description": "How quickly the receptionist decides the caller has finished speaking. Eager replies soonest; patient waits for a clearer end of turn."
+          },
+          "voice_id": {
+            "type": "string",
+            "title": "Voice Id",
+            "description": "ElevenLabs voice ID"
+          },
+          "language": {
+            "$ref": "#/components/schemas/SupportedLang",
+            "description": "Primary language code"
+          },
+          "additional_languages": {
+            "items": {
+              "$ref": "#/components/schemas/SupportedLang"
+            },
+            "type": "array",
+            "title": "Additional Languages",
+            "description": "Additional language codes the agent can communicate in"
+          },
+          "first_message": {
+            "type": "string",
+            "title": "First Message",
+            "description": "The first message the agent says when starting a conversation"
+          },
+          "disable_first_message_interruptions": {
+            "type": "boolean",
+            "title": "Disable First Message Interruptions",
+            "description": "When true, callers cannot interrupt the receptionist while the first message is being delivered. Use when the greeting carries a recording or legal notice callers must hear in full."
+          },
+          "enable_end_call_tool": {
+            "type": "boolean",
+            "title": "Enable End Call Tool",
+            "description": "Allow the end_call system tool during conversations."
+          },
+          "enable_skip_turn_tool": {
+            "type": "boolean",
+            "title": "Enable Skip Turn Tool",
+            "description": "Allow the skip_turn system tool during conversations."
+          },
+          "enable_play_keypad_touch_tone_tool": {
+            "type": "boolean",
+            "title": "Enable Play Keypad Touch Tone Tool",
+            "description": "Allow the play_keypad_touch_tone (DTMF) system tool during conversations. When enabled, the receptionist can play touch-tone digits on a live call to navigate automated phone menus or answer carrier prompts such as a 'press 1 to accept' call-screening step."
+          },
+          "hide_caller_number_on_transfers": {
+            "type": "boolean",
+            "title": "Hide Caller Number On Transfers",
+            "description": "Show the business's own number, rather than the caller's, as the caller ID on transferred calls."
+          },
+          "record_after_transfers": {
+            "type": "boolean",
+            "title": "Record After Transfers",
+            "description": "Keep recording after a call is transferred and add that audio to the call recording."
+          },
+          "enable_secure_mode": {
+            "type": "boolean",
+            "title": "Enable Secure Mode",
+            "description": "When enabled, the receptionist may only look up or modify appointments and client records tied to the caller's verified phone number."
+          },
+          "enable_spam_protection": {
+            "type": "boolean",
+            "title": "Enable Spam Protection",
+            "description": "When enabled, inbound calls to US numbers are screened before the receptionist answers: calls whose caller ID failed carrier (STIR/SHAKEN) verification are rejected, and unknown callers whose caller ID the carrier could not vouch for must press a key to be connected."
+          }
+        },
+        "type": "object",
+        "title": "CustomerFacingConfigPatch",
+        "description": "The endpoint-managed lists are written through their own routes, never here."
       },
       "DTMFInputConfig": {
         "properties": {
@@ -103242,6 +105252,21 @@
         "title": "RealtimeModel",
         "default": "eleven_realtime_v1_mini"
       },
+      "ReassignPhoneRequest": {
+        "properties": {
+          "customer_facing_agent_id": {
+            "type": "string",
+            "title": "Customer Facing Agent Id",
+            "description": "The receptionist that answers calls to the number from now on."
+          }
+        },
+        "type": "object",
+        "required": [
+          "customer_facing_agent_id"
+        ],
+        "title": "ReassignPhoneRequest",
+        "description": "Body for attaching a phone number to a different receptionist."
+      },
       "RecordingResponseModel": {
         "properties": {
           "recording_id": {
@@ -103763,6 +105788,283 @@
         "title": "RequiredConstraints",
         "description": "Wrapper for anyOf/allOf composition constraints scoped to required fields."
       },
+      "ResellerInvoiceDetail": {
+        "properties": {
+          "invoice_id": {
+            "type": "string",
+            "title": "Invoice Id"
+          },
+          "workspace_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Workspace Id",
+            "description": "The workspace this charge paid for."
+          },
+          "workspace_name": {
+            "type": "string",
+            "title": "Workspace Name"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ResellerInvoiceStatus"
+          },
+          "amount_cents": {
+            "type": "integer",
+            "title": "Amount Cents",
+            "description": "Invoice total, in the currency's minor unit."
+          },
+          "currency": {
+            "type": "string",
+            "title": "Currency"
+          },
+          "created_unix": {
+            "type": "integer",
+            "title": "Created Unix"
+          },
+          "paid_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid Unix"
+          },
+          "pay_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pay Url",
+            "description": "Stripe's hosted payment page, only while open."
+          },
+          "pdf_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pdf Url"
+          },
+          "lines": {
+            "items": {
+              "$ref": "#/components/schemas/ResellerInvoiceLine"
+            },
+            "type": "array",
+            "title": "Lines"
+          }
+        },
+        "type": "object",
+        "required": [
+          "invoice_id",
+          "workspace_id",
+          "workspace_name",
+          "status",
+          "amount_cents",
+          "currency",
+          "created_unix",
+          "lines"
+        ],
+        "title": "ResellerInvoiceDetail"
+      },
+      "ResellerInvoiceLine": {
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ResellerInvoiceLineKind"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "quantity": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Quantity"
+          },
+          "amount_cents": {
+            "type": "integer",
+            "title": "Amount Cents",
+            "description": "Negative for a proration credit."
+          },
+          "period_start_unix": {
+            "type": "integer",
+            "title": "Period Start Unix"
+          },
+          "period_end_unix": {
+            "type": "integer",
+            "title": "Period End Unix"
+          }
+        },
+        "type": "object",
+        "required": [
+          "kind",
+          "description",
+          "amount_cents",
+          "period_start_unix",
+          "period_end_unix"
+        ],
+        "title": "ResellerInvoiceLine",
+        "description": "One line of the workspace's invoice; an `adjustment` line covers any remainder, so lines sum to the charge."
+      },
+      "ResellerInvoiceLineKind": {
+        "type": "string",
+        "enum": [
+          "plan",
+          "telephony",
+          "overage",
+          "proration",
+          "adjustment"
+        ],
+        "title": "ResellerInvoiceLineKind"
+      },
+      "ResellerInvoiceStatus": {
+        "type": "string",
+        "enum": [
+          "paid",
+          "open",
+          "void"
+        ],
+        "title": "ResellerInvoiceStatus",
+        "description": "`open` while the card is still being retried; `void` once retries ran out and the workspace's plan was ended."
+      },
+      "ResellerInvoiceSummary": {
+        "properties": {
+          "invoice_id": {
+            "type": "string",
+            "title": "Invoice Id"
+          },
+          "workspace_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Workspace Id",
+            "description": "The workspace this charge paid for."
+          },
+          "workspace_name": {
+            "type": "string",
+            "title": "Workspace Name"
+          },
+          "status": {
+            "$ref": "#/components/schemas/ResellerInvoiceStatus"
+          },
+          "amount_cents": {
+            "type": "integer",
+            "title": "Amount Cents",
+            "description": "Invoice total, in the currency's minor unit."
+          },
+          "currency": {
+            "type": "string",
+            "title": "Currency"
+          },
+          "created_unix": {
+            "type": "integer",
+            "title": "Created Unix"
+          },
+          "paid_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Paid Unix"
+          },
+          "pay_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pay Url",
+            "description": "Stripe's hosted payment page, only while open."
+          },
+          "pdf_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pdf Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "invoice_id",
+          "workspace_id",
+          "workspace_name",
+          "status",
+          "amount_cents",
+          "currency",
+          "created_unix"
+        ],
+        "title": "ResellerInvoiceSummary",
+        "description": "One charge to the reseller's card, paying for one workspace's invoice."
+      },
+      "ResellerInvoicesResponse": {
+        "properties": {
+          "invoices": {
+            "items": {
+              "$ref": "#/components/schemas/ResellerInvoiceSummary"
+            },
+            "type": "array",
+            "title": "Invoices"
+          },
+          "next_cursor": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Cursor"
+          },
+          "has_more": {
+            "type": "boolean",
+            "title": "Has More",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "invoices"
+        ],
+        "title": "ResellerInvoicesResponse"
+      },
       "ResellerTierResponse": {
         "properties": {
           "tier_id": {
@@ -103785,6 +106087,57 @@
         ],
         "title": "ResellerTierResponse",
         "description": "A tier as the public API shows it: the offer, not the record derived from it."
+      },
+      "ResellerUpcomingPayment": {
+        "properties": {
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          },
+          "workspace_name": {
+            "type": "string",
+            "title": "Workspace Name"
+          },
+          "subscription": {
+            "$ref": "#/components/schemas/ResellerWorkspaceSubscription"
+          },
+          "plan_usd": {
+            "type": "number",
+            "title": "Plan Usd",
+            "description": "The plan the renewal charges upfront: the pending downgrade's tier when there is one."
+          },
+          "overage_so_far_usd": {
+            "type": "number",
+            "title": "Overage So Far Usd",
+            "description": "This period's usage beyond its included minutes so far, charged at the renewal and still growing."
+          }
+        },
+        "type": "object",
+        "required": [
+          "workspace_id",
+          "workspace_name",
+          "subscription",
+          "plan_usd",
+          "overage_so_far_usd"
+        ],
+        "title": "ResellerUpcomingPayment",
+        "description": "A workspace's next renewal, estimated before Stripe drafts the invoice."
+      },
+      "ResellerUpcomingPaymentsResponse": {
+        "properties": {
+          "payments": {
+            "items": {
+              "$ref": "#/components/schemas/ResellerUpcomingPayment"
+            },
+            "type": "array",
+            "title": "Payments"
+          }
+        },
+        "type": "object",
+        "required": [
+          "payments"
+        ],
+        "title": "ResellerUpcomingPaymentsResponse"
       },
       "ResellerWorkspaceSubscription": {
         "properties": {
@@ -105025,6 +107378,34 @@
         "type": "object",
         "title": "SMBClientAccessConfig"
       },
+      "SMBCreateAgentRuleRequest": {
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 200,
+            "minLength": 1,
+            "description": "Title of the rule."
+          },
+          "description": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 2000,
+            "minLength": 1,
+            "description": "What the agent should do, in detail."
+          },
+          "priority": {
+            "$ref": "#/components/schemas/RulePriority",
+            "description": "strict: the agent must always follow the rule; suggestion: a guideline.",
+            "default": "strict"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ],
+        "title": "SMBCreateAgentRuleRequest",
+        "description": "Request model for creating a new agent rule."
+      },
       "SMBCreateHolidayRequest": {
         "properties": {
           "name": {
@@ -105102,6 +107483,36 @@
           "time_off_type"
         ],
         "title": "SMBCreateHolidayRequest"
+      },
+      "SMBCreateProcedureRequest": {
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 200,
+            "minLength": 1,
+            "description": "Name of the procedure."
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 2000,
+            "minLength": 1,
+            "description": "When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'."
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 40000,
+            "title": "Body",
+            "description": "Step-by-step instructions, as markdown.",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "trigger"
+        ],
+        "title": "SMBCreateProcedureRequest",
+        "description": "Request model for creating a new procedure."
       },
       "SMBCreateServiceRequest": {
         "properties": {
@@ -105411,6 +107822,49 @@
         ],
         "title": "SMBCreateStaffRequest"
       },
+      "SMBCreateTransferRuleRequest": {
+        "properties": {
+          "label": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 200,
+            "minLength": 1,
+            "description": "Name of the transfer destination, e.g. 'Alvin' or 'Billing team'."
+          },
+          "phone_number": {
+            "$ref": "#/components/schemas/PhoneNumber",
+            "description": "Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad."
+          },
+          "condition": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 2000,
+            "minLength": 1,
+            "description": "What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'."
+          },
+          "post_dial_digits": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^[0-9*#wW]*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Post Dial Digits",
+            "description": "DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only."
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "phone_number",
+          "condition"
+        ],
+        "title": "SMBCreateTransferRuleRequest",
+        "description": "Request model for creating a new transfer rule."
+      },
       "SMBCustomerFacingAgent": {
         "properties": {
           "agent_id": {
@@ -105458,6 +107912,82 @@
         ],
         "title": "SMBCustomerFacingAgentDeactivationReason",
         "description": "Why a receptionist is currently inactive (live calls disabled)."
+      },
+      "SMBCustomerFacingAgentResponse": {
+        "properties": {
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id",
+            "description": "ConvAI agent id. Empty string is the placeholder seeded by the legacy API validator when migrating a single-agent payload; the agent-owning service resolves it from the workspace assignment.",
+            "default": ""
+          },
+          "config": {
+            "$ref": "#/components/schemas/CustomerFacingConfig-Output"
+          },
+          "deactivated_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deactivated At Unix",
+            "description": "Unix timestamp when this receptionist was deactivated. None when active."
+          },
+          "deactivation_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SMBCustomerFacingAgentDeactivationReason"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Why this receptionist was deactivated. None when active."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Display name read from the ConvAI agent document (the single source of truth).",
+            "default": "Receptionist"
+          },
+          "agent_exists": {
+            "type": "boolean",
+            "title": "Agent Exists",
+            "description": "Whether the underlying ConvAI agent document still exists. False when the receptionist references a deleted agent and needs repair.",
+            "default": true
+          },
+          "is_transfer_allowed": {
+            "type": "boolean",
+            "title": "Is Transfer Allowed",
+            "description": "Whether this receptionist can configure and use transfer rules.",
+            "default": false
+          },
+          "widget": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SMBWidgetAppearance"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "How the website widget looks, read from the ConvAI agent's platform settings. Null when the agent document is missing. Unset labels mean the widget follows the agent's own language."
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "is_active"
+        ],
+        "title": "SMBCustomerFacingAgentResponse",
+        "description": "API response model that adds the display name from the ConvAI agent doc."
       },
       "SMBGroupMembership": {
         "properties": {
@@ -105947,6 +108477,159 @@
           "sms"
         ],
         "title": "SMBNotificationChannel"
+      },
+      "SMBPhoneAssignmentDBModel": {
+        "properties": {
+          "phone_number": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PhoneNumber"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Phone number in E.164 format (for indexing/filtering)"
+          },
+          "is_byo": {
+            "type": "boolean",
+            "title": "Is Byo",
+            "description": "True when the phone is bring-your-own: registered by the workspace using their own telephony provider (Twilio credentials or SIP trunk). BYO phones are never part of the shared pool, do not count against the tier-based phone quota, and are deleted (rather than returned to the pool) on release.",
+            "default": false
+          },
+          "provider": {
+            "type": "string",
+            "enum": [
+              "twilio",
+              "sip_trunk"
+            ],
+            "title": "Provider",
+            "description": "Telephony provider for this phone number. Defaults to twilio for backwards compatibility with existing documents.",
+            "default": "twilio"
+          },
+          "nanp_area_code": {
+            "type": "integer",
+            "title": "Nanp Area Code",
+            "description": "US/Canada NANP area code (NPA) as an integer.",
+            "default": 0
+          },
+          "customer_facing_agent_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Customer Facing Agent Id",
+            "description": "Determines assignment status: None = pool (unassigned), non-None = assigned to this customer-facing agent. When set, inbound calls to this phone route to that agent."
+          },
+          "deactivated_at_unix": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Deactivated At Unix",
+            "description": "Unix timestamp when this assignment was deactivated. Drives the per-assignment 14-day grace cleanup. None when active."
+          },
+          "deactivation_reason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SMBPhoneAssignmentDeactivationReason"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Why this assignment was deactivated. None when active."
+          },
+          "regulatory_status": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SMBPhoneRegulatoryStatus"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "None for numbers from countries with no regulatory requirements. 'held' while the workspace's own application is under review, 'approved' once it passed and the number is fully usable."
+          },
+          "regulatory_number_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ApplicationNumberType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Which regulated type this number was issued as. Set on numbers bought in a country that needs paperwork, so the request form can open on the type the workspace already holds. None for pool numbers, which need no application."
+          },
+          "regulatory_country": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CountryCode"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "ISO country the regulated number was bought in. Recorded so a held number can be matched to the application it belongs to without inferring the country from the dialing prefix. None for pool numbers."
+          },
+          "_id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "created_at_unix": {
+            "$ref": "#/components/schemas/UnixTimestamp"
+          },
+          "updated_at_unix": {
+            "$ref": "#/components/schemas/UnixTimestamp"
+          },
+          "is_active": {
+            "type": "boolean",
+            "title": "Is Active",
+            "readOnly": true
+          },
+          "accepts_public_calls": {
+            "type": "boolean",
+            "title": "Accepts Public Calls",
+            "description": "Whether inbound calls from the public may reach the agent.",
+            "readOnly": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "_id",
+          "is_active",
+          "accepts_public_calls"
+        ],
+        "title": "SMBPhoneAssignmentDBModel",
+        "description": "Persisted phone assignment; see ``SMBPhoneAssignmentBase`` for field semantics."
+      },
+      "SMBPhoneAssignmentDeactivationReason": {
+        "type": "string",
+        "enum": [
+          "tier_downgrade",
+          "no_entitlement",
+          "user"
+        ],
+        "title": "SMBPhoneAssignmentDeactivationReason",
+        "description": "Why a phone assignment is currently inactive."
+      },
+      "SMBPhoneRegulatoryStatus": {
+        "type": "string",
+        "enum": [
+          "held",
+          "approved"
+        ],
+        "title": "SMBPhoneRegulatoryStatus",
+        "description": "Regulatory standing of a number in a country that requires paperwork.\n\nAbsent (``None``) on numbers from countries with no requirements, which is\nevery pooled US/Canada number — those are usable the moment they are bought."
       },
       "SMBProcedure": {
         "properties": {
@@ -107452,6 +110135,71 @@
         "title": "SMBUpdateAgentInfoRequest",
         "description": "Agent-info update payload used by backend route consumers."
       },
+      "SMBUpdateAgentRuleRequest": {
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 200,
+            "minLength": 1,
+            "description": "Title of the rule."
+          },
+          "description": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 2000,
+            "minLength": 1,
+            "description": "What the agent should do, in detail."
+          },
+          "priority": {
+            "$ref": "#/components/schemas/RulePriority",
+            "description": "strict: the agent must always follow the rule; suggestion: a guideline.",
+            "default": "strict"
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "description"
+        ],
+        "title": "SMBUpdateAgentRuleRequest",
+        "description": "Request model for updating an existing agent rule."
+      },
+      "SMBUpdateCustomerFacingAgentRequest": {
+        "properties": {
+          "config": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CustomerFacingConfigPatch"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "widget": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SMBWidgetAppearance"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "SMBUpdateCustomerFacingAgentRequest"
+      },
       "SMBUpdateHolidayRequestPatch": {
         "properties": {
           "name": {
@@ -107522,6 +110270,36 @@
         },
         "type": "object",
         "title": "SMBUpdateHolidayRequestPatch"
+      },
+      "SMBUpdateProcedureRequest": {
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 200,
+            "minLength": 1,
+            "description": "Name of the procedure."
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 2000,
+            "minLength": 1,
+            "description": "When the receptionist should run the procedure, in natural language. The receptionist matches caller requests against it, e.g. 'When the caller wants to book an appointment'."
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 40000,
+            "title": "Body",
+            "description": "Step-by-step instructions, as markdown.",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "trigger"
+        ],
+        "title": "SMBUpdateProcedureRequest",
+        "description": "Request model for updating an existing procedure."
       },
       "SMBUpdateServiceRequestPatch": {
         "properties": {
@@ -107811,6 +110589,49 @@
         "type": "object",
         "title": "SMBUpdateStaffRequestPatch"
       },
+      "SMBUpdateTransferRuleRequest": {
+        "properties": {
+          "label": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 200,
+            "minLength": 1,
+            "description": "Name of the transfer destination, e.g. 'Alvin' or 'Billing team'."
+          },
+          "phone_number": {
+            "$ref": "#/components/schemas/PhoneNumber",
+            "description": "Number to transfer to. Without a country code it is dialed locally in the business's country, so include the country code for a number abroad."
+          },
+          "condition": {
+            "$ref": "#/components/schemas/StrippedStr",
+            "maxLength": 2000,
+            "minLength": 1,
+            "description": "What the caller does that triggers the transfer, e.g. 'The caller asks to speak to a human or to Alvin'. Describe only the trigger; do not restate the phone number or the word 'transfer'."
+          },
+          "post_dial_digits": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 50,
+                "minLength": 1,
+                "pattern": "^[0-9*#wW]*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Post Dial Digits",
+            "description": "DTMF digits automatically played after the transfer destination picks up (e.g. '1' to answer a 'press 1 to accept' screen, or 'www1234' to key an extension after a pause). Valid characters are 0-9, *, #, w (0.5s pause) and W (1s pause). Twilio transfers only."
+          }
+        },
+        "type": "object",
+        "required": [
+          "label",
+          "phone_number",
+          "condition"
+        ],
+        "title": "SMBUpdateTransferRuleRequest",
+        "description": "Request model for updating an existing transfer rule."
+      },
       "SMBVertical": {
         "type": "string",
         "enum": [
@@ -107832,6 +110653,79 @@
           "other"
         ],
         "title": "SMBVertical"
+      },
+      "SMBWidgetAppearance": {
+        "properties": {
+          "orb_color_1": {
+            "type": "string",
+            "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+            "title": "Orb Color 1"
+          },
+          "orb_color_2": {
+            "type": "string",
+            "pattern": "^#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})$",
+            "title": "Orb Color 2"
+          },
+          "variant": {
+            "type": "string",
+            "enum": [
+              "tiny",
+              "compact",
+              "full"
+            ],
+            "title": "Variant"
+          },
+          "placement": {
+            "type": "string",
+            "enum": [
+              "top-left",
+              "top",
+              "top-right",
+              "bottom-left",
+              "bottom",
+              "bottom-right"
+            ],
+            "title": "Placement"
+          },
+          "dismissible": {
+            "type": "boolean",
+            "title": "Dismissible"
+          },
+          "main_label": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Main Label"
+          },
+          "start_call": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Call"
+          }
+        },
+        "type": "object",
+        "required": [
+          "orb_color_1",
+          "orb_color_2",
+          "variant",
+          "placement",
+          "dismissible"
+        ],
+        "title": "SMBWidgetAppearance",
+        "description": "How the website widget looks -- the only part of its config SMB exposes.\n\nUnlike the rest of a receptionist's settings this is not SMB data: it is\nwritten straight onto the ConvAI agent's ``platform_settings.widget``. The\nvalue types mirror ConvAI's ``WidgetConfig`` by hand because\n``xi_reception`` must not depend on ``xi_agents``; they are the widget's\npublic API, so they are stable.\n\nA ``None`` label means \"no override\", which keeps the widget following the\nagent's language instead of freezing today's translation into the config."
       },
       "SMSConversationInfo": {
         "properties": {

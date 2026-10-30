@@ -5,10 +5,11 @@ namespace ElevenLabs
     public partial interface ISmbClient
     {
         /// <summary>
-        /// Delete Location<br/>
-        /// Delete a location.
+        /// Delete Agent Procedure<br/>
+        /// Delete a procedure from the named receptionist.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="procedureId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -16,15 +17,17 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Delete4Async(
-            string locationId,
+            string agentId,
+            string procedureId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete Location<br/>
-        /// Delete a location.
+        /// Delete Agent Procedure<br/>
+        /// Delete a procedure from the named receptionist.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="procedureId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -32,7 +35,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Delete4AsResponseAsync(
-            string locationId,
+            string agentId,
+            string procedureId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0061.Create_DubbingTranscriptsResponseModelTranscriptFormat2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0062.Create_DubbingTranscriptsResponseModelTranscriptFormat2(options);
                 }
                 if (type == typeof(global::ElevenLabs.DubbingTranscriptsResponseModelTranscriptFormat?))
                 {

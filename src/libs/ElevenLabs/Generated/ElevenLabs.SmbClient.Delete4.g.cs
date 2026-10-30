@@ -27,12 +27,14 @@ namespace ElevenLabs
             };
         partial void PrepareDelete4Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string locationId,
+            ref string agentId,
+            ref string procedureId,
             ref string? xiWorkspaceId);
         partial void PrepareDelete4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string locationId,
+            string agentId,
+            string procedureId,
             string? xiWorkspaceId);
         partial void ProcessDelete4Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -44,10 +46,11 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Location<br/>
-        /// Delete a location.
+        /// Delete Agent Procedure<br/>
+        /// Delete a procedure from the named receptionist.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="procedureId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -55,13 +58,15 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Delete4Async(
-            string locationId,
+            string agentId,
+            string procedureId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Delete4AsResponseAsync(
-                locationId: locationId,
+                agentId: agentId,
+                procedureId: procedureId,
                 xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -70,10 +75,11 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Delete Location<br/>
-        /// Delete a location.
+        /// Delete Agent Procedure<br/>
+        /// Delete a procedure from the named receptionist.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="agentId"></param>
+        /// <param name="procedureId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -81,7 +87,8 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Delete4AsResponseAsync(
-            string locationId,
+            string agentId,
+            string procedureId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -92,7 +99,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete4Arguments(
                 httpClient: HttpClient,
-                locationId: ref locationId,
+                agentId: ref agentId,
+                procedureId: ref procedureId,
                 xiWorkspaceId: ref xiWorkspaceId);
 
 
@@ -119,7 +127,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/smb/locations/{locationId}",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -167,7 +175,8 @@ namespace ElevenLabs
                 PrepareDelete4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    locationId: locationId,
+                    agentId: agentId,
+                    procedureId: procedureId,
                     xiWorkspaceId: xiWorkspaceId);
 
                 return __httpRequest;
@@ -187,7 +196,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete4",
                                 methodName: "Delete4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -221,7 +230,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete4",
                                 methodName: "Delete4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -262,7 +271,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete4",
                                 methodName: "Delete4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -310,7 +319,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete4",
                                 methodName: "Delete4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -332,7 +341,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete4",
                                 methodName: "Delete4Async",
-                                pathTemplate: "$\"/v1/smb/locations/{locationId}\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures/{procedureId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

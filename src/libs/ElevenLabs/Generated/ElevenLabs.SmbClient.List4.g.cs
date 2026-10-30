@@ -27,10 +27,12 @@ namespace ElevenLabs
             };
         partial void PrepareList4Arguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string agentId,
             ref string? xiWorkspaceId);
         partial void PrepareList4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string agentId,
             string? xiWorkspaceId);
         partial void ProcessList4Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -42,21 +44,24 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Locations<br/>
-        /// List all business locations.
+        /// List Agent Procedures<br/>
+        /// List the procedures (SOPs) the named receptionist can run on calls.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>> List4Async(
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>> List4Async(
+            string agentId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List4AsResponseAsync(
+                agentId: agentId,
                 xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -65,16 +70,18 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Locations<br/>
-        /// List all business locations.
+        /// List Agent Procedures<br/>
+        /// List the procedures (SOPs) the named receptionist can run on calls.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>>> List4AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>>> List4AsResponseAsync(
+            string agentId,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -85,6 +92,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList4Arguments(
                 httpClient: HttpClient,
+                agentId: ref agentId,
                 xiWorkspaceId: ref xiWorkspaceId);
 
 
@@ -111,7 +119,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/smb/locations",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}/procedures",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -159,6 +167,7 @@ namespace ElevenLabs
                 PrepareList4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    agentId: agentId,
                     xiWorkspaceId: xiWorkspaceId);
 
                 return __httpRequest;
@@ -178,7 +187,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -212,7 +221,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -253,7 +262,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -301,7 +310,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -323,7 +332,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List4",
                                 methodName: "List4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -397,9 +406,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>))) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>))) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -429,9 +438,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>))).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>))).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.LocationResponse>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBProcedure>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

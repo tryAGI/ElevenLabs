@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0023.Create_BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0024.Create_BodyHandleAnOutboundCallViaSipTrunkV1ConvaiSipTrunkOutboundCallPost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

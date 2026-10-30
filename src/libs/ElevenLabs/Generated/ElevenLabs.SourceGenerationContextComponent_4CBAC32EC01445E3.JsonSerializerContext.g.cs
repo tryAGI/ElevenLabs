@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetConversationHistoryRouteFormat))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0072.Create_GetConversationHistoryRouteFormat2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0073.Create_GetConversationHistoryRouteFormat2(options);
                 }
                 if (type == typeof(global::ElevenLabs.GetConversationHistoryRouteFormat?))
                 {

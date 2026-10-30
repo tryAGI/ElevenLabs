@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0082.Create_InvoiceResponseModelPaymentIntentStatusse2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0083.Create_InvoiceResponseModelPaymentIntentStatusse2(options);
                 }
                 if (type == typeof(global::ElevenLabs.InvoiceResponseModelPaymentIntentStatusse?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0119.Create_NullableInvoiceResponseModelPaymentIntentStatusse2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0120.Create_NullableInvoiceResponseModelPaymentIntentStatusse2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -5,57 +5,72 @@ namespace ElevenLabs
     public partial interface ISmbClient
     {
         /// <summary>
-        /// List Reseller Workspaces<br/>
-        /// List workspaces attributed to the caller's reseller, with cursor-based pagination
+        /// Get All Holidays<br/>
+        /// Get all holidays/time-off entries for the current workspace with optional filters
         /// </summary>
-        /// <param name="cursor">
-        /// Pagination cursor from previous response
+        /// <param name="startUnix">
+        /// Filter entries overlapping from this timestamp
         /// </param>
-        /// <param name="pageSize">
-        /// Number of workspaces per page<br/>
-        /// Default Value: 50
+        /// <param name="endUnix">
+        /// Filter entries overlapping before this timestamp
+        /// </param>
+        /// <param name="timeOffType">
+        /// Filter by type: location, staff, or asset
+        /// </param>
+        /// <param name="resourceId">
+        /// Filter by associated resource ID (staff/asset)
+        /// </param>
+        /// <param name="locationId">
+        /// Filter by location ID
+        /// </param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ResellerWorkspacesResponse> List6Async(
-            string? cursor = default,
-            int? pageSize = default,
+        global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>> List6Async(
+            int? startUnix = default,
+            int? endUnix = default,
+            global::ElevenLabs.TimeOffType? timeOffType = default,
+            string? resourceId = default,
+            string? locationId = default,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// List Reseller Workspaces<br/>
-        /// List workspaces attributed to the caller's reseller, with cursor-based pagination
+        /// Get All Holidays<br/>
+        /// Get all holidays/time-off entries for the current workspace with optional filters
         /// </summary>
-        /// <param name="cursor">
-        /// Pagination cursor from previous response
+        /// <param name="startUnix">
+        /// Filter entries overlapping from this timestamp
         /// </param>
-        /// <param name="pageSize">
-        /// Number of workspaces per page<br/>
-        /// Default Value: 50
+        /// <param name="endUnix">
+        /// Filter entries overlapping before this timestamp
+        /// </param>
+        /// <param name="timeOffType">
+        /// Filter by type: location, staff, or asset
+        /// </param>
+        /// <param name="resourceId">
+        /// Filter by associated resource ID (staff/asset)
+        /// </param>
+        /// <param name="locationId">
+        /// Filter by location ID
+        /// </param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ResellerWorkspacesResponse>> List6AsResponseAsync(
-            string? cursor = default,
-            int? pageSize = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>> List6AsResponseAsync(
+            int? startUnix = default,
+            int? endUnix = default,
+            global::ElevenLabs.TimeOffType? timeOffType = default,
+            string? resourceId = default,
+            string? locationId = default,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Wraps List6Async as an IAsyncEnumerable&lt;global::ElevenLabs.ResellerWorkspaceSummary&gt; that auto-pages over the response.
-        /// </summary>
-        /// <param name="pageSize">
-        /// Number of workspaces per page<br/>
-        /// Default Value: 50
-        /// </param>
-        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
-        /// <param name="cancellationToken"></param>
-        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ResellerWorkspaceSummary> List6AutoPagingAsync(
-              int? pageSize = default,
-            string? cursor = null,
-            global::System.Threading.CancellationToken cancellationToken = default);
-
     }
 }

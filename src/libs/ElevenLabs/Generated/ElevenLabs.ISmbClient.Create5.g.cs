@@ -5,51 +5,61 @@ namespace ElevenLabs
     public partial interface ISmbClient
     {
         /// <summary>
-        /// Provision Reseller Workspace
+        /// Add Transfer Rule<br/>
+        /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create5Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBTransferRule> Create5Async(
+            string agentId,
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.BodySmbAddTransferRule request,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Provision Reseller Workspace
+        /// Add Transfer Rule<br/>
+        /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProvisionResellerWorkspaceResponse>> Create5AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBTransferRule>> Create5AsResponseAsync(
+            string agentId,
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.BodySmbAddTransferRule request,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Provision Reseller Workspace
+        /// Add Transfer Rule<br/>
+        /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
-        /// <param name="businessName"></param>
-        /// <param name="subscription">
-        /// Paid tier to subscribe to. Omitted leaves the workspace with no subscription.
+        /// <param name="agentId"></param>
+        /// <param name="xiWorkspaceId">
+        /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="phoneNumber">
-        /// A free number from the reseller's phone pool, reserved for the workspace until onboarding binds it to the receptionist.
-        /// </param>
-        /// <param name="members">
-        /// People to invite once the workspace exists, capped by the tier's team size. Best-effort: each outcome is in `member_results`.<br/>
-        /// Default Value: []
+        /// <param name="request">
+        /// Request model for creating a new transfer rule.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create5Async(
-            string businessName,
-            global::ElevenLabs.ProvisionResellerWorkspaceSubscription? subscription = default,
-            string? phoneNumber = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.TeamInviteRequest>? members = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBTransferRule> Create5Async(
+            string agentId,
+            global::ElevenLabs.SMBCreateTransferRuleRequest request,
+            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

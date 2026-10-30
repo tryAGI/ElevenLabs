@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ReaderResourceResponseModelResourceType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0160.Create_ReaderResourceResponseModelResourceType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0161.Create_ReaderResourceResponseModelResourceType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ReaderResourceResponseModelResourceType?))
                 {

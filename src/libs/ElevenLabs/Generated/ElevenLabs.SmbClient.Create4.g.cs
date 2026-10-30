@@ -27,13 +27,15 @@ namespace ElevenLabs
             };
         partial void PrepareCreate4Arguments(
             global::System.Net.Http.HttpClient httpClient,
+            ref string agentId,
             ref string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbCreateLocation request);
+            global::ElevenLabs.BodySmbAddAgentProcedure request);
         partial void PrepareCreate4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string agentId,
             string? xiWorkspaceId,
-            global::ElevenLabs.BodySmbCreateLocation request);
+            global::ElevenLabs.BodySmbAddAgentProcedure request);
         partial void ProcessCreate4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,9 +46,10 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Location<br/>
-        /// Add a new business location.
+        /// Add Agent Procedure<br/>
+        /// Add a procedure (SOP) to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -54,14 +57,16 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Create4Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Create4Async(
+            string agentId,
 
-            global::ElevenLabs.BodySmbCreateLocation request,
+            global::ElevenLabs.BodySmbAddAgentProcedure request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create4AsResponseAsync(
+                agentId: agentId,
 
                 request: request,
                 xiWorkspaceId: xiWorkspaceId,
@@ -72,9 +77,10 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Location<br/>
-        /// Add a new business location.
+        /// Add Agent Procedure<br/>
+        /// Add a procedure (SOP) to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -82,9 +88,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>> Create4AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>> Create4AsResponseAsync(
+            string agentId,
 
-            global::ElevenLabs.BodySmbCreateLocation request,
+            global::ElevenLabs.BodySmbAddAgentProcedure request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -97,6 +104,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate4Arguments(
                 httpClient: HttpClient,
+                agentId: ref agentId,
                 xiWorkspaceId: ref xiWorkspaceId,
                 request: request);
 
@@ -124,7 +132,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/smb/locations",
+                                path: $"/v1/smb/customer-facing-agents/{agentId}/procedures",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -178,6 +186,7 @@ namespace ElevenLabs
                 PrepareCreate4Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    agentId: agentId,
                     xiWorkspaceId: xiWorkspaceId,
                     request: request);
 
@@ -198,7 +207,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -232,7 +241,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -273,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -321,7 +330,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -343,7 +352,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create4",
                                 methodName: "Create4Async",
-                                pathTemplate: "\"/v1/smb/locations\"",
+                                pathTemplate: "$\"/v1/smb/customer-facing-agents/{agentId}/procedures\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -417,9 +426,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.LocationResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.SMBProcedure.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +458,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.LocationResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.SMBProcedure.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -492,30 +501,33 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Location<br/>
-        /// Add a new business location.
+        /// Add Agent Procedure<br/>
+        /// Add a procedure (SOP) to the named receptionist.
         /// </summary>
+        /// <param name="agentId"></param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="request">
-        /// Request model for creating or updating a location.
+        /// Request model for creating a new procedure.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Create4Async(
-            global::ElevenLabs.SMBLocationRequest request,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Create4Async(
+            string agentId,
+            global::ElevenLabs.SMBCreateProcedureRequest request,
             string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySmbCreateLocation
+            var __request = new global::ElevenLabs.BodySmbAddAgentProcedure
             {
                 Request = request,
             };
 
             return await Create4Async(
+                agentId: agentId,
                 xiWorkspaceId: xiWorkspaceId,
                 request: __request,
                 requestOptions: requestOptions,
