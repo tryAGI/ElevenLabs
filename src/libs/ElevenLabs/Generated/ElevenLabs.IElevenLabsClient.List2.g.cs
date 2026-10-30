@@ -14,6 +14,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter by branch ID
         /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by test run creator user ID
+        /// </param>
         /// <param name="testId">
         /// Filter to invocations that include a run of this test id
         /// </param>
@@ -42,6 +45,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
             string? agentId = default,
             string? branchId = default,
+            string? createdByUserId = default,
             string? testId = default,
             int? startTime = default,
             int? endTime = default,
@@ -60,6 +64,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Filter by branch ID
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by test run creator user ID
         /// </param>
         /// <param name="testId">
         /// Filter to invocations that include a run of this test id
@@ -89,6 +96,7 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetTestInvocationsPageResponseModel>> List2AsResponseAsync(
             string? agentId = default,
             string? branchId = default,
+            string? createdByUserId = default,
             string? testId = default,
             int? startTime = default,
             int? endTime = default,
@@ -107,6 +115,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Filter by branch ID
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by test run creator user ID
         /// </param>
         /// <param name="testId">
         /// Filter to invocations that include a run of this test id
@@ -132,6 +143,7 @@ namespace ElevenLabs
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
             string? branchId = default,
+            string? createdByUserId = default,
             string? testId = default,
             int? startTime = default,
             int? endTime = default,

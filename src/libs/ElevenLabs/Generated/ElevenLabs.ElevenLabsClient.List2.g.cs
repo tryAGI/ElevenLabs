@@ -29,6 +29,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string? agentId,
             ref string? branchId,
+            ref string? createdByUserId,
             ref string? testId,
             int? startTime,
             int? endTime,
@@ -41,6 +42,7 @@ namespace ElevenLabs
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? agentId,
             string? branchId,
+            string? createdByUserId,
             string? testId,
             int? startTime,
             int? endTime,
@@ -66,6 +68,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Filter by branch ID
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by test run creator user ID
         /// </param>
         /// <param name="testId">
         /// Filter to invocations that include a run of this test id
@@ -95,6 +100,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetTestInvocationsPageResponseModel> List2Async(
             string? agentId = default,
             string? branchId = default,
+            string? createdByUserId = default,
             string? testId = default,
             int? startTime = default,
             int? endTime = default,
@@ -108,6 +114,7 @@ namespace ElevenLabs
             var __response = await List2AsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
+                createdByUserId: createdByUserId,
                 testId: testId,
                 startTime: startTime,
                 endTime: endTime,
@@ -130,6 +137,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="branchId">
         /// Filter by branch ID
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by test run creator user ID
         /// </param>
         /// <param name="testId">
         /// Filter to invocations that include a run of this test id
@@ -159,6 +169,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetTestInvocationsPageResponseModel>> List2AsResponseAsync(
             string? agentId = default,
             string? branchId = default,
+            string? createdByUserId = default,
             string? testId = default,
             int? startTime = default,
             int? endTime = default,
@@ -177,6 +188,7 @@ namespace ElevenLabs
                 httpClient: HttpClient,
                 agentId: ref agentId,
                 branchId: ref branchId,
+                createdByUserId: ref createdByUserId,
                 testId: ref testId,
                 startTime: startTime,
                 endTime: endTime,
@@ -214,6 +226,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("agent_id", agentId)
                                 .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("created_by_user_id", createdByUserId)
                                 .AddOptionalParameter("test_id", testId)
                                 .AddOptionalParameter("start_time", startTime?.ToString())
                                 .AddOptionalParameter("end_time", endTime?.ToString())
@@ -264,6 +277,7 @@ namespace ElevenLabs
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
                     branchId: branchId,
+                    createdByUserId: createdByUserId,
                     testId: testId,
                     startTime: startTime,
                     endTime: endTime,
@@ -592,6 +606,9 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// Filter by branch ID
         /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by test run creator user ID
+        /// </param>
         /// <param name="testId">
         /// Filter to invocations that include a run of this test id
         /// </param>
@@ -616,6 +633,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.TestInvocationSummaryResponseModel> List2AutoPagingAsync(
               string? agentId = default,
             string? branchId = default,
+            string? createdByUserId = default,
             string? testId = default,
             int? startTime = default,
             int? endTime = default,
@@ -629,6 +647,7 @@ namespace ElevenLabs
                 fetchPage: (__cursor, __ct) => List2Async(
                     agentId: agentId,
                     branchId: branchId,
+                    createdByUserId: createdByUserId,
                     testId: testId,
                     startTime: startTime,
                     endTime: endTime,
