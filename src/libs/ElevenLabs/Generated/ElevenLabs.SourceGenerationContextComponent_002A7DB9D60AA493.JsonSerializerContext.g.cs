@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0024.Create_BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0025.Create_BodyPostAgentAvatarV1ConvaiAgentsAgentIdAvatarPost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

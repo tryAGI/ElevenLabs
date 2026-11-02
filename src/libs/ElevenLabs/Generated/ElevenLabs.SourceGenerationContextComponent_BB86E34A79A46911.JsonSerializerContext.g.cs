@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BatchCallStatus))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0017.Create_BatchCallStatus2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0018.Create_BatchCallStatus2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BatchCallStatus?))
                 {

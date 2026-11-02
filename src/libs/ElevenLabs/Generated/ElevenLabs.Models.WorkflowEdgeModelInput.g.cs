@@ -35,6 +35,12 @@ namespace ElevenLabs
         public global::ElevenLabs.BackwardConditionVariant1? BackwardCondition { get; set; }
 
         /// <summary>
+        /// Points the edge is routed through between its source and target, in order. Layout only, no effect on execution.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reroutes")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.PositionInput>? Reroutes { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -55,6 +61,9 @@ namespace ElevenLabs
         /// <param name="backwardCondition">
         /// Condition that must be met for the edge to be traversed in the backward direction (target to source).
         /// </param>
+        /// <param name="reroutes">
+        /// Points the edge is routed through between its source and target, in order. Layout only, no effect on execution.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -62,12 +71,14 @@ namespace ElevenLabs
             string source,
             string target,
             global::ElevenLabs.ForwardConditionVariant1? forwardCondition,
-            global::ElevenLabs.BackwardConditionVariant1? backwardCondition)
+            global::ElevenLabs.BackwardConditionVariant1? backwardCondition,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PositionInput>? reroutes)
         {
             this.Source = source ?? throw new global::System.ArgumentNullException(nameof(source));
             this.Target = target ?? throw new global::System.ArgumentNullException(nameof(target));
             this.ForwardCondition = forwardCondition;
             this.BackwardCondition = backwardCondition;
+            this.Reroutes = reroutes;
         }
 
         /// <summary>

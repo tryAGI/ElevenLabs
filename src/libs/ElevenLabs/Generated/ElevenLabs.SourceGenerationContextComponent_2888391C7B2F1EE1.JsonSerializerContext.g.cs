@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BatchCallingCampaignInformation))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0017.Create_BatchCallingCampaignInformation(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0018.Create_BatchCallingCampaignInformation(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

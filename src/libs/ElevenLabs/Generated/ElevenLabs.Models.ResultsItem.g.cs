@@ -1,0 +1,303 @@
+#pragma warning disable CS0618 // Type or member is obsolete
+
+#nullable enable
+
+namespace ElevenLabs
+{
+    /// <summary>
+    ///
+    /// </summary>
+    public readonly partial struct ResultsItem : global::System.IEquatable<ResultsItem>
+    {
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.UpdateAnalysisItemAttachmentsResponseModelResultDiscriminatorStatus? Status { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData? Success { get; init; }
+#else
+        public global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData? Success { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Success))]
+#endif
+        public bool IsSuccess => Success != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickSuccess(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData? value)
+        {
+            value = Success;
+            return IsSuccess;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData PickSuccess() => Success is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Success' but the value was {ToString()}.");
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.BatchFailureResponseModel? Failure { get; init; }
+#else
+        public global::ElevenLabs.BatchFailureResponseModel? Failure { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Failure))]
+#endif
+        public bool IsFailure => Failure != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickFailure(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.BatchFailureResponseModel? value)
+        {
+            value = Failure;
+            return IsFailure;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.BatchFailureResponseModel PickFailure() => Failure is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Failure' but the value was {ToString()}.");
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator ResultsItem(global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData value) => new ResultsItem((global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData?(ResultsItem @this) => @this.Success;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ResultsItem(global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData? value)
+        {
+            Success = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ResultsItem FromSuccess(global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData? value) => new ResultsItem(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator ResultsItem(global::ElevenLabs.BatchFailureResponseModel value) => new ResultsItem((global::ElevenLabs.BatchFailureResponseModel?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.BatchFailureResponseModel?(ResultsItem @this) => @this.Failure;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ResultsItem(global::ElevenLabs.BatchFailureResponseModel? value)
+        {
+            Failure = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static ResultsItem FromFailure(global::ElevenLabs.BatchFailureResponseModel? value) => new ResultsItem(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public ResultsItem(
+            global::ElevenLabs.UpdateAnalysisItemAttachmentsResponseModelResultDiscriminatorStatus? status,
+            global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData? success,
+            global::ElevenLabs.BatchFailureResponseModel? failure
+            )
+        {
+            Status = status;
+
+            Success = success;
+            Failure = failure;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public object? Object =>
+            Failure as object ??
+            Success as object
+            ;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public override string? ToString() =>
+            Success?.ToString() ??
+            Failure?.ToString()
+            ;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool Validate()
+        {
+            return IsSuccess && !IsFailure || !IsSuccess && IsFailure;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public TResult? Match<TResult>(
+            global::System.Func<global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData, TResult>? success = null,
+            global::System.Func<global::ElevenLabs.BatchFailureResponseModel, TResult>? failure = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (Success is { } __value0 && success != null)
+            {
+                return success(__value0);
+            }
+            else if (Failure is { } __value1 && failure != null)
+            {
+                return failure(__value1);
+            }
+
+            return default(TResult);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public void Match(
+            global::System.Action<global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData>? success = null,
+
+            global::System.Action<global::ElevenLabs.BatchFailureResponseModel>? failure = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (Success is { } __value0)
+            {
+                success?.Invoke(__value0);
+            }
+            else if (Failure is { } __value1)
+            {
+                failure?.Invoke(__value1);
+            }
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public void Switch(
+            global::System.Action<global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData>? success = null,
+            global::System.Action<global::ElevenLabs.BatchFailureResponseModel>? failure = null,
+            bool validate = true)
+        {
+            if (validate)
+            {
+                Validate();
+            }
+
+            if (Success is { } __value0)
+            {
+                success?.Invoke(__value0);
+            }
+            else if (Failure is { } __value1)
+            {
+                failure?.Invoke(__value1);
+            }
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public override int GetHashCode()
+        {
+            var fields = new object?[]
+            {
+                Success,
+                typeof(global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData),
+                Failure,
+                typeof(global::ElevenLabs.BatchFailureResponseModel),
+            };
+            const int offset = unchecked((int)2166136261);
+            const int prime = 16777619;
+            static int HashCodeAggregator(int hashCode, object? value) => value == null
+                ? (hashCode ^ 0) * prime
+                : (hashCode ^ value.GetHashCode()) * prime;
+
+            return global::System.Linq.Enumerable.Aggregate(fields, offset, HashCodeAggregator);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool Equals(ResultsItem other)
+        {
+            return
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BatchSuccessResponseModelAnalysisItemAttachmentResultData?>.Default.Equals(Success, other.Success) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BatchFailureResponseModel?>.Default.Equals(Failure, other.Failure)
+                ;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static bool operator ==(ResultsItem obj1, ResultsItem obj2)
+        {
+            return global::System.Collections.Generic.EqualityComparer<ResultsItem>.Default.Equals(obj1, obj2);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static bool operator !=(ResultsItem obj1, ResultsItem obj2)
+        {
+            return !(obj1 == obj2);
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public override bool Equals(object? obj)
+        {
+            return obj is ResultsItem o && Equals(o);
+        }
+    }
+}

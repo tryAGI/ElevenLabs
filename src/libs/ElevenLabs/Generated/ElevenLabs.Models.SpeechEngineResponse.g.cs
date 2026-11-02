@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"asr":{"keywords":[],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"call_limits":{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000},"cascade_timeout_seconds":4.0,"conversation":{"client_events":["audio","interruption","agent_response","user_transcript"],"max_duration_seconds":600},"language":"en","metadata":{"created_at_unix_secs":1714000000,"created_from":"api","last_updated_from":"api","updated_at_unix_secs":1714000000},"name":"My Speech Engine","overrides":{"first_message":false},"privacy":{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false},"speech_engine":{"request_headers":{},"ws_url":"wss://example.com/transcript"},"speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"],"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_flash_v2","optimize_streaming_latency":3,"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"mode":"turn","silence_end_call_timeout":-1,"turn_eagerness":"normal","turn_timeout":7.0},"vad":{"background_voice_detection":false}}
+    /// Example: {"asr":{"keywords":[],"provider":"elevenlabs","quality":"high","user_input_audio_format":"pcm_16000"},"auth":{"enable_auth":false},"call_limits":{"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000},"cascade_timeout_seconds":4.0,"conversation":{"client_events":["audio","interruption","agent_response","user_transcript"],"max_duration_seconds":600},"language":"en","metadata":{"created_at_unix_secs":1714000000,"created_from":"api","last_updated_from":"api","updated_at_unix_secs":1714000000},"name":"My Speech Engine","overrides":{"first_message":false},"privacy":{"apply_to_existing_conversations":false,"delete_audio":false,"delete_transcript_and_pii":false,"record_voice":true,"retention_days":-1,"zero_retention_mode":false},"speech_engine":{"request_headers":{},"ws_url":"wss://example.com/transcript"},"speech_engine_id":"seng_3701k3ttaq12ewp8b7qv5rfyszkz","tags":["production","v1"],"tts":{"agent_output_audio_format":"pcm_16000","model_id":"eleven_flash_v2","optimize_streaming_latency":3,"similarity_boost":0.8,"speed":1.0,"stability":0.5,"voice_id":"cjVigY5qzO86Huf0OWal"},"turn":{"mode":"turn","silence_end_call_timeout":-1,"turn_eagerness":"normal","turn_timeout":7.0},"vad":{"background_voice_detection":false}}
     /// </summary>
     public sealed partial class SpeechEngineResponse
     {
@@ -93,6 +93,13 @@ namespace ElevenLabs
         public required global::ElevenLabs.AgentCallLimits CallLimits { get; set; }
 
         /// <summary>
+        /// Who may start a conversation with this speech engine
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.SpeechEngineAuthConfig Auth { get; set; }
+
+        /// <summary>
         /// ISO language code used by the speech engine (e.g. 'en')
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -179,6 +186,9 @@ namespace ElevenLabs
         /// Concurrency and daily conversation limits for this speech engine<br/>
         /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
         /// </param>
+        /// <param name="auth">
+        /// Who may start a conversation with this speech engine
+        /// </param>
         /// <param name="language">
         /// ISO language code used by the speech engine (e.g. 'en')
         /// </param>
@@ -211,6 +221,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationConfigOutput conversation,
             global::ElevenLabs.PrivacyConfigOutput privacy,
             global::ElevenLabs.AgentCallLimits callLimits,
+            global::ElevenLabs.SpeechEngineAuthConfig auth,
             string language,
             double cascadeTimeoutSeconds,
             global::System.Collections.Generic.IList<string> tags,
@@ -228,6 +239,7 @@ namespace ElevenLabs
             this.Conversation = conversation ?? throw new global::System.ArgumentNullException(nameof(conversation));
             this.Privacy = privacy ?? throw new global::System.ArgumentNullException(nameof(privacy));
             this.CallLimits = callLimits ?? throw new global::System.ArgumentNullException(nameof(callLimits));
+            this.Auth = auth ?? throw new global::System.ArgumentNullException(nameof(auth));
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.CascadeTimeoutSeconds = cascadeTimeoutSeconds;
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));

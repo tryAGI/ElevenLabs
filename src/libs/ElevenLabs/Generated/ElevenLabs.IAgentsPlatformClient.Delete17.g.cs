@@ -5,17 +5,14 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Delete Agent Draft<br/>
+        /// Delete a draft for an agent
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
+        /// The ID of the agent branch to use
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -23,21 +20,17 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<string> Delete17Async(
             string agentId,
             string branchId,
-            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Delete Agent Draft<br/>
+        /// Delete a draft for an agent
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
+        /// The ID of the agent branch to use
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -45,7 +38,6 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete17AsResponseAsync(
             string agentId,
             string branchId,
-            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

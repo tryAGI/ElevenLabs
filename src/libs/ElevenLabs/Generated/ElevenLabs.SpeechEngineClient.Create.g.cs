@@ -511,6 +511,9 @@ namespace ElevenLabs
         /// Concurrency and daily conversation limits for this speech engine<br/>
         /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
         /// </param>
+        /// <param name="auth">
+        /// Who may start a conversation with this speech engine
+        /// </param>
         /// <param name="language">
         /// Language for the speech engine<br/>
         /// Default Value: en
@@ -538,6 +541,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationConfigInput? conversation = default,
             global::ElevenLabs.PrivacyConfigInput? privacy = default,
             global::ElevenLabs.AgentCallLimits? callLimits = default,
+            global::ElevenLabs.SpeechEngineAuthConfig? auth = default,
             string? language = default,
             double? cascadeTimeoutSeconds = default,
             global::System.Collections.Generic.IList<string>? tags = default,
@@ -556,6 +560,7 @@ namespace ElevenLabs
                 Conversation = conversation,
                 Privacy = privacy,
                 CallLimits = callLimits,
+                Auth = auth,
                 Language = language,
                 CascadeTimeoutSeconds = cascadeTimeoutSeconds,
                 Tags = tags,

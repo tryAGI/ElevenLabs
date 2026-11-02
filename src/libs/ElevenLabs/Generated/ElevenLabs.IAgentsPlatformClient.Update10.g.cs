@@ -1,105 +1,55 @@
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 namespace ElevenLabs
 {
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Update Mcp Server Configuration<br/>
-        /// Update the configuration settings for an MCP server.
+        /// Update Convai Workspace Secret<br/>
+        /// Update an existing secret for the workspace
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="secretId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
-            string mcpServerId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update10Async(
+            string secretId,
 
-            global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
+            global::ElevenLabs.PatchWorkspaceSecretRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Mcp Server Configuration<br/>
-        /// Update the configuration settings for an MCP server.
+        /// Update Convai Workspace Secret<br/>
+        /// Update an existing secret for the workspace
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="secretId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>> Update10AsResponseAsync(
-            string mcpServerId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>> Update10AsResponseAsync(
+            string secretId,
 
-            global::ElevenLabs.MCPServerConfigUpdateRequestModel request,
+            global::ElevenLabs.PatchWorkspaceSecretRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Mcp Server Configuration<br/>
-        /// Update the configuration settings for an MCP server.
+        /// Update Convai Workspace Secret<br/>
+        /// Update an existing secret for the workspace
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
-        /// <param name="approvalPolicy">
-        /// The approval mode to set for the MCP server
-        /// </param>
-        /// <param name="preToolSpeech">
-        /// If set, overrides the server's pre_tool_speech setting for this tool.
-        /// </param>
-        /// <param name="interruptionMode">
-        /// If set, overrides the server's interruption_mode setting for this tool.
-        /// </param>
-        /// <param name="toolCallSound">
-        /// Predefined tool call sound type to play during tool execution for all tools from this MCP server
-        /// </param>
-        /// <param name="toolCallSoundBehavior">
-        /// Determines when the tool call sound should play for all tools from this MCP server
-        /// </param>
-        /// <param name="executionMode">
-        /// If set, overrides the server's execution_mode setting for this tool
-        /// </param>
-        /// <param name="responseTimeoutSecs">
-        /// The maximum time in seconds to wait for each MCP tool call to complete.
-        /// </param>
-        /// <param name="requestHeaders">
-        /// The headers to include in requests to the MCP server
-        /// </param>
-        /// <param name="requestMeta">
-        /// Entries sent in the MCP `_meta` field of tools/call requests. Values may be JSON scalars, or references to a workspace secret, dynamic variable, or environment variable resolved per call.
-        /// </param>
-        /// <param name="disableCompression">
-        /// Whether to disable HTTP compression for this MCP server
-        /// </param>
-        /// <param name="secretToken">
-        /// Optional secret token for authentication with this MCP server
-        /// </param>
-        /// <param name="authConnection">
-        /// Optional auth connection to use for authentication with this MCP server
-        /// </param>
+        /// <param name="secretId"></param>
+        /// <param name="type"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Update10Async(
-            string mcpServerId,
-            global::ElevenLabs.MCPApprovalPolicy? approvalPolicy = default,
-            global::ElevenLabs.PreToolSpeechMode? preToolSpeech = default,
-            global::ElevenLabs.ToolInterruptionMode? interruptionMode = default,
-            global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
-            global::ElevenLabs.ToolCallSoundBehavior? toolCallSoundBehavior = default,
-            global::ElevenLabs.ToolExecutionMode? executionMode = default,
-            int? responseTimeoutSecs = default,
-            object? requestHeaders = default,
-            object? requestMeta = default,
-            bool? disableCompression = default,
-            global::ElevenLabs.ConvAISecretLocator? secretToken = default,
-            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? authConnection = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Update10Async(
+            string secretId,
+            string name,
+            string value,
+            string type = "update",
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

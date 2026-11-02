@@ -501,6 +501,9 @@ namespace ElevenLabs
         /// <param name="conversation"></param>
         /// <param name="privacy"></param>
         /// <param name="callLimits"></param>
+        /// <param name="auth">
+        /// Who may start a conversation with this speech engine
+        /// </param>
         /// <param name="language"></param>
         /// <param name="cascadeTimeoutSeconds">
         /// Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds.
@@ -521,6 +524,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationConfigInput? conversation = default,
             global::ElevenLabs.PrivacyConfigInput? privacy = default,
             global::ElevenLabs.AgentCallLimits? callLimits = default,
+            global::ElevenLabs.SpeechEngineAuthConfig? auth = default,
             string? language = default,
             double? cascadeTimeoutSeconds = default,
             global::System.Collections.Generic.IList<string>? tags = default,
@@ -539,6 +543,7 @@ namespace ElevenLabs
                 Conversation = conversation,
                 Privacy = privacy,
                 CallLimits = callLimits,
+                Auth = auth,
                 Language = language,
                 CascadeTimeoutSeconds = cascadeTimeoutSeconds,
                 Tags = tags,

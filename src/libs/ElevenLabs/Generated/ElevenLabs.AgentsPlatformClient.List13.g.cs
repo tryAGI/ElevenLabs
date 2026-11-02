@@ -26,14 +26,10 @@ namespace ElevenLabs
             {                s_List13SecurityRequirement0,
             };
         partial void PrepareList13Arguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId,
-            ref string? environment);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareList13Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId,
-            string? environment);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessList13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,28 +40,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Mcp Server Tools<br/>
-        /// Retrieve all tools available for a specific MCP server configuration.
+        /// List Mcp Servers<br/>
+        /// Retrieve all MCP server configurations available in the workspace.
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
-        /// <param name="environment">
-        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
-        /// Default Value: production
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListMCPToolsResponseModel> List13Async(
-            string mcpServerId,
-            string? environment = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServersResponseModel> List13Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List13AsResponseAsync(
-                mcpServerId: mcpServerId,
-                environment: environment,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -73,22 +58,13 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Mcp Server Tools<br/>
-        /// Retrieve all tools available for a specific MCP server configuration.
+        /// List Mcp Servers<br/>
+        /// Retrieve all MCP server configurations available in the workspace.
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
-        /// <param name="environment">
-        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
-        /// Default Value: production
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListMCPToolsResponseModel>> List13AsResponseAsync(
-            string mcpServerId,
-            string? environment = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServersResponseModel>> List13AsResponseAsync(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -97,9 +73,7 @@ namespace ElevenLabs
             PrepareArguments(
                 client: HttpClient);
             PrepareList13Arguments(
-                httpClient: HttpClient,
-                mcpServerId: ref mcpServerId,
-                environment: ref environment);
+                httpClient: HttpClient);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -125,11 +99,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tools",
+                                path: "/v1/convai/mcp-servers",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("environment", environment)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -169,9 +140,7 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareList13Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId,
-                    environment: environment);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -190,7 +159,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List13",
                                 methodName: "List13Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
+                                pathTemplate: "\"/v1/convai/mcp-servers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -224,7 +193,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List13",
                                 methodName: "List13Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
+                                pathTemplate: "\"/v1/convai/mcp-servers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -265,7 +234,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List13",
                                 methodName: "List13Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
+                                pathTemplate: "\"/v1/convai/mcp-servers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -313,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List13",
                                 methodName: "List13Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
+                                pathTemplate: "\"/v1/convai/mcp-servers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -335,7 +304,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List13",
                                 methodName: "List13Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tools\"",
+                                pathTemplate: "\"/v1/convai/mcp-servers\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -409,9 +378,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ListMCPToolsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.MCPServersResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListMCPToolsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServersResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -441,9 +410,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ListMCPToolsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.MCPServersResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListMCPToolsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServersResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

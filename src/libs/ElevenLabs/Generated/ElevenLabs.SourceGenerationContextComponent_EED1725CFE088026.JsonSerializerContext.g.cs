@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CaptionStyleModelTextTransform))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0034.Create_CaptionStyleModelTextTransform2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0033.Create_CaptionStyleModelTextTransform2(options);
                 }
                 if (type == typeof(global::ElevenLabs.CaptionStyleModelTextTransform?))
                 {

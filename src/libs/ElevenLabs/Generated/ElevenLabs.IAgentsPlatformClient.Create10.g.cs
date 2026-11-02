@@ -5,45 +5,39 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Create Analysis Item<br/>
+        /// Create a new analysis item (evaluation criterion or data collection) in the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create10Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Create10Async(
 
-            global::ElevenLabs.PostWorkspaceSecretRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Create Analysis Item<br/>
+        /// Create a new analysis item (evaluation criterion or data collection) in the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>> Create10AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>> Create10AsResponseAsync(
 
-            global::ElevenLabs.PostWorkspaceSecretRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Create Analysis Item<br/>
+        /// Create a new analysis item (evaluation criterion or data collection) in the workspace.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create10Async(
-            string name,
-            string value,
-            string type = "new",
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Create10Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

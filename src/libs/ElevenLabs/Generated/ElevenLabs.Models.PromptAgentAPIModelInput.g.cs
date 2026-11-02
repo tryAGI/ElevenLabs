@@ -18,7 +18,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment<br/>
-        /// Default Value: gemini-2.5-flash
+        /// Default Value: gemini-3.5-flash
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LlmJsonConverter))]
@@ -169,7 +169,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="llm">
         /// The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment<br/>
-        /// Default Value: gemini-2.5-flash
+        /// Default Value: gemini-3.5-flash
         /// </param>
         /// <param name="reasoningEffort">
         /// Reasoning effort of the model. Only available for some models.

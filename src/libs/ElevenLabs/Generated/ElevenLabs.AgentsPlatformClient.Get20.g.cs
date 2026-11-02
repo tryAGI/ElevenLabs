@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet20Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string mcpServerId);
+            ref string secretId);
         partial void PrepareGet20Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string mcpServerId);
+            string secretId);
         partial void ProcessGet20Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,22 +42,20 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Mcp Server<br/>
-        /// Retrieve a specific MCP server configuration from the workspace.
+        /// Get Convai Workspace Secret<br/>
+        /// Get a workspace secret by ID
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="secretId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPServerResponseModel> Get20Async(
-            string mcpServerId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> Get20Async(
+            string secretId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get20AsResponseAsync(
-                mcpServerId: mcpServerId,
+                secretId: secretId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,17 +63,15 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Mcp Server<br/>
-        /// Retrieve a specific MCP server configuration from the workspace.
+        /// Get Convai Workspace Secret<br/>
+        /// Get a workspace secret by ID
         /// </summary>
-        /// <param name="mcpServerId">
-        /// ID of the MCP Server.
-        /// </param>
+        /// <param name="secretId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>> Get20AsResponseAsync(
-            string mcpServerId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>> Get20AsResponseAsync(
+            string secretId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +81,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet20Arguments(
                 httpClient: HttpClient,
-                mcpServerId: ref mcpServerId);
+                secretId: ref secretId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,7 +107,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/mcp-servers/{mcpServerId}",
+                                path: $"/v1/convai/secrets/{secretId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -153,7 +149,7 @@ namespace ElevenLabs
                 PrepareGet20Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    mcpServerId: mcpServerId);
+                    secretId: secretId);
 
                 return __httpRequest;
             }
@@ -172,7 +168,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -206,7 +202,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -247,7 +243,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -295,7 +291,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -317,7 +313,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}\"",
+                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -391,9 +387,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.MCPServerResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -423,9 +419,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.MCPServerResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPServerResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

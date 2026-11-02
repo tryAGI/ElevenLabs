@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OrderItemRequestOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0147.Create_OrderItemRequestOutput2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_OrderItemRequestOutput2(options);
                 }
                 if (type == typeof(global::ElevenLabs.OrderItemRequestOutput?))
                 {

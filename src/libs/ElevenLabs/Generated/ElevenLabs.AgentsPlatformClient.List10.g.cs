@@ -27,16 +27,22 @@ namespace ElevenLabs
             };
         partial void PrepareList10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            int? pageSize,
-            int? dependencyLimit,
             ref string? search,
+            int? pageSize,
+            ref global::ElevenLabs.AnalysisItemKind? kind,
+            global::System.Collections.Generic.IList<string>? analysisItemIds,
+            ref string? createdByUserId,
+            ref global::ElevenLabs.SortDirection? sortDirection,
             ref string? cursor);
         partial void PrepareList10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            int? pageSize,
-            int? dependencyLimit,
             string? search,
+            int? pageSize,
+            global::ElevenLabs.AnalysisItemKind? kind,
+            global::System.Collections.Generic.IList<string>? analysisItemIds,
+            string? createdByUserId,
+            global::ElevenLabs.SortDirection? sortDirection,
             string? cursor);
         partial void ProcessList10Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -48,17 +54,28 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Convai Workspace Secrets<br/>
-        /// Get all workspace secrets for the user
+        /// List Analysis Items<br/>
+        /// List analysis items available in the workspace.
         /// </summary>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
-        /// </param>
-        /// <param name="dependencyLimit">
-        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
-        /// </param>
         /// <param name="search">
-        /// If specified, returns only secrets whose names start with this string.
+        /// If specified, only analysis items whose names start with this string are returned, ordered by relevance rather than sort_direction.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="kind">
+        /// If specified, only analysis items of this kind are returned.
+        /// </param>
+        /// <param name="analysisItemIds">
+        /// If specified, only analysis items with these IDs are returned.
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by creator user ID. Use '@me' to refer to the authenticated user.
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -66,18 +83,24 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWorkspaceSecretsResponseModel> List10Async(
-            int? pageSize = default,
-            int? dependencyLimit = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemsResponseModel> List10Async(
             string? search = default,
+            int? pageSize = default,
+            global::ElevenLabs.AnalysisItemKind? kind = default,
+            global::System.Collections.Generic.IList<string>? analysisItemIds = default,
+            string? createdByUserId = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List10AsResponseAsync(
-                pageSize: pageSize,
-                dependencyLimit: dependencyLimit,
                 search: search,
+                pageSize: pageSize,
+                kind: kind,
+                analysisItemIds: analysisItemIds,
+                createdByUserId: createdByUserId,
+                sortDirection: sortDirection,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -86,17 +109,28 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Convai Workspace Secrets<br/>
-        /// Get all workspace secrets for the user
+        /// List Analysis Items<br/>
+        /// List analysis items available in the workspace.
         /// </summary>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
-        /// </param>
-        /// <param name="dependencyLimit">
-        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
-        /// </param>
         /// <param name="search">
-        /// If specified, returns only secrets whose names start with this string.
+        /// If specified, only analysis items whose names start with this string are returned, ordered by relevance rather than sort_direction.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="kind">
+        /// If specified, only analysis items of this kind are returned.
+        /// </param>
+        /// <param name="analysisItemIds">
+        /// If specified, only analysis items with these IDs are returned.
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by creator user ID. Use '@me' to refer to the authenticated user.
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -104,10 +138,13 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWorkspaceSecretsResponseModel>> List10AsResponseAsync(
-            int? pageSize = default,
-            int? dependencyLimit = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemsResponseModel>> List10AsResponseAsync(
             string? search = default,
+            int? pageSize = default,
+            global::ElevenLabs.AnalysisItemKind? kind = default,
+            global::System.Collections.Generic.IList<string>? analysisItemIds = default,
+            string? createdByUserId = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -118,9 +155,12 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList10Arguments(
                 httpClient: HttpClient,
-                pageSize: pageSize,
-                dependencyLimit: dependencyLimit,
                 search: ref search,
+                pageSize: pageSize,
+                kind: ref kind,
+                analysisItemIds: analysisItemIds,
+                createdByUserId: ref createdByUserId,
+                sortDirection: ref sortDirection,
                 cursor: ref cursor);
 
 
@@ -147,12 +187,15 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/secrets",
+                                path: "/v1/convai/analysis-items",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("dependency_limit", dependencyLimit?.ToString())
                                 .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("kind", kind?.ToValueString())
+                                .AddOptionalParameter("analysis_item_ids", analysisItemIds, delimiter: ",", explode: true)
+                                .AddOptionalParameter("created_by_user_id", createdByUserId)
+                                .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -195,9 +238,12 @@ namespace ElevenLabs
                 PrepareList10Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    pageSize: pageSize,
-                    dependencyLimit: dependencyLimit,
                     search: search,
+                    pageSize: pageSize,
+                    kind: kind,
+                    analysisItemIds: analysisItemIds,
+                    createdByUserId: createdByUserId,
+                    sortDirection: sortDirection,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -217,7 +263,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List10",
                                 methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -251,7 +297,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List10",
                                 methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -292,7 +338,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List10",
                                 methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -340,7 +386,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List10",
                                 methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -362,7 +408,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List10",
                                 methodName: "List10Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -436,9 +482,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AnalysisItemsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWorkspaceSecretsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -468,9 +514,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetWorkspaceSecretsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AnalysisItemsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWorkspaceSecretsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -512,36 +558,53 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Wraps List10Async as an IAsyncEnumerable&lt;global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig&gt; that auto-pages over the response.
+        /// Wraps List10Async as an IAsyncEnumerable&lt;global::ElevenLabs.AnalysisItemResponseModel&gt; that auto-pages over the response.
         /// </summary>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100. If not provided, returns all secrets.
-        /// </param>
-        /// <param name="dependencyLimit">
-        /// Maximum number of dependent resources (tools, agents, phone numbers) to return per secret. Can not exceed 100.
-        /// </param>
         /// <param name="search">
-        /// If specified, returns only secrets whose names start with this string.
+        /// If specified, only analysis items whose names start with this string are returned, ordered by relevance rather than sort_direction.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="kind">
+        /// If specified, only analysis items of this kind are returned.
+        /// </param>
+        /// <param name="analysisItemIds">
+        /// If specified, only analysis items with these IDs are returned.
+        /// </param>
+        /// <param name="createdByUserId">
+        /// Filter by creator user ID. Use '@me' to refer to the authenticated user.
+        /// </param>
+        /// <param name="sortDirection">
+        /// The direction to sort the results<br/>
+        /// Default Value: desc
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> List10AutoPagingAsync(
-              int? pageSize = default,
-            int? dependencyLimit = default,
-            string? search = default,
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AnalysisItemResponseModel> List10AutoPagingAsync(
+              string? search = default,
+            int? pageSize = default,
+            global::ElevenLabs.AnalysisItemKind? kind = default,
+            global::System.Collections.Generic.IList<string>? analysisItemIds = default,
+            string? createdByUserId = default,
+            global::ElevenLabs.SortDirection? sortDirection = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetWorkspaceSecretsResponseModel, global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>(
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.AnalysisItemsResponseModel, global::ElevenLabs.AnalysisItemResponseModel>(
                 fetchPage: (__cursor, __ct) => List10Async(
-                    pageSize: pageSize,
-                    dependencyLimit: dependencyLimit,
                     search: search,
+                    pageSize: pageSize,
+                    kind: kind,
+                    analysisItemIds: analysisItemIds,
+                    createdByUserId: createdByUserId,
+                    sortDirection: sortDirection,
                     cursor: __cursor,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>?)__response.Secrets,
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AnalysisItemResponseModel>?)__response.AnalysisItems,
                 extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
                 initialCursor: cursor,
                 cancellationToken: cancellationToken);

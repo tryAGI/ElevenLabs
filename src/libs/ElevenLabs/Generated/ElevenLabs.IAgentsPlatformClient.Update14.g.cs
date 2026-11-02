@@ -5,83 +5,53 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Update Agent Branch<br/>
-        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+        /// Update Whatsapp Account<br/>
+        /// Update a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Update14Async(
-            string agentId,
-            string branchId,
+        global::System.Threading.Tasks.Task<string> Update14Async(
+            string phoneNumberId,
 
-            global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request,
+            global::ElevenLabs.UpdateWhatsAppAccountRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Agent Branch<br/>
-        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+        /// Update Whatsapp Account<br/>
+        /// Update a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentBranchResponse>> Update14AsResponseAsync(
-            string agentId,
-            string branchId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Update14AsResponseAsync(
+            string phoneNumberId,
 
-            global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request,
+            global::ElevenLabs.UpdateWhatsAppAccountRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Agent Branch<br/>
-        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+        /// Update Whatsapp Account<br/>
+        /// Update a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
-        /// <param name="name">
-        /// New name for the branch. Must be unique within the agent.
-        /// </param>
-        /// <param name="description">
-        /// New description for the branch. Pass an empty string to clear it.
-        /// </param>
-        /// <param name="isArchived">
-        /// Whether the branch should be archived
-        /// </param>
-        /// <param name="protectionStatus">
-        /// The protection level for the branch
-        /// </param>
-        /// <param name="autoRebase">
-        /// When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
+        /// <param name="assignedAgentId"></param>
+        /// <param name="enableMessaging"></param>
+        /// <param name="enableAudioMessageResponse"></param>
+        /// <param name="enableTypingIndicator"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Update14Async(
-            string agentId,
-            string branchId,
-            string? name = default,
-            string? description = default,
-            bool? isArchived = default,
-            global::ElevenLabs.BranchProtectionStatus? protectionStatus = default,
-            bool? autoRebase = default,
+        global::System.Threading.Tasks.Task<string> Update14Async(
+            string phoneNumberId,
+            string? assignedAgentId = default,
+            bool? enableMessaging = default,
+            bool? enableAudioMessageResponse = default,
+            bool? enableTypingIndicator = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

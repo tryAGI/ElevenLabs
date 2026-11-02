@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_10AD40E21B24115C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CB3DF1CDDE532BE3.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_10AD40E21B24115C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_7262A6050A3A343B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CB3DF1CDDE532BE3.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkflowEdgeModelInput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0260.Create_WorkflowEdgeModelInput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0251.Create_WorkflowEdgeModelInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

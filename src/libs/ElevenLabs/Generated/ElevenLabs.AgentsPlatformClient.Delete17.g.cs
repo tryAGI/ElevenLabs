@@ -28,14 +28,12 @@ namespace ElevenLabs
         partial void PrepareDelete17Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string branchId,
-            ref string procedureId);
+            ref string branchId);
         partial void PrepareDelete17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string branchId,
-            string procedureId);
+            string branchId);
         partial void ProcessDelete17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,17 +44,14 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Delete Agent Draft<br/>
+        /// Delete a draft for an agent
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
+        /// The ID of the agent branch to use
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -64,14 +59,12 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<string> Delete17Async(
             string agentId,
             string branchId,
-            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Delete17AsResponseAsync(
                 agentId: agentId,
                 branchId: branchId,
-                procedureId: procedureId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,17 +72,14 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Delete Agent Draft<br/>
+        /// Delete a draft for an agent
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
         /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
+        /// The ID of the agent branch to use
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -97,7 +87,6 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete17AsResponseAsync(
             string agentId,
             string branchId,
-            string procedureId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -108,8 +97,7 @@ namespace ElevenLabs
             PrepareDelete17Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                branchId: ref branchId,
-                procedureId: ref procedureId);
+                branchId: ref branchId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -135,8 +123,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft",
+                                path: $"/v1/convai/agents/{agentId}/drafts",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddRequiredParameter("branch_id", branchId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -178,8 +169,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
-                    branchId: branchId,
-                    procedureId: procedureId);
+                    branchId: branchId);
 
                 return __httpRequest;
             }
@@ -198,7 +188,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete17",
                                 methodName: "Delete17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -232,7 +222,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete17",
                                 methodName: "Delete17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -273,7 +263,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete17",
                                 methodName: "Delete17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -321,7 +311,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete17",
                                 methodName: "Delete17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -343,7 +333,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete17",
                                 methodName: "Delete17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),

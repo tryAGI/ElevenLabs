@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0012.Create_ApiIntegrationOAuth2CustomAppResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0013.Create_ApiIntegrationOAuth2CustomAppResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

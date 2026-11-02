@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AssetTranscriptionStatus))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0013.Create_AssetTranscriptionStatus2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0014.Create_AssetTranscriptionStatus2(options);
                 }
                 if (type == typeof(global::ElevenLabs.AssetTranscriptionStatus?))
                 {

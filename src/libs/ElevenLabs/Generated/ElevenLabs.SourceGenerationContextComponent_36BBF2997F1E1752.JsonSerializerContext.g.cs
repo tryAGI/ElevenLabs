@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ChartsItem2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0036.Create_ChartsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0035.Create_ChartsItem22(options);
                 }
                 if (type == typeof(global::ElevenLabs.ChartsItem2?))
                 {

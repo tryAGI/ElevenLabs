@@ -35,6 +35,13 @@ namespace ElevenLabs
         public global::ElevenLabs.BackwardConditionVariant12? BackwardCondition { get; set; }
 
         /// <summary>
+        /// Points the edge is routed through between its source and target, in order. Layout only, no effect on execution.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reroutes")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PositionOutput> Reroutes { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -49,6 +56,9 @@ namespace ElevenLabs
         /// <param name="target">
         /// ID of the target node.
         /// </param>
+        /// <param name="reroutes">
+        /// Points the edge is routed through between its source and target, in order. Layout only, no effect on execution.
+        /// </param>
         /// <param name="forwardCondition">
         /// Condition that must be met for the edge to be traversed in the forward direction (source to target).
         /// </param>
@@ -61,6 +71,7 @@ namespace ElevenLabs
         public WorkflowEdgeModelOutput(
             string source,
             string target,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PositionOutput> reroutes,
             global::ElevenLabs.ForwardConditionVariant12? forwardCondition,
             global::ElevenLabs.BackwardConditionVariant12? backwardCondition)
         {
@@ -68,6 +79,7 @@ namespace ElevenLabs
             this.Target = target ?? throw new global::System.ArgumentNullException(nameof(target));
             this.ForwardCondition = forwardCondition;
             this.BackwardCondition = backwardCondition;
+            this.Reroutes = reroutes ?? throw new global::System.ArgumentNullException(nameof(reroutes));
         }
 
         /// <summary>

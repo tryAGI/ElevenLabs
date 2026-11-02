@@ -27,15 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate14Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId,
-            global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request);
+            ref string phoneNumberId,
+            global::ElevenLabs.UpdateWhatsAppAccountRequest request);
         partial void PrepareUpdate14Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId,
-            global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request);
+            string phoneNumberId,
+            global::ElevenLabs.UpdateWhatsAppAccountRequest request);
         partial void ProcessUpdate14Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,30 +44,23 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Agent Branch<br/>
-        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+        /// Update Whatsapp Account<br/>
+        /// Update a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Update14Async(
-            string agentId,
-            string branchId,
+        public async global::System.Threading.Tasks.Task<string> Update14Async(
+            string phoneNumberId,
 
-            global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request,
+            global::ElevenLabs.UpdateWhatsAppAccountRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update14AsResponseAsync(
-                agentId: agentId,
-                branchId: branchId,
+                phoneNumberId: phoneNumberId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -79,24 +70,18 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Agent Branch<br/>
-        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+        /// Update Whatsapp Account<br/>
+        /// Update a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentBranchResponse>> Update14AsResponseAsync(
-            string agentId,
-            string branchId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Update14AsResponseAsync(
+            string phoneNumberId,
 
-            global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch request,
+            global::ElevenLabs.UpdateWhatsAppAccountRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -108,8 +93,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate14Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                branchId: ref branchId,
+                phoneNumberId: ref phoneNumberId,
                 request: request);
 
 
@@ -136,7 +120,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}",
+                                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -184,8 +168,7 @@ namespace ElevenLabs
                 PrepareUpdate14Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId,
+                    phoneNumberId: phoneNumberId,
                     request: request);
 
                 return __httpRequest;
@@ -205,7 +188,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update14",
                                 methodName: "Update14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -239,7 +222,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update14",
                                 methodName: "Update14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -280,7 +263,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update14",
                                 methodName: "Update14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -328,7 +311,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update14",
                                 methodName: "Update14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -350,7 +333,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update14",
                                 methodName: "Update14Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}\"",
+                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -424,13 +407,11 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.AgentBranchResponse.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentBranchResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -450,19 +431,17 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.AgentBranchResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentBranchResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -499,56 +478,36 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Agent Branch<br/>
-        /// Update agent branch properties such as name, description, archiving status, protection level, and auto-rebase onto main
+        /// Update Whatsapp Account<br/>
+        /// Update a WhatsApp account
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="branchId">
-        /// Unique identifier for the branch.
-        /// </param>
-        /// <param name="name">
-        /// New name for the branch. Must be unique within the agent.
-        /// </param>
-        /// <param name="description">
-        /// New description for the branch. Pass an empty string to clear it.
-        /// </param>
-        /// <param name="isArchived">
-        /// Whether the branch should be archived
-        /// </param>
-        /// <param name="protectionStatus">
-        /// The protection level for the branch
-        /// </param>
-        /// <param name="autoRebase">
-        /// When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
-        /// </param>
+        /// <param name="phoneNumberId"></param>
+        /// <param name="assignedAgentId"></param>
+        /// <param name="enableMessaging"></param>
+        /// <param name="enableAudioMessageResponse"></param>
+        /// <param name="enableTypingIndicator"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentBranchResponse> Update14Async(
-            string agentId,
-            string branchId,
-            string? name = default,
-            string? description = default,
-            bool? isArchived = default,
-            global::ElevenLabs.BranchProtectionStatus? protectionStatus = default,
-            bool? autoRebase = default,
+        public async global::System.Threading.Tasks.Task<string> Update14Async(
+            string phoneNumberId,
+            string? assignedAgentId = default,
+            bool? enableMessaging = default,
+            bool? enableAudioMessageResponse = default,
+            bool? enableTypingIndicator = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyUpdateAgentBranchV1ConvaiAgentsAgentIdBranchesBranchIdPatch
+            var __request = new global::ElevenLabs.UpdateWhatsAppAccountRequest
             {
-                Name = name,
-                Description = description,
-                IsArchived = isArchived,
-                ProtectionStatus = protectionStatus,
-                AutoRebase = autoRebase,
+                AssignedAgentId = assignedAgentId,
+                EnableMessaging = enableMessaging,
+                EnableAudioMessageResponse = enableAudioMessageResponse,
+                EnableTypingIndicator = enableTypingIndicator,
             };
 
             return await Update14Async(
-                agentId: agentId,
-                branchId: branchId,
+                phoneNumberId: phoneNumberId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

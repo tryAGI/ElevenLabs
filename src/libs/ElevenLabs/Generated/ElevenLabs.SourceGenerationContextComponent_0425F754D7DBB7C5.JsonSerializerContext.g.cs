@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0028.Create_BodyTextToDialogueFullWithTimestampsApplyTextNormalization2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0027.Create_BodyTextToDialogueFullWithTimestampsApplyTextNormalization2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BodyTextToDialogueFullWithTimestampsApplyTextNormalization?))
                 {
