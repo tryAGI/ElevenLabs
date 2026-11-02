@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MCPServerResponseModelDependentAgentDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0092.Create_MCPServerResponseModelDependentAgentDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0091.Create_MCPServerResponseModelDependentAgentDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.MCPServerResponseModelDependentAgentDiscriminatorType?))
                 {

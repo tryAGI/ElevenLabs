@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(double))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0059.Create_Double(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0058.Create_Double(options);
                 }
                 if (type == typeof(double?))
                 {

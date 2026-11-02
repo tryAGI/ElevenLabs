@@ -28,14 +28,16 @@ namespace ElevenLabs
         partial void PrepareList16Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref int? page,
-            ref int? pageSize);
+            ref bool? includeArchived,
+            ref int? limit,
+            ref bool? includeCommitStatus);
         partial void PrepareList16Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            int? page,
-            int? pageSize);
+            bool? includeArchived,
+            int? limit,
+            bool? includeCommitStatus);
         partial void ProcessList16Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,34 +48,40 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Agent Deployments<br/>
-        /// List the traffic split history of an agent, newest first
+        /// List Agent Branches<br/>
+        /// Returns a list of branches an agent has
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="page">
-        /// Page number, starting at 1<br/>
-        /// Default Value: 1
+        /// <param name="includeArchived">
+        /// Whether archived branches should be included<br/>
+        /// Default Value: false
         /// </param>
-        /// <param name="pageSize">
+        /// <param name="limit">
         /// How many results at most should be returned<br/>
-        /// Default Value: 30
+        /// Default Value: 100
+        /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem> List16Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListResponseAgentBranchSummary> List16Async(
             string agentId,
-            int? page = default,
-            int? pageSize = default,
+            bool? includeArchived = default,
+            int? limit = default,
+            bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List16AsResponseAsync(
                 agentId: agentId,
-                page: page,
-                pageSize: pageSize,
+                includeArchived: includeArchived,
+                limit: limit,
+                includeCommitStatus: includeCommitStatus,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -81,27 +89,32 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Agent Deployments<br/>
-        /// List the traffic split history of an agent, newest first
+        /// List Agent Branches<br/>
+        /// Returns a list of branches an agent has
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="page">
-        /// Page number, starting at 1<br/>
-        /// Default Value: 1
+        /// <param name="includeArchived">
+        /// Whether archived branches should be included<br/>
+        /// Default Value: false
         /// </param>
-        /// <param name="pageSize">
+        /// <param name="limit">
         /// How many results at most should be returned<br/>
-        /// Default Value: 30
+        /// Default Value: 100
+        /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>> List16AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>> List16AsResponseAsync(
             string agentId,
-            int? page = default,
-            int? pageSize = default,
+            bool? includeArchived = default,
+            int? limit = default,
+            bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -112,8 +125,9 @@ namespace ElevenLabs
             PrepareList16Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                page: ref page,
-                pageSize: ref pageSize);
+                includeArchived: ref includeArchived,
+                limit: ref limit,
+                includeCommitStatus: ref includeCommitStatus);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -139,11 +153,12 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/deployments",
+                                path: $"/v1/convai/agents/{agentId}/branches",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("page", page?.ToString())
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("include_commit_status", includeCommitStatus?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -186,8 +201,9 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
-                    page: page,
-                    pageSize: pageSize);
+                    includeArchived: includeArchived,
+                    limit: limit,
+                    includeCommitStatus: includeCommitStatus);
 
                 return __httpRequest;
             }
@@ -206,7 +222,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List16",
                                 methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -240,7 +256,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List16",
                                 methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -281,7 +297,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List16",
                                 methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -329,7 +345,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List16",
                                 methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -351,7 +367,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List16",
                                 methodName: "List16Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -425,9 +441,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ListResponseAgentDeploymentHistoryItem.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ListResponseAgentBranchSummary.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -457,9 +473,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ListResponseAgentDeploymentHistoryItem.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ListResponseAgentBranchSummary.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListResponseAgentBranchSummary>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -499,36 +515,5 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
-
-        /// <summary>
-        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentDeploymentHistoryItem&gt; that auto-pages over the response.
-        /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent. This is returned on agent creation.
-        /// </param>
-        /// <param name="pageSize">
-        /// How many results at most should be returned<br/>
-        /// Default Value: 30
-        /// </param>
-        /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
-        /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentDeploymentHistoryItem> List16AutoPagingAsync(
-            string agentId,             int? pageSize = default,
-            int? page = null,
-            global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            return global::ElevenLabs.AutoSDKPager.OffsetAsync<global::ElevenLabs.ListResponseAgentDeploymentHistoryItem, global::ElevenLabs.AgentDeploymentHistoryItem>(
-                fetchPage: (__page, __ct) => List16Async(
-                    agentId: agentId,
-                    page: __page,
-                    pageSize: pageSize,
-                    cancellationToken: __ct),
-                extractItems: static __response => __response is null
-                    ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentDeploymentHistoryItem>?)__response.Results,
-                initialPage: page ?? 1,
-                cancellationToken: cancellationToken);
-        }
-
     }
 }

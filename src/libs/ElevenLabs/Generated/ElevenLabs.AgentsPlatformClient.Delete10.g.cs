@@ -27,44 +27,68 @@ namespace ElevenLabs
             };
         partial void PrepareDelete10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string secretId);
+            ref string analysisItemId,
+            ref bool? force);
         partial void PrepareDelete10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string secretId);
+            string analysisItemId,
+            bool? force);
         partial void ProcessDelete10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
+        partial void ProcessDelete10ResponseContent(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
+            ref string content);
+
         /// <summary>
-        /// Delete Convai Workspace Secret<br/>
-        /// Delete a workspace secret if it's not in use
+        /// Delete Analysis Item<br/>
+        /// Delete an analysis item and all of its versions from the workspace.
         /// </summary>
-        /// <param name="secretId"></param>
+        /// <param name="analysisItemId">
+        /// ID of the requested analysis item.
+        /// </param>
+        /// <param name="force">
+        /// If set to true, the analysis item will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task Delete10Async(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<string> Delete10Async(
+            string analysisItemId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            await Delete10AsResponseAsync(
-                secretId: secretId,
+            var __response = await Delete10AsResponseAsync(
+                analysisItemId: analysisItemId,
+                force: force,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
+
+            return __response.Body;
         }
         /// <summary>
-        /// Delete Convai Workspace Secret<br/>
-        /// Delete a workspace secret if it's not in use
+        /// Delete Analysis Item<br/>
+        /// Delete an analysis item and all of its versions from the workspace.
         /// </summary>
-        /// <param name="secretId"></param>
+        /// <param name="analysisItemId">
+        /// ID of the requested analysis item.
+        /// </param>
+        /// <param name="force">
+        /// If set to true, the analysis item will be deleted regardless of whether it is used by any agents and it will be removed from the dependent agents and branches.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> Delete10AsResponseAsync(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete10AsResponseAsync(
+            string analysisItemId,
+            bool? force = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,7 +98,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete10Arguments(
                 httpClient: HttpClient,
-                secretId: ref secretId);
+                analysisItemId: ref analysisItemId,
+                force: ref force);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -100,8 +125,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/secrets/{secretId}",
+                                path: $"/v1/convai/analysis-items/{analysisItemId}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("force", force?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -142,7 +170,8 @@ namespace ElevenLabs
                 PrepareDelete10Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    secretId: secretId);
+                    analysisItemId: analysisItemId,
+                    force: force);
 
                 return __httpRequest;
             }
@@ -161,7 +190,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -195,7 +224,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -236,7 +265,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -284,7 +313,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -306,7 +335,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete10",
                                 methodName: "Delete10Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -371,15 +400,20 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
+                                ProcessDelete10ResponseContent(
+                                    httpClient: HttpClient,
+                                    httpResponseMessage: __response,
+                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -399,10 +433,17 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    return new global::ElevenLabs.AutoSDKHttpResponse(
+                                    var __content = await __response.Content.ReadAsStringAsync(
+                #if NET5_0_OR_GREATER
+                                        __effectiveCancellationToken
+                #endif
+                                    ).ConfigureAwait(false);
+
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri);
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

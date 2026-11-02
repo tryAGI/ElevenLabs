@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0021.Create_BodyCreateStudioProjectV1StudioProjectsPostFiction2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0022.Create_BodyCreateStudioProjectV1StudioProjectsPostFiction2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BodyCreateStudioProjectV1StudioProjectsPostFiction?))
                 {

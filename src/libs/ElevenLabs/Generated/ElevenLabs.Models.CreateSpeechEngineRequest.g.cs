@@ -79,6 +79,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentCallLimits? CallLimits { get; set; }
 
         /// <summary>
+        /// Who may start a conversation with this speech engine
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth")]
+        public global::ElevenLabs.SpeechEngineAuthConfig? Auth { get; set; }
+
+        /// <summary>
         /// Language for the speech engine<br/>
         /// Default Value: en
         /// </summary>
@@ -148,6 +154,9 @@ namespace ElevenLabs
         /// Concurrency and daily conversation limits for this speech engine<br/>
         /// Example: {"agent_concurrency_limit":-1,"bursting_enabled":true,"daily_limit":100000}
         /// </param>
+        /// <param name="auth">
+        /// Who may start a conversation with this speech engine
+        /// </param>
         /// <param name="language">
         /// Language for the speech engine<br/>
         /// Default Value: en
@@ -175,6 +184,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationConfigInput? conversation,
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentCallLimits? callLimits,
+            global::ElevenLabs.SpeechEngineAuthConfig? auth,
             string? language,
             double? cascadeTimeoutSeconds,
             global::System.Collections.Generic.IList<string>? tags,
@@ -189,6 +199,7 @@ namespace ElevenLabs
             this.Conversation = conversation;
             this.Privacy = privacy;
             this.CallLimits = callLimits;
+            this.Auth = auth;
             this.Language = language;
             this.CascadeTimeoutSeconds = cascadeTimeoutSeconds;
             this.Tags = tags;

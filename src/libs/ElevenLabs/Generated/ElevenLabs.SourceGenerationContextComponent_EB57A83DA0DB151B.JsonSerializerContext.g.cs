@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CharacterRefreshPeriod))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0036.Create_CharacterRefreshPeriod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0035.Create_CharacterRefreshPeriod2(options);
                 }
                 if (type == typeof(global::ElevenLabs.CharacterRefreshPeriod?))
                 {

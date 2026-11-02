@@ -183,11 +183,6 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public SmbClient Smb { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
         public SpeechEngineClient SpeechEngine { get; }
 
         /// <summary>

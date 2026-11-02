@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0012.Create_ApiIntegrationOAuth2CustomAppResponseScopeSeparator2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0013.Create_ApiIntegrationOAuth2CustomAppResponseScopeSeparator2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ApiIntegrationOAuth2CustomAppResponseScopeSeparator?))
                 {

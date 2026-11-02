@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CreatePrivateKeyJWTRequestAlgorithm))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0050.Create_CreatePrivateKeyJWTRequestAlgorithm2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0049.Create_CreatePrivateKeyJWTRequestAlgorithm2(options);
                 }
                 if (type == typeof(global::ElevenLabs.CreatePrivateKeyJWTRequestAlgorithm?))
                 {

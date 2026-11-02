@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.EmbeddingModelEnum))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0064.Create_EmbeddingModelEnum2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0063.Create_EmbeddingModelEnum2(options);
                 }
                 if (type == typeof(global::ElevenLabs.EmbeddingModelEnum?))
                 {

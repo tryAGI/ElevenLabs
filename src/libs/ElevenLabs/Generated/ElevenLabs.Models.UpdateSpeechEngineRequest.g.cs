@@ -63,6 +63,12 @@ namespace ElevenLabs
         public global::ElevenLabs.AgentCallLimits? CallLimits { get; set; }
 
         /// <summary>
+        /// Who may start a conversation with this speech engine
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("auth")]
+        public global::ElevenLabs.SpeechEngineAuthConfig? Auth { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -104,6 +110,9 @@ namespace ElevenLabs
         /// <param name="conversation"></param>
         /// <param name="privacy"></param>
         /// <param name="callLimits"></param>
+        /// <param name="auth">
+        /// Who may start a conversation with this speech engine
+        /// </param>
         /// <param name="language"></param>
         /// <param name="cascadeTimeoutSeconds">
         /// Time in seconds to wait for the upstream speech engine endpoint to respond before the attempt is abandoned and retried. Must be between 2 and 15 seconds.
@@ -123,6 +132,7 @@ namespace ElevenLabs
             global::ElevenLabs.ConversationConfigInput? conversation,
             global::ElevenLabs.PrivacyConfigInput? privacy,
             global::ElevenLabs.AgentCallLimits? callLimits,
+            global::ElevenLabs.SpeechEngineAuthConfig? auth,
             string? language,
             double? cascadeTimeoutSeconds,
             global::System.Collections.Generic.IList<string>? tags,
@@ -137,6 +147,7 @@ namespace ElevenLabs
             this.Conversation = conversation;
             this.Privacy = privacy;
             this.CallLimits = callLimits;
+            this.Auth = auth;
             this.Language = language;
             this.CascadeTimeoutSeconds = cascadeTimeoutSeconds;
             this.Tags = tags;

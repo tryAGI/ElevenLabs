@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate7Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.PatchConvAISettingsRequest request);
+            ref string analysisItemId,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request);
         partial void PrepareUpdate7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.PatchConvAISettingsRequest request);
+            string analysisItemId,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request);
         partial void ProcessUpdate7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,20 +44,25 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Convai Settings<br/>
-        /// Update Convai settings for the workspace
+        /// Update Analysis Item<br/>
+        /// Update an analysis item. Publishes a new version when the content changes.
         /// </summary>
+        /// <param name="analysisItemId">
+        /// ID of the requested analysis item.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Update7Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Update7Async(
+            string analysisItemId,
 
-            global::ElevenLabs.PatchConvAISettingsRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update7AsResponseAsync(
+                analysisItemId: analysisItemId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -65,27 +72,30 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Convai Settings<br/>
-        /// Update Convai settings for the workspace
+        /// Update Analysis Item<br/>
+        /// Update an analysis item. Publishes a new version when the content changes.
         /// </summary>
+        /// <param name="analysisItemId">
+        /// ID of the requested analysis item.
+        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConvAISettingsResponseModel>> Update7AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>> Update7AsResponseAsync(
+            string analysisItemId,
 
-            global::ElevenLabs.PatchConvAISettingsRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
                 global::ElevenLabs.SourceGenerationContextOperation_A27F1CEA5FEA530F.Default;
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
             PrepareUpdate7Arguments(
                 httpClient: HttpClient,
+                analysisItemId: ref analysisItemId,
                 request: request);
 
 
@@ -112,7 +122,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/settings",
+                                path: $"/v1/convai/analysis-items/{analysisItemId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -160,6 +170,7 @@ namespace ElevenLabs
                 PrepareUpdate7Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    analysisItemId: analysisItemId,
                     request: request);
 
                 return __httpRequest;
@@ -179,7 +190,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update7",
                                 methodName: "Update7Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -213,7 +224,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update7",
                                 methodName: "Update7Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -254,7 +265,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update7",
                                 methodName: "Update7Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -302,7 +313,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update7",
                                 methodName: "Update7Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,7 +335,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update7",
                                 methodName: "Update7Async",
-                                pathTemplate: "\"/v1/convai/settings\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "PATCH",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -398,9 +409,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetConvAISettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AnalysisItemResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConvAISettingsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -430,9 +441,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetConvAISettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AnalysisItemResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConvAISettingsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -473,48 +484,26 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Convai Settings<br/>
-        /// Update Convai settings for the workspace
+        /// Update Analysis Item<br/>
+        /// Update an analysis item. Publishes a new version when the content changes.
         /// </summary>
-        /// <param name="conversationInitiationClientDataWebhook"></param>
-        /// <param name="webhooks"></param>
-        /// <param name="canUseMcpServers">
-        /// Whether the workspace can use MCP servers<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="ragRetentionPeriodDays">
-        /// Default Value: 10
-        /// </param>
-        /// <param name="conversationEmbeddingRetentionDays">
-        /// Days to retain conversation embeddings. None means use the system default (30 days).
-        /// </param>
-        /// <param name="defaultLivekitStack">
-        /// Default Value: standard
+        /// <param name="analysisItemId">
+        /// ID of the requested analysis item.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAISettingsResponseModel> Update7Async(
-            global::ElevenLabs.ConversationInitiationClientDataWebhook? conversationInitiationClientDataWebhook = default,
-            global::ElevenLabs.ConvAIWebhooks? webhooks = default,
-            bool? canUseMcpServers = default,
-            int? ragRetentionPeriodDays = default,
-            int? conversationEmbeddingRetentionDays = default,
-            global::ElevenLabs.LivekitStackType? defaultLivekitStack = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Update7Async(
+            string analysisItemId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.PatchConvAISettingsRequest
+            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput>
             {
-                ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook,
-                Webhooks = webhooks,
-                CanUseMcpServers = canUseMcpServers,
-                RagRetentionPeriodDays = ragRetentionPeriodDays,
-                ConversationEmbeddingRetentionDays = conversationEmbeddingRetentionDays,
-                DefaultLivekitStack = defaultLivekitStack,
             };
 
             return await Update7Async(
+                analysisItemId: analysisItemId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

@@ -10,7 +10,7 @@ namespace ElevenLabs
     public sealed partial class EvaluationSettingsOutput
     {
         /// <summary>
-        /// Individual criteria that the agent should be evaluated against
+        /// Individual criteria that the agent should be evaluated against. Each criterion is stored as an analysis item attached to the agent (see analysis_items).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("criteria")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.PromptEvaluationCriteria>? Criteria { get; set; }
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="EvaluationSettingsOutput" /> class.
         /// </summary>
         /// <param name="criteria">
-        /// Individual criteria that the agent should be evaluated against
+        /// Individual criteria that the agent should be evaluated against. Each criterion is stored as an analysis item attached to the agent (see analysis_items).
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

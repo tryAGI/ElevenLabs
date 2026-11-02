@@ -5,92 +5,80 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Update Procedure Draft<br/>
-        /// Create or update user's draft for a procedure
+        /// Update A Merge Proposal<br/>
+        /// Edit an open merge_proposal's title or description, or close it. The author closing it is recorded as withdrawn; anyone else as rejected.
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureDraftResponseModel> Update16Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> Update16Async(
             string agentId,
-            string branchId,
-            string procedureId,
+            string mergeProposalId,
 
-            global::ElevenLabs.UpdateProcedureDraftRequestModel request,
+            global::ElevenLabs.BodyUpdateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Procedure Draft<br/>
-        /// Create or update user's draft for a procedure
+        /// Update A Merge Proposal<br/>
+        /// Edit an open merge_proposal's title or description, or close it. The author closing it is recorded as withdrawn; anyone else as rejected.
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>> Update16AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>> Update16AsResponseAsync(
             string agentId,
-            string branchId,
-            string procedureId,
+            string mergeProposalId,
 
-            global::ElevenLabs.UpdateProcedureDraftRequestModel request,
+            global::ElevenLabs.BodyUpdateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsMergeProposalIdPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update Procedure Draft<br/>
-        /// Create or update user's draft for a procedure
+        /// Update A Merge Proposal<br/>
+        /// Edit an open merge_proposal's title or description, or close it. The author closing it is recorded as withdrawn; anyone else as rejected.
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
+        /// <param name="title">
+        /// New title for the merge_proposal.
         /// </param>
-        /// <param name="name">
-        /// Procedure name
+        /// <param name="description">
+        /// New description for the merge_proposal.
         /// </param>
-        /// <param name="content">
-        /// Procedure content
+        /// <param name="requestedReviewerUserIds">
+        /// Replacement list of user IDs to request a review from.
         /// </param>
-        /// <param name="type">
-        /// Procedure type<br/>
-        /// Default Value: free_form
-        /// </param>
-        /// <param name="trigger">
-        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. Omit this field (or send null) to keep the stored trigger, which is empty on create. Send `""` to clear it. `description` is accepted as an alias.
+        /// <param name="close">
+        /// When true, close the merge_proposal without merging.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureDraftResponseModel> Update16Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> Update16Async(
             string agentId,
-            string branchId,
-            string procedureId,
-            string name,
-            string content,
-            global::ElevenLabs.ProcedureType type = global::ElevenLabs.ProcedureType.FreeForm,
-            string? trigger = default,
+            string mergeProposalId,
+            string? title = default,
+            string? description = default,
+            global::System.Collections.Generic.IList<string>? requestedReviewerUserIds = default,
+            bool? close = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

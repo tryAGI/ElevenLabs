@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate11Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
+            global::ElevenLabs.PostWorkspaceSecretRequest request);
         partial void PrepareCreate11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request);
+            global::ElevenLabs.PostWorkspaceSecretRequest request);
         partial void ProcessCreate11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Submit A Batch Call Request.<br/>
-        /// Submit a batch call request to schedule calls for multiple recipients.
+        /// Create Convai Workspace Secret<br/>
+        /// Create a new secret for the workspace
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> Create11Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create11Async(
 
-            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
+            global::ElevenLabs.PostWorkspaceSecretRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,16 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Submit A Batch Call Request.<br/>
-        /// Submit a batch call request to schedule calls for multiple recipients.
+        /// Create Convai Workspace Secret<br/>
+        /// Create a new secret for the workspace
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.BatchCallResponse>> Create11AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>> Create11AsResponseAsync(
 
-            global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost request,
+            global::ElevenLabs.PostWorkspaceSecretRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -112,7 +112,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/batch-calling/submit",
+                                path: "/v1/convai/secrets",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -179,7 +179,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -213,7 +213,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -254,7 +254,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -302,7 +302,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,7 +324,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/batch-calling/submit\"",
+                                pathTemplate: "\"/v1/convai/secrets\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -398,9 +398,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.BatchCallResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.BatchCallResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -430,9 +430,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.BatchCallResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.BatchCallResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -473,55 +473,27 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Submit A Batch Call Request.<br/>
-        /// Submit a batch call request to schedule calls for multiple recipients.
+        /// Create Convai Workspace Secret<br/>
+        /// Create a new secret for the workspace
         /// </summary>
-        /// <param name="callName"></param>
-        /// <param name="agentId"></param>
-        /// <param name="recipients"></param>
-        /// <param name="scheduledTimeUnix"></param>
-        /// <param name="agentPhoneNumberId"></param>
-        /// <param name="whatsappParams"></param>
-        /// <param name="timezone"></param>
-        /// <param name="branchId"></param>
-        /// <param name="environment"></param>
-        /// <param name="telephonyCallConfig">
-        /// Default Value: {"ringing_timeout_secs":60,"twilio_call_recording_enabled":false}
-        /// </param>
-        /// <param name="targetConcurrencyLimit">
-        /// Maximum number of simultaneous calls for this batch. When set, dispatch is governed by this limit rather than workspace/agent capacity percentages.
-        /// </param>
+        /// <param name="type"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.BatchCallResponse> Create11Async(
-            string callName,
-            string agentId,
-            global::System.Collections.Generic.IList<global::ElevenLabs.OutboundCallRecipient> recipients,
-            int? scheduledTimeUnix = default,
-            string? agentPhoneNumberId = default,
-            global::ElevenLabs.BatchCallWhatsAppParams? whatsappParams = default,
-            string? timezone = default,
-            string? branchId = default,
-            string? environment = default,
-            global::ElevenLabs.TelephonyCallConfigInput? telephonyCallConfig = default,
-            int? targetConcurrencyLimit = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create11Async(
+            string name,
+            string value,
+            string type = "new",
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodySubmitABatchCallRequestV1ConvaiBatchCallingSubmitPost
+            var __request = new global::ElevenLabs.PostWorkspaceSecretRequest
             {
-                CallName = callName,
-                AgentId = agentId,
-                Recipients = recipients,
-                ScheduledTimeUnix = scheduledTimeUnix,
-                AgentPhoneNumberId = agentPhoneNumberId,
-                WhatsappParams = whatsappParams,
-                Timezone = timezone,
-                BranchId = branchId,
-                Environment = environment,
-                TelephonyCallConfig = telephonyCallConfig,
-                TargetConcurrencyLimit = targetConcurrencyLimit,
+                Type = type,
+                Name = name,
+                Value = value,
             };
 
             return await Create11Async(

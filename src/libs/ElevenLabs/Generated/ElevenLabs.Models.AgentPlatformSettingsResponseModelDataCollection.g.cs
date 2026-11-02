@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Data collection settings
+    /// Data collection fields, keyed by ID. Each field is stored as an analysis item attached to the agent (see analysis_items).
     /// </summary>
     public sealed partial class AgentPlatformSettingsResponseModelDataCollection
     {

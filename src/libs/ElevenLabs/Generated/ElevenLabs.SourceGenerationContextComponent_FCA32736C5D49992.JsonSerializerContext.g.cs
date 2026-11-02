@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DocumentUsageModeEnum))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0059.Create_DocumentUsageModeEnum2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0058.Create_DocumentUsageModeEnum2(options);
                 }
                 if (type == typeof(global::ElevenLabs.DocumentUsageModeEnum?))
                 {
