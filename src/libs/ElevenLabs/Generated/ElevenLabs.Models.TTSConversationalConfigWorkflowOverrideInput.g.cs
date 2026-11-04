@@ -69,6 +69,12 @@ namespace ElevenLabs
         public double? SimilarityBoost { get; set; }
 
         /// <summary>
+        /// The clone strength for generated speech
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("clone_strength")]
+        public double? CloneStrength { get; set; }
+
+        /// <summary>
         /// Method for converting numbers to words before converting text to speech. If set to SYSTEM_PROMPT, the system prompt will be updated to include normalization instructions. If set to ELEVENLABS, the text will be normalized after generation, incurring slight additional latency.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text_normalisation_type")]
@@ -131,6 +137,9 @@ namespace ElevenLabs
         /// <param name="similarityBoost">
         /// The similarity boost for generated speech
         /// </param>
+        /// <param name="cloneStrength">
+        /// The clone strength for generated speech
+        /// </param>
         /// <param name="textNormalisationType">
         /// Method for converting numbers to words before converting text to speech. If set to SYSTEM_PROMPT, the system prompt will be updated to include normalization instructions. If set to ELEVENLABS, the text will be normalized after generation, incurring slight additional latency.
         /// </param>
@@ -157,6 +166,7 @@ namespace ElevenLabs
             double? stability,
             double? speed,
             double? similarityBoost,
+            double? cloneStrength,
             global::ElevenLabs.TextNormalisationType? textNormalisationType,
             global::System.Collections.Generic.IList<global::ElevenLabs.PydanticPronunciationDictionaryVersionLocator>? pronunciationDictionaryLocators,
             bool? enablePhonemeTags,
@@ -172,6 +182,7 @@ namespace ElevenLabs
             this.Stability = stability;
             this.Speed = speed;
             this.SimilarityBoost = similarityBoost;
+            this.CloneStrength = cloneStrength;
             this.TextNormalisationType = textNormalisationType;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
             this.EnablePhonemeTags = enablePhonemeTags;

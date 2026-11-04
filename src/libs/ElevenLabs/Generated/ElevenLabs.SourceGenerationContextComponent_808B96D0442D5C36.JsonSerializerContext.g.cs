@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TemplateArrayOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0225.Create_TemplateArrayOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0226.Create_TemplateArrayOutput(options);
                 }
                 if (type == typeof(global::ElevenLabs.TemplateObjectOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0226.Create_TemplateObjectOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0227.Create_TemplateObjectOutput(options);
                 }
                 if (type == typeof(global::ElevenLabs.TemplateOutput))
                 {

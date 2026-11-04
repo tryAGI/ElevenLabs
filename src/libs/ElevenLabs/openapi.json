@@ -43098,6 +43098,17 @@
             "type": "boolean",
             "title": "Requires Verification",
             "description": "Whether the voice requires verification"
+          },
+          "library_voice_match": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LibraryVoiceMatchResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Set when the samples match a protected voice that is available in the Voice Library. The new voice requires verification before use; adding the library voice is the alternative."
           }
         },
         "type": "object",
@@ -49143,8 +49154,7 @@
         "type": "string",
         "enum": [
           "audio/pcm",
-          "audio/pcmu",
-          "audio/pcma"
+          "audio/pcmu"
         ],
         "title": "AudioFormat",
         "default": "audio/pcm"
@@ -59081,7 +59091,7 @@
               }
             ],
             "title": "Previous Request Ids",
-            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "09bOJkdYVjKy2oOiiVtR",
@@ -59103,7 +59113,7 @@
               }
             ],
             "title": "Next Request Ids",
-            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "3tPgBrD1UdW3snUkGw1K",
@@ -59277,7 +59287,7 @@
             },
             "type": "array",
             "title": "Previous Request Ids",
-            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "09bOJkdYVjKy2oOiiVtR",
@@ -59292,7 +59302,7 @@
             },
             "type": "array",
             "title": "Next Request Ids",
-            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "3tPgBrD1UdW3snUkGw1K",
@@ -59480,7 +59490,7 @@
               }
             ],
             "title": "Previous Request Ids",
-            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "09bOJkdYVjKy2oOiiVtR",
@@ -59502,7 +59512,7 @@
               }
             ],
             "title": "Next Request Ids",
-            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "3tPgBrD1UdW3snUkGw1K",
@@ -59690,7 +59700,7 @@
               }
             ],
             "title": "Previous Request Ids",
-            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that were generated before this generation. Can be used to improve the speech's continuity when splitting up a large task into multiple requests. The results will be best when the same model is used across the generations. In case both previous_text and previous_request_ids is send, previous_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "09bOJkdYVjKy2oOiiVtR",
@@ -59712,7 +59722,7 @@
               }
             ],
             "title": "Next Request Ids",
-            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be send.",
+            "description": "A list of request_id of the samples that come after this generation. next_request_ids is especially useful for maintaining the speech's continuity when regenerating a sample that has had some audio quality issues. For example, if you have generated 3 speech clips, and you want to improve clip 2, passing the request id of clip 3 as a next_request_id (and that of clip 1 as a previous_request_id) will help maintain natural flow in the combined speech. The results will be best when the same model is used across the generations. In case both next_text and next_request_ids is send, next_text will be ignored. A maximum of 3 request_ids can be sent.",
             "examples": [
               [
                 "3tPgBrD1UdW3snUkGw1K",
@@ -68210,6 +68220,30 @@
           "call_duration_secs": {
             "type": "integer",
             "title": "Call Duration Secs"
+          },
+          "cost": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost",
+            "description": "Total cost of the conversation in credits."
+          },
+          "cost_fiat": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost Fiat",
+            "description": "Total fiat cost of the conversation in USD. `None` for conversations that predate fiat cost tracking."
           },
           "message_count": {
             "type": "integer",
@@ -86194,6 +86228,27 @@
         },
         "type": "object",
         "title": "LeaveMessageParams"
+      },
+      "LibraryVoiceMatchResponseModel": {
+        "properties": {
+          "library_voice_id": {
+            "type": "string",
+            "title": "Library Voice Id",
+            "description": "The ID of the matched Voice Library voice."
+          },
+          "public_owner_id": {
+            "type": "string",
+            "title": "Public Owner Id",
+            "description": "The public owner ID of the Voice Library voice. Pass it with library_voice_id to POST /v1/voices/add/{public_user_id}/{voice_id} to add the voice."
+          }
+        },
+        "type": "object",
+        "required": [
+          "library_voice_id",
+          "public_owner_id"
+        ],
+        "title": "LibraryVoiceMatchResponseModel",
+        "description": "A Voice Library voice the uploaded audio matched, offered in place of the clone."
       },
       "LibraryVoiceResponseModel": {
         "properties": {
@@ -107481,6 +107536,19 @@
               }
             ],
             "title": "Similarity Boost"
+          },
+          "clone_strength": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clone Strength"
           }
         },
         "type": "object",
@@ -107935,6 +108003,16 @@
             "default": 0.8,
             "x-convai-client-override": true
           },
+          "clone_strength": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Clone Strength",
+            "description": "The clone strength for generated speech",
+            "default": 0.0,
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
+          },
           "text_normalisation_type": {
             "$ref": "#/components/schemas/TextNormalisationType",
             "description": "Method for converting numbers to words before converting text to speech. If set to SYSTEM_PROMPT, the system prompt will be updated to include normalization instructions. If set to ELEVENLABS, the text will be normalized after generation, incurring slight additional latency.",
@@ -108059,6 +108137,16 @@
             "description": "The similarity boost for generated speech",
             "default": 0.8,
             "x-convai-client-override": true
+          },
+          "clone_strength": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Clone Strength",
+            "description": "The clone strength for generated speech",
+            "default": 0.0,
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           },
           "text_normalisation_type": {
             "$ref": "#/components/schemas/TextNormalisationType",
@@ -108189,6 +108277,20 @@
             "description": "The similarity boost for generated speech",
             "x-convai-client-override": true
           },
+          "clone_strength": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clone Strength",
+            "description": "The clone strength for generated speech",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
+          },
           "pronunciation_dictionary_locators": {
             "anyOf": [
               {
@@ -108253,6 +108355,12 @@
             "type": "boolean",
             "title": "Similarity Boost",
             "description": "Whether to allow overriding the similarity_boost field.",
+            "default": false
+          },
+          "clone_strength": {
+            "type": "boolean",
+            "title": "Clone Strength",
+            "description": "Whether to allow overriding the clone_strength field.",
             "default": false
           },
           "pronunciation_dictionary_locators": {
@@ -108397,6 +108505,20 @@
             "title": "Similarity Boost",
             "description": "The similarity boost for generated speech",
             "x-convai-client-override": true
+          },
+          "clone_strength": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clone Strength",
+            "description": "The clone strength for generated speech",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           },
           "text_normalisation_type": {
             "anyOf": [
@@ -108594,6 +108716,20 @@
             "title": "Similarity Boost",
             "description": "The similarity boost for generated speech",
             "x-convai-client-override": true
+          },
+          "clone_strength": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Clone Strength",
+            "description": "The clone strength for generated speech",
+            "x-convai-client-override": true,
+            "x-convai-language-override": true
           },
           "text_normalisation_type": {
             "anyOf": [
@@ -110953,7 +111089,7 @@
               }
             ],
             "title": "Clone Strength",
-            "description": "Controls how closely the voice matches the professional voice clone samples, from 0 (low) to 1 (high). We recommend 0 for most use cases. Increase this value only if you experience issues with the default settings. Only applies to professional voice clones fine-tuned for the selected v4 model."
+            "description": "Controls how closely the output matches your professional voice clone samples (0–1). Lower values sound more versatile, while higher values preserve more of the original voice characteristics. We recommend 0 for most use cases, but if you do run into issues 0.5 could be a good fallback. Applies only to professional voice clones fine-tuned for the selected v4 model."
           }
         },
         "type": "object",
@@ -118502,7 +118638,7 @@
               }
             ],
             "title": "Clone Strength",
-            "description": "Controls how closely the voice matches the professional voice clone samples, from 0 (low) to 1 (high). We recommend 0 for most use cases. Increase this value only if you experience issues with the default settings. Only applies to professional voice clones fine-tuned for the selected v4 model."
+            "description": "Controls how closely the output matches your professional voice clone samples (0–1). Lower values sound more versatile, while higher values preserve more of the original voice characteristics. We recommend 0 for most use cases, but if you do run into issues 0.5 could be a good fallback. Applies only to professional voice clones fine-tuned for the selected v4 model."
           }
         },
         "type": "object",

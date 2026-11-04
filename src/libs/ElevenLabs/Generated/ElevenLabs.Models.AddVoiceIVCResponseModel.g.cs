@@ -23,6 +23,12 @@ namespace ElevenLabs
         public required bool RequiresVerification { get; set; }
 
         /// <summary>
+        /// Set when the samples match a protected voice that is available in the Voice Library. The new voice requires verification before use; adding the library voice is the alternative.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("library_voice_match")]
+        public global::ElevenLabs.LibraryVoiceMatchResponseModel? LibraryVoiceMatch { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +43,20 @@ namespace ElevenLabs
         /// <param name="requiresVerification">
         /// Whether the voice requires verification
         /// </param>
+        /// <param name="libraryVoiceMatch">
+        /// Set when the samples match a protected voice that is available in the Voice Library. The new voice requires verification before use; adding the library voice is the alternative.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AddVoiceIVCResponseModel(
             string voiceId,
-            bool requiresVerification)
+            bool requiresVerification,
+            global::ElevenLabs.LibraryVoiceMatchResponseModel? libraryVoiceMatch)
         {
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
             this.RequiresVerification = requiresVerification;
+            this.LibraryVoiceMatch = libraryVoiceMatch;
         }
 
         /// <summary>

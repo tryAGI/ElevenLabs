@@ -15,10 +15,6 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        AudioPcma,
-        /// <summary>
-        ///
-        /// </summary>
         AudioPcmu,
     }
 
@@ -35,7 +31,6 @@ namespace ElevenLabs
             return value switch
             {
                 AudioFormat.AudioPcm => "audio/pcm",
-                AudioFormat.AudioPcma => "audio/pcma",
                 AudioFormat.AudioPcmu => "audio/pcmu",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -48,7 +43,6 @@ namespace ElevenLabs
             return value switch
             {
                 "audio/pcm" => AudioFormat.AudioPcm,
-                "audio/pcma" => AudioFormat.AudioPcma,
                 "audio/pcmu" => AudioFormat.AudioPcmu,
                 _ => null,
             };
