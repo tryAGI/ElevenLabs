@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkspaceResourceType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0255.Create_WorkspaceResourceType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0256.Create_WorkspaceResourceType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkspaceResourceType?))
                 {

@@ -19442,6 +19442,42 @@
             "description": "Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed."
           },
           {
+            "name": "data_collection_filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "A single data collection filter, for callers that can only send one scalar value per query param. Same format as data_collection_params (id:op:value); combined with it when both are given.",
+              "title": "Data Collection Filter"
+            },
+            "description": "A single data collection filter, for callers that can only send one scalar value per query param. Same format as data_collection_params (id:op:value); combined with it when both are given."
+          },
+          {
+            "name": "dynamic_variable_filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "A single dynamic variable filter, for callers that can only send one scalar value per query param. Same format as dynamic_variable_params (name:op:value); combined with it when both are given.",
+              "title": "Dynamic Variable Filter"
+            },
+            "description": "A single dynamic variable filter, for callers that can only send one scalar value per query param. Same format as dynamic_variable_params (name:op:value); combined with it when both are given."
+          },
+          {
             "name": "data_collection_ids",
             "in": "query",
             "required": false,
@@ -67913,6 +67949,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/ConvAISecretLocator"
+                },
+                {
+                  "$ref": "#/components/schemas/ConvAIEnvVarLocator"
                 }
               ]
             },
@@ -78851,7 +78890,7 @@
         },
         "type": "object",
         "title": "GetAgentConfigParams",
-        "description": "Return the full editable config of a single receptionist, including the\ncurrent ``additional_instructions`` text.\n\n``list_customer_facing_agents`` is intentionally lightweight (metadata and a\ntruncated greeting preview) and omits ``additional_instructions``. Call this\ntool whenever you need the current full text before calling\n``update_agent_config`` on ``first_message`` or ``additional_instructions``\nso you can preserve what is already there."
+        "description": "Return the full editable config of a single receptionist, including the\ncurrent ``additional_instructions`` text.\n\n``list_customer_facing_agents`` is intentionally lightweight (metadata and a\ntruncated greeting preview) and omits ``additional_instructions``. Call this\ntool whenever you need the current full text before calling\n``update_agent_config`` on ``first_message`` or ``additional_instructions``\nso you can preserve what is already there.\n\nAlso returns the read-only call-handling settings the owner edits in the\napp: ``staff_answers_first`` (whether the staff phone rings before the\nreceptionist, the staff phone number, the maximum ring time, the staff\nhours per day with their timezone, and whether those hours cover the\ncurrent time), ``turn_eagerness`` (response speed: eager / normal /\npatient), ``background_voice_detection`` (filter background speech on/off),\n``tool_call_sound`` (hold sound; null means off) and\n``enable_play_keypad_touch_tone_tool`` (allow touch tones). Call it to\nanswer what any of these are currently set to, or to check the setup when\nthe owner says calls are not reaching the staff phone."
       },
       "GetAgentConversationTicketsPageResponseModel": {
         "properties": {

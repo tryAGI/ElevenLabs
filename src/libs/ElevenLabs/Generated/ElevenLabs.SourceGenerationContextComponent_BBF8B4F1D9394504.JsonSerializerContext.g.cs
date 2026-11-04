@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.List<global::ElevenLabs.PermissionType>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions?>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0216.Create_SourceGenerationContextMetadataType_F29A8349E981B9C5(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0217.Create_SourceGenerationContextMetadataType_F29A8349E981B9C5(options);
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<global::System.Collections.Generic.IList<global::ElevenLabs.PermissionType>, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchPermissions?>?))
                 {

@@ -46,6 +46,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams,
             global::System.Collections.Generic.IList<string>? dataCollectionParams,
             global::System.Collections.Generic.IList<string>? dynamicVariableParams,
+            ref string? dataCollectionFilter,
+            ref string? dynamicVariableFilter,
             global::System.Collections.Generic.IList<string>? dataCollectionIds,
             global::System.Collections.Generic.IList<string>? evaluationCriteriaIds,
             global::System.Collections.Generic.IList<string>? toolNames,
@@ -90,6 +92,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams,
             global::System.Collections.Generic.IList<string>? dataCollectionParams,
             global::System.Collections.Generic.IList<string>? dynamicVariableParams,
+            string? dataCollectionFilter,
+            string? dynamicVariableFilter,
             global::System.Collections.Generic.IList<string>? dataCollectionIds,
             global::System.Collections.Generic.IList<string>? evaluationCriteriaIds,
             global::System.Collections.Generic.IList<string>? toolNames,
@@ -177,6 +181,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="dynamicVariableParams">
         /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed.
+        /// </param>
+        /// <param name="dataCollectionFilter">
+        /// A single data collection filter, for callers that can only send one scalar value per query param. Same format as data_collection_params (id:op:value); combined with it when both are given.
+        /// </param>
+        /// <param name="dynamicVariableFilter">
+        /// A single dynamic variable filter, for callers that can only send one scalar value per query param. Same format as dynamic_variable_params (name:op:value); combined with it when both are given.
         /// </param>
         /// <param name="dataCollectionIds">
         /// Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned.
@@ -271,6 +281,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
             global::System.Collections.Generic.IList<string>? dynamicVariableParams = default,
+            string? dataCollectionFilter = default,
+            string? dynamicVariableFilter = default,
             global::System.Collections.Generic.IList<string>? dataCollectionIds = default,
             global::System.Collections.Generic.IList<string>? evaluationCriteriaIds = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
@@ -316,6 +328,8 @@ namespace ElevenLabs
                 evaluationParams: evaluationParams,
                 dataCollectionParams: dataCollectionParams,
                 dynamicVariableParams: dynamicVariableParams,
+                dataCollectionFilter: dataCollectionFilter,
+                dynamicVariableFilter: dynamicVariableFilter,
                 dataCollectionIds: dataCollectionIds,
                 evaluationCriteriaIds: evaluationCriteriaIds,
                 toolNames: toolNames,
@@ -400,6 +414,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="dynamicVariableParams">
         /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed.
+        /// </param>
+        /// <param name="dataCollectionFilter">
+        /// A single data collection filter, for callers that can only send one scalar value per query param. Same format as data_collection_params (id:op:value); combined with it when both are given.
+        /// </param>
+        /// <param name="dynamicVariableFilter">
+        /// A single dynamic variable filter, for callers that can only send one scalar value per query param. Same format as dynamic_variable_params (name:op:value); combined with it when both are given.
         /// </param>
         /// <param name="dataCollectionIds">
         /// Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned.
@@ -494,6 +514,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
             global::System.Collections.Generic.IList<string>? dynamicVariableParams = default,
+            string? dataCollectionFilter = default,
+            string? dynamicVariableFilter = default,
             global::System.Collections.Generic.IList<string>? dataCollectionIds = default,
             global::System.Collections.Generic.IList<string>? evaluationCriteriaIds = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
@@ -544,6 +566,8 @@ namespace ElevenLabs
                 evaluationParams: evaluationParams,
                 dataCollectionParams: dataCollectionParams,
                 dynamicVariableParams: dynamicVariableParams,
+                dataCollectionFilter: ref dataCollectionFilter,
+                dynamicVariableFilter: ref dynamicVariableFilter,
                 dataCollectionIds: dataCollectionIds,
                 evaluationCriteriaIds: evaluationCriteriaIds,
                 toolNames: toolNames,
@@ -613,6 +637,8 @@ namespace ElevenLabs
                                 .AddOptionalParameter("evaluation_params", evaluationParams, delimiter: ",", explode: true)
                                 .AddOptionalParameter("data_collection_params", dataCollectionParams, delimiter: ",", explode: true)
                                 .AddOptionalParameter("dynamic_variable_params", dynamicVariableParams, delimiter: ",", explode: true)
+                                .AddOptionalParameter("data_collection_filter", dataCollectionFilter)
+                                .AddOptionalParameter("dynamic_variable_filter", dynamicVariableFilter)
                                 .AddOptionalParameter("data_collection_ids", dataCollectionIds, delimiter: ",", explode: true)
                                 .AddOptionalParameter("evaluation_criteria_ids", evaluationCriteriaIds, delimiter: ",", explode: true)
                                 .AddOptionalParameter("tool_names", toolNames, delimiter: ",", explode: true)
@@ -695,6 +721,8 @@ namespace ElevenLabs
                     evaluationParams: evaluationParams,
                     dataCollectionParams: dataCollectionParams,
                     dynamicVariableParams: dynamicVariableParams,
+                    dataCollectionFilter: dataCollectionFilter,
+                    dynamicVariableFilter: dynamicVariableFilter,
                     dataCollectionIds: dataCollectionIds,
                     evaluationCriteriaIds: evaluationCriteriaIds,
                     toolNames: toolNames,
@@ -1082,6 +1110,12 @@ namespace ElevenLabs
         /// <param name="dynamicVariableParams">
         /// Dynamic variable filters. Repeat param. Format: name:op:value where op is one of eq|neq|gt|gte|lt|lte|in. For in, pipe-delimit values. An empty value matches conversations where the variable was not set (name:eq:), and neq with an empty value matches where it was (name:neq:). eq is exact equality. gt|gte|lt|lte require a numeric value. Names containing ':' cannot be expressed.
         /// </param>
+        /// <param name="dataCollectionFilter">
+        /// A single data collection filter, for callers that can only send one scalar value per query param. Same format as data_collection_params (id:op:value); combined with it when both are given.
+        /// </param>
+        /// <param name="dynamicVariableFilter">
+        /// A single dynamic variable filter, for callers that can only send one scalar value per query param. Same format as dynamic_variable_params (name:op:value); combined with it when both are given.
+        /// </param>
         /// <param name="dataCollectionIds">
         /// Data collection field IDs to include in each conversation summary. Repeat param. When omitted, data_collection_results is not returned.
         /// </param>
@@ -1173,6 +1207,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? evaluationParams = default,
             global::System.Collections.Generic.IList<string>? dataCollectionParams = default,
             global::System.Collections.Generic.IList<string>? dynamicVariableParams = default,
+            string? dataCollectionFilter = default,
+            string? dynamicVariableFilter = default,
             global::System.Collections.Generic.IList<string>? dataCollectionIds = default,
             global::System.Collections.Generic.IList<string>? evaluationCriteriaIds = default,
             global::System.Collections.Generic.IList<string>? toolNames = default,
@@ -1219,6 +1255,8 @@ namespace ElevenLabs
                     evaluationParams: evaluationParams,
                     dataCollectionParams: dataCollectionParams,
                     dynamicVariableParams: dynamicVariableParams,
+                    dataCollectionFilter: dataCollectionFilter,
+                    dynamicVariableFilter: dynamicVariableFilter,
                     dataCollectionIds: dataCollectionIds,
                     evaluationCriteriaIds: evaluationCriteriaIds,
                     toolNames: toolNames,

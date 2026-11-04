@@ -37,7 +37,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelInput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelInput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0214.Create_SourceGenerationContextMetadataType_E5D9095B3C08E227(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0215.Create_SourceGenerationContextMetadataType_E5D9095B3C08E227(options);
                 }
                 if (type == typeof(global::ElevenLabs.StepsItem))
                 {

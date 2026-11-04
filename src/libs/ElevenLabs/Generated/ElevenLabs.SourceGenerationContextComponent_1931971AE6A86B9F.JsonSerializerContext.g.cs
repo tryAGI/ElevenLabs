@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0254.Create_WorkspaceAnalyticsQueryResponseModelColumnType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0255.Create_WorkspaceAnalyticsQueryResponseModelColumnType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkspaceAnalyticsQueryResponseModelColumnType?))
                 {

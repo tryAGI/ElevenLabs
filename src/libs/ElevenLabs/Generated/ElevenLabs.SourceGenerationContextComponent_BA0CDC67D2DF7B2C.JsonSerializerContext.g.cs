@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminator))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0253.Create_WorkflowToolLocatorSchemaOverridesDiscriminator(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0254.Create_WorkflowToolLocatorSchemaOverridesDiscriminator(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);
