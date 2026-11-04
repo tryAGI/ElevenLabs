@@ -1712,7 +1712,17 @@ namespace ElevenLabs
         /// truncated greeting preview) and omits ``additional_instructions``. Call this<br/>
         /// tool whenever you need the current full text before calling<br/>
         /// ``update_agent_config`` on ``first_message`` or ``additional_instructions``<br/>
-        /// so you can preserve what is already there.
+        /// so you can preserve what is already there.<br/>
+        /// Also returns the read-only call-handling settings the owner edits in the<br/>
+        /// app: ``staff_answers_first`` (whether the staff phone rings before the<br/>
+        /// receptionist, the staff phone number, the maximum ring time, the staff<br/>
+        /// hours per day with their timezone, and whether those hours cover the<br/>
+        /// current time), ``turn_eagerness`` (response speed: eager / normal /<br/>
+        /// patient), ``background_voice_detection`` (filter background speech on/off),<br/>
+        /// ``tool_call_sound`` (hold sound; null means off) and<br/>
+        /// ``enable_play_keypad_touch_tone_tool`` (allow touch tones). Call it to<br/>
+        /// answer what any of these are currently set to, or to check the setup when<br/>
+        /// the owner says calls are not reaching the staff phone.
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::ElevenLabs.GetAgentConfigParams? GetAgentConfig { get; init; }
