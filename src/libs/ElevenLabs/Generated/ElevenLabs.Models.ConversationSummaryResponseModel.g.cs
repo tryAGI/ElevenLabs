@@ -55,6 +55,18 @@ namespace ElevenLabs
         public required int CallDurationSecs { get; set; }
 
         /// <summary>
+        /// Total cost of the conversation in credits.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cost")]
+        public int? Cost { get; set; }
+
+        /// <summary>
+        /// Total fiat cost of the conversation in USD. `None` for conversations that predate fiat cost tracking.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cost_fiat")]
+        public double? CostFiat { get; set; }
+
+        /// <summary>
         /// Number of transcript turns with text; tool-only turns are not counted.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message_count")]
@@ -188,6 +200,12 @@ namespace ElevenLabs
         /// <param name="branchId"></param>
         /// <param name="versionId"></param>
         /// <param name="agentName"></param>
+        /// <param name="cost">
+        /// Total cost of the conversation in credits.
+        /// </param>
+        /// <param name="costFiat">
+        /// Total fiat cost of the conversation in USD. `None` for conversations that predate fiat cost tracking.
+        /// </param>
         /// <param name="userMessageCount">
         /// Number of user transcript turns with text; tool-only turns are not counted. `null` for older conversations before this field whose transcript was deleted.
         /// </param>
@@ -223,6 +241,8 @@ namespace ElevenLabs
             string? branchId,
             string? versionId,
             string? agentName,
+            int? cost,
+            double? costFiat,
             int? userMessageCount,
             int? agentMessageCount,
             string? terminationReason,
@@ -246,6 +266,8 @@ namespace ElevenLabs
             this.ConversationId = conversationId ?? throw new global::System.ArgumentNullException(nameof(conversationId));
             this.StartTimeUnixSecs = startTimeUnixSecs;
             this.CallDurationSecs = callDurationSecs;
+            this.Cost = cost;
+            this.CostFiat = costFiat;
             this.MessageCount = messageCount;
             this.UserMessageCount = userMessageCount;
             this.AgentMessageCount = agentMessageCount;

@@ -51,6 +51,13 @@ namespace ElevenLabs
         public bool? SimilarityBoost { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the clone_strength field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("clone_strength")]
+        public bool? CloneStrength { get; set; }
+
+        /// <summary>
         /// Whether to allow overriding the pronunciation_dictionary_locators field.<br/>
         /// Default Value: false
         /// </summary>
@@ -90,6 +97,10 @@ namespace ElevenLabs
         /// Whether to allow overriding the similarity_boost field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="cloneStrength">
+        /// Whether to allow overriding the clone_strength field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="pronunciationDictionaryLocators">
         /// Whether to allow overriding the pronunciation_dictionary_locators field.<br/>
         /// Default Value: false
@@ -104,6 +115,7 @@ namespace ElevenLabs
             bool? stability,
             bool? speed,
             bool? similarityBoost,
+            bool? cloneStrength,
             bool? pronunciationDictionaryLocators)
         {
             this.ModelId = modelId;
@@ -112,6 +124,7 @@ namespace ElevenLabs
             this.Stability = stability;
             this.Speed = speed;
             this.SimilarityBoost = similarityBoost;
+            this.CloneStrength = cloneStrength;
             this.PronunciationDictionaryLocators = pronunciationDictionaryLocators;
         }
 

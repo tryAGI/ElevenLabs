@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkflowEndNodeOutcome))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0251.Create_WorkflowEndNodeOutcome2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0252.Create_WorkflowEndNodeOutcome2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkflowEndNodeOutcome?))
                 {

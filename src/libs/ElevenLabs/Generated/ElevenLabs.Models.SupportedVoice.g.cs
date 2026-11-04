@@ -65,6 +65,12 @@ namespace ElevenLabs
         public double? SimilarityBoost { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("clone_strength")]
+        public double? CloneStrength { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -82,6 +88,7 @@ namespace ElevenLabs
         /// <param name="stability"></param>
         /// <param name="speed"></param>
         /// <param name="similarityBoost"></param>
+        /// <param name="cloneStrength"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -94,7 +101,8 @@ namespace ElevenLabs
             int? optimizeStreamingLatency,
             double? stability,
             double? speed,
-            double? similarityBoost)
+            double? similarityBoost,
+            double? cloneStrength)
         {
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.VoiceId = voiceId ?? throw new global::System.ArgumentNullException(nameof(voiceId));
@@ -105,6 +113,7 @@ namespace ElevenLabs
             this.Stability = stability;
             this.Speed = speed;
             this.SimilarityBoost = similarityBoost;
+            this.CloneStrength = cloneStrength;
         }
 
         /// <summary>
