@@ -21,6 +21,12 @@ namespace ElevenLabs
         public global::ElevenLabs.Llm? Llm { get; set; }
 
         /// <summary>
+        /// Reasoning effort of the model. Only available for some models.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
+        public global::ElevenLabs.LLMReasoningEffort? ReasoningEffort { get; set; }
+
+        /// <summary>
         /// A list of IDs of tools used by the agent
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_ids")]
@@ -59,6 +65,9 @@ namespace ElevenLabs
         /// <param name="llm">
         /// The LLM to query with the prompt and the chat history. If using data residency, the LLM must be supported in the data residency environment
         /// </param>
+        /// <param name="reasoningEffort">
+        /// Reasoning effort of the model. Only available for some models.
+        /// </param>
         /// <param name="toolIds">
         /// A list of IDs of tools used by the agent
         /// </param>
@@ -77,6 +86,7 @@ namespace ElevenLabs
         public PromptAgentAPIModelOverrideInput(
             string? prompt,
             global::ElevenLabs.Llm? llm,
+            global::ElevenLabs.LLMReasoningEffort? reasoningEffort,
             global::System.Collections.Generic.IList<string>? toolIds,
             bool? toolIdsStrict,
             global::System.Collections.Generic.IList<string>? nativeMcpServerIds,
@@ -84,6 +94,7 @@ namespace ElevenLabs
         {
             this.Prompt = prompt;
             this.Llm = llm;
+            this.ReasoningEffort = reasoningEffort;
             this.ToolIds = toolIds;
             this.ToolIdsStrict = toolIdsStrict;
             this.NativeMcpServerIds = nativeMcpServerIds;

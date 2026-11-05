@@ -74,6 +74,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? AgentResponses { get; set; }
 
         /// <summary>
+        /// Guardrails observed during this run, including blocks before an agent response.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("triggered_guardrails")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? TriggeredGuardrails { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("test_id")]
@@ -156,6 +162,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="workflowNodeId"></param>
         /// <param name="agentResponses"></param>
+        /// <param name="triggeredGuardrails">
+        /// Guardrails observed during this run, including blocks before an agent response.
+        /// </param>
         /// <param name="testName">
         /// Default Value: Unknown Test
         /// </param>
@@ -186,6 +195,7 @@ namespace ElevenLabs
             bool? ranAgainstDraft,
             string? workflowNodeId,
             global::System.Collections.Generic.IList<global::ElevenLabs.ConversationHistoryTranscriptCommonModelOutput>? agentResponses,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TriggeredGuardrailCommonModel>? triggeredGuardrails,
             string? testName,
             global::ElevenLabs.TestConditionResultCommonModel? conditionResult,
             int? lastUpdatedAtUnix,
@@ -206,6 +216,7 @@ namespace ElevenLabs
             this.WorkflowNodeId = workflowNodeId;
             this.Status = status;
             this.AgentResponses = agentResponses;
+            this.TriggeredGuardrails = triggeredGuardrails;
             this.TestId = testId ?? throw new global::System.ArgumentNullException(nameof(testId));
             this.TestName = testName;
             this.ConditionResult = conditionResult;

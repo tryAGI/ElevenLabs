@@ -89,7 +89,7 @@ namespace ElevenLabs
         /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
         /// </param>
         /// <param name="sortBy">
-        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).<br/>
         /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">
@@ -177,7 +177,7 @@ namespace ElevenLabs
         /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
         /// </param>
         /// <param name="sortBy">
-        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).<br/>
         /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">
@@ -671,7 +671,7 @@ namespace ElevenLabs
         /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
         /// </param>
         /// <param name="sortBy">
-        /// Order by most recently created, or by priority (most urgent first, then most recently created).<br/>
+        /// Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).<br/>
         /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">

@@ -40,7 +40,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.TemplateRunInput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0200.Create_SourceGenerationContextMetadataType_549352927FB63142(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0201.Create_SourceGenerationContextMetadataType_549352927FB63142(options);
                 }
                 if (type == typeof(global::ElevenLabs.TemplateRunInput?))
                 {

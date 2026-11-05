@@ -23,6 +23,13 @@ namespace ElevenLabs
         public bool? Llm { get; set; }
 
         /// <summary>
+        /// Whether to allow overriding the reasoning_effort field.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reasoning_effort")]
+        public bool? ReasoningEffort { get; set; }
+
+        /// <summary>
         /// Whether to allow overriding the tool_ids field.<br/>
         /// Default Value: false
         /// </summary>
@@ -67,6 +74,10 @@ namespace ElevenLabs
         /// Whether to allow overriding the llm field.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="reasoningEffort">
+        /// Whether to allow overriding the reasoning_effort field.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="toolIds">
         /// Whether to allow overriding the tool_ids field.<br/>
         /// Default Value: false
@@ -89,6 +100,7 @@ namespace ElevenLabs
         public PromptAgentAPIModelOverrideConfig(
             bool? prompt,
             bool? llm,
+            bool? reasoningEffort,
             bool? toolIds,
             bool? toolIdsStrict,
             bool? nativeMcpServerIds,
@@ -96,6 +108,7 @@ namespace ElevenLabs
         {
             this.Prompt = prompt;
             this.Llm = llm;
+            this.ReasoningEffort = reasoningEffort;
             this.ToolIds = toolIds;
             this.ToolIdsStrict = toolIdsStrict;
             this.NativeMcpServerIds = nativeMcpServerIds;

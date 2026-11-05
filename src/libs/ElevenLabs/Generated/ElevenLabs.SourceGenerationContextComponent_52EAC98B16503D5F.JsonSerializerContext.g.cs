@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0269.Create_WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0270.Create_WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkflowEdgeModelOutputForwardConditionVariant1DiscriminatorType?))
                 {

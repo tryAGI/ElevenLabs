@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0205.Create_SourceGenerationContextMetadataType_6D94BEB28CC9D679(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0206.Create_SourceGenerationContextMetadataType_6D94BEB28CC9D679(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.AnyOf<global::ElevenLabs.PronunciationDictionaryAliasRuleResponseModel, global::ElevenLabs.PronunciationDictionaryPhonemeRuleResponseModel>>))
                 {

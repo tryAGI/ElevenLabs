@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBCreateAgentRuleRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0170.Create_SMBCreateAgentRuleRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0171.Create_SMBCreateAgentRuleRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

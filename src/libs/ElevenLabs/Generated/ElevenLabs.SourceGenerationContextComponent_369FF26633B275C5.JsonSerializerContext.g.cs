@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SIPMediaEncryptionEnum))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0169.Create_SIPMediaEncryptionEnum2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0170.Create_SIPMediaEncryptionEnum2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SIPMediaEncryptionEnum?))
                 {

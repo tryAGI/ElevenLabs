@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBServiceKind))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0172.Create_SMBServiceKind2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_SMBServiceKind2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SMBServiceKind?))
                 {

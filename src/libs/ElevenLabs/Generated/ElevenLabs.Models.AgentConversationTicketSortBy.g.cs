@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        LastReported,
+        /// <summary>
+        ///
+        /// </summary>
         Priority,
     }
 
@@ -31,6 +35,7 @@ namespace ElevenLabs
             return value switch
             {
                 AgentConversationTicketSortBy.CreatedAt => "created_at",
+                AgentConversationTicketSortBy.LastReported => "last_reported",
                 AgentConversationTicketSortBy.Priority => "priority",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace ElevenLabs
             return value switch
             {
                 "created_at" => AgentConversationTicketSortBy.CreatedAt,
+                "last_reported" => AgentConversationTicketSortBy.LastReported,
                 "priority" => AgentConversationTicketSortBy.Priority,
                 _ => null,
             };

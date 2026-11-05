@@ -35,7 +35,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.MCPServerResponseModel>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0196.Create_SourceGenerationContextMetadataType_42A94D3AA890E8B4(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0197.Create_SourceGenerationContextMetadataType_42A94D3AA890E8B4(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

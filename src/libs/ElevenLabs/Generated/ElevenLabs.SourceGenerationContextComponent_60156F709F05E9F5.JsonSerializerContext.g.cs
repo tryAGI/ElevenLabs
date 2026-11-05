@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WidgetPlacement))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0268.Create_WidgetPlacement2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0269.Create_WidgetPlacement2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WidgetPlacement?))
                 {
