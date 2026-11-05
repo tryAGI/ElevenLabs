@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SmbDeleteProductResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0179.Create_SmbDeleteProductResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0180.Create_SmbDeleteProductResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

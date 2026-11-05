@@ -71,6 +71,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        ArchitectMemberSpendLimitsUpdate,
+        /// <summary>
+        ///
+        /// </summary>
         AuthConnectionCreation,
         /// <summary>
         ///
@@ -553,6 +557,7 @@ namespace ElevenLabs
                 AuditActivityName.AgentsUserPropertyCreated => "Agents User Property Created",
                 AuditActivityName.AgentsUserPropertyUnarchived => "Agents User Property Unarchived",
                 AuditActivityName.AgentsUserPropertyUpdated => "Agents User Property Updated",
+                AuditActivityName.ArchitectMemberSpendLimitsUpdate => "Architect Member Spend Limits Update",
                 AuditActivityName.AuthConnectionCreation => "Auth Connection Creation",
                 AuditActivityName.AuthConnectionDeletion => "Auth Connection Deletion",
                 AuditActivityName.AuthConnectionManagement => "Auth Connection Management",
@@ -692,6 +697,7 @@ namespace ElevenLabs
                 "Agents User Property Created" => AuditActivityName.AgentsUserPropertyCreated,
                 "Agents User Property Unarchived" => AuditActivityName.AgentsUserPropertyUnarchived,
                 "Agents User Property Updated" => AuditActivityName.AgentsUserPropertyUpdated,
+                "Architect Member Spend Limits Update" => AuditActivityName.ArchitectMemberSpendLimitsUpdate,
                 "Auth Connection Creation" => AuditActivityName.AuthConnectionCreation,
                 "Auth Connection Deletion" => AuditActivityName.AuthConnectionDeletion,
                 "Auth Connection Management" => AuditActivityName.AuthConnectionManagement,

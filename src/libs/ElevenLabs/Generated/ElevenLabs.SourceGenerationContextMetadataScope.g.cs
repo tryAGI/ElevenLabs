@@ -61,7 +61,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::System.Collections.Generic.Dictionary<string, string>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0236.Create_SourceGenerationContextMetadataType_FC0ACBA26C044EC8(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0237.Create_SourceGenerationContextMetadataType_FC0ACBA26C044EC8(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.Dictionary<string, object>))
                 {

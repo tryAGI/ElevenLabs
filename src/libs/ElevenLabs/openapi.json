@@ -22212,10 +22212,10 @@
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/AgentConversationTicketSortBy",
-              "description": "Order by most recently created, or by priority (most urgent first, then most recently created).",
+              "description": "Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).",
               "default": "created_at"
             },
-            "description": "Order by most recently created, or by priority (most urgent first, then most recently created)."
+            "description": "Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation)."
           },
           {
             "name": "owner_user_id",
@@ -22568,10 +22568,10 @@
             "required": false,
             "schema": {
               "$ref": "#/components/schemas/AgentConversationTicketSortBy",
-              "description": "Order by most recently created, or by priority (most urgent first, then most recently created).",
+              "description": "Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).",
               "default": "created_at"
             },
-            "description": "Order by most recently created, or by priority (most urgent first, then most recently created)."
+            "description": "Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation)."
           },
           {
             "name": "owner_user_id",
@@ -51303,7 +51303,8 @@
         "type": "string",
         "enum": [
           "created_at",
-          "priority"
+          "priority",
+          "last_reported"
         ],
         "title": "AgentConversationTicketSortBy"
       },
@@ -56744,6 +56745,7 @@
           "API Key Deletion",
           "API Key Management",
           "API Key Update",
+          "Architect Member Spend Limits Update",
           "Auth Connection Creation",
           "Auth Connection Deletion",
           "Auth Connection Management",
@@ -101440,6 +101442,19 @@
         "type": "object",
         "title": "OptOutSmsReminderParams"
       },
+      "OptionValue": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          },
+          {
+            "type": "boolean"
+          }
+        ]
+      },
       "OrbAvatar": {
         "properties": {
           "type": {
@@ -106529,7 +106544,9 @@
               }
             ],
             "description": "Reasoning effort of the model. Only available for some models.",
-            "x-convai-runtime-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "service_tier": {
             "$ref": "#/components/schemas/LLMServiceTier",
@@ -106781,7 +106798,9 @@
               }
             ],
             "description": "Reasoning effort of the model. Only available for some models.",
-            "x-convai-runtime-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "service_tier": {
             "$ref": "#/components/schemas/LLMServiceTier",
@@ -107035,6 +107054,20 @@
             "x-convai-client-override": true,
             "x-convai-runtime-override": true
           },
+          "reasoning_effort": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLMReasoningEffort"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Reasoning effort of the model. Only available for some models.",
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true,
+            "x-convai-soft-override-disallowed": true
+          },
           "tool_ids": {
             "anyOf": [
               {
@@ -107134,6 +107167,20 @@
             "x-convai-client-override": true,
             "x-convai-runtime-override": true
           },
+          "reasoning_effort": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LLMReasoningEffort"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Reasoning effort of the model. Only available for some models.",
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true,
+            "x-convai-soft-override-disallowed": true
+          },
           "tool_ids": {
             "anyOf": [
               {
@@ -107219,6 +107266,12 @@
             "description": "Whether to allow overriding the llm field.",
             "default": false
           },
+          "reasoning_effort": {
+            "type": "boolean",
+            "title": "Reasoning Effort",
+            "description": "Whether to allow overriding the reasoning_effort field.",
+            "default": false
+          },
           "tool_ids": {
             "type": "boolean",
             "title": "Tool Ids",
@@ -107285,7 +107338,9 @@
               }
             ],
             "description": "Reasoning effort of the model. Only available for some models.",
-            "x-convai-runtime-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "service_tier": {
             "anyOf": [
@@ -107622,7 +107677,9 @@
               }
             ],
             "description": "Reasoning effort of the model. Only available for some models.",
-            "x-convai-runtime-override": true
+            "x-convai-client-override": true,
+            "x-convai-runtime-override": true,
+            "x-convai-soft-override-disallowed": true
           },
           "service_tier": {
             "anyOf": [
@@ -127212,6 +127269,14 @@
               }
             ],
             "title": "Agent Responses"
+          },
+          "triggered_guardrails": {
+            "items": {
+              "$ref": "#/components/schemas/TriggeredGuardrailCommonModel"
+            },
+            "type": "array",
+            "title": "Triggered Guardrails",
+            "description": "Guardrails observed during this run, including blocks before an agent response."
           },
           "test_id": {
             "type": "string",

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ResellerWorkspaceSubscriptionBillingPeriod))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0167.Create_ResellerWorkspaceSubscriptionBillingPeriod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0168.Create_ResellerWorkspaceSubscriptionBillingPeriod2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ResellerWorkspaceSubscriptionBillingPeriod?))
                 {
