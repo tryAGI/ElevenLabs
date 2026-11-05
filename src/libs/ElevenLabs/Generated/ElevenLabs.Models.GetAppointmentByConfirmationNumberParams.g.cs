@@ -6,7 +6,7 @@ namespace ElevenLabs
     /// <summary>
     /// Look up an appointment by the booking confirmation number the caller quotes.<br/>
     /// The confirmation number is the 8-character code shown on the booking<br/>
-    /// confirmation page (e.g. ``#01ABCDEF``). Callers may read it back with or<br/>
+    /// confirmation page after a ``#``. Callers may read it back with or<br/>
     /// without the leading ``#`` and with varied spacing; the tool normalizes<br/>
     /// the input and does a prefix match on the stored calendar item id.
     /// </summary>

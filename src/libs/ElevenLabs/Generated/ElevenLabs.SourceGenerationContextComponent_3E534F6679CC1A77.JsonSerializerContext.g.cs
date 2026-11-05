@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BackgroundSoundSourceType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0017.Create_BackgroundSoundSourceType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0018.Create_BackgroundSoundSourceType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BackgroundSoundSourceType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0101.Create_NullableBackgroundSoundSourceType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0104.Create_NullableBackgroundSoundSourceType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

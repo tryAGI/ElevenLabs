@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConstantSchemaOverrideConstantValueItem))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0037.Create_ConstantSchemaOverrideConstantValueItem(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0038.Create_ConstantSchemaOverrideConstantValueItem(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

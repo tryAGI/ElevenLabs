@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Export Batch Call Results<br/>
-        /// Download all recipients and conversation results for a terminal batch call as CSV.
+        /// Download all recipients and conversation results for a batch call as CSV, including calls that are still in progress.
         /// </summary>
         /// <param name="batchId"></param>
         /// <param name="limit">
@@ -71,7 +71,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Export Batch Call Results<br/>
-        /// Download all recipients and conversation results for a terminal batch call as CSV.
+        /// Download all recipients and conversation results for a batch call as CSV, including calls that are still in progress.
         /// </summary>
         /// <param name="batchId"></param>
         /// <param name="limit">
@@ -438,7 +438,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Export Batch Call Results<br/>
-        /// Download all recipients and conversation results for a terminal batch call as CSV.
+        /// Download all recipients and conversation results for a batch call as CSV, including calls that are still in progress.
         /// </summary>
         /// <param name="batchId"></param>
         /// <param name="limit">
@@ -810,7 +810,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Export Batch Call Results<br/>
-        /// Download all recipients and conversation results for a terminal batch call as CSV.
+        /// Download all recipients and conversation results for a batch call as CSV, including calls that are still in progress.
         /// </summary>
         /// <param name="batchId"></param>
         /// <param name="limit">

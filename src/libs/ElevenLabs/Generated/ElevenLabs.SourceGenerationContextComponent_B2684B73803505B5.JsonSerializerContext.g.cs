@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatchPlatformSettings))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0025.Create_BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatchPlatformSettings(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0026.Create_BodyPatchesAnAgentSettingsV1ConvaiAgentsAgentIdPatchPlatformSettings(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

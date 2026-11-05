@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0162.Create_SMBToolConfigParamsDiscriminatorSmbToolType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_SMBToolConfigParamsDiscriminatorSmbToolType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0129.Create_NullableSMBToolConfigParamsDiscriminatorSmbToolType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0134.Create_NullableSMBToolConfigParamsDiscriminatorSmbToolType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetailsQueryParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0043.Create_ConversationHistoryTranscriptToolCallWebhookDetailsQueryParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0044.Create_ConversationHistoryTranscriptToolCallWebhookDetailsQueryParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

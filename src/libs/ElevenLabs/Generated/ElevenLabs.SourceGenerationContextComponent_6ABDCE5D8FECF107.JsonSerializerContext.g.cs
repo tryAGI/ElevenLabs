@@ -33,47 +33,47 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0043.Create_ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0044.Create_ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput(options);
                 }
                 if (type == typeof(global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0209.Create_SourceGenerationContextMetadataType_C8126A9C9468C2E8(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0225.Create_SourceGenerationContextMetadataType_C8126A9C9468C2E8(options);
                 }
                 if (type == typeof(global::ElevenLabs.StepsItem2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0223.Create_StepsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0240.Create_StepsItem22(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0254.Create_WorkflowToolNestedToolsStepModelOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0272.Create_WorkflowToolNestedToolsStepModelOutput(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkflowToolResponseModelOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0254.Create_WorkflowToolResponseModelOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0272.Create_WorkflowToolResponseModelOutput(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0190.Create_SourceGenerationContextMetadataType_6B28D304AFAAF501(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0205.Create_SourceGenerationContextMetadataType_6B28D304AFAAF501(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.StepsItem2>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0171.Create_SourceGenerationContextMetadataType_0D15BFAF4D066F9E(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0184.Create_SourceGenerationContextMetadataType_0D15BFAF4D066F9E(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0181.Create_SourceGenerationContextMetadataType_3DDF458345E65B8C(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0195.Create_SourceGenerationContextMetadataType_3DDF458345E65B8C(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.StepsItem2>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0206.Create_SourceGenerationContextMetadataType_B9A0D3207E93602B(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0222.Create_SourceGenerationContextMetadataType_B9A0D3207E93602B(options);
                 }
                 if (type == typeof(global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0174.Create_SourceGenerationContextMetadataType_1D8E61C012178A5D(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0188.Create_SourceGenerationContextMetadataType_1D8E61C012178A5D(options);
                 }
                 if (type == typeof(global::ElevenLabs.StepsItem2?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0131.Create_NullableStepsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0136.Create_NullableStepsItem22(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

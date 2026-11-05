@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyTextToDialogueMultiVoiceV1TextToDialoguePost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0027.Create_BodyTextToDialogueMultiVoiceV1TextToDialoguePost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0028.Create_BodyTextToDialogueMultiVoiceV1TextToDialoguePost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SimulationLibrarySettings))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0166.Create_SimulationLibrarySettings(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0178.Create_SimulationLibrarySettings(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

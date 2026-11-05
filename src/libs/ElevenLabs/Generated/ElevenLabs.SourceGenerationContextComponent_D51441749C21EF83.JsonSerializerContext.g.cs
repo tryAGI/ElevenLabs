@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OutboundSIPTrunkConfigRequestModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0146.Create_OutboundSIPTrunkConfigRequestModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0152.Create_OutboundSIPTrunkConfigRequestModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

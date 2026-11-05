@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.VoicesNotPermittedWarning))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0247.Create_VoicesNotPermittedWarning(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0265.Create_VoicesNotPermittedWarning(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

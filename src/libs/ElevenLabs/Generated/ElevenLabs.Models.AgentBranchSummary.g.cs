@@ -71,6 +71,12 @@ namespace ElevenLabs
         public bool? AutoRebase { get; set; }
 
         /// <summary>
+        /// Set while the branch is kept in sync with another branch (Main today), pulling in its new versions automatically. Null when it is not synced.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sync_status")]
+        public global::ElevenLabs.BranchSyncStatus? SyncStatus { get; set; }
+
+        /// <summary>
         /// Access information for the branch
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_info")]
@@ -156,6 +162,9 @@ namespace ElevenLabs
         /// <param name="autoRebase">
         /// Default Value: false
         /// </param>
+        /// <param name="syncStatus">
+        /// Set while the branch is kept in sync with another branch (Main today), pulling in its new versions automatically. Null when it is not synced.
+        /// </param>
         /// <param name="accessInfo">
         /// Access information for the branch
         /// </param>
@@ -203,6 +212,7 @@ namespace ElevenLabs
             bool isArchived,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus,
             bool? autoRebase,
+            global::ElevenLabs.BranchSyncStatus? syncStatus,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
             double? currentLivePercentage,
             string? parentBranchId,
@@ -223,6 +233,7 @@ namespace ElevenLabs
             this.IsArchived = isArchived;
             this.ProtectionStatus = protectionStatus;
             this.AutoRebase = autoRebase;
+            this.SyncStatus = syncStatus;
             this.AccessInfo = accessInfo;
             this.CurrentLivePercentage = currentLivePercentage;
             this.ParentBranchId = parentBranchId;

@@ -64,7 +64,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="autoDiscover">
-        /// Automatically discover and add new pages linked from already-crawled pages during auto-sync. Requires enable_auto_sync=true.<br/>
+        /// Automatically discover and add new pages during auto-sync: pages linked from already-crawled pages for website crawls, or new sitemap entries matching `pattern` and `exclude_patterns` for sitemap crawls. Requires enable_auto_sync=true.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="minimumFrequencyDays">

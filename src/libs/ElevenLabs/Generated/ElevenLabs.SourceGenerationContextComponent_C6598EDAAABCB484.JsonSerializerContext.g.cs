@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateSimulationTestRequestToolMockOverrides))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0241.Create_UpdateSimulationTestRequestToolMockOverrides(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0259.Create_UpdateSimulationTestRequestToolMockOverrides(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

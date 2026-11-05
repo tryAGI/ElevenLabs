@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SentimentAggregate))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0165.Create_SentimentAggregate(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0177.Create_SentimentAggregate(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);
