@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DynamicVariableAssignment))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0061.Create_DynamicVariableAssignment(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0063.Create_DynamicVariableAssignment(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

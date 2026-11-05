@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SIPLogMessageDirection))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0162.Create_SIPLogMessageDirection2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0169.Create_SIPLogMessageDirection2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SIPLogMessageDirection?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0129.Create_NullableSIPLogMessageDirection2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0133.Create_NullableSIPLogMessageDirection2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

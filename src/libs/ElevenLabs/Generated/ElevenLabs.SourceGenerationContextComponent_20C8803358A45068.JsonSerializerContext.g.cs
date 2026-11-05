@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OptInSmsReminderParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_OptInSmsReminderParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0151.Create_OptInSmsReminderParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

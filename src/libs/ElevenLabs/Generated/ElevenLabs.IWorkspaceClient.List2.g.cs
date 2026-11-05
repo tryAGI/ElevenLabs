@@ -25,10 +25,10 @@ namespace ElevenLabs
         /// Filter by actor user ID
         /// </param>
         /// <param name="className">
-        /// Filter by OCSF event class name (e.g. Account Change)
+        /// Filter by OCSF event class name
         /// </param>
         /// <param name="activityName">
-        /// Filter by audit activity name (e.g. Subscription Creation)
+        /// Filter by audit activity name
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -39,8 +39,8 @@ namespace ElevenLabs
             int? timeFromUnixMs = default,
             int? timeToUnixMs = default,
             string? actorUid = default,
-            string? className = default,
-            string? activityName = default,
+            global::ElevenLabs.AuditClassName? className = default,
+            global::ElevenLabs.AuditActivityName? activityName = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -64,10 +64,10 @@ namespace ElevenLabs
         /// Filter by actor user ID
         /// </param>
         /// <param name="className">
-        /// Filter by OCSF event class name (e.g. Account Change)
+        /// Filter by OCSF event class name
         /// </param>
         /// <param name="activityName">
-        /// Filter by audit activity name (e.g. Subscription Creation)
+        /// Filter by audit activity name
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -78,8 +78,8 @@ namespace ElevenLabs
             int? timeFromUnixMs = default,
             int? timeToUnixMs = default,
             string? actorUid = default,
-            string? className = default,
-            string? activityName = default,
+            global::ElevenLabs.AuditClassName? className = default,
+            global::ElevenLabs.AuditActivityName? activityName = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
 
@@ -100,10 +100,10 @@ namespace ElevenLabs
         /// Filter by actor user ID
         /// </param>
         /// <param name="className">
-        /// Filter by OCSF event class name (e.g. Account Change)
+        /// Filter by OCSF event class name
         /// </param>
         /// <param name="activityName">
-        /// Filter by audit activity name (e.g. Subscription Creation)
+        /// Filter by audit activity name
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -112,8 +112,8 @@ namespace ElevenLabs
             int? timeFromUnixMs = default,
             int? timeToUnixMs = default,
             string? actorUid = default,
-            string? className = default,
-            string? activityName = default,
+            global::ElevenLabs.AuditClassName? className = default,
+            global::ElevenLabs.AuditActivityName? activityName = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 

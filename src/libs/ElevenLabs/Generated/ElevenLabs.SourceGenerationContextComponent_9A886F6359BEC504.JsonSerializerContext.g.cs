@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WebhookToolApiSchemaConfigOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0248.Create_WebhookToolApiSchemaConfigOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0266.Create_WebhookToolApiSchemaConfigOutput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

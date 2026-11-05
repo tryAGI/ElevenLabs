@@ -32,15 +32,15 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.LLMArrayJsonSchemaPropertyOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0084.Create_LLMArrayJsonSchemaPropertyOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0086.Create_LLMArrayJsonSchemaPropertyOutput(options);
                 }
                 if (type == typeof(global::ElevenLabs.OneOf<global::ElevenLabs.LLMLiteralJsonSchemaProperty, global::ElevenLabs.LLMObjectJsonSchemaPropertyOutput, global::ElevenLabs.LLMArrayJsonSchemaPropertyOutput, global::ElevenLabs.LLMAnyOfJsonSchemaPropertyOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0209.Create_SourceGenerationContextMetadataType_C7B0E523E633E707(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0225.Create_SourceGenerationContextMetadataType_C7B0E523E633E707(options);
                 }
                 if (type == typeof(global::ElevenLabs.OneOf<global::ElevenLabs.LLMLiteralJsonSchemaProperty, global::ElevenLabs.LLMObjectJsonSchemaPropertyOutput, global::ElevenLabs.LLMArrayJsonSchemaPropertyOutput, global::ElevenLabs.LLMAnyOfJsonSchemaPropertyOutput>?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0212.Create_SourceGenerationContextMetadataType_D92E6C7B13C016F7(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0229.Create_SourceGenerationContextMetadataType_D92E6C7B13C016F7(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

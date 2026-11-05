@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WordTimestamp))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0251.Create_WordTimestamp(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0269.Create_WordTimestamp(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

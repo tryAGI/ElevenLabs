@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ProjectExtendedResponseModelExperimental))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0153.Create_ProjectExtendedResponseModelExperimental(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0159.Create_ProjectExtendedResponseModelExperimental(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

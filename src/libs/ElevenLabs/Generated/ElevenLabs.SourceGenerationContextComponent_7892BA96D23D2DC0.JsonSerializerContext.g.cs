@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PreviewAudioDBModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0151.Create_PreviewAudioDBModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0157.Create_PreviewAudioDBModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

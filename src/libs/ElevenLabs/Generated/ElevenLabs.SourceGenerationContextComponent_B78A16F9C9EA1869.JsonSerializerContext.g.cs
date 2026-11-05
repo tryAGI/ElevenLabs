@@ -36,19 +36,19 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.ContentSchema))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0038.Create_ContentSchema2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0039.Create_ContentSchema2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ObjectSchema))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0143.Create_ObjectSchema(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0149.Create_ObjectSchema(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ContentSchema>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0203.Create_SourceGenerationContextMetadataType_A75EB51312C893EE(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0218.Create_SourceGenerationContextMetadataType_A75EB51312C893EE(options);
                 }
                 if (type == typeof(global::ElevenLabs.ContentSchema?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0108.Create_NullableContentSchema2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0111.Create_NullableContentSchema2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

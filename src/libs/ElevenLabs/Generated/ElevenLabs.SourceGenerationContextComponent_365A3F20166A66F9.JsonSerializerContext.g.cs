@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SfxSourceContextGenerationConfig))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0166.Create_SfxSourceContextGenerationConfig(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0178.Create_SfxSourceContextGenerationConfig(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

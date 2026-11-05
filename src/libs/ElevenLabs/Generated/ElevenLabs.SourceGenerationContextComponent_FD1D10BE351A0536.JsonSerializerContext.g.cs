@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CreateStaffParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0050.Create_CreateStaffParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0052.Create_CreateStaffParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

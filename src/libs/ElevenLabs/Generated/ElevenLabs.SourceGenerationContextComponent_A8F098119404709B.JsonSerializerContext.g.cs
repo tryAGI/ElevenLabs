@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PendingClipTask))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0148.Create_PendingClipTask(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0154.Create_PendingClipTask(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

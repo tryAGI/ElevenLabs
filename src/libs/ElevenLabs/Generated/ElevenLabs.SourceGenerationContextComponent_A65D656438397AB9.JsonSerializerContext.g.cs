@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistorySIPTrunkingPhoneCallModelSipHeaderDynamicVariables))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0041.Create_ConversationHistorySIPTrunkingPhoneCallModelSipHeaderDynamicVariables(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0042.Create_ConversationHistorySIPTrunkingPhoneCallModelSipHeaderDynamicVariables(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BytedanceSeedance2FastRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0031.Create_BytedanceSeedance2FastRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0032.Create_BytedanceSeedance2FastRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OwnerGetClientAppointmentsParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0146.Create_OwnerGetClientAppointmentsParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0152.Create_OwnerGetClientAppointmentsParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);
