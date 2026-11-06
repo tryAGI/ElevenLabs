@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ScopedAnalysisResultEvaluationCriteriaResults))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0176.Create_ScopedAnalysisResultEvaluationCriteriaResults(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0177.Create_ScopedAnalysisResultEvaluationCriteriaResults(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -27,19 +27,19 @@ namespace ElevenLabs
         public string? Tier { get; set; }
 
         /// <summary>
-        ///
+        /// Per-model LLM token usage and USD price for the conversation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_usage")]
         public global::ElevenLabs.LLMCategoryUsage? LlmUsage { get; set; }
 
         /// <summary>
-        ///
+        /// Total LLM price in USD. Equals the sum of the prices in `llm_usage.initiated_generation`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_price")]
         public double? LlmPrice { get; set; }
 
         /// <summary>
-        ///
+        /// Credits charged for LLM usage.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_charge")]
         public int? LlmCharge { get; set; }
@@ -120,9 +120,15 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="tier"></param>
-        /// <param name="llmUsage"></param>
-        /// <param name="llmPrice"></param>
-        /// <param name="llmCharge"></param>
+        /// <param name="llmUsage">
+        /// Per-model LLM token usage and USD price for the conversation.
+        /// </param>
+        /// <param name="llmPrice">
+        /// Total LLM price in USD. Equals the sum of the prices in `llm_usage.initiated_generation`.
+        /// </param>
+        /// <param name="llmCharge">
+        /// Credits charged for LLM usage.
+        /// </param>
         /// <param name="callCharge"></param>
         /// <param name="platformCharge"></param>
         /// <param name="platformUsage">

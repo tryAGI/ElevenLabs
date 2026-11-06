@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.OpenAIToolChoiceFunction>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0222.Create_SourceGenerationContextMetadataType_B7A515728977E146(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0223.Create_SourceGenerationContextMetadataType_B7A515728977E146(options);
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<string, global::ElevenLabs.OpenAIToolChoiceFunction>?))
                 {

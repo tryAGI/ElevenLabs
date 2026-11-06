@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.WhatsAppTemplateTextParam>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0205.Create_SourceGenerationContextMetadataType_68CEAB43FB62B9C0(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0206.Create_SourceGenerationContextMetadataType_68CEAB43FB62B9C0(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.WhatsAppTemplateTextParam>))
                 {

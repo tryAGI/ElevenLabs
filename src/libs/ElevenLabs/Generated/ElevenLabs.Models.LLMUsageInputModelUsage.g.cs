@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    ///
+    /// Token usage and USD price per LLM, keyed by model ID and broken down by token category.
     /// </summary>
     public sealed partial class LLMUsageInputModelUsage
     {

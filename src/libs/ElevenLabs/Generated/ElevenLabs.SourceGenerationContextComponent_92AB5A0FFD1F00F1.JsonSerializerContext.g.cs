@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.GPTImage1RequestBackground?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0117.Create_NullableGPTImage1RequestBackground2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0118.Create_NullableGPTImage1RequestBackground2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

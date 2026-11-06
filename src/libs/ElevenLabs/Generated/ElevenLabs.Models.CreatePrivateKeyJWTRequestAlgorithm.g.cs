@@ -24,6 +24,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Ps256,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps384,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps512,
+        /// <summary>
+        ///
+        /// </summary>
         Rs256,
         /// <summary>
         ///
@@ -50,6 +62,9 @@ namespace ElevenLabs
                 CreatePrivateKeyJWTRequestAlgorithm.Hs256 => "HS256",
                 CreatePrivateKeyJWTRequestAlgorithm.Hs384 => "HS384",
                 CreatePrivateKeyJWTRequestAlgorithm.Hs512 => "HS512",
+                CreatePrivateKeyJWTRequestAlgorithm.Ps256 => "PS256",
+                CreatePrivateKeyJWTRequestAlgorithm.Ps384 => "PS384",
+                CreatePrivateKeyJWTRequestAlgorithm.Ps512 => "PS512",
                 CreatePrivateKeyJWTRequestAlgorithm.Rs256 => "RS256",
                 CreatePrivateKeyJWTRequestAlgorithm.Rs384 => "RS384",
                 CreatePrivateKeyJWTRequestAlgorithm.Rs512 => "RS512",
@@ -66,6 +81,9 @@ namespace ElevenLabs
                 "HS256" => CreatePrivateKeyJWTRequestAlgorithm.Hs256,
                 "HS384" => CreatePrivateKeyJWTRequestAlgorithm.Hs384,
                 "HS512" => CreatePrivateKeyJWTRequestAlgorithm.Hs512,
+                "PS256" => CreatePrivateKeyJWTRequestAlgorithm.Ps256,
+                "PS384" => CreatePrivateKeyJWTRequestAlgorithm.Ps384,
+                "PS512" => CreatePrivateKeyJWTRequestAlgorithm.Ps512,
                 "RS256" => CreatePrivateKeyJWTRequestAlgorithm.Rs256,
                 "RS384" => CreatePrivateKeyJWTRequestAlgorithm.Rs384,
                 "RS512" => CreatePrivateKeyJWTRequestAlgorithm.Rs512,

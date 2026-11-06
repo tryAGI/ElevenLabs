@@ -40,11 +40,11 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.TemplateOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0245.Create_TemplateOutput2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0246.Create_TemplateOutput2(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.TemplateOutput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0198.Create_SourceGenerationContextMetadataType_4A3D90ED4C34DCD4(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0199.Create_SourceGenerationContextMetadataType_4A3D90ED4C34DCD4(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.TemplateOutput>))
                 {

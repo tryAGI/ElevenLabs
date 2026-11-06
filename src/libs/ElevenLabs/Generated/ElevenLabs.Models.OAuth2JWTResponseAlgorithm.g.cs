@@ -24,6 +24,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Ps256,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps384,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps512,
+        /// <summary>
+        ///
+        /// </summary>
         Rs256,
         /// <summary>
         ///
@@ -50,6 +62,9 @@ namespace ElevenLabs
                 OAuth2JWTResponseAlgorithm.Hs256 => "HS256",
                 OAuth2JWTResponseAlgorithm.Hs384 => "HS384",
                 OAuth2JWTResponseAlgorithm.Hs512 => "HS512",
+                OAuth2JWTResponseAlgorithm.Ps256 => "PS256",
+                OAuth2JWTResponseAlgorithm.Ps384 => "PS384",
+                OAuth2JWTResponseAlgorithm.Ps512 => "PS512",
                 OAuth2JWTResponseAlgorithm.Rs256 => "RS256",
                 OAuth2JWTResponseAlgorithm.Rs384 => "RS384",
                 OAuth2JWTResponseAlgorithm.Rs512 => "RS512",
@@ -66,6 +81,9 @@ namespace ElevenLabs
                 "HS256" => OAuth2JWTResponseAlgorithm.Hs256,
                 "HS384" => OAuth2JWTResponseAlgorithm.Hs384,
                 "HS512" => OAuth2JWTResponseAlgorithm.Hs512,
+                "PS256" => OAuth2JWTResponseAlgorithm.Ps256,
+                "PS384" => OAuth2JWTResponseAlgorithm.Ps384,
+                "PS512" => OAuth2JWTResponseAlgorithm.Ps512,
                 "RS256" => OAuth2JWTResponseAlgorithm.Rs256,
                 "RS384" => OAuth2JWTResponseAlgorithm.Rs384,
                 "RS512" => OAuth2JWTResponseAlgorithm.Rs512,

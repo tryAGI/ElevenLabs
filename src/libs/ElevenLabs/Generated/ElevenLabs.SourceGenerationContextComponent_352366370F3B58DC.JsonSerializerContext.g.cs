@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.Gemini31FlashImageRequestAspectRatio?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0118.Create_NullableGemini31FlashImageRequestAspectRatio2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0119.Create_NullableGemini31FlashImageRequestAspectRatio2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

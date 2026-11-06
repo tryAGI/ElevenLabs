@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0200.Create_SourceGenerationContextMetadataType_526B99A53BE7420C(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0201.Create_SourceGenerationContextMetadataType_526B99A53BE7420C(options);
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>?))
                 {

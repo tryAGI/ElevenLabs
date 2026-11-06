@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0049.Create_CreateEnvironmentVariableRequestDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0050.Create_CreateEnvironmentVariableRequestDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.CreateEnvironmentVariableRequestDiscriminatorType?))
                 {

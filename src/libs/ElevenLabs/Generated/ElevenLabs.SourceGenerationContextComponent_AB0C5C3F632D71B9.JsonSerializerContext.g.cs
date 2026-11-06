@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0163.Create_PronunciationDictionaryVersionResponseModelPermissionOnResource2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0164.Create_PronunciationDictionaryVersionResponseModelPermissionOnResource2(options);
                 }
                 if (type == typeof(global::ElevenLabs.PronunciationDictionaryVersionResponseModelPermissionOnResource?))
                 {

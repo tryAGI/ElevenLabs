@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1DiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0255.Create_UnitTestRunResponseModelTestInfoVariant1DiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0256.Create_UnitTestRunResponseModelTestInfoVariant1DiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.UnitTestRunResponseModelTestInfoVariant1DiscriminatorType?))
                 {

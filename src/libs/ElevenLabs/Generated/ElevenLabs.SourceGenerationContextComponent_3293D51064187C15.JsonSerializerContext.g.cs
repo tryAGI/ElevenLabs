@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DependentAvailableMCPServerIdentifierAccessLevel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0058.Create_DependentAvailableMCPServerIdentifierAccessLevel2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0059.Create_DependentAvailableMCPServerIdentifierAccessLevel2(options);
                 }
                 if (type == typeof(global::ElevenLabs.DependentAvailableMCPServerIdentifierAccessLevel?))
                 {

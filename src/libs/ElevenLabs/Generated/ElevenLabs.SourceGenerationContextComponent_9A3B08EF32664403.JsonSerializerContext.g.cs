@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WebhookHMACSettings))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0265.Create_WebhookHMACSettings(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0266.Create_WebhookHMACSettings(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

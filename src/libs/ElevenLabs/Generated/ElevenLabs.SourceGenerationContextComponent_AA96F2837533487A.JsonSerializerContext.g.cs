@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UrlModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0260.Create_UrlModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0261.Create_UrlModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

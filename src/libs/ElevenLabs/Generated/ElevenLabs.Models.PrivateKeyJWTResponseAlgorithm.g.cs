@@ -24,6 +24,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Ps256,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps384,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps512,
+        /// <summary>
+        ///
+        /// </summary>
         Rs256,
         /// <summary>
         ///
@@ -50,6 +62,9 @@ namespace ElevenLabs
                 PrivateKeyJWTResponseAlgorithm.Hs256 => "HS256",
                 PrivateKeyJWTResponseAlgorithm.Hs384 => "HS384",
                 PrivateKeyJWTResponseAlgorithm.Hs512 => "HS512",
+                PrivateKeyJWTResponseAlgorithm.Ps256 => "PS256",
+                PrivateKeyJWTResponseAlgorithm.Ps384 => "PS384",
+                PrivateKeyJWTResponseAlgorithm.Ps512 => "PS512",
                 PrivateKeyJWTResponseAlgorithm.Rs256 => "RS256",
                 PrivateKeyJWTResponseAlgorithm.Rs384 => "RS384",
                 PrivateKeyJWTResponseAlgorithm.Rs512 => "RS512",
@@ -66,6 +81,9 @@ namespace ElevenLabs
                 "HS256" => PrivateKeyJWTResponseAlgorithm.Hs256,
                 "HS384" => PrivateKeyJWTResponseAlgorithm.Hs384,
                 "HS512" => PrivateKeyJWTResponseAlgorithm.Hs512,
+                "PS256" => PrivateKeyJWTResponseAlgorithm.Ps256,
+                "PS384" => PrivateKeyJWTResponseAlgorithm.Ps384,
+                "PS512" => PrivateKeyJWTResponseAlgorithm.Ps512,
                 "RS256" => PrivateKeyJWTResponseAlgorithm.Rs256,
                 "RS384" => PrivateKeyJWTResponseAlgorithm.Rs384,
                 "RS512" => PrivateKeyJWTResponseAlgorithm.Rs512,

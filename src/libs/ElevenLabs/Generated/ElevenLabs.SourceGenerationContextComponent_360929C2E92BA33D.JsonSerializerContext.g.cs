@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PromptAgentAPIModelOverrideOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0161.Create_PromptAgentAPIModelOverrideOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0162.Create_PromptAgentAPIModelOverrideOutput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

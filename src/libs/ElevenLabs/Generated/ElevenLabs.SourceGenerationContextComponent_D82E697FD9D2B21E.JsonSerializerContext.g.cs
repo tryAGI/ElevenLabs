@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBAgentInfoResponseCurrency))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0170.Create_SMBAgentInfoResponseCurrency2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0171.Create_SMBAgentInfoResponseCurrency2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SMBAgentInfoResponseCurrency?))
                 {

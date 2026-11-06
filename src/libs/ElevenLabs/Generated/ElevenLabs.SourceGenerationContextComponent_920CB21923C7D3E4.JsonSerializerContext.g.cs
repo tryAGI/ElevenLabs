@@ -32,7 +32,7 @@ namespace ElevenLabs
                 #pragma warning disable CS0618 // Metadata references a deprecated API model.
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem2>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0214.Create_SourceGenerationContextMetadataType_920CB21923C7D3E4(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0215.Create_SourceGenerationContextMetadataType_920CB21923C7D3E4(options);
                 }
                 #pragma warning restore CS0618
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.DependentAgentsItem2>))

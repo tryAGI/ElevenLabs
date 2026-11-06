@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TwilioEdgeLocation))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0254.Create_TwilioEdgeLocation2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0255.Create_TwilioEdgeLocation2(options);
                 }
                 if (type == typeof(global::ElevenLabs.TwilioEdgeLocation?))
                 {

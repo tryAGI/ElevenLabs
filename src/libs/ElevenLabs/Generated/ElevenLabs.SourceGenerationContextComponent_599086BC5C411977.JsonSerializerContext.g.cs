@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0272.Create_WorkflowToolResponseModelOutputStepDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0274.Create_WorkflowToolResponseModelOutputStepDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkflowToolResponseModelOutputStepDiscriminatorType?))
                 {

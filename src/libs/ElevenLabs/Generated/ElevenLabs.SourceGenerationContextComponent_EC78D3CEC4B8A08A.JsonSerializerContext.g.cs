@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.KnowledgeSourceType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0086.Create_KnowledgeSourceType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0087.Create_KnowledgeSourceType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.KnowledgeSourceType?))
                 {

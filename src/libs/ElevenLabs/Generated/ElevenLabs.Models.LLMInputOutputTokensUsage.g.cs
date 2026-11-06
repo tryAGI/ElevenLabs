@@ -9,25 +9,25 @@ namespace ElevenLabs
     public sealed partial class LLMInputOutputTokensUsage
     {
         /// <summary>
-        ///
+        /// Input (prompt) tokens not served from the prompt cache.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input")]
         public global::ElevenLabs.LLMTokensCategoryUsage? Input { get; set; }
 
         /// <summary>
-        ///
+        /// Input tokens read from the prompt cache.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_cache_read")]
         public global::ElevenLabs.LLMTokensCategoryUsage? InputCacheRead { get; set; }
 
         /// <summary>
-        ///
+        /// Input tokens written to the prompt cache.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_cache_write")]
         public global::ElevenLabs.LLMTokensCategoryUsage? InputCacheWrite { get; set; }
 
         /// <summary>
-        ///
+        /// Output (completion) tokens.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_total")]
         public global::ElevenLabs.LLMTokensCategoryUsage? OutputTotal { get; set; }
@@ -41,10 +41,18 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="LLMInputOutputTokensUsage" /> class.
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="inputCacheRead"></param>
-        /// <param name="inputCacheWrite"></param>
-        /// <param name="outputTotal"></param>
+        /// <param name="input">
+        /// Input (prompt) tokens not served from the prompt cache.
+        /// </param>
+        /// <param name="inputCacheRead">
+        /// Input tokens read from the prompt cache.
+        /// </param>
+        /// <param name="inputCacheWrite">
+        /// Input tokens written to the prompt cache.
+        /// </param>
+        /// <param name="outputTotal">
+        /// Output (completion) tokens.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

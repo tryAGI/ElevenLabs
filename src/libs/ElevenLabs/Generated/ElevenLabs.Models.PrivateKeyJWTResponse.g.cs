@@ -77,6 +77,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? ExtraParams { get; set; }
 
         /// <summary>
+        /// Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? ExtraHeaders { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
@@ -151,6 +157,9 @@ namespace ElevenLabs
         /// <param name="extraParams">
         /// Additional custom claims to include in the JWT
         /// </param>
+        /// <param name="extraHeaders">
+        /// Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+        /// </param>
         /// <param name="usedBy"></param>
         /// <param name="status">
         /// Single status field shared by every auth type's stored credential.<br/>
@@ -177,6 +186,7 @@ namespace ElevenLabs
             string? keyId,
             int? expirationSeconds,
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
+            global::System.Collections.Generic.Dictionary<string, string>? extraHeaders,
             global::ElevenLabs.AuthConnectionDependencies? usedBy,
             global::ElevenLabs.AuthConnectionStatus? status,
             string? statusDetail,
@@ -192,6 +202,7 @@ namespace ElevenLabs
             this.Subject = subject ?? throw new global::System.ArgumentNullException(nameof(subject));
             this.ExpirationSeconds = expirationSeconds;
             this.ExtraParams = extraParams;
+            this.ExtraHeaders = extraHeaders;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
             this.Status = status;
