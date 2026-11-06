@@ -77,6 +77,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? ExtraParams { get; set; }
 
         /// <summary>
+        /// Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? ExtraHeaders { get; set; }
+
+        /// <summary>
         /// Token endpoint URL for exchanging JWT for access token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_url")]
@@ -96,6 +102,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("token_response_field")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CreateOAuth2JWTRequestTokenResponseFieldJsonConverter))]
         public global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField? TokenResponseField { get; set; }
+
+        /// <summary>
+        /// How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.<br/>
+        /// Default Value: authorization_grant
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("jwt_usage")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.CreateOAuth2JWTRequestJwtUsageJsonConverter))]
+        public global::ElevenLabs.CreateOAuth2JWTRequestJwtUsage? JwtUsage { get; set; }
 
         /// <summary>
         ///
@@ -145,12 +159,19 @@ namespace ElevenLabs
         /// <param name="extraParams">
         /// Additional custom claims to include in the JWT
         /// </param>
+        /// <param name="extraHeaders">
+        /// Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+        /// </param>
         /// <param name="scopes">
         /// OAuth2 scopes to request when exchanging JWT for access token
         /// </param>
         /// <param name="tokenResponseField">
         /// Token field to extract from the token endpoint response.<br/>
         /// Default Value: access_token
+        /// </param>
+        /// <param name="jwtUsage">
+        /// How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.<br/>
+        /// Default Value: authorization_grant
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -168,8 +189,10 @@ namespace ElevenLabs
             string? keyId,
             int? expirationSeconds,
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
+            global::System.Collections.Generic.Dictionary<string, string>? extraHeaders,
             global::System.Collections.Generic.IList<string>? scopes,
-            global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField? tokenResponseField)
+            global::ElevenLabs.CreateOAuth2JWTRequestTokenResponseField? tokenResponseField,
+            global::ElevenLabs.CreateOAuth2JWTRequestJwtUsage? jwtUsage)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AuthType = authType;
@@ -181,9 +204,11 @@ namespace ElevenLabs
             this.Subject = subject ?? throw new global::System.ArgumentNullException(nameof(subject));
             this.ExpirationSeconds = expirationSeconds;
             this.ExtraParams = extraParams;
+            this.ExtraHeaders = extraHeaders;
             this.TokenUrl = tokenUrl ?? throw new global::System.ArgumentNullException(nameof(tokenUrl));
             this.Scopes = scopes;
             this.TokenResponseField = tokenResponseField;
+            this.JwtUsage = jwtUsage;
             this.SecretKey = secretKey ?? throw new global::System.ArgumentNullException(nameof(secretKey));
         }
 

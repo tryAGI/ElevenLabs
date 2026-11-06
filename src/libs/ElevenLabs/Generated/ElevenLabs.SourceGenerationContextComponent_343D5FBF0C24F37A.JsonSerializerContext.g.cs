@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0027.Create_BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0028.Create_BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostMultichannelOutputStyle?))
                 {

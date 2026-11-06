@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WhatsAppOpeningMessage))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0267.Create_WhatsAppOpeningMessage(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0268.Create_WhatsAppOpeningMessage(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

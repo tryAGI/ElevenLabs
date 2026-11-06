@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BytedanceSeedance2MiniRequestResolution))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0032.Create_BytedanceSeedance2MiniRequestResolution2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0033.Create_BytedanceSeedance2MiniRequestResolution2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BytedanceSeedance2MiniRequestResolution?))
                 {

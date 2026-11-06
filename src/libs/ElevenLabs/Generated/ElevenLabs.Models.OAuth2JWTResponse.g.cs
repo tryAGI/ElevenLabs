@@ -77,6 +77,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? ExtraParams { get; set; }
 
         /// <summary>
+        /// Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? ExtraHeaders { get; set; }
+
+        /// <summary>
         /// Token endpoint URL for exchanging JWT for access token
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_url")]
@@ -96,6 +102,14 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("token_response_field")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseTokenResponseFieldJsonConverter))]
         public global::ElevenLabs.OAuth2JWTResponseTokenResponseField? TokenResponseField { get; set; }
+
+        /// <summary>
+        /// How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.<br/>
+        /// Default Value: authorization_grant
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("jwt_usage")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OAuth2JWTResponseJwtUsageJsonConverter))]
+        public global::ElevenLabs.OAuth2JWTResponseJwtUsage? JwtUsage { get; set; }
 
         /// <summary>
         ///
@@ -175,12 +189,19 @@ namespace ElevenLabs
         /// <param name="extraParams">
         /// Additional custom claims to include in the JWT
         /// </param>
+        /// <param name="extraHeaders">
+        /// Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id.
+        /// </param>
         /// <param name="scopes">
         /// OAuth2 scopes to request when exchanging JWT for access token
         /// </param>
         /// <param name="tokenResponseField">
         /// Token field to extract from the token endpoint response.<br/>
         /// Default Value: access_token
+        /// </param>
+        /// <param name="jwtUsage">
+        /// How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.<br/>
+        /// Default Value: authorization_grant
         /// </param>
         /// <param name="usedBy"></param>
         /// <param name="status">
@@ -209,8 +230,10 @@ namespace ElevenLabs
             string? keyId,
             int? expirationSeconds,
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
+            global::System.Collections.Generic.Dictionary<string, string>? extraHeaders,
             global::System.Collections.Generic.IList<string>? scopes,
             global::ElevenLabs.OAuth2JWTResponseTokenResponseField? tokenResponseField,
+            global::ElevenLabs.OAuth2JWTResponseJwtUsage? jwtUsage,
             global::ElevenLabs.AuthConnectionDependencies? usedBy,
             global::ElevenLabs.AuthConnectionStatus? status,
             string? statusDetail,
@@ -226,9 +249,11 @@ namespace ElevenLabs
             this.Subject = subject ?? throw new global::System.ArgumentNullException(nameof(subject));
             this.ExpirationSeconds = expirationSeconds;
             this.ExtraParams = extraParams;
+            this.ExtraHeaders = extraHeaders;
             this.TokenUrl = tokenUrl ?? throw new global::System.ArgumentNullException(nameof(tokenUrl));
             this.Scopes = scopes;
             this.TokenResponseField = tokenResponseField;
+            this.JwtUsage = jwtUsage;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.UsedBy = usedBy;
             this.Status = status;

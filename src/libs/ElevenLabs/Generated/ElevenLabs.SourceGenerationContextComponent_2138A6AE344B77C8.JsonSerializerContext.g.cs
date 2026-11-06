@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SampleConfigDBModelParentType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0175.Create_SampleConfigDBModelParentType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0176.Create_SampleConfigDBModelParentType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SampleConfigDBModelParentType?))
                 {

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0059.Create_DirectPublishingReadResponseModelTargetAudience2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0060.Create_DirectPublishingReadResponseModelTargetAudience2(options);
                 }
                 if (type == typeof(global::ElevenLabs.DirectPublishingReadResponseModelTargetAudience?))
                 {

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TwilioMachineDetectionConfig))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0254.Create_TwilioMachineDetectionConfig(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0255.Create_TwilioMachineDetectionConfig(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

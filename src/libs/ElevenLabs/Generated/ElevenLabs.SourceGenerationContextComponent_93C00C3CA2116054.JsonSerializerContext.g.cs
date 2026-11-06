@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ResourceAccessInfoRole))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0168.Create_ResourceAccessInfoRole2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0169.Create_ResourceAccessInfoRole2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ResourceAccessInfoRole?))
                 {

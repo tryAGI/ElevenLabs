@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBUpdateAgentInfoRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_SMBUpdateAgentInfoRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0174.Create_SMBUpdateAgentInfoRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

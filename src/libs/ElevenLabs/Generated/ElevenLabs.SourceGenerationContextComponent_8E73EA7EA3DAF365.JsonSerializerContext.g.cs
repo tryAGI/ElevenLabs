@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBCreateProductRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0171.Create_SMBCreateProductRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0172.Create_SMBCreateProductRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

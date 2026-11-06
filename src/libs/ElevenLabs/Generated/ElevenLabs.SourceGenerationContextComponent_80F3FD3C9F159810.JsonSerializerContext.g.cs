@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MCPToolConfigInputInputOverridesDiscriminatorSource))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0094.Create_MCPToolConfigInputInputOverridesDiscriminatorSource2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0095.Create_MCPToolConfigInputInputOverridesDiscriminatorSource2(options);
                 }
                 if (type == typeof(global::ElevenLabs.MCPToolConfigInputInputOverridesDiscriminatorSource?))
                 {

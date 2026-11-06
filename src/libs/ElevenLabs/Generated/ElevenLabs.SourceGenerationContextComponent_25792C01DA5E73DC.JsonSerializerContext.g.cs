@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SystemDataCollectionId))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0242.Create_SystemDataCollectionId2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0243.Create_SystemDataCollectionId2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SystemDataCollectionId?))
                 {

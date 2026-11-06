@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SpeechHistoryItemResponseModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0239.Create_SpeechHistoryItemResponseModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0240.Create_SpeechHistoryItemResponseModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

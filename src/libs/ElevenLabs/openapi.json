@@ -14116,6 +14116,84 @@
         "x-fern-sdk-method-name": "update"
       }
     },
+    "/v1/workspace/members/{user_id}/usage-limit": {
+      "put": {
+        "tags": [
+          "workspace"
+        ],
+        "summary": "Update Member Usage Limit",
+        "description": "Sets or clears the monthly credit usage limit of a workspace member or service account. This endpoint may only be called by workspace administrators.",
+        "operationId": "update_workspace_member_usage_limit",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "User ID of the target user.",
+              "title": "User Id"
+            },
+            "description": "User ID of the target user."
+          },
+          {
+            "name": "xi-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website.",
+              "title": "Xi-Api-Key"
+            },
+            "description": "Your API key. This is required by most endpoints to access our API programmatically. You can view your xi-api-key using the 'Profile' tab on the website."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMemberUsageLimitRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMemberUsageLimitResponseModel"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "x-fern-sdk-group-name": [
+          "workspace",
+          "members"
+        ],
+        "x-fern-sdk-method-name": "update_usage_limit"
+      }
+    },
     "/v1/workspace/resources/{resource_id}": {
       "get": {
         "tags": [
@@ -51336,6 +51414,7 @@
           "api",
           "template",
           "architect",
+          "mcp",
           "unknown"
         ],
         "title": "AgentDefinitionSource",
@@ -55660,6 +55739,42 @@
               }
             ],
             "title": "Last Processed External Message Id"
+          },
+          "integration_trigger_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Integration Trigger Id"
+          },
+          "platform_metadata": {
+            "anyOf": [
+              {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PlainPlatformMetadata"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ZendeskPlatformMetadata"
+                  }
+                ],
+                "discriminator": {
+                  "propertyName": "conversation_initiation_source",
+                  "mapping": {
+                    "plain_integration": "#/components/schemas/PlainPlatformMetadata",
+                    "zendesk_integration": "#/components/schemas/ZendeskPlatformMetadata"
+                  }
+                }
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Platform Metadata"
           }
         },
         "type": "object",
@@ -71195,7 +71310,8 @@
             "title": "Tier"
           },
           "llm_usage": {
-            "$ref": "#/components/schemas/LLMCategoryUsage"
+            "$ref": "#/components/schemas/LLMCategoryUsage",
+            "description": "Per-model LLM token usage and USD price for the conversation."
           },
           "llm_price": {
             "anyOf": [
@@ -71206,7 +71322,8 @@
                 "type": "null"
               }
             ],
-            "title": "Llm Price"
+            "title": "Llm Price",
+            "description": "Total LLM price in USD. Equals the sum of the prices in `llm_usage.initiated_generation`."
           },
           "llm_charge": {
             "anyOf": [
@@ -71217,7 +71334,8 @@
                 "type": "null"
               }
             ],
-            "title": "Llm Charge"
+            "title": "Llm Charge",
+            "description": "Credits charged for LLM usage."
           },
           "call_charge": {
             "anyOf": [
@@ -77259,7 +77377,10 @@
               "HS512",
               "RS256",
               "RS384",
-              "RS512"
+              "RS512",
+              "PS256",
+              "PS384",
+              "PS512"
             ],
             "title": "Algorithm",
             "description": "JWT signing algorithm",
@@ -77308,6 +77429,14 @@
             "title": "Extra Params",
             "description": "Additional custom claims to include in the JWT"
           },
+          "extra_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Extra Headers",
+            "description": "Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id."
+          },
           "token_url": {
             "type": "string",
             "title": "Token Url",
@@ -77330,6 +77459,16 @@
             "title": "Token Response Field",
             "description": "Token field to extract from the token endpoint response.",
             "default": "access_token"
+          },
+          "jwt_usage": {
+            "type": "string",
+            "enum": [
+              "authorization_grant",
+              "client_authentication"
+            ],
+            "title": "Jwt Usage",
+            "description": "How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.",
+            "default": "authorization_grant"
           },
           "secret_key": {
             "type": "string",
@@ -77478,7 +77617,10 @@
               "HS512",
               "RS256",
               "RS384",
-              "RS512"
+              "RS512",
+              "PS256",
+              "PS384",
+              "PS512"
             ],
             "title": "Algorithm",
             "description": "JWT signing algorithm",
@@ -77526,6 +77668,14 @@
             "type": "object",
             "title": "Extra Params",
             "description": "Additional custom claims to include in the JWT"
+          },
+          "extra_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Extra Headers",
+            "description": "Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id."
           },
           "secret_key": {
             "type": "string",
@@ -93325,14 +93475,17 @@
       "LLMCategoryUsage": {
         "properties": {
           "irreversible_generation": {
-            "$ref": "#/components/schemas/LLMUsage-Output"
+            "$ref": "#/components/schemas/LLMUsage-Output",
+            "description": "Subset of `initiated_generation`: usage of agent turns whose audio had started playing to the user, whether the turn then completed or was interrupted. A turn the user interrupted while the LLM was still generating, or that was cut off by the call ending, can be missing here even if part of it was heard. Informational; LLM charges are based on `initiated_generation`."
           },
           "initiated_generation": {
-            "$ref": "#/components/schemas/LLMUsage-Output"
+            "$ref": "#/components/schemas/LLMUsage-Output",
+            "description": "Usage of every LLM call made during the conversation: turns the user heard, turns the user interrupted, and speculative turns that were started and dropped before any audio was sent. LLM charges are based on this block; its prices sum to `llm_price`. Always greater than or equal to `irreversible_generation`."
           }
         },
         "type": "object",
-        "title": "LLMCategoryUsage"
+        "title": "LLMCategoryUsage",
+        "description": "LLM usage of a conversation, split by whether the generated response reached the user."
       },
       "LLMDeprecationConfigModel": {
         "properties": {
@@ -93570,16 +93723,20 @@
       "LLMInputOutputTokensUsage": {
         "properties": {
           "input": {
-            "$ref": "#/components/schemas/LLMTokensCategoryUsage"
+            "$ref": "#/components/schemas/LLMTokensCategoryUsage",
+            "description": "Input (prompt) tokens not served from the prompt cache."
           },
           "input_cache_read": {
-            "$ref": "#/components/schemas/LLMTokensCategoryUsage"
+            "$ref": "#/components/schemas/LLMTokensCategoryUsage",
+            "description": "Input tokens read from the prompt cache."
           },
           "input_cache_write": {
-            "$ref": "#/components/schemas/LLMTokensCategoryUsage"
+            "$ref": "#/components/schemas/LLMTokensCategoryUsage",
+            "description": "Input tokens written to the prompt cache."
           },
           "output_total": {
-            "$ref": "#/components/schemas/LLMTokensCategoryUsage"
+            "$ref": "#/components/schemas/LLMTokensCategoryUsage",
+            "description": "Output (completion) tokens."
           }
         },
         "type": "object",
@@ -93844,11 +94001,13 @@
           "tokens": {
             "type": "integer",
             "title": "Tokens",
+            "description": "Number of tokens in this category.",
             "default": 0
           },
           "price": {
             "type": "number",
             "title": "Price",
+            "description": "Price of these tokens in USD.",
             "default": 0.0
           }
         },
@@ -93865,7 +94024,8 @@
               "$ref": "#/components/schemas/LLM"
             },
             "type": "object",
-            "title": "Model Usage"
+            "title": "Model Usage",
+            "description": "Token usage and USD price per LLM, keyed by model ID and broken down by token category."
           }
         },
         "type": "object",
@@ -93881,7 +94041,8 @@
               "$ref": "#/components/schemas/LLM"
             },
             "type": "object",
-            "title": "Model Usage"
+            "title": "Model Usage",
+            "description": "Token usage and USD price per LLM, keyed by model ID and broken down by token category."
           }
         },
         "type": "object",
@@ -100149,7 +100310,10 @@
               "HS512",
               "RS256",
               "RS384",
-              "RS512"
+              "RS512",
+              "PS256",
+              "PS384",
+              "PS512"
             ],
             "title": "Algorithm",
             "description": "JWT signing algorithm",
@@ -100198,6 +100362,14 @@
             "title": "Extra Params",
             "description": "Additional custom claims to include in the JWT"
           },
+          "extra_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Extra Headers",
+            "description": "Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id."
+          },
           "token_url": {
             "type": "string",
             "title": "Token Url",
@@ -100220,6 +100392,16 @@
             "title": "Token Response Field",
             "description": "Token field to extract from the token endpoint response.",
             "default": "access_token"
+          },
+          "jwt_usage": {
+            "type": "string",
+            "enum": [
+              "authorization_grant",
+              "client_authentication"
+            ],
+            "title": "Jwt Usage",
+            "description": "How the JWT is used at the token endpoint. 'authorization_grant' sends it as a jwt-bearer grant. 'client_authentication' sends it as a client_assertion on a client_credentials request, with the subject as client_id and scopes in the request body.",
+            "default": "authorization_grant"
           },
           "id": {
             "type": "string",
@@ -100805,6 +100987,7 @@
           "rate": {
             "type": "integer",
             "title": "Rate",
+            "description": "Sample rate in Hz of `audio/pcm` input. Only 24000 is supported; G.711 formats are always 8000 and ignore this field.",
             "default": 24000
           }
         },
@@ -103072,6 +103255,30 @@
         ],
         "title": "PhoneNumberTransferDestination"
       },
+      "PlainPlatformMetadata": {
+        "properties": {
+          "conversation_initiation_source": {
+            "type": "string",
+            "const": "plain_integration",
+            "title": "Conversation Initiation Source",
+            "default": "plain_integration"
+          },
+          "thread_id": {
+            "type": "string",
+            "title": "Thread Id"
+          },
+          "workspace_id": {
+            "type": "string",
+            "title": "Workspace Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "thread_id",
+          "workspace_id"
+        ],
+        "title": "PlainPlatformMetadata"
+      },
       "PlatformCategory": {
         "type": "string",
         "enum": [
@@ -103828,7 +104035,10 @@
               "HS512",
               "RS256",
               "RS384",
-              "RS512"
+              "RS512",
+              "PS256",
+              "PS384",
+              "PS512"
             ],
             "title": "Algorithm",
             "description": "JWT signing algorithm",
@@ -103876,6 +104086,14 @@
             "type": "object",
             "title": "Extra Params",
             "description": "Additional custom claims to include in the JWT"
+          },
+          "extra_headers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Extra Headers",
+            "description": "Additional JWT header parameters (e.g. x5t). 'alg' and 'kid' are set from algorithm and key_id."
           },
           "id": {
             "type": "string",
@@ -127968,6 +128186,41 @@
         "type": "object",
         "title": "UpdateLocationParams"
       },
+      "UpdateMemberUsageLimitRequestModel": {
+        "properties": {
+          "usage_limit": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Usage Limit",
+            "description": "Monthly credit usage limit for the member. Set to null to remove the limit."
+          }
+        },
+        "type": "object",
+        "required": [
+          "usage_limit"
+        ],
+        "title": "UpdateMemberUsageLimitRequestModel"
+      },
+      "UpdateMemberUsageLimitResponseModel": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "UpdateMemberUsageLimitResponseModel"
+      },
       "UpdateMusicFinetuneRequestModel": {
         "properties": {
           "name": {
@@ -128159,7 +128412,10 @@
                   "HS512",
                   "RS256",
                   "RS384",
-                  "RS512"
+                  "RS512",
+                  "PS256",
+                  "PS384",
+                  "PS512"
                 ]
               },
               {
@@ -128267,6 +128523,35 @@
               }
             ],
             "title": "Token Response Field"
+          },
+          "jwt_usage": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "authorization_grant",
+                  "client_authentication"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jwt Usage"
+          },
+          "extra_headers": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Extra Headers"
           },
           "secret_key": {
             "anyOf": [
@@ -139516,6 +139801,25 @@
           "usage_type"
         ],
         "title": "WorkspaceWebhookUsageResponseModel"
+      },
+      "ZendeskPlatformMetadata": {
+        "properties": {
+          "conversation_initiation_source": {
+            "type": "string",
+            "const": "zendesk_integration",
+            "title": "Conversation Initiation Source",
+            "default": "zendesk_integration"
+          },
+          "ticket_id": {
+            "type": "string",
+            "title": "Ticket Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "ticket_id"
+        ],
+        "title": "ZendeskPlatformMetadata"
       },
       "GenerationNode": {
         "properties": {

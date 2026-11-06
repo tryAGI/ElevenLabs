@@ -9,12 +9,14 @@ namespace ElevenLabs
     public sealed partial class LLMTokensCategoryUsage
     {
         /// <summary>
+        /// Number of tokens in this category.<br/>
         /// Default Value: 0
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tokens")]
         public int? Tokens { get; set; }
 
         /// <summary>
+        /// Price of these tokens in USD.<br/>
         /// Default Value: 0F
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price")]
@@ -30,9 +32,11 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="LLMTokensCategoryUsage" /> class.
         /// </summary>
         /// <param name="tokens">
+        /// Number of tokens in this category.<br/>
         /// Default Value: 0
         /// </param>
         /// <param name="price">
+        /// Price of these tokens in USD.<br/>
         /// Default Value: 0F
         /// </param>
 #if NET7_0_OR_GREATER

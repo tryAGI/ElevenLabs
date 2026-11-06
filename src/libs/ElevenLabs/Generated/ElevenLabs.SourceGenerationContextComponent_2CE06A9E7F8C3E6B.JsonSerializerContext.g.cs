@@ -34,7 +34,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(double?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0115.Create_NullableDouble(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0116.Create_NullableDouble(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.StartProcedureToolConfig))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0240.Create_StartProcedureToolConfig(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0241.Create_StartProcedureToolConfig(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

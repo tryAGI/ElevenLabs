@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Mcp,
+        /// <summary>
+        ///
+        /// </summary>
         Template,
         /// <summary>
         ///
@@ -49,6 +53,7 @@ namespace ElevenLabs
                 AgentDefinitionSource.Api => "api",
                 AgentDefinitionSource.Architect => "architect",
                 AgentDefinitionSource.Cli => "cli",
+                AgentDefinitionSource.Mcp => "mcp",
                 AgentDefinitionSource.Template => "template",
                 AgentDefinitionSource.Ui => "ui",
                 AgentDefinitionSource.Unknown => "unknown",
@@ -65,6 +70,7 @@ namespace ElevenLabs
                 "api" => AgentDefinitionSource.Api,
                 "architect" => AgentDefinitionSource.Architect,
                 "cli" => AgentDefinitionSource.Cli,
+                "mcp" => AgentDefinitionSource.Mcp,
                 "template" => AgentDefinitionSource.Template,
                 "ui" => AgentDefinitionSource.Ui,
                 "unknown" => AgentDefinitionSource.Unknown,

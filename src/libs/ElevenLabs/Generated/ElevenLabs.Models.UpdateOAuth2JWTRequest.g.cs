@@ -77,6 +77,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("jwt_usage")]
+        public global::ElevenLabs.UpdateOAuth2JWTRequestJwtUsage? JwtUsage { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_headers")]
+        public global::System.Collections.Generic.Dictionary<string, string>? ExtraHeaders { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret_key")]
         public string? SecretKey { get; set; }
 
@@ -102,6 +114,8 @@ namespace ElevenLabs
         /// <param name="extraParams"></param>
         /// <param name="scopes"></param>
         /// <param name="tokenResponseField"></param>
+        /// <param name="jwtUsage"></param>
+        /// <param name="extraHeaders"></param>
         /// <param name="secretKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -118,6 +132,8 @@ namespace ElevenLabs
             global::System.Collections.Generic.Dictionary<string, string>? extraParams,
             global::System.Collections.Generic.IList<string>? scopes,
             global::ElevenLabs.UpdateOAuth2JWTRequestTokenResponseField? tokenResponseField,
+            global::ElevenLabs.UpdateOAuth2JWTRequestJwtUsage? jwtUsage,
+            global::System.Collections.Generic.Dictionary<string, string>? extraHeaders,
             string? secretKey)
         {
             this.AuthType = authType;
@@ -131,6 +147,8 @@ namespace ElevenLabs
             this.ExtraParams = extraParams;
             this.Scopes = scopes;
             this.TokenResponseField = tokenResponseField;
+            this.JwtUsage = jwtUsage;
+            this.ExtraHeaders = extraHeaders;
             this.SecretKey = secretKey;
         }
 

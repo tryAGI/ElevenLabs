@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateSimulationTestRequestDynamicVariables))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0259.Create_UpdateSimulationTestRequestDynamicVariables(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0260.Create_UpdateSimulationTestRequestDynamicVariables(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

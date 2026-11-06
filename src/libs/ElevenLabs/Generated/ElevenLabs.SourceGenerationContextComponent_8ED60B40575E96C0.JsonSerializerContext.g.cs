@@ -88,7 +88,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ASTNodeInput>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0206.Create_SourceGenerationContextMetadataType_6EF5E0FE9F74B870(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0207.Create_SourceGenerationContextMetadataType_6EF5E0FE9F74B870(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.ASTNodeInput>))
                 {
@@ -96,7 +96,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.ASTNodeInput?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0100.Create_NullableASTNodeInput2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0101.Create_NullableASTNodeInput2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

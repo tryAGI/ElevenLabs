@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class LLMUsageOutput
     {
         /// <summary>
-        ///
+        /// Token usage and USD price per LLM, keyed by model ID and broken down by token category.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("model_usage")]
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LLMInputOutputTokensUsage>? ModelUsage { get; set; }
@@ -23,7 +23,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="LLMUsageOutput" /> class.
         /// </summary>
-        /// <param name="modelUsage"></param>
+        /// <param name="modelUsage">
+        /// Token usage and USD price per LLM, keyed by model ID and broken down by token category.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

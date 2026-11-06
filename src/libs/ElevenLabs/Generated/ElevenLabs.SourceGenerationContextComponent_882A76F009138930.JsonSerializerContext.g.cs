@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ResponseConversationErrorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0168.Create_ResponseConversationErrorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0169.Create_ResponseConversationErrorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ResponseConversationErrorType?))
                 {

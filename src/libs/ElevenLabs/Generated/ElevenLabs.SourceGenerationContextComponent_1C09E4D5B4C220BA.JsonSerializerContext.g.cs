@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WebhookAuthMethodType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0265.Create_WebhookAuthMethodType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0266.Create_WebhookAuthMethodType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WebhookAuthMethodType?))
                 {

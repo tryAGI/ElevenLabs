@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0161.Create_PromptAgentAPIModelOutputToolDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0162.Create_PromptAgentAPIModelOutputToolDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.PromptAgentAPIModelOutputToolDiscriminatorType?))
                 {

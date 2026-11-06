@@ -68,6 +68,18 @@ namespace ElevenLabs
         public string? LastProcessedExternalMessageId { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("integration_trigger_id")]
+        public string? IntegrationTriggerId { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("platform_metadata")]
+        public global::ElevenLabs.PlatformMetadataVariant1? PlatformMetadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -87,6 +99,8 @@ namespace ElevenLabs
         /// </param>
         /// <param name="lastRetryTimestamp"></param>
         /// <param name="lastProcessedExternalMessageId"></param>
+        /// <param name="integrationTriggerId"></param>
+        /// <param name="platformMetadata"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -99,7 +113,9 @@ namespace ElevenLabs
             string? externalLink,
             int? retryCount,
             int? lastRetryTimestamp,
-            string? lastProcessedExternalMessageId)
+            string? lastProcessedExternalMessageId,
+            string? integrationTriggerId,
+            global::ElevenLabs.PlatformMetadataVariant1? platformMetadata)
         {
             this.DeliveryStatus = deliveryStatus;
             this.DeliveryTimestamp = deliveryTimestamp;
@@ -110,6 +126,8 @@ namespace ElevenLabs
             this.RetryCount = retryCount;
             this.LastRetryTimestamp = lastRetryTimestamp;
             this.LastProcessedExternalMessageId = lastProcessedExternalMessageId;
+            this.IntegrationTriggerId = integrationTriggerId;
+            this.PlatformMetadata = platformMetadata;
         }
 
         /// <summary>

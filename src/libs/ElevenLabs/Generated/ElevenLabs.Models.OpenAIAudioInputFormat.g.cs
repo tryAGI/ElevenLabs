@@ -16,6 +16,7 @@ namespace ElevenLabs
         public global::ElevenLabs.AudioFormat? Type { get; set; }
 
         /// <summary>
+        /// Sample rate in Hz of `audio/pcm` input. Only 24000 is supported; G.711 formats are always 8000 and ignore this field.<br/>
         /// Default Value: 24000
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rate")]
@@ -34,6 +35,7 @@ namespace ElevenLabs
         /// Default Value: audio/pcm
         /// </param>
         /// <param name="rate">
+        /// Sample rate in Hz of `audio/pcm` input. Only 24000 is supported; G.711 formats are always 8000 and ignore this field.<br/>
         /// Default Value: 24000
         /// </param>
 #if NET7_0_OR_GREATER

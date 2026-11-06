@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AuthConnectionDependencies))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0016.Create_AuthConnectionDependencies(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0017.Create_AuthConnectionDependencies(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

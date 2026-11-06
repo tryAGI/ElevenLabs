@@ -23,6 +23,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Ps256,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps384,
+        /// <summary>
+        ///
+        /// </summary>
+        Ps512,
+        /// <summary>
+        ///
+        /// </summary>
         Rs256,
         /// <summary>
         ///
@@ -49,6 +61,9 @@ namespace ElevenLabs
                 UpdateOAuth2JWTRequestAlgorithm.Hs256 => "HS256",
                 UpdateOAuth2JWTRequestAlgorithm.Hs384 => "HS384",
                 UpdateOAuth2JWTRequestAlgorithm.Hs512 => "HS512",
+                UpdateOAuth2JWTRequestAlgorithm.Ps256 => "PS256",
+                UpdateOAuth2JWTRequestAlgorithm.Ps384 => "PS384",
+                UpdateOAuth2JWTRequestAlgorithm.Ps512 => "PS512",
                 UpdateOAuth2JWTRequestAlgorithm.Rs256 => "RS256",
                 UpdateOAuth2JWTRequestAlgorithm.Rs384 => "RS384",
                 UpdateOAuth2JWTRequestAlgorithm.Rs512 => "RS512",
@@ -65,6 +80,9 @@ namespace ElevenLabs
                 "HS256" => UpdateOAuth2JWTRequestAlgorithm.Hs256,
                 "HS384" => UpdateOAuth2JWTRequestAlgorithm.Hs384,
                 "HS512" => UpdateOAuth2JWTRequestAlgorithm.Hs512,
+                "PS256" => UpdateOAuth2JWTRequestAlgorithm.Ps256,
+                "PS384" => UpdateOAuth2JWTRequestAlgorithm.Ps384,
+                "PS512" => UpdateOAuth2JWTRequestAlgorithm.Ps512,
                 "RS256" => UpdateOAuth2JWTRequestAlgorithm.Rs256,
                 "RS384" => UpdateOAuth2JWTRequestAlgorithm.Rs384,
                 "RS512" => UpdateOAuth2JWTRequestAlgorithm.Rs512,
