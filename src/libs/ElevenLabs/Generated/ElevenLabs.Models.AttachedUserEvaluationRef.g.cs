@@ -23,7 +23,8 @@ namespace ElevenLabs
         public required string AnalysisItemId { get; set; }
 
         /// <summary>
-        /// Primary item version whose result feeds scoring. None tracks the item's latest published version.
+        /// Primary item version whose result feeds scoring. 'latest' tracks the item's latest published version.<br/>
+        /// Default Value: latest
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         public string? VersionId { get; set; }
@@ -61,7 +62,8 @@ namespace ElevenLabs
         /// Id of the referenced user evaluation item.
         /// </param>
         /// <param name="versionId">
-        /// Primary item version whose result feeds scoring. None tracks the item's latest published version.
+        /// Primary item version whose result feeds scoring. 'latest' tracks the item's latest published version.<br/>
+        /// Default Value: latest
         /// </param>
         /// <param name="additionalVersionIds">
         /// Extra item versions to also run for comparison (A/B). These are executed and stored but excluded from scoring; the primary version_id is the one that scores.

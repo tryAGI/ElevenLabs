@@ -42,6 +42,12 @@ namespace ElevenLabs
         public bool? CompleteOnboarding { get; set; }
 
         /// <summary>
+        /// Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("idempotency_key")]
+        public string? IdempotencyKey { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -65,6 +71,9 @@ namespace ElevenLabs
         /// Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,13 +82,15 @@ namespace ElevenLabs
             global::ElevenLabs.ProvisionResellerWorkspaceSubscription? subscription,
             string? phoneNumber,
             global::System.Collections.Generic.IList<global::ElevenLabs.TeamInviteRequest>? members,
-            bool? completeOnboarding)
+            bool? completeOnboarding,
+            string? idempotencyKey)
         {
             this.BusinessName = businessName ?? throw new global::System.ArgumentNullException(nameof(businessName));
             this.Subscription = subscription;
             this.PhoneNumber = phoneNumber;
             this.Members = members;
             this.CompleteOnboarding = completeOnboarding;
+            this.IdempotencyKey = idempotencyKey;
         }
 
         /// <summary>

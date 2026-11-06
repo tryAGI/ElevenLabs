@@ -3,7 +3,7 @@
 namespace ElevenLabs
 {
     /// <summary>Source-generated JSON metadata for this scope.</summary>
-    internal static partial class SourceGenerationContextComponent_F1132978A29B2E19
+    internal static partial class SourceGenerationContextComponent_5EB078BAB41D7EE3
     {
 
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
@@ -19,8 +19,8 @@ namespace ElevenLabs
         #pragma warning disable CS0612, CS0618 // Generated converters may target deprecated API models.
         private static void ContributeConverters(global::ElevenLabs.SourceGenerationContextMetadataScope.ConverterCollector collector)
         {
-            collector.AddEnum(typeof(global::ElevenLabs.SMBPhoneAssignmentDBModelProvider), static () => new global::ElevenLabs.JsonConverters.SMBPhoneAssignmentDBModelProviderJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.SMBPhoneAssignmentDBModelProvider?), static () => new global::ElevenLabs.JsonConverters.SMBPhoneAssignmentDBModelProviderNullableJsonConverter());
+            collector.AddEnum(typeof(global::ElevenLabs.SMBPhoneProvider), static () => new global::ElevenLabs.JsonConverters.SMBPhoneProviderJsonConverter());
+            collector.AddEnum(typeof(global::ElevenLabs.SMBPhoneProvider?), static () => new global::ElevenLabs.JsonConverters.SMBPhoneProviderNullableJsonConverter());
             collector.AddEager<global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter>(static () => new global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter());
         }
         #pragma warning restore CS0612, CS0618
@@ -30,13 +30,13 @@ namespace ElevenLabs
             public global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? GetTypeInfo(
                 global::System.Type type, global::System.Text.Json.JsonSerializerOptions options)
             {
-                if (type == typeof(global::ElevenLabs.SMBPhoneAssignmentDBModelProvider))
+                if (type == typeof(global::ElevenLabs.SMBPhoneProvider))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_SMBPhoneAssignmentDBModelProvider2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_SMBPhoneProvider2(options);
                 }
-                if (type == typeof(global::ElevenLabs.SMBPhoneAssignmentDBModelProvider?))
+                if (type == typeof(global::ElevenLabs.SMBPhoneProvider?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0134.Create_NullableSMBPhoneAssignmentDBModelProvider2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0135.Create_NullableSMBPhoneProvider2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

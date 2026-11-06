@@ -491,7 +491,7 @@ namespace ElevenLabs
         /// Default Value: monthly_period
         /// </param>
         /// <param name="idempotencyKey">
-        /// Client-generated key so a retried request cannot create or apply the same subscription change twice.
+        /// Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

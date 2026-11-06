@@ -28,6 +28,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ApplicationNumberType? NumberType { get; set; }
 
         /// <summary>
+        /// Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("idempotency_key")]
+        public string? IdempotencyKey { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +51,22 @@ namespace ElevenLabs
         /// <param name="numberType">
         /// Local or mobile, in a country that requires paperwork before a number takes calls. Leave unset to try mobile first. Ignored in the US and Canada.
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public CreatePhoneAssignmentRequest(
             string customerFacingAgentId,
             global::System.Collections.Generic.IList<string>? areaCodes,
-            global::ElevenLabs.ApplicationNumberType? numberType)
+            global::ElevenLabs.ApplicationNumberType? numberType,
+            string? idempotencyKey)
         {
             this.CustomerFacingAgentId = customerFacingAgentId ?? throw new global::System.ArgumentNullException(nameof(customerFacingAgentId));
             this.AreaCodes = areaCodes;
             this.NumberType = numberType;
+            this.IdempotencyKey = idempotencyKey;
         }
 
         /// <summary>

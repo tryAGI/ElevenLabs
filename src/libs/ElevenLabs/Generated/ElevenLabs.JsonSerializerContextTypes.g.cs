@@ -9194,7 +9194,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.SMBPhoneAssignmentDBModelProvider? Type2289 { get; set; }
+        public global::ElevenLabs.SMBPhoneProvider? Type2289 { get; set; }
         /// <summary>
         ///
         /// </summary>

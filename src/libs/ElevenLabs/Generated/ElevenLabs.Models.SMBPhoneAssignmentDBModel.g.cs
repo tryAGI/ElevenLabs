@@ -26,8 +26,8 @@ namespace ElevenLabs
         /// Default Value: twilio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SMBPhoneAssignmentDBModelProviderJsonConverter))]
-        public global::ElevenLabs.SMBPhoneAssignmentDBModelProvider? Provider { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SMBPhoneProviderJsonConverter))]
+        public global::ElevenLabs.SMBPhoneProvider? Provider { get; set; }
 
         /// <summary>
         /// US/Canada NANP area code (NPA) as an integer.<br/>
@@ -171,7 +171,7 @@ namespace ElevenLabs
             string id,
             string? phoneNumber,
             bool? isByo,
-            global::ElevenLabs.SMBPhoneAssignmentDBModelProvider? provider,
+            global::ElevenLabs.SMBPhoneProvider? provider,
             int? nanpAreaCode,
             string? customerFacingAgentId,
             int? deactivatedAtUnix,

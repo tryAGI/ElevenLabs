@@ -23,7 +23,8 @@ namespace ElevenLabs
         public required string AnalysisItemId { get; set; }
 
         /// <summary>
-        /// Pinned item version. None tracks the item's latest published version.
+        /// Pinned item version. 'latest' tracks the item's latest published version.<br/>
+        /// Default Value: latest
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("version_id")]
         public string? VersionId { get; set; }
@@ -49,7 +50,8 @@ namespace ElevenLabs
         /// Id of the referenced user data-collection item.
         /// </param>
         /// <param name="versionId">
-        /// Pinned item version. None tracks the item's latest published version.
+        /// Pinned item version. 'latest' tracks the item's latest published version.<br/>
+        /// Default Value: latest
         /// </param>
         /// <param name="scope">
         /// Transcript context ('conversation' or 'agent') used when running this item.<br/>
