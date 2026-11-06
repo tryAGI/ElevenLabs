@@ -73367,6 +73367,17 @@
             ],
             "title": "Id"
           },
+          "created_at_unix_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At Unix Ms"
+          },
           "triggered_guardrails": {
             "items": {
               "$ref": "#/components/schemas/TriggeredGuardrailCommonModel"
@@ -73603,6 +73614,17 @@
               }
             ],
             "title": "Id"
+          },
+          "created_at_unix_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At Unix Ms"
           },
           "triggered_guardrails": {
             "items": {
@@ -73945,6 +73967,17 @@
               }
             ],
             "title": "Id"
+          },
+          "created_at_unix_ms": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Created At Unix Ms"
           },
           "triggered_guardrails": {
             "items": {
