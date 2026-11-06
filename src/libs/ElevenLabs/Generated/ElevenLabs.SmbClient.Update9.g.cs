@@ -47,7 +47,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Move Phone Number<br/>
-        /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+        /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
         /// </summary>
         /// <param name="phoneAssignmentId"></param>
         /// <param name="xiWorkspaceId">
@@ -78,7 +78,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Move Phone Number<br/>
-        /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+        /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
         /// </summary>
         /// <param name="phoneAssignmentId"></param>
         /// <param name="xiWorkspaceId">
@@ -502,7 +502,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Move Phone Number<br/>
-        /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+        /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
         /// </summary>
         /// <param name="phoneAssignmentId"></param>
         /// <param name="xiWorkspaceId">

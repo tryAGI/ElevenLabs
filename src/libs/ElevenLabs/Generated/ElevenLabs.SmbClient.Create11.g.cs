@@ -491,6 +491,9 @@ namespace ElevenLabs
         /// Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="idempotencyKey">
+        /// Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -500,6 +503,7 @@ namespace ElevenLabs
             string? phoneNumber = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TeamInviteRequest>? members = default,
             bool? completeOnboarding = default,
+            string? idempotencyKey = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -510,6 +514,7 @@ namespace ElevenLabs
                 PhoneNumber = phoneNumber,
                 Members = members,
                 CompleteOnboarding = completeOnboarding,
+                IdempotencyKey = idempotencyKey,
             };
 
             return await Create11Async(

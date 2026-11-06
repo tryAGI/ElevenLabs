@@ -45143,7 +45143,7 @@
           "reception"
         ],
         "summary": "Assign Phone Number",
-        "description": "Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account and none is free.",
+        "description": "Give a receptionist a phone number. A number the workspace already holds but has not attached is used first. Otherwise, in the US and Canada, a number with one of the requested `area_codes` is taken from the pool or bought, falling back to any number in the business's country. In countries that require paperwork, the number is issued right away but takes public calls only once the workspace's own registration is approved (see `accepts_public_calls`). Counts toward the plan's phone number limit, and free plans can take only a few new numbers a day. Returns 404 when no number is available and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk and none is free.",
         "operationId": "smb_assign_phone_number",
         "parameters": [
           {
@@ -45230,7 +45230,7 @@
           "reception"
         ],
         "summary": "Release Phone Number",
-        "description": "Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.",
+        "description": "Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk.",
         "operationId": "smb_release_phone_assignment",
         "parameters": [
           {
@@ -45307,7 +45307,7 @@
           "reception"
         ],
         "summary": "Move Phone Number",
-        "description": "Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`), and 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.",
+        "description": "Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).",
         "operationId": "smb_reassign_phone_to_agent",
         "parameters": [
           {
@@ -55617,7 +55617,7 @@
               }
             ],
             "title": "Idempotency Key",
-            "description": "Client-generated key so a retried request cannot create or apply the same subscription change twice."
+            "description": "Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key."
           }
         },
         "type": "object",
@@ -55884,16 +55884,10 @@
             "description": "Id of the referenced user data-collection item."
           },
           "version_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "type": "string",
             "title": "Version Id",
-            "description": "Pinned item version. None tracks the item's latest published version."
+            "description": "Pinned item version. 'latest' tracks the item's latest published version.",
+            "default": "latest"
           },
           "scope": {
             "$ref": "#/components/schemas/AnalysisScope",
@@ -55921,16 +55915,10 @@
             "description": "Id of the referenced user evaluation item."
           },
           "version_id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "type": "string",
             "title": "Version Id",
-            "description": "Primary item version whose result feeds scoring. None tracks the item's latest published version."
+            "description": "Primary item version whose result feeds scoring. 'latest' tracks the item's latest published version.",
+            "default": "latest"
           },
           "additional_version_ids": {
             "items": {
@@ -69051,7 +69039,7 @@
               }
             ],
             "title": "Idempotency Key",
-            "description": "Client-generated key so a retried request cannot create or apply the same subscription change twice."
+            "description": "Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key."
           }
         },
         "type": "object",
@@ -77603,6 +77591,19 @@
               }
             ],
             "description": "Local or mobile, in a country that requires paperwork before a number takes calls. Leave unset to try mobile first. Ignored in the US and Canada."
+          },
+          "idempotency_key": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 255
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Idempotency Key",
+            "description": "Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key."
           }
         },
         "type": "object",
@@ -108773,6 +108774,19 @@
             "title": "Complete Onboarding",
             "description": "Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.",
             "default": false
+          },
+          "idempotency_key": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 255
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Idempotency Key",
+            "description": "Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key."
           }
         },
         "type": "object",
@@ -113772,12 +113786,7 @@
             "default": false
           },
           "provider": {
-            "type": "string",
-            "enum": [
-              "twilio",
-              "sip_trunk"
-            ],
-            "title": "Provider",
+            "$ref": "#/components/schemas/SMBPhoneProvider",
             "description": "Telephony provider for this phone number.",
             "default": "twilio"
           },
@@ -113895,6 +113904,16 @@
         ],
         "title": "SMBPhoneAssignmentDeactivationReason",
         "description": "Why a phone assignment is currently inactive."
+      },
+      "SMBPhoneProvider": {
+        "type": "string",
+        "enum": [
+          "twilio",
+          "sip_trunk"
+        ],
+        "title": "SMBPhoneProvider",
+        "description": "How calls to the number reach ElevenLabs: through Twilio or a SIP trunk.",
+        "default": "twilio"
       },
       "SMBPhoneRegulatoryStatus": {
         "type": "string",

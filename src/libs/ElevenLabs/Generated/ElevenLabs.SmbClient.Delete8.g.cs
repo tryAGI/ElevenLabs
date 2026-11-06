@@ -40,7 +40,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Release Phone Number<br/>
-        /// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+        /// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk.
         /// </summary>
         /// <param name="phoneAssignmentId"></param>
         /// <param name="xiWorkspaceId">
@@ -64,7 +64,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Release Phone Number<br/>
-        /// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account.
+        /// Remove a phone number from the workspace. A pool number goes back to the pool it came from. A number the business brought from its own Twilio account, or one issued in a country that requires paperwork, is released at Twilio and cannot be recovered. Returns 403 `telephony_managed_by_reseller` when the reseller supplies the workspace's numbers from its own Twilio account or SIP trunk.
         /// </summary>
         /// <param name="phoneAssignmentId"></param>
         /// <param name="xiWorkspaceId">
