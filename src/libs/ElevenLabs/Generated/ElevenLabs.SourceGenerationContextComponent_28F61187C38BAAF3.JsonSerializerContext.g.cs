@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AsyncConversationMetadataDeliveryStatus))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0014.Create_AsyncConversationMetadataDeliveryStatus2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0015.Create_AsyncConversationMetadataDeliveryStatus2(options);
                 }
                 if (type == typeof(global::ElevenLabs.AsyncConversationMetadataDeliveryStatus?))
                 {

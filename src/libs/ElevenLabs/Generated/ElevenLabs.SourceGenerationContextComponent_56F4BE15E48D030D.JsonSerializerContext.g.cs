@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBUpdateAgentInfoRequestCurrency))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0174.Create_SMBUpdateAgentInfoRequestCurrency2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0175.Create_SMBUpdateAgentInfoRequestCurrency2(options);
                 }
                 if (type == typeof(global::ElevenLabs.SMBUpdateAgentInfoRequestCurrency?))
                 {

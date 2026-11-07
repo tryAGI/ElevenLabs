@@ -26534,7 +26534,7 @@
           "Agents Platform"
         ],
         "summary": "Query Agent Knowledge Base Rag",
-        "description": "Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.",
+        "description": "Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.",
         "operationId": "query_agent_knowledge_base_rag_route",
         "parameters": [
           {
@@ -51696,7 +51696,7 @@
           },
           "content_format": {
             "$ref": "#/components/schemas/ContentFormat",
-            "description": "Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML."
+            "description": "Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML. Keyword search always returns markdown, including the plain text it indexes for HTML documents."
           },
           "document_type": {
             "$ref": "#/components/schemas/KnowledgeBaseDocumentType",
@@ -51716,15 +51716,153 @@
         ],
         "title": "AgentKnowledgeBaseRagChunkResponseModel"
       },
+      "AgentKnowledgeBaseRagDocumentResponseModel": {
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "title": "Document Id",
+            "description": "ID of the knowledge base document."
+          },
+          "document_name": {
+            "type": "string",
+            "title": "Document Name",
+            "description": "Name of the knowledge base document."
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url",
+            "description": "Tracked source URL for URL documents, or null for other document types."
+          },
+          "content": {
+            "type": "string",
+            "title": "Content",
+            "description": "Content the agent would read, cut to the maximum documents length. Empty when the document has no extractable content."
+          },
+          "truncated": {
+            "type": "boolean",
+            "title": "Truncated",
+            "description": "Whether the content was cut to the maximum documents length."
+          },
+          "content_format": {
+            "$ref": "#/components/schemas/ContentFormat",
+            "description": "Format of the document content."
+          },
+          "document_type": {
+            "$ref": "#/components/schemas/KnowledgeBaseDocumentType",
+            "description": "Type of the knowledge base document."
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "document_name",
+          "source_url",
+          "content",
+          "truncated",
+          "content_format",
+          "document_type"
+        ],
+        "title": "AgentKnowledgeBaseRagDocumentResponseModel"
+      },
+      "AgentKnowledgeBaseRagListingEntryResponseModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "ID of the document or folder."
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the document or folder."
+          },
+          "is_folder": {
+            "type": "boolean",
+            "title": "Is Folder",
+            "description": "Whether the entry is a folder."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "is_folder"
+        ],
+        "title": "AgentKnowledgeBaseRagListingEntryResponseModel"
+      },
+      "AgentKnowledgeBaseRagListingResponseModel": {
+        "properties": {
+          "entries": {
+            "items": {
+              "$ref": "#/components/schemas/AgentKnowledgeBaseRagListingEntryResponseModel"
+            },
+            "type": "array",
+            "title": "Entries",
+            "description": "Entries the agent would be shown, folders first and then by name. Large folders are cut to the number of entries the agent is shown."
+          },
+          "total_count": {
+            "type": "integer",
+            "title": "Total Count",
+            "description": "Number of entries in the listed folder, including any not returned."
+          }
+        },
+        "type": "object",
+        "required": [
+          "entries",
+          "total_count"
+        ],
+        "title": "AgentKnowledgeBaseRagListingResponseModel"
+      },
       "AgentKnowledgeBaseRagQueryRequestModel": {
         "properties": {
+          "strategy": {
+            "$ref": "#/components/schemas/SearchStrategy",
+            "description": "Retrieval strategy to run, as in the agent's knowledge_base tool: semantic or keyword search for a query, cat to read one document in full, or ls to list the entries of a folder. Any strategy runs, whether or not the agent has it enabled.",
+            "default": "semantic"
+          },
           "query": {
-            "type": "string",
-            "minLength": 1,
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Query",
-            "description": "Query to run against the agent's knowledge base RAG index.",
+            "description": "Query to search the knowledge base for. Required for the semantic and keyword strategies.",
             "examples": [
               "How do I reset my password?"
+            ]
+          },
+          "documents": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "type": "array",
+                "maxItems": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Documents",
+            "description": "IDs or names of knowledge base documents or folders. Semantic and keyword search only search these entries; cat reads the single document given; ls lists the single folder given, or the top level of the knowledge base when omitted.",
+            "examples": [
+              [
+                "Account FAQ"
+              ]
             ]
           },
           "use_agent_defaults": {
@@ -51763,17 +51901,25 @@
           }
         },
         "type": "object",
-        "required": [
-          "query"
-        ],
         "title": "AgentKnowledgeBaseRagQueryRequestModel"
       },
       "AgentKnowledgeBaseRagQueryResponseModel": {
         "properties": {
+          "strategy": {
+            "$ref": "#/components/schemas/SearchStrategy",
+            "description": "Retrieval strategy that ran."
+          },
           "retrieval_query": {
-            "type": "string",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Retrieval Query",
-            "description": "Raw query used for retrieval (echoes the request query)."
+            "description": "Raw query used for retrieval (echoes the request query), or null for the cat and ls strategies."
           },
           "chunks": {
             "items": {
@@ -51781,11 +51927,34 @@
             },
             "type": "array",
             "title": "Chunks",
-            "description": "Ranked chunks the agent would retrieve, after distance and length filtering."
+            "description": "Ranked chunks the agent would retrieve with semantic or keyword search, after distance and length filtering. Empty for the cat and ls strategies."
+          },
+          "document": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentKnowledgeBaseRagDocumentResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Document read by the cat strategy, or null when the reference matched no document or another strategy ran."
+          },
+          "listing": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AgentKnowledgeBaseRagListingResponseModel"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Entries listed by the ls strategy, or null when the reference matched nothing or another strategy ran."
           }
         },
         "type": "object",
         "required": [
+          "strategy",
           "retrieval_query",
           "chunks"
         ],
@@ -51803,7 +51972,8 @@
               "vector_distance": 0.21
             }
           ],
-          "retrieval_query": "How do I reset my password?"
+          "retrieval_query": "How do I reset my password?",
+          "strategy": "semantic"
         }
       },
       "AgentMergeProposalResponse": {
@@ -117071,7 +117241,8 @@
           "semantic",
           "ls"
         ],
-        "title": "SearchStrategy"
+        "title": "SearchStrategy",
+        "default": "semantic"
       },
       "SeatType": {
         "type": "string",

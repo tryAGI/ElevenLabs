@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.VoiceSharingResponseModelCategory))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0265.Create_VoiceSharingResponseModelCategory2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0266.Create_VoiceSharingResponseModelCategory2(options);
                 }
                 if (type == typeof(global::ElevenLabs.VoiceSharingResponseModelCategory?))
                 {

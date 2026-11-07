@@ -41,7 +41,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.StepsItem2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0241.Create_StepsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0242.Create_StepsItem22(options);
                 }
                 if (type == typeof(global::ElevenLabs.WorkflowToolNestedToolsStepModelOutput))
                 {
@@ -49,7 +49,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.WorkflowToolResponseModelOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0273.Create_WorkflowToolResponseModelOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0274.Create_WorkflowToolResponseModelOutput(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModel, global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptApiIntegrationWebhookToolsResultCommonModelOutput, global::ElevenLabs.ConversationHistoryTranscriptWorkflowToolsResultCommonModelOutput>>))
                 {
