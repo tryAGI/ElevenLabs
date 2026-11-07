@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MCPToolApprovalPolicy))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0094.Create_MCPToolApprovalPolicy2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0095.Create_MCPToolApprovalPolicy2(options);
                 }
                 if (type == typeof(global::ElevenLabs.MCPToolApprovalPolicy?))
                 {

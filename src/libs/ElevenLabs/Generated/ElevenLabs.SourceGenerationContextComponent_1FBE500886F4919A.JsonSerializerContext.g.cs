@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PronunciationDictionaryVersionLocatorDBModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0163.Create_PronunciationDictionaryVersionLocatorDBModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0164.Create_PronunciationDictionaryVersionLocatorDBModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

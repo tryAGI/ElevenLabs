@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ToolsVariant1Item>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0226.Create_SourceGenerationContextMetadataType_C950D2EE8C85F9E8(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0227.Create_SourceGenerationContextMetadataType_C950D2EE8C85F9E8(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.ToolsVariant1Item>))
                 {

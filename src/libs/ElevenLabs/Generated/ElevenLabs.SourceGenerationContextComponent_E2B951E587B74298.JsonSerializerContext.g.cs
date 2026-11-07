@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SMBServiceDBModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_SMBServiceDBModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0174.Create_SMBServiceDBModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AudioInputPacing))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0015.Create_AudioInputPacing2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0016.Create_AudioInputPacing2(options);
                 }
                 if (type == typeof(global::ElevenLabs.AudioInputPacing?))
                 {

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::System.Collections.Generic.IList<global::ElevenLabs.VeoImageReference>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0210.Create_SourceGenerationContextMetadataType_7EAD759B0F53D157(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0211.Create_SourceGenerationContextMetadataType_7EAD759B0F53D157(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.List<global::ElevenLabs.VeoImageReference>))
                 {

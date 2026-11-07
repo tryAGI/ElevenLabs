@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<bool?, global::ElevenLabs.MusicModelID?>?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0223.Create_SourceGenerationContextMetadataType_BAE46DDE49D3F9FA(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0224.Create_SourceGenerationContextMetadataType_BAE46DDE49D3F9FA(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

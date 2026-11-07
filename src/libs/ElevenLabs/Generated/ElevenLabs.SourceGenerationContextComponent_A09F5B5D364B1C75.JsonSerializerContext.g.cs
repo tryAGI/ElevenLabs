@@ -40,7 +40,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.OneOf<global::ElevenLabs.LLMLiteralJsonSchemaProperty, global::ElevenLabs.LLMObjectJsonSchemaPropertyInput, global::ElevenLabs.LLMArrayJsonSchemaPropertyInput, global::ElevenLabs.LLMAnyOfJsonSchemaPropertyInput>?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0206.Create_SourceGenerationContextMetadataType_6D768641B4370A09(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0207.Create_SourceGenerationContextMetadataType_6D768641B4370A09(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

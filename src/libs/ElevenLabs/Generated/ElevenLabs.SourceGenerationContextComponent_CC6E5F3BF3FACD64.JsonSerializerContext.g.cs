@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0227.Create_SourceGenerationContextMetadataType_CC6E5F3BF3FACD64(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0228.Create_SourceGenerationContextMetadataType_CC6E5F3BF3FACD64(options);
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<int?, global::ElevenLabs.BodyEditServiceAccountApiKeyV1ServiceAccountsServiceAccountUserIdApiKeysApiKeyIdPatchMusicConcurrencyLimit?>?))
                 {

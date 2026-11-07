@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.StreamComposeOutputFormat))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0241.Create_StreamComposeOutputFormat2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0242.Create_StreamComposeOutputFormat2(options);
                 }
                 if (type == typeof(global::ElevenLabs.StreamComposeOutputFormat?))
                 {

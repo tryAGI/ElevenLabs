@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.AnyOf<global::ElevenLabs.CreateTwilioPhoneNumberRequest, global::ElevenLabs.CreateExotelPhoneNumberRequest, global::ElevenLabs.CreateSIPTrunkPhoneNumberRequestV2>?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0204.Create_SourceGenerationContextMetadataType_61A86AF867CDDEB2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0205.Create_SourceGenerationContextMetadataType_61A86AF867CDDEB2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

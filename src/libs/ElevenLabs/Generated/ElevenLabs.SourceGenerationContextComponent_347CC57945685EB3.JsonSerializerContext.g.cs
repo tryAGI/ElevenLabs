@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateBusinessInfoParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0257.Create_UpdateBusinessInfoParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0258.Create_UpdateBusinessInfoParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

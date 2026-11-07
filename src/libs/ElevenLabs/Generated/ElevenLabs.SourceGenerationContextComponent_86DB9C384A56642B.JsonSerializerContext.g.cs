@@ -34,7 +34,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::System.DateTimeOffset?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0114.Create_NullableDateTimeOffset(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0115.Create_NullableDateTimeOffset(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

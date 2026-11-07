@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WidgetExpandable))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0269.Create_WidgetExpandable2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0270.Create_WidgetExpandable2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WidgetExpandable?))
                 {

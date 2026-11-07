@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MemoryEntrySearchResult))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0097.Create_MemoryEntrySearchResult(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0098.Create_MemoryEntrySearchResult(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0043.Create_ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0044.Create_ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ConversationHistoryTranscriptSystemToolResultCommonModelOutputResultVariant1DiscriminatorResultType?))
                 {

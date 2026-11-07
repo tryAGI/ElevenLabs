@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.LivekitStackType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0125.Create_NullableLivekitStackType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0126.Create_NullableLivekitStackType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.ProvisionResellerWorkspaceSubscriptionBillingPeriod?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0132.Create_NullableProvisionResellerWorkspaceSubscriptionBillingPeriod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0133.Create_NullableProvisionResellerWorkspaceSubscriptionBillingPeriod2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

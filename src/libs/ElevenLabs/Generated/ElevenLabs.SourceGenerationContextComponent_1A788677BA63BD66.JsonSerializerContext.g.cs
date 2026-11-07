@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0082.Create_ImageGenerationRequestDiscriminatorModelId2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0083.Create_ImageGenerationRequestDiscriminatorModelId2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ImageGenerationRequestDiscriminatorModelId?))
                 {

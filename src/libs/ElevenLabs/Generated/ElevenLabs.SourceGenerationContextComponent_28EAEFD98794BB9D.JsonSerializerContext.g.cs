@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.VideoReferenceDiscriminatorType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0144.Create_NullableVideoReferenceDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_NullableVideoReferenceDiscriminatorType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

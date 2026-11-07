@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.PostKnowledgeBaseBulkDeleteRouteResponse2?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0130.Create_NullablePostKnowledgeBaseBulkDeleteRouteResponse22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0131.Create_NullablePostKnowledgeBaseBulkDeleteRouteResponse22(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

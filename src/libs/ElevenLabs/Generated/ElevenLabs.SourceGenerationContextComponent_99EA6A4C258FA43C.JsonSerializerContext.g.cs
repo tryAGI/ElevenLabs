@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0020.Create_BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0021.Create_BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix2(options);
                 }
                 if (type == typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPostModelStylePrefix?))
                 {

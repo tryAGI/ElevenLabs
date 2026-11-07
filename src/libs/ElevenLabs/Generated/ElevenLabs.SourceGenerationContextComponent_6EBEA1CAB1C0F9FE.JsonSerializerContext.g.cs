@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TextToSpeechStreamOutputFormat))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0248.Create_TextToSpeechStreamOutputFormat2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0249.Create_TextToSpeechStreamOutputFormat2(options);
                 }
                 if (type == typeof(global::ElevenLabs.TextToSpeechStreamOutputFormat?))
                 {

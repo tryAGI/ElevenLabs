@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateAgentResponseTestRouteResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0256.Create_UpdateAgentResponseTestRouteResponse2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0257.Create_UpdateAgentResponseTestRouteResponse2(options);
                 }
                 if (type == typeof(global::ElevenLabs.UpdateAgentResponseTestRouteResponse?))
                 {

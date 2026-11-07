@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ReferencedToolCommonModelType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0166.Create_ReferencedToolCommonModelType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0167.Create_ReferencedToolCommonModelType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ReferencedToolCommonModelType?))
                 {

@@ -36,7 +36,7 @@ namespace ElevenLabs
                 }
                 if (type == typeof(global::ElevenLabs.WebhookToolApiSchemaConfigOutputContentType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_NullableWebhookToolApiSchemaConfigOutputContentType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0146.Create_NullableWebhookToolApiSchemaConfigOutputContentType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);
