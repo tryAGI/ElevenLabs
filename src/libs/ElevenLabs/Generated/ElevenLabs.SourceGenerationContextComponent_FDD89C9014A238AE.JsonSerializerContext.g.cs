@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PrivateKeyJWTResponseExtraHeaders))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0159.Create_PrivateKeyJWTResponseExtraHeaders(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0174.Create_PrivateKeyJWTResponseExtraHeaders(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

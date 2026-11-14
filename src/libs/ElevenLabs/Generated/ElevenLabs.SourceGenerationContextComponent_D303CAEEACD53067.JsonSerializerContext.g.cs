@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ZendeskPlatformMetadata))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0275.Create_ZendeskPlatformMetadata(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0304.Create_ZendeskPlatformMetadata(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

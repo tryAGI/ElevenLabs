@@ -51,6 +51,12 @@ namespace ElevenLabs
         public string? FolderParentId { get; set; }
 
         /// <summary>
+        /// Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chunking_override")]
+        public global::ElevenLabs.ChunkingOverride? ChunkingOverride { get; set; }
+
+        /// <summary>
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("folder_path")]
@@ -124,6 +130,9 @@ namespace ElevenLabs
         /// <param name="folderParentId">
         /// The ID of the parent folder, or null if the document is at the root level.
         /// </param>
+        /// <param name="chunkingOverride">
+        /// Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+        /// </param>
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </param>
@@ -148,6 +157,7 @@ namespace ElevenLabs
             int childrenCount,
             int documentCount,
             string? folderParentId,
+            global::ElevenLabs.ChunkingOverride? chunkingOverride,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentResponseModel>? folderPath,
             global::ElevenLabs.AutoSyncInfo? autoSyncInfo,
             global::ElevenLabs.ExternalFolderSyncInfo? externalSyncInfo,
@@ -161,6 +171,7 @@ namespace ElevenLabs
             this.SupportedUsages = supportedUsages ?? throw new global::System.ArgumentNullException(nameof(supportedUsages));
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
             this.FolderParentId = folderParentId;
+            this.ChunkingOverride = chunkingOverride;
             this.FolderPath = folderPath;
             this.Type = type;
             this.ChildrenCount = childrenCount;

@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class TicketSearchMatchResponseModel
     {
         /// <summary>
-        /// Which of the ticket's texts matched.
+        /// Which of the agent issue's texts matched.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("field")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TicketSearchMatchFieldJsonConverter))]
@@ -53,7 +53,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="TicketSearchMatchResponseModel" /> class.
         /// </summary>
         /// <param name="field">
-        /// Which of the ticket's texts matched.
+        /// Which of the agent issue's texts matched.
         /// </param>
         /// <param name="snippet">
         /// Whitespace-collapsed excerpt around the match, with an ellipsis where it was cut.

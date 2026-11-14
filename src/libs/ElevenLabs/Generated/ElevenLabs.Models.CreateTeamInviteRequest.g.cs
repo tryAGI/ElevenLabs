@@ -9,13 +9,14 @@ namespace ElevenLabs
     public sealed partial class CreateTeamInviteRequest
     {
         /// <summary>
-        ///
+        /// The email address to invite.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Email { get; set; }
 
         /// <summary>
+        /// The role the invitee joins with: 'workspace_admin' or 'workspace_member'.<br/>
         /// Default Value: workspace_member
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("role")]
@@ -31,8 +32,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateTeamInviteRequest" /> class.
         /// </summary>
-        /// <param name="email"></param>
+        /// <param name="email">
+        /// The email address to invite.
+        /// </param>
         /// <param name="role">
+        /// The role the invitee joins with: 'workspace_admin' or 'workspace_member'.<br/>
         /// Default Value: workspace_member
         /// </param>
 #if NET7_0_OR_GREATER

@@ -28,14 +28,12 @@ namespace ElevenLabs
         partial void PrepareGet13Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string documentationId,
-            ref string chunkId,
-            ref global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
+            ref string? agentId);
         partial void PrepareGet13Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string documentationId,
-            string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
+            string? agentId);
         partial void ProcessGet13Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,32 +44,25 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Documentation Chunk From Knowledge Base<br/>
-        /// Get details about a specific documentation part used by RAG.
+        /// Get Documentation From Knowledge Base<br/>
+        /// Get details about a specific documentation making up the agent's knowledge base
         /// </summary>
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="chunkId">
-        /// The id of a document RAG chunk from the knowledge base.
-        /// </param>
-        /// <param name="embeddingModel">
-        /// The embedding model used to retrieve the chunk.
-        /// </param>
+        /// <param name="agentId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> Get13Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse> Get13Async(
             string documentationId,
-            string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
+            string? agentId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get13AsResponseAsync(
                 documentationId: documentationId,
-                chunkId: chunkId,
-                embeddingModel: embeddingModel,
+                agentId: agentId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,25 +70,19 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Documentation Chunk From Knowledge Base<br/>
-        /// Get details about a specific documentation part used by RAG.
+        /// Get Documentation From Knowledge Base<br/>
+        /// Get details about a specific documentation making up the agent's knowledge base
         /// </summary>
         /// <param name="documentationId">
         /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="chunkId">
-        /// The id of a document RAG chunk from the knowledge base.
-        /// </param>
-        /// <param name="embeddingModel">
-        /// The embedding model used to retrieve the chunk.
-        /// </param>
+        /// <param name="agentId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>> Get13AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse>> Get13AsResponseAsync(
             string documentationId,
-            string chunkId,
-            global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
+            string? agentId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -108,8 +93,7 @@ namespace ElevenLabs
             PrepareGet13Arguments(
                 httpClient: HttpClient,
                 documentationId: ref documentationId,
-                chunkId: ref chunkId,
-                embeddingModel: ref embeddingModel);
+                agentId: ref agentId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -135,10 +119,10 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}",
+                                path: $"/v1/convai/knowledge-base/{documentationId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("embedding_model", embeddingModel?.ToValueString())
+                                .AddOptionalParameter("agent_id", agentId)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -181,8 +165,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     documentationId: documentationId,
-                    chunkId: chunkId,
-                    embeddingModel: embeddingModel);
+                    agentId: agentId);
 
                 return __httpRequest;
             }
@@ -201,7 +184,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get13",
                                 methodName: "Get13Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -235,7 +218,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get13",
                                 methodName: "Get13Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -276,7 +259,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get13",
                                 methodName: "Get13Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,7 +307,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get13",
                                 methodName: "Get13Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -346,7 +329,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get13",
                                 methodName: "Get13Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -420,9 +403,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -452,9 +435,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

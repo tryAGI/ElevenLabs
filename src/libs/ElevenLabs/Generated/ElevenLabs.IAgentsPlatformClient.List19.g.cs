@@ -5,48 +5,117 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// List Procedures<br/>
-        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
+        /// List Outbound Campaigns<br/>
+        /// List the workspace's outbound campaigns, newest first.
         /// </summary>
+        /// <param name="pageSize">
+        /// How many items to return at most.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="status">
+        /// Only campaigns in one of these statuses.
+        /// </param>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// Only campaigns run by this agent.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
+        /// <param name="channel">
+        /// Only campaigns on this channel.
         /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="mode">
+        /// Only voice or only message campaigns.
+        /// </param>
+        /// <param name="search">
+        /// Only campaigns whose name contains this text.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ListProceduresResponseModel> List19Async(
-            string agentId,
-            string branchId,
-            string? agentVersionId = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.CampaignPageResponse> List19Async(
+            int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status = default,
+            string? agentId = default,
+            global::ElevenLabs.OutboundChannel? channel = default,
+            global::ElevenLabs.ListCampaignsMode? mode = default,
+            string? search = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// List Procedures<br/>
-        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
+        /// List Outbound Campaigns<br/>
+        /// List the workspace's outbound campaigns, newest first.
         /// </summary>
+        /// <param name="pageSize">
+        /// How many items to return at most.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="status">
+        /// Only campaigns in one of these statuses.
+        /// </param>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// Only campaigns run by this agent.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
+        /// <param name="channel">
+        /// Only campaigns on this channel.
         /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="mode">
+        /// Only voice or only message campaigns.
+        /// </param>
+        /// <param name="search">
+        /// Only campaigns whose name contains this text.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>> List19AsResponseAsync(
-            string agentId,
-            string branchId,
-            string? agentVersionId = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CampaignPageResponse>> List19AsResponseAsync(
+            int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status = default,
+            string? agentId = default,
+            global::ElevenLabs.OutboundChannel? channel = default,
+            global::ElevenLabs.ListCampaignsMode? mode = default,
+            string? search = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List19Async as an IAsyncEnumerable&lt;global::ElevenLabs.CampaignResponse&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many items to return at most.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="status">
+        /// Only campaigns in one of these statuses.
+        /// </param>
+        /// <param name="agentId">
+        /// Only campaigns run by this agent.
+        /// </param>
+        /// <param name="channel">
+        /// Only campaigns on this channel.
+        /// </param>
+        /// <param name="mode">
+        /// Only voice or only message campaigns.
+        /// </param>
+        /// <param name="search">
+        /// Only campaigns whose name contains this text.
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.CampaignResponse> List19AutoPagingAsync(
+              int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status = default,
+            string? agentId = default,
+            global::ElevenLabs.OutboundChannel? channel = default,
+            global::ElevenLabs.ListCampaignsMode? mode = default,
+            string? search = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

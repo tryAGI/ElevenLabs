@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CancelGroupSessionRegistrationParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0034.Create_CancelGroupSessionRegistrationParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0037.Create_CancelGroupSessionRegistrationParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

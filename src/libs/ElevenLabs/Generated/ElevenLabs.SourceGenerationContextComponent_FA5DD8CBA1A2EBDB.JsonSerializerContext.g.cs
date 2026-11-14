@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_57ED61620CC47BC9.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A16ECBDCCD1F7CBD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CB95A5F6E3AABEFD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D42B01187C646800.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_FDB95BE45C4105A9.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_57ED61620CC47BC9.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_905AAE435EBAFD8D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CB95A5F6E3AABEFD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D42B01187C646800.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_FDB95BE45C4105A9.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PhoneNumberTransfer))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0155.Create_PhoneNumberTransfer(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0171.Create_PhoneNumberTransfer(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

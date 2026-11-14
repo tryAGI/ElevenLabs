@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate12Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateAgentInfoRequest request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequest request);
         partial void PrepareUpdate12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateAgentInfoRequest request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequest request);
         partial void ProcessUpdate12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,17 +54,17 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAgentInfoResponse> Update12Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAgentInfoResponse> Update12Async(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentInfoRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update12AsResponseAsync(
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -82,10 +82,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAgentInfoResponse>> Update12AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAgentInfoResponse>> Update12AsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentInfoRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -156,10 +156,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -417,9 +414,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBAgentInfoResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionAgentInfoResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAgentInfoResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAgentInfoResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +446,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBAgentInfoResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionAgentInfoResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAgentInfoResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAgentInfoResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -507,31 +504,35 @@ namespace ElevenLabs
         /// <param name="businessDescription">
         /// What the business does, given to the receptionist.
         /// </param>
-        /// <param name="timezone"></param>
+        /// <param name="timezone">
+        /// IANA timezone of the business.
+        /// </param>
         /// <param name="currency">
         /// Currency code for all prices (ISO 4217)<br/>
         /// Default Value: USD
         /// </param>
-        /// <param name="operatingHours"></param>
+        /// <param name="operatingHours">
+        /// Default business hours. Each location's own operating_hours decide when that location is open.
+        /// </param>
         /// <param name="toolCallSound">
         /// Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAgentInfoResponse> Update12Async(
-            string? xiWorkspaceId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAgentInfoResponse> Update12Async(
+            string xiWorkspaceId,
             string? businessName = default,
             string? businessCountry = default,
             string? businessDescription = default,
             string? timezone = default,
-            global::ElevenLabs.SMBUpdateAgentInfoRequestCurrency? currency = default,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequestCurrency? currency = default,
             global::ElevenLabs.WorkingHours? operatingHours = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBUpdateAgentInfoRequest
+            var __request = new global::ElevenLabs.ReceptionUpdateAgentInfoRequest
             {
                 BusinessName = businessName,
                 BusinessCountry = businessCountry,

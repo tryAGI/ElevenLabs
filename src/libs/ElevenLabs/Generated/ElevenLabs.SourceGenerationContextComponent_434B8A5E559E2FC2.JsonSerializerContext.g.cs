@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WebhookHttpMethod))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0266.Create_WebhookHttpMethod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0294.Create_WebhookHttpMethod2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WebhookHttpMethod?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0145.Create_NullableWebhookHttpMethod2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0160.Create_NullableWebhookHttpMethod2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -27,11 +27,25 @@ namespace ElevenLabs
             };
         partial void PrepareGet16Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string analysisItemId);
+            ref string toolId,
+            ref string? cursor,
+            ref int? pageSize,
+            bool? isError,
+            ref string? agentId,
+            ref string? branchId,
+            double? startTime,
+            double? endTime);
         partial void PrepareGet16Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string analysisItemId);
+            string toolId,
+            string? cursor,
+            int? pageSize,
+            bool? isError,
+            string? agentId,
+            string? branchId,
+            double? startTime,
+            double? endTime);
         partial void ProcessGet16Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,22 +56,58 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Analysis Item<br/>
-        /// Get an analysis item available in the workspace.
+        /// Get Tool Executions<br/>
+        /// Get paginated list of tool executions for a specific tool.
         /// </summary>
-        /// <param name="analysisItemId">
-        /// ID of the requested analysis item.
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="isError">
+        /// Filter by error status. If not provided, returns all executions.
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by agent ID.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by agent branch ID.
+        /// </param>
+        /// <param name="startTime">
+        /// Filter executions from this Unix timestamp (inclusive).
+        /// </param>
+        /// <param name="endTime">
+        /// Filter executions until this Unix timestamp (inclusive).
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Get16Async(
-            string analysisItemId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetToolExecutionsPageResponseModel> Get16Async(
+            string toolId,
+            string? cursor = default,
+            int? pageSize = default,
+            bool? isError = default,
+            string? agentId = default,
+            string? branchId = default,
+            double? startTime = default,
+            double? endTime = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get16AsResponseAsync(
-                analysisItemId: analysisItemId,
+                toolId: toolId,
+                cursor: cursor,
+                pageSize: pageSize,
+                isError: isError,
+                agentId: agentId,
+                branchId: branchId,
+                startTime: startTime,
+                endTime: endTime,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,17 +115,46 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Analysis Item<br/>
-        /// Get an analysis item available in the workspace.
+        /// Get Tool Executions<br/>
+        /// Get paginated list of tool executions for a specific tool.
         /// </summary>
-        /// <param name="analysisItemId">
-        /// ID of the requested analysis item.
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="isError">
+        /// Filter by error status. If not provided, returns all executions.
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by agent ID.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by agent branch ID.
+        /// </param>
+        /// <param name="startTime">
+        /// Filter executions from this Unix timestamp (inclusive).
+        /// </param>
+        /// <param name="endTime">
+        /// Filter executions until this Unix timestamp (inclusive).
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>> Get16AsResponseAsync(
-            string analysisItemId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetToolExecutionsPageResponseModel>> Get16AsResponseAsync(
+            string toolId,
+            string? cursor = default,
+            int? pageSize = default,
+            bool? isError = default,
+            string? agentId = default,
+            string? branchId = default,
+            double? startTime = default,
+            double? endTime = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +164,14 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet16Arguments(
                 httpClient: HttpClient,
-                analysisItemId: ref analysisItemId);
+                toolId: ref toolId,
+                cursor: ref cursor,
+                pageSize: ref pageSize,
+                isError: isError,
+                agentId: ref agentId,
+                branchId: ref branchId,
+                startTime: startTime,
+                endTime: endTime);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,8 +197,17 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/analysis-items/{analysisItemId}",
+                                path: $"/v1/convai/tools/{toolId}/executions",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("cursor", cursor)
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("is_error", isError?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("branch_id", branchId)
+                                .AddOptionalParameter("start_time", startTime?.ToString())
+                                .AddOptionalParameter("end_time", endTime?.ToString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -153,7 +248,14 @@ namespace ElevenLabs
                 PrepareGet16Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    analysisItemId: analysisItemId);
+                    toolId: toolId,
+                    cursor: cursor,
+                    pageSize: pageSize,
+                    isError: isError,
+                    agentId: agentId,
+                    branchId: branchId,
+                    startTime: startTime,
+                    endTime: endTime);
 
                 return __httpRequest;
             }
@@ -172,7 +274,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get16",
                                 methodName: "Get16Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -206,7 +308,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get16",
                                 methodName: "Get16Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -247,7 +349,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get16",
                                 methodName: "Get16Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -295,7 +397,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get16",
                                 methodName: "Get16Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -317,7 +419,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get16",
                                 methodName: "Get16Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
+                                pathTemplate: "$\"/v1/convai/tools/{toolId}/executions\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -391,9 +493,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.AnalysisItemResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetToolExecutionsPageResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetToolExecutionsPageResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -423,9 +525,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.AnalysisItemResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetToolExecutionsPageResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetToolExecutionsPageResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -465,5 +567,62 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps Get16Async as an IAsyncEnumerable&lt;global::ElevenLabs.ToolExecutionResponseModel&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="toolId">
+        /// ID of the requested tool.
+        /// </param>
+        /// <param name="pageSize">
+        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
+        /// Default Value: 30
+        /// </param>
+        /// <param name="isError">
+        /// Filter by error status. If not provided, returns all executions.
+        /// </param>
+        /// <param name="agentId">
+        /// Filter by agent ID.
+        /// </param>
+        /// <param name="branchId">
+        /// Filter by agent branch ID.
+        /// </param>
+        /// <param name="startTime">
+        /// Filter executions from this Unix timestamp (inclusive).
+        /// </param>
+        /// <param name="endTime">
+        /// Filter executions until this Unix timestamp (inclusive).
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ToolExecutionResponseModel> Get16AutoPagingAsync(
+            string toolId,             int? pageSize = default,
+            bool? isError = default,
+            string? agentId = default,
+            string? branchId = default,
+            double? startTime = default,
+            double? endTime = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetToolExecutionsPageResponseModel, global::ElevenLabs.ToolExecutionResponseModel>(
+                fetchPage: (__cursor, __ct) => Get16Async(
+                    toolId: toolId,
+                    cursor: __cursor,
+                    pageSize: pageSize,
+                    isError: isError,
+                    agentId: agentId,
+                    branchId: branchId,
+                    startTime: startTime,
+                    endTime: endTime,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.ToolExecutionResponseModel>?)__response.Executions,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

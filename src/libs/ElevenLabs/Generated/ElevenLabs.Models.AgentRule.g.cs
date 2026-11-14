@@ -31,13 +31,13 @@ namespace ElevenLabs
         public global::ElevenLabs.RulePriority? Priority { get; set; }
 
         /// <summary>
-        ///
+        /// ID of the rule.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         public string? Id { get; set; }
 
         /// <summary>
-        /// Unix timestamp (seconds since epoch)
+        /// When the rule was created, as a Unix timestamp in seconds.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at_unix")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.UnixTimestampJsonConverter))]
@@ -62,9 +62,11 @@ namespace ElevenLabs
         /// strict: the agent must always follow the rule; suggestion: a guideline.<br/>
         /// Default Value: strict
         /// </param>
-        /// <param name="id"></param>
+        /// <param name="id">
+        /// ID of the rule.
+        /// </param>
         /// <param name="createdAtUnix">
-        /// Unix timestamp (seconds since epoch)
+        /// When the rule was created, as a Unix timestamp in seconds.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

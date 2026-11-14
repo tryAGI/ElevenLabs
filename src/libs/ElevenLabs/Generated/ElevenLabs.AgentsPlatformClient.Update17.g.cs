@@ -27,17 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareUpdate17Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId,
-            ref string procedureId,
-            global::ElevenLabs.UpdateProcedureDraftRequestModel request);
+            global::ElevenLabs.ReplaceWorkspaceConfigRequest request);
         partial void PrepareUpdate17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId,
-            string procedureId,
-            global::ElevenLabs.UpdateProcedureDraftRequestModel request);
+            global::ElevenLabs.ReplaceWorkspaceConfigRequest request);
         partial void ProcessUpdate17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,35 +42,20 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Update Procedure Draft<br/>
-        /// Create or update user's draft for a procedure
+        /// Replace Outbound Campaign Configuration<br/>
+        /// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureDraftResponseModel> Update17Async(
-            string agentId,
-            string branchId,
-            string procedureId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceConfigResponse> Update17Async(
 
-            global::ElevenLabs.UpdateProcedureDraftRequestModel request,
+            global::ElevenLabs.ReplaceWorkspaceConfigRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update17AsResponseAsync(
-                agentId: agentId,
-                branchId: branchId,
-                procedureId: procedureId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -86,28 +65,16 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Update Procedure Draft<br/>
-        /// Create or update user's draft for a procedure
+        /// Replace Outbound Campaign Configuration<br/>
+        /// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>> Update17AsResponseAsync(
-            string agentId,
-            string branchId,
-            string procedureId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceConfigResponse>> Update17AsResponseAsync(
 
-            global::ElevenLabs.UpdateProcedureDraftRequestModel request,
+            global::ElevenLabs.ReplaceWorkspaceConfigRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -119,9 +86,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareUpdate17Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                branchId: ref branchId,
-                procedureId: ref procedureId,
                 request: request);
 
 
@@ -148,7 +112,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft",
+                                path: "/v1/convai/outbound-campaigns/config",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -156,7 +120,7 @@ namespace ElevenLabs
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: new global::System.Net.Http.HttpMethod("PATCH"),
+                    method: global::System.Net.Http.HttpMethod.Put,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -196,9 +160,6 @@ namespace ElevenLabs
                 PrepareUpdate17Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId,
-                    procedureId: procedureId,
                     request: request);
 
                 return __httpRequest;
@@ -218,8 +179,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update17",
                                 methodName: "Update17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
-                                httpMethod: "PATCH",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/config\"",
+                                httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -252,8 +213,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update17",
                                 methodName: "Update17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
-                                httpMethod: "PATCH",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/config\"",
+                                httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
@@ -293,8 +254,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update17",
                                 methodName: "Update17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
-                                httpMethod: "PATCH",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/config\"",
+                                httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -341,8 +302,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update17",
                                 methodName: "Update17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
-                                httpMethod: "PATCH",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/config\"",
+                                httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -363,8 +324,8 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Update17",
                                 methodName: "Update17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
-                                httpMethod: "PATCH",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/config\"",
+                                httpMethod: "PUT",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
@@ -437,9 +398,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ProcedureDraftResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.WorkspaceConfigResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceConfigResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -469,9 +430,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ProcedureDraftResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.WorkspaceConfigResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceConfigResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -512,57 +473,29 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Update Procedure Draft<br/>
-        /// Create or update user's draft for a procedure
+        /// Replace Outbound Campaign Configuration<br/>
+        /// Create or replace the workspace's outbound campaign configuration. Send the `version` you last read as `expected_version`, or omit it to create the first configuration. A configuration changed since you read it is not replaced. Campaigns keep the policy they started with.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// <param name="expectedVersion">
+        /// The `version` of the configuration being replaced. Omit it only to create the first configuration.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
-        /// <param name="name">
-        /// Procedure name
-        /// </param>
-        /// <param name="content">
-        /// Procedure content
-        /// </param>
-        /// <param name="type">
-        /// Procedure type<br/>
-        /// Default Value: free_form
-        /// </param>
-        /// <param name="trigger">
-        /// When the agent should use this procedure. Empty string means this is a sub-procedure that should only start when another procedure references it. Omit this field (or send null) to keep the stored trigger, which is empty on create. Send `""` to clear it. `description` is accepted as an alias.
-        /// </param>
+        /// <param name="config"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureDraftResponseModel> Update17Async(
-            string agentId,
-            string branchId,
-            string procedureId,
-            string name,
-            string content,
-            global::ElevenLabs.ProcedureType type = global::ElevenLabs.ProcedureType.FreeForm,
-            string? trigger = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceConfigResponse> Update17Async(
+            global::ElevenLabs.CampaignConfigInput config,
+            int? expectedVersion = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.UpdateProcedureDraftRequestModel
+            var __request = new global::ElevenLabs.ReplaceWorkspaceConfigRequest
             {
-                Name = name,
-                Content = content,
-                Type = type,
-                Trigger = trigger,
+                ExpectedVersion = expectedVersion,
+                Config = config,
             };
 
             return await Update17Async(
-                agentId: agentId,
-                branchId: branchId,
-                procedureId: procedureId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

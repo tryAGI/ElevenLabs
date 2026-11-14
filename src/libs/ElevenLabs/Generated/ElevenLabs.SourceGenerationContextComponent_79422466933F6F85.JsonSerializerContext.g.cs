@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0030.Create_BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0032.Create_BodyUpdateAgentTestFolderV1ConvaiAgentTestingFoldersFolderIdPatch(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

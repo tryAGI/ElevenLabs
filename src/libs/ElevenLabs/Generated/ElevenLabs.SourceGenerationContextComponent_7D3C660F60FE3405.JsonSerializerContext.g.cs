@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AnalysisRunSnapshotPricePerFeature))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0012.Create_AnalysisRunSnapshotPricePerFeature(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0014.Create_AnalysisRunSnapshotPricePerFeature(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

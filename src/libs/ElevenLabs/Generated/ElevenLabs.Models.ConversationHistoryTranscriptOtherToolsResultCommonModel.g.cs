@@ -23,6 +23,12 @@ namespace ElevenLabs
         public required string ToolName { get; set; }
 
         /// <summary>
+        /// ID of the tool that produced this result: a workspace tool ID, 'mcp:&lt;server_id&gt;:&lt;tool_name&gt;' for MCP tools, or '__system_&lt;tool_name&gt;' for system tools. Not set for conversations recorded before tool IDs were tracked.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_id")]
+        public string? ToolId { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_value")]
@@ -93,6 +99,9 @@ namespace ElevenLabs
         /// <param name="resultValue"></param>
         /// <param name="isError"></param>
         /// <param name="toolHasBeenCalled"></param>
+        /// <param name="toolId">
+        /// ID of the tool that produced this result: a workspace tool ID, 'mcp:&lt;server_id&gt;:&lt;tool_name&gt;' for MCP tools, or '__system_&lt;tool_name&gt;' for system tools. Not set for conversations recorded before tool IDs were tracked.
+        /// </param>
         /// <param name="isBlocked">
         /// Default Value: false
         /// </param>
@@ -112,6 +121,7 @@ namespace ElevenLabs
             string resultValue,
             bool isError,
             bool toolHasBeenCalled,
+            string? toolId,
             bool? isBlocked,
             double? toolLatencySecs,
             string? errorType,
@@ -121,6 +131,7 @@ namespace ElevenLabs
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
+            this.ToolId = toolId;
             this.ResultValue = resultValue ?? throw new global::System.ArgumentNullException(nameof(resultValue));
             this.IsError = isError;
             this.IsBlocked = isBlocked;

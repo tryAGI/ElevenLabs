@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareGet24Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string mcpServerId,
+            ref string toolName);
         partial void PrepareGet24Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string mcpServerId,
+            string toolName);
         partial void ProcessGet24Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,20 +44,27 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Whatsapp Account<br/>
-        /// Get a WhatsApp account
+        /// Get Mcp Tool Configuration Override<br/>
+        /// Retrieve configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to retrieve config overrides for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetWhatsAppAccountResponse> Get24Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.MCPToolConfigOverrideOutput> Get24Async(
+            string mcpServerId,
+            string toolName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get24AsResponseAsync(
-                phoneNumberId: phoneNumberId,
+                mcpServerId: mcpServerId,
+                toolName: toolName,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -63,15 +72,21 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Whatsapp Account<br/>
-        /// Get a WhatsApp account
+        /// Get Mcp Tool Configuration Override<br/>
+        /// Retrieve configuration overrides for a specific MCP tool.
         /// </summary>
-        /// <param name="phoneNumberId"></param>
+        /// <param name="mcpServerId">
+        /// ID of the MCP Server.
+        /// </param>
+        /// <param name="toolName">
+        /// Name of the MCP tool to retrieve config overrides for.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWhatsAppAccountResponse>> Get24AsResponseAsync(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPToolConfigOverrideOutput>> Get24AsResponseAsync(
+            string mcpServerId,
+            string toolName,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +96,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet24Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                mcpServerId: ref mcpServerId,
+                toolName: ref toolName);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -107,7 +123,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/whatsapp-accounts/{phoneNumberId}",
+                                path: $"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -149,7 +165,8 @@ namespace ElevenLabs
                 PrepareGet24Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    phoneNumberId: phoneNumberId);
+                    mcpServerId: mcpServerId,
+                    toolName: toolName);
 
                 return __httpRequest;
             }
@@ -168,7 +185,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get24",
                                 methodName: "Get24Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -202,7 +219,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get24",
                                 methodName: "Get24Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -243,7 +260,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get24",
                                 methodName: "Get24Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -291,7 +308,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get24",
                                 methodName: "Get24Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -313,7 +330,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get24",
                                 methodName: "Get24Async",
-                                pathTemplate: "$\"/v1/convai/whatsapp-accounts/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/mcp-servers/{mcpServerId}/tool-configs/{toolName}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -328,6 +345,38 @@ namespace ElevenLabs
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
+                            //
+                            if ((int)__response.StatusCode == 404)
+                            {
+                                string? __content_404 = null;
+                                global::System.Exception? __exception_404 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                    else
+                                    {
+                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_404 = __ex;
+                                }
+
+
+                                throw global::ElevenLabs.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_404,
+                                    responseBody: __content_404,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Validation Error
                             if ((int)__response.StatusCode == 422)
                             {
@@ -387,9 +436,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetWhatsAppAccountResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.MCPToolConfigOverrideOutput.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWhatsAppAccountResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPToolConfigOverrideOutput>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -419,9 +468,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetWhatsAppAccountResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.MCPToolConfigOverrideOutput.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetWhatsAppAccountResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.MCPToolConfigOverrideOutput>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

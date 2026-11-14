@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateOAuth2ClientCredsRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0259.Create_UpdateOAuth2ClientCredsRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0286.Create_UpdateOAuth2ClientCredsRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

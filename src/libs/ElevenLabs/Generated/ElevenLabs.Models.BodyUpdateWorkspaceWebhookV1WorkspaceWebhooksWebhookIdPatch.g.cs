@@ -41,6 +41,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? Events { get; set; }
 
         /// <summary>
+        /// Field names whose values the delivery log hides when it shows the request payload, matched at any depth, ignoring case and punctuation such as _ or -. Fields with secret-looking names, such as tokens and passwords, are always hidden. The stored log and redeliveries keep the original values. At most 50 names, each 1 to 128 characters, with no whitespace, dots or wildcards.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("log_redacted_fields")]
+        public global::System.Collections.Generic.IList<string>? LogRedactedFields { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -64,6 +70,9 @@ namespace ElevenLabs
         /// <param name="events">
         /// The complete set of workspace-level events this webhook should be subscribed to. The webhook is added to the events in the list and removed from any not in the list. Omit to leave the current event subscriptions unchanged.
         /// </param>
+        /// <param name="logRedactedFields">
+        /// Field names whose values the delivery log hides when it shows the request payload, matched at any depth, ignoring case and punctuation such as _ or -. Fields with secret-looking names, such as tokens and passwords, are always hidden. The stored log and redeliveries keep the original values. At most 50 names, each 1 to 128 characters, with no whitespace, dots or wildcards.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -72,13 +81,15 @@ namespace ElevenLabs
             string name,
             bool? retryEnabled,
             global::System.Collections.Generic.Dictionary<string, string>? requestHeaders,
-            global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? events)
+            global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? events,
+            global::System.Collections.Generic.IList<string>? logRedactedFields)
         {
             this.IsDisabled = isDisabled;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.RetryEnabled = retryEnabled;
             this.RequestHeaders = requestHeaders;
             this.Events = events;
+            this.LogRedactedFields = logRedactedFields;
         }
 
         /// <summary>

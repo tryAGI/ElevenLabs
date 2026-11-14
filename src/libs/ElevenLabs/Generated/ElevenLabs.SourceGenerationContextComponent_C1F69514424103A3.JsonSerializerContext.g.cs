@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MergedOutcome))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0098.Create_MergedOutcome(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0107.Create_MergedOutcome(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

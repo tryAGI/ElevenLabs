@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PodcastTextSource))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0157.Create_PodcastTextSource(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0172.Create_PodcastTextSource(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

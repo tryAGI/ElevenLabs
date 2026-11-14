@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WhatsAppAccountType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0267.Create_WhatsAppAccountType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0295.Create_WhatsAppAccountType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.WhatsAppAccountType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0146.Create_NullableWhatsAppAccountType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0160.Create_NullableWhatsAppAccountType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

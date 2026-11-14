@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetPhoneNumberInboundSIPTrunkConfigResponseModelAttributesToHeaders))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0078.Create_GetPhoneNumberInboundSIPTrunkConfigResponseModelAttributesToHeaders(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0085.Create_GetPhoneNumberInboundSIPTrunkConfigResponseModelAttributesToHeaders(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

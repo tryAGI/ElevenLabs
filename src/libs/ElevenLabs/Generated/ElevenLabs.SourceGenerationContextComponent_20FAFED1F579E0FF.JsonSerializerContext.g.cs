@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.Tool))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0249.Create_Tool(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0273.Create_Tool(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

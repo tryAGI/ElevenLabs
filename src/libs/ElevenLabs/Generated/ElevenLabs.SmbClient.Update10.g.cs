@@ -28,14 +28,14 @@ namespace ElevenLabs
         partial void PrepareUpdate10Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string holidayId,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateHolidayRequestPatch request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateHolidayRequestPatch request);
         partial void PrepareUpdate10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string holidayId,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateHolidayRequestPatch request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateHolidayRequestPatch request);
         partial void ProcessUpdate10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -49,7 +49,9 @@ namespace ElevenLabs
         /// Update Holiday<br/>
         /// Update an existing holiday. Only the fields sent are changed.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="holidayId">
+        /// ID of the holiday or time-off entry. Returned when you create one; list them with `GET /v1/reception/holidays`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -59,17 +61,17 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Update10Async(
             string holidayId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateHolidayRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateHolidayRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update10AsResponseAsync(
                 holidayId: holidayId,
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,7 +82,9 @@ namespace ElevenLabs
         /// Update Holiday<br/>
         /// Update an existing holiday. Only the fields sent are changed.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="holidayId">
+        /// ID of the holiday or time-off entry. Returned when you create one; list them with `GET /v1/reception/holidays`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -90,9 +94,9 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>> Update10AsResponseAsync(
             string holidayId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateHolidayRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateHolidayRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -164,10 +168,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -504,35 +505,46 @@ namespace ElevenLabs
         /// Update Holiday<br/>
         /// Update an existing holiday. Only the fields sent are changed.
         /// </summary>
-        /// <param name="holidayId"></param>
+        /// <param name="holidayId">
+        /// ID of the holiday or time-off entry. Returned when you create one; list them with `GET /v1/reception/holidays`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="name"></param>
+        /// <param name="name">
+        /// Display name of the closure or time off.
+        /// </param>
         /// <param name="startDate">
-        /// Represents a calendar date as individual numeric components.
+        /// First day of the closure or time off, inclusive.
         /// </param>
         /// <param name="endDate">
-        /// Represents a calendar date as individual numeric components.
+        /// Last day of the closure or time off, inclusive.
         /// </param>
         /// <param name="holidayType">
+        /// 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.<br/>
         /// Default Value: closed
         /// </param>
         /// <param name="overrideHours">
         /// Replacement working hours when holiday_type is 'override'.
         /// </param>
-        /// <param name="timeOffType"></param>
-        /// <param name="resourceId"></param>
+        /// <param name="timeOffType">
+        /// What the entry applies to: a location, a staff member, or an asset.
+        /// </param>
+        /// <param name="resourceId">
+        /// The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
+        /// </param>
         /// <param name="locationId">
         /// For LOCATION type: the location this closure applies to.
         /// </param>
-        /// <param name="reason"></param>
+        /// <param name="reason">
+        /// Optional note on why the closure or time off happens, up to 500 characters.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Update10Async(
             string holidayId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             string? name = default,
             global::ElevenLabs.DateModel? startDate = default,
             global::ElevenLabs.DateModel? endDate = default,
@@ -545,7 +557,7 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBUpdateHolidayRequestPatch
+            var __request = new global::ElevenLabs.ReceptionUpdateHolidayRequestPatch
             {
                 Name = name,
                 StartDate = startDate,

@@ -43,7 +43,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Get Agent Conversation Ticket<br/>
-        /// Get an agent conversation ticket by ID.
+        /// Get an agent issue by ID.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -64,7 +64,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Get Agent Conversation Ticket<br/>
-        /// Get an agent conversation ticket by ID.
+        /// Get an agent issue by ID.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

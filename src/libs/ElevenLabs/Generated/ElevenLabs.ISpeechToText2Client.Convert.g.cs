@@ -73,6 +73,12 @@ namespace ElevenLabs
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
         /// </param>
+        /// <param name="secondaryLanguageCodes">
+        /// Additional ISO-639-1 or ISO-639-3 language codes that may be present in the audio, alongside language_code. Improves transcription accuracy for multilingual audio. Supported by scribe_v3.
+        /// </param>
+        /// <param name="numbersFormat">
+        /// How numbers are formatted in the transcript: 'digits' (e.g. '42') or 'words' (e.g. 'forty-two'). Supported by scribe_v3.
+        /// </param>
         /// <param name="transcriptEdit">
         /// Natural-language instruction applied to the final transcript (max 2000 characters). The edited text is returned in 'edited_transcript' alongside the original transcript. Cannot be combined with entity_detection, entity_redaction or use_multi_channel. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost, billed for at least 10 seconds of audio.
         /// </param>
@@ -132,7 +138,7 @@ namespace ElevenLabs
         /// Detect entities in the transcript. Can be 'all' to detect all entities, a single entity type or category string, or a list of entity types/categories. Categories include 'pii', 'phi', 'pci', 'other', 'offensive_language'. When enabled, detected entities will be returned in the 'entities' field with their text, type, and character positions.
         /// </param>
         /// <param name="noVerbatim">
-        /// If true, the transcription will not have any filler words, false starts and non-speech sounds.<br/>
+        /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Supported by scribe_v2, scribe_v2_medical and scribe_v3.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="useSpeakerLibrary">
@@ -164,6 +170,8 @@ namespace ElevenLabs
             byte[]? file = default,
             string? filename = default,
             string? languageCode = default,
+            global::System.Collections.Generic.IList<string>? secondaryLanguageCodes = default,
+            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostNumbersFormat? numbersFormat = default,
             string? transcriptEdit = default,
             bool? tagAudioEvents = default,
             int? numSpeakers = default,

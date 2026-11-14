@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TwilioAnsweredBy))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0255.Create_TwilioAnsweredBy2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0280.Create_TwilioAnsweredBy2(options);
                 }
                 if (type == typeof(global::ElevenLabs.TwilioAnsweredBy?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0142.Create_NullableTwilioAnsweredBy2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0156.Create_NullableTwilioAnsweredBy2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

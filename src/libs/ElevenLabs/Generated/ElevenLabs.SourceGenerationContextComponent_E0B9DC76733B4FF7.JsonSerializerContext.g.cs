@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.Gemini25FlashImageRequest))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0071.Create_Gemini25FlashImageRequest(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0078.Create_Gemini25FlashImageRequest(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

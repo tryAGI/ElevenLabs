@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AgentMetadata))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0007.Create_AgentMetadata(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0008.Create_AgentMetadata(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

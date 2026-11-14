@@ -29,15 +29,15 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string serviceId,
             ref bool? reprice,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBConfirmServiceUpdateRequest request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionConfirmServiceUpdateRequest request);
         partial void PrepareConfirmUpdateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string serviceId,
             bool? reprice,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBConfirmServiceUpdateRequest request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionConfirmServiceUpdateRequest request);
         partial void ProcessConfirmUpdateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,8 +51,11 @@ namespace ElevenLabs
         /// Confirm Service Update<br/>
         /// Save a service update that changes the price of existing bookings. Optionally reprice future bookings.
         /// </summary>
-        /// <param name="serviceId"></param>
+        /// <param name="serviceId">
+        /// ID of the service. Returned when you create one; list them with `GET /v1/reception/services`.
+        /// </param>
         /// <param name="reprice">
+        /// Also update the price on the service's future bookings.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="xiWorkspaceId">
@@ -62,21 +65,21 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ServiceUpdateResponse> ConfirmUpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionServiceUpdateResponse> ConfirmUpdateAsync(
             string serviceId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBConfirmServiceUpdateRequest request,
+            global::ElevenLabs.ReceptionConfirmServiceUpdateRequest request,
             bool? reprice = default,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ConfirmUpdateAsResponseAsync(
                 serviceId: serviceId,
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
                 reprice: reprice,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -87,8 +90,11 @@ namespace ElevenLabs
         /// Confirm Service Update<br/>
         /// Save a service update that changes the price of existing bookings. Optionally reprice future bookings.
         /// </summary>
-        /// <param name="serviceId"></param>
+        /// <param name="serviceId">
+        /// ID of the service. Returned when you create one; list them with `GET /v1/reception/services`.
+        /// </param>
         /// <param name="reprice">
+        /// Also update the price on the service's future bookings.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="xiWorkspaceId">
@@ -98,12 +104,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ServiceUpdateResponse>> ConfirmUpdateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionServiceUpdateResponse>> ConfirmUpdateAsResponseAsync(
             string serviceId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBConfirmServiceUpdateRequest request,
+            global::ElevenLabs.ReceptionConfirmServiceUpdateRequest request,
             bool? reprice = default,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -179,10 +185,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -442,9 +445,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ServiceUpdateResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionServiceUpdateResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ServiceUpdateResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionServiceUpdateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -474,9 +477,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ServiceUpdateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionServiceUpdateResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ServiceUpdateResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionServiceUpdateResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -520,8 +523,11 @@ namespace ElevenLabs
         /// Confirm Service Update<br/>
         /// Save a service update that changes the price of existing bookings. Optionally reprice future bookings.
         /// </summary>
-        /// <param name="serviceId"></param>
+        /// <param name="serviceId">
+        /// ID of the service. Returned when you create one; list them with `GET /v1/reception/services`.
+        /// </param>
         /// <param name="reprice">
+        /// Also update the price on the service's future bookings.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="xiWorkspaceId">
@@ -540,8 +546,12 @@ namespace ElevenLabs
         /// <param name="ungroupedRank">
         /// Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
+        /// <param name="name">
+        /// Service name shown to customers and the receptionist.
+        /// </param>
+        /// <param name="description">
+        /// Details about the service for customers and the receptionist; empty string means none.
+        /// </param>
         /// <param name="variants">
         /// Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
         /// </param>
@@ -562,20 +572,30 @@ namespace ElevenLabs
         /// <param name="maxParticipants">
         /// Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
         /// </param>
-        /// <param name="capacity"></param>
-        /// <param name="isActive"></param>
-        /// <param name="anyStaffMember"></param>
+        /// <param name="capacity">
+        /// Not used to limit bookings; set `max_participants` on group services instead.
+        /// </param>
+        /// <param name="isActive">
+        /// Whether the service is offered; inactive services can't be booked.
+        /// </param>
+        /// <param name="anyStaffMember">
+        /// Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.
+        /// </param>
         /// <param name="staffIds">
         /// Staff assigned to this service; must be empty for kind='rental'.
         /// </param>
-        /// <param name="assetIds"></param>
+        /// <param name="assetIds">
+        /// Assets, such as rooms or equipment, this service can be booked on.
+        /// </param>
         /// <param name="advanceBookingMinutes">
         /// How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.
         /// </param>
         /// <param name="locationIds">
         /// Locations where this service is offered; empty list means all locations.
         /// </param>
-        /// <param name="displayOnBookingPage"></param>
+        /// <param name="displayOnBookingPage">
+        /// Whether the service is listed on the public booking page.
+        /// </param>
         /// <param name="travelMinutes">
         /// Travel time in minutes added before/after appointments for customer-location services. Blocks the staff member's calendar but is not visible to the customer. Ignored when `service_location='business'`.
         /// </param>
@@ -597,21 +617,21 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ServiceUpdateResponse> ConfirmUpdateAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionServiceUpdateResponse> ConfirmUpdateAsync(
             string serviceId,
+            string xiWorkspaceId,
             bool? reprice = default,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.PricingMode? pricingMode = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBIntakeQuestion>? intakeQuestions = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionIntakeQuestion>? intakeQuestions = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? name = default,
             string? description = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceVariant>? variants = default,
-            global::ElevenLabs.SMBServiceKind? kind = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionServiceVariant>? variants = default,
+            global::ElevenLabs.ReceptionServiceKind? kind = default,
             int? bufferMinutes = default,
             global::ElevenLabs.ServiceLocationType? serviceLocation = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBAddOn>? addOns = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionAddOn>? addOns = default,
             int? maxParticipants = default,
             int? capacity = default,
             bool? isActive = default,
@@ -624,13 +644,13 @@ namespace ElevenLabs
             int? travelMinutes = default,
             bool? travelBefore = default,
             bool? travelAfter = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBServicePromotion>? promotions = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionServicePromotion>? promotions = default,
             int? durationMinutes = default,
             double? price = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBConfirmServiceUpdateRequest
+            var __request = new global::ElevenLabs.ReceptionConfirmServiceUpdateRequest
             {
                 PricingMode = pricingMode,
                 IntakeQuestions = intakeQuestions,

@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePostLabels))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0021.Create_BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePostLabels(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0023.Create_BodyCreateANewVoiceFromVoicePreviewV1TextToVoicePostLabels(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

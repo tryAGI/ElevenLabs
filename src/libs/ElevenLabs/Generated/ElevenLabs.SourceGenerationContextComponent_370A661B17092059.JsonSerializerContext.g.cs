@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_30E50D3F1105795B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_52C8D02454772239.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9EF6F066D2C4B25E.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CE9481C622E45CB3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D31F751B35ED7478.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_16934B21DC66B766.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1C60FAE62C610409.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_388B7D0F1C5F9373.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TransferDestination2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0253.Create_TransferDestination22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0277.Create_TransferDestination22(options);
                 }
                 if (type == typeof(global::ElevenLabs.TransferDestination2?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0141.Create_NullableTransferDestination22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0154.Create_NullableTransferDestination22(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

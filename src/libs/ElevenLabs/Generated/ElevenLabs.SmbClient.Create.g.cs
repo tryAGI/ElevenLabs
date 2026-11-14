@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareCreateArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBCreateServiceRequest request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionCreateServiceRequest request);
         partial void PrepareCreateRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBCreateServiceRequest request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionCreateServiceRequest request);
         partial void ProcessCreateResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,17 +54,17 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBServiceDBModel> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionService> CreateAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateServiceRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateServiceRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await CreateAsResponseAsync(
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -82,10 +82,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBServiceDBModel>> CreateAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionService>> CreateAsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateServiceRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateServiceRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -156,10 +156,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -417,9 +414,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBServiceDBModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionService.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBServiceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionService>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +446,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBServiceDBModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionService.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBServiceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionService>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -511,8 +508,12 @@ namespace ElevenLabs
         /// <param name="ungroupedRank">
         /// Display position among items with no group; `null` sorts last. Change it with the reorder endpoint.
         /// </param>
-        /// <param name="name"></param>
-        /// <param name="description"></param>
+        /// <param name="name">
+        /// Service name shown to customers and the receptionist.
+        /// </param>
+        /// <param name="description">
+        /// Details about the service for customers and the receptionist; empty string means none.
+        /// </param>
         /// <param name="variants">
         /// Bookable options for this service. Always non-empty; `variants[0]` is the default option shown when callers don't pick a specific variant. Each entry has its own duration and (optional) price, and uniqueness is keyed by duration.
         /// </param>
@@ -534,17 +535,23 @@ namespace ElevenLabs
         /// <param name="maxParticipants">
         /// Capacity for `kind='group'`: how many seats a single session can sell across all registrations. Must be null for classic and rental services (those are always exclusive to one client per booking).
         /// </param>
-        /// <param name="capacity"></param>
+        /// <param name="capacity">
+        /// Not used to limit bookings; set `max_participants` on group services instead.
+        /// </param>
         /// <param name="isActive">
+        /// Whether the service is offered; inactive services can't be booked.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="anyStaffMember">
+        /// Whether any staff member can deliver the service. When false, only the staff in `staff_ids` can. Ignored for rentals.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="staffIds">
         /// Staff assigned to this service; must be empty for kind='rental'.
         /// </param>
-        /// <param name="assetIds"></param>
+        /// <param name="assetIds">
+        /// Assets, such as rooms or equipment, this service can be booked on.
+        /// </param>
         /// <param name="advanceBookingMinutes">
         /// How far into the future customer-facing channels (public booking page, voice agent) may book this service. Applies to every kind.<br/>
         /// Default Value: 1440
@@ -553,6 +560,7 @@ namespace ElevenLabs
         /// Locations where this service is offered; empty list means all locations.
         /// </param>
         /// <param name="displayOnBookingPage">
+        /// Whether the service is listed on the public booking page.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="travelMinutes">
@@ -573,19 +581,19 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBServiceDBModel> CreateAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionService> CreateAsync(
+            string xiWorkspaceId,
             string name,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.PricingMode? pricingMode = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBIntakeQuestion>? intakeQuestions = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionIntakeQuestion>? intakeQuestions = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? description = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceVariant>? variants = default,
-            global::ElevenLabs.SMBServiceKind? kind = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionServiceVariant>? variants = default,
+            global::ElevenLabs.ReceptionServiceKind? kind = default,
             int? bufferMinutes = default,
             global::ElevenLabs.ServiceLocationType? serviceLocation = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBAddOn>? addOns = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionAddOn>? addOns = default,
             int? maxParticipants = default,
             int? capacity = default,
             bool? isActive = default,
@@ -598,11 +606,11 @@ namespace ElevenLabs
             int? travelMinutes = default,
             bool? travelBefore = default,
             bool? travelAfter = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBServicePromotion>? promotions = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionServicePromotion>? promotions = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBCreateServiceRequest
+            var __request = new global::ElevenLabs.ReceptionCreateServiceRequest
             {
                 PricingMode = pricingMode,
                 IntakeQuestions = intakeQuestions,

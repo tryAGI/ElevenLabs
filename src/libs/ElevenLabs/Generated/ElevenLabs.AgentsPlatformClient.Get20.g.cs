@@ -26,12 +26,10 @@ namespace ElevenLabs
             {                s_Get20SecurityRequirement0,
             };
         partial void PrepareGet20Arguments(
-            global::System.Net.Http.HttpClient httpClient,
-            ref string secretId);
+            global::System.Net.Http.HttpClient httpClient);
         partial void PrepareGet20Request(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string secretId);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
         partial void ProcessGet20Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,20 +40,17 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Convai Workspace Secret<br/>
-        /// Get a workspace secret by ID
+        /// Get Convai Dashboard Settings<br/>
+        /// Retrieve Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="secretId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> Get20Async(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Get20Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get20AsResponseAsync(
-                secretId: secretId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -63,15 +58,13 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Convai Workspace Secret<br/>
-        /// Get a workspace secret by ID
+        /// Get Convai Dashboard Settings<br/>
+        /// Retrieve Convai dashboard settings for the workspace
         /// </summary>
-        /// <param name="secretId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>> Get20AsResponseAsync(
-            string secretId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel>> Get20AsResponseAsync(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -80,8 +73,7 @@ namespace ElevenLabs
             PrepareArguments(
                 client: HttpClient);
             PrepareGet20Arguments(
-                httpClient: HttpClient,
-                secretId: ref secretId);
+                httpClient: HttpClient);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -107,7 +99,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/secrets/{secretId}",
+                                path: "/v1/convai/settings/dashboard",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -148,8 +140,7 @@ namespace ElevenLabs
                     request: __httpRequest);
                 PrepareGet20Request(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest,
-                    secretId: secretId);
+                    httpRequestMessage: __httpRequest);
 
                 return __httpRequest;
             }
@@ -168,7 +159,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -202,7 +193,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -243,7 +234,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -291,7 +282,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -313,7 +304,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get20",
                                 methodName: "Get20Async",
-                                pathTemplate: "$\"/v1/convai/secrets/{secretId}\"",
+                                pathTemplate: "\"/v1/convai/settings/dashboard\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -387,9 +378,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -419,9 +410,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetConvAIDashboardSettingsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

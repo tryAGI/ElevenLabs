@@ -45,7 +45,9 @@ namespace ElevenLabs
         /// Unassign Reseller Tier<br/>
         /// End a reseller-attributed workspace's subscription at the end of the current billing period
         /// </summary>
-        /// <param name="workspaceId"></param>
+        /// <param name="workspaceId">
+        /// ID of the customer workspace. Returned when you provision one; list them with `GET /v1/reception/reseller/workspaces`.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -66,7 +68,9 @@ namespace ElevenLabs
         /// Unassign Reseller Tier<br/>
         /// End a reseller-attributed workspace's subscription at the end of the current billing period
         /// </summary>
-        /// <param name="workspaceId"></param>
+        /// <param name="workspaceId">
+        /// ID of the customer workspace. Returned when you provision one; list them with `GET /v1/reception/reseller/workspaces`.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>

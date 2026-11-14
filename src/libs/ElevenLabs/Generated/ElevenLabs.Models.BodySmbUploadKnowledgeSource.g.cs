@@ -9,14 +9,14 @@ namespace ElevenLabs
     public sealed partial class BodySmbUploadKnowledgeSource
     {
         /// <summary>
-        ///
+        /// The document the receptionist should learn from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("file")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required byte[] File { get; set; }
 
         /// <summary>
-        ///
+        /// The document the receptionist should learn from.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("filename")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,8 +31,12 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodySmbUploadKnowledgeSource" /> class.
         /// </summary>
-        /// <param name="file"></param>
-        /// <param name="filename"></param>
+        /// <param name="file">
+        /// The document the receptionist should learn from.
+        /// </param>
+        /// <param name="filename">
+        /// The document the receptionist should learn from.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

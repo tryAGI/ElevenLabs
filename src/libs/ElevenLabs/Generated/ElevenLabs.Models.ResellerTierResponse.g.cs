@@ -23,11 +23,11 @@ namespace ElevenLabs
         public required string DisplayName { get; set; }
 
         /// <summary>
-        /// A tier's prices and quotas, in the fields a tier is created with.
+        /// A tier's prices and the limits shown on its tier card.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tier_economics")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SMBTierEconomics TierEconomics { get; set; }
+        public required global::ElevenLabs.ResellerTierEconomics TierEconomics { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,7 +41,7 @@ namespace ElevenLabs
         /// <param name="tierId"></param>
         /// <param name="displayName"></param>
         /// <param name="tierEconomics">
-        /// A tier's prices and quotas, in the fields a tier is created with.
+        /// A tier's prices and the limits shown on its tier card.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -49,7 +49,7 @@ namespace ElevenLabs
         public ResellerTierResponse(
             string tierId,
             string displayName,
-            global::ElevenLabs.SMBTierEconomics tierEconomics)
+            global::ElevenLabs.ResellerTierEconomics tierEconomics)
         {
             this.TierId = tierId ?? throw new global::System.ArgumentNullException(nameof(tierId));
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));

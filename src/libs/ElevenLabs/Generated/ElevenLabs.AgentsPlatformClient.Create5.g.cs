@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate5Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string conversationId,
-            global::ElevenLabs.ConversationFeedbackRequestModel request);
+            global::ElevenLabs.CreateAgentConversationRequest request);
         partial void PrepareCreate5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string conversationId,
-            global::ElevenLabs.ConversationFeedbackRequestModel request);
+            global::ElevenLabs.CreateAgentConversationRequest request);
         partial void ProcessCreate5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,25 +42,23 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Conversation<br/>
+        /// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Create5Async(
-            string conversationId,
+#if NET8_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.Experimental(diagnosticId: "ELEVENLABS_ALPHA_001")]
+#endif
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentConversationResponse> Create5Async(
 
-            global::ElevenLabs.ConversationFeedbackRequestModel request,
+            global::ElevenLabs.CreateAgentConversationRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create5AsResponseAsync(
-                conversationId: conversationId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -72,20 +68,19 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Conversation<br/>
+        /// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
-        /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Create5AsResponseAsync(
-            string conversationId,
+#if NET8_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.Experimental(diagnosticId: "ELEVENLABS_ALPHA_001")]
+#endif
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentConversationResponse>> Create5AsResponseAsync(
 
-            global::ElevenLabs.ConversationFeedbackRequestModel request,
+            global::ElevenLabs.CreateAgentConversationRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -97,7 +92,6 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareCreate5Arguments(
                 httpClient: HttpClient,
-                conversationId: ref conversationId,
                 request: request);
 
 
@@ -124,7 +118,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/conversations/{conversationId}/feedback",
+                                path: "/v1/convai/conversations",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -172,7 +166,6 @@ namespace ElevenLabs
                 PrepareCreate5Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    conversationId: conversationId,
                     request: request);
 
                 return __httpRequest;
@@ -192,7 +185,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/conversations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -226,7 +219,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/conversations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -267,7 +260,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/conversations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -315,7 +308,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/conversations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -337,7 +330,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create5",
                                 methodName: "Create5Async",
-                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/feedback\"",
+                                pathTemplate: "\"/v1/convai/conversations\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -411,11 +404,13 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = global::ElevenLabs.CreateAgentConversationResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentConversationResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -435,17 +430,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = await global::ElevenLabs.CreateAgentConversationResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentConversationResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -482,31 +479,42 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Send Conversation Feedback<br/>
-        /// Send the feedback for the given conversation
+        /// Create Conversation<br/>
+        /// Create a text conversation with an agent. This does not run the agent, and the agent sends no first message. This endpoint is in alpha and may change.
         /// </summary>
-        /// <param name="conversationId">
-        /// The id of the conversation you're taking the action on.
+        /// <param name="agent">
+        /// The agent that runs the turns.
         /// </param>
-        /// <param name="feedback">
-        /// Either 'like' or 'dislike' to indicate the feedback for the conversation.
+        /// <param name="environment">
+        /// The environment to use for resolving environment variables (e.g. 'production', 'staging'). Defaults to the branch's environment, then 'production'.
         /// </param>
+        /// <param name="userId">
+        /// ID of the end user participating in this conversation (for agent owner's user identification)
+        /// </param>
+        /// <param name="dynamicVariables"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Create5Async(
-            string conversationId,
-            global::ElevenLabs.UserFeedbackScore? feedback = default,
+#if NET8_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.Experimental(diagnosticId: "ELEVENLABS_ALPHA_001")]
+#endif
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentConversationResponse> Create5Async(
+            global::ElevenLabs.AgentMessagesPersistedAgent agent,
+            string? environment = default,
+            string? userId = default,
+            object? dynamicVariables = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ConversationFeedbackRequestModel
+            var __request = new global::ElevenLabs.CreateAgentConversationRequest
             {
-                Feedback = feedback,
+                Agent = agent,
+                Environment = environment,
+                UserId = userId,
+                DynamicVariables = dynamicVariables,
             };
 
             return await Create5Async(
-                conversationId: conversationId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

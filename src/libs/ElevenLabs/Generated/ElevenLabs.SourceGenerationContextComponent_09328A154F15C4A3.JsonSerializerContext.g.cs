@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AlertingWebhookSecretHeaderValue))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0011.Create_AlertingWebhookSecretHeaderValue(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0012.Create_AlertingWebhookSecretHeaderValue(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

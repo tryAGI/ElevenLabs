@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.LLMObjectJsonSchemaPropertyOutputProperties))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0088.Create_LLMObjectJsonSchemaPropertyOutputProperties(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0095.Create_LLMObjectJsonSchemaPropertyOutputProperties(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

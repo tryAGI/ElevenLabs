@@ -29,15 +29,15 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string ruleId,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateAgentRuleRequest request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateAgentRuleRequest request);
         partial void PrepareUpdate6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string ruleId,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateAgentRuleRequest request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateAgentRuleRequest request);
         partial void ProcessUpdate6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,8 +51,12 @@ namespace ElevenLabs
         /// Update Rule<br/>
         /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -63,18 +67,18 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Update6Async(
             string agentId,
             string ruleId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update6AsResponseAsync(
                 agentId: agentId,
                 ruleId: ruleId,
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -85,8 +89,12 @@ namespace ElevenLabs
         /// Update Rule<br/>
         /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -97,9 +105,9 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>> Update6AsResponseAsync(
             string agentId,
             string ruleId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -172,10 +180,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -513,8 +518,12 @@ namespace ElevenLabs
         /// Update Rule<br/>
         /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -534,14 +543,14 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Update6Async(
             string agentId,
             string ruleId,
+            string xiWorkspaceId,
             string title,
             string description,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.RulePriority? priority = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBUpdateAgentRuleRequest
+            var __request = new global::ElevenLabs.ReceptionUpdateAgentRuleRequest
             {
                 Title = title,
                 Description = description,

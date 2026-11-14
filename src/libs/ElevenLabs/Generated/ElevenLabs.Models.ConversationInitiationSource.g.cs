@@ -12,6 +12,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AgentMessagesApi,
+        /// <summary>
+        ///
+        /// </summary>
         AndroidSdk,
         /// <summary>
         ///
@@ -131,6 +135,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ConversationInitiationSource.AgentMessagesApi => "agent_messages_api",
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
                 ConversationInitiationSource.Audiocodes => "audiocodes",
                 ConversationInitiationSource.Avaya => "avaya",
@@ -168,6 +173,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "agent_messages_api" => ConversationInitiationSource.AgentMessagesApi,
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
                 "audiocodes" => ConversationInitiationSource.Audiocodes,
                 "avaya" => ConversationInitiationSource.Avaya,

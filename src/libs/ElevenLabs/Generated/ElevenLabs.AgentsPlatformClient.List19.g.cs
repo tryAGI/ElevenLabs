@@ -27,15 +27,23 @@ namespace ElevenLabs
             };
         partial void PrepareList19Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId,
-            ref string? agentVersionId);
+            ref int? pageSize,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status,
+            ref string? agentId,
+            ref global::ElevenLabs.OutboundChannel? channel,
+            ref global::ElevenLabs.ListCampaignsMode? mode,
+            ref string? search,
+            ref string? cursor);
         partial void PrepareList19Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId,
-            string? agentVersionId);
+            int? pageSize,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status,
+            string? agentId,
+            global::ElevenLabs.OutboundChannel? channel,
+            global::ElevenLabs.ListCampaignsMode? mode,
+            string? search,
+            string? cursor);
         partial void ProcessList19Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,32 +54,53 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// List Procedures<br/>
-        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
+        /// List Outbound Campaigns<br/>
+        /// List the workspace's outbound campaigns, newest first.
         /// </summary>
+        /// <param name="pageSize">
+        /// How many items to return at most.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="status">
+        /// Only campaigns in one of these statuses.
+        /// </param>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// Only campaigns run by this agent.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
+        /// <param name="channel">
+        /// Only campaigns on this channel.
         /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="mode">
+        /// Only voice or only message campaigns.
+        /// </param>
+        /// <param name="search">
+        /// Only campaigns whose name contains this text.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ListProceduresResponseModel> List19Async(
-            string agentId,
-            string branchId,
-            string? agentVersionId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CampaignPageResponse> List19Async(
+            int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status = default,
+            string? agentId = default,
+            global::ElevenLabs.OutboundChannel? channel = default,
+            global::ElevenLabs.ListCampaignsMode? mode = default,
+            string? search = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List19AsResponseAsync(
+                pageSize: pageSize,
+                status: status,
                 agentId: agentId,
-                branchId: branchId,
-                agentVersionId: agentVersionId,
+                channel: channel,
+                mode: mode,
+                search: search,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,25 +108,42 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// List Procedures<br/>
-        /// List the procedures attached to this agent branch. By default, unpublished drafts take precedence over the latest committed version. Pass agent_version_id to list a published snapshot instead. has_draft is true when a procedure has unpublished draft changes on this branch. Procedure content is not included; use Get Procedure to read a procedure's body.
+        /// List Outbound Campaigns<br/>
+        /// List the workspace's outbound campaigns, newest first.
         /// </summary>
+        /// <param name="pageSize">
+        /// How many items to return at most.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="status">
+        /// Only campaigns in one of these statuses.
+        /// </param>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// Only campaigns run by this agent.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
+        /// <param name="channel">
+        /// Only campaigns on this channel.
         /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="mode">
+        /// Only voice or only message campaigns.
+        /// </param>
+        /// <param name="search">
+        /// Only campaigns whose name contains this text.
+        /// </param>
+        /// <param name="cursor">
+        /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>> List19AsResponseAsync(
-            string agentId,
-            string branchId,
-            string? agentVersionId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CampaignPageResponse>> List19AsResponseAsync(
+            int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status = default,
+            string? agentId = default,
+            global::ElevenLabs.OutboundChannel? channel = default,
+            global::ElevenLabs.ListCampaignsMode? mode = default,
+            string? search = default,
+            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,9 +153,13 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareList19Arguments(
                 httpClient: HttpClient,
+                pageSize: ref pageSize,
+                status: status,
                 agentId: ref agentId,
-                branchId: ref branchId,
-                agentVersionId: ref agentVersionId);
+                channel: ref channel,
+                mode: ref mode,
+                search: ref search,
+                cursor: ref cursor);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -135,10 +185,16 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures",
+                                path: "/v1/convai/outbound-campaigns/campaigns",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("agent_version_id", agentVersionId)
+                                .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("status", status, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
+                                .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("channel", channel?.ToValueString())
+                                .AddOptionalParameter("mode", mode?.ToValueString())
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -180,9 +236,13 @@ namespace ElevenLabs
                 PrepareList19Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
+                    pageSize: pageSize,
+                    status: status,
                     agentId: agentId,
-                    branchId: branchId,
-                    agentVersionId: agentVersionId);
+                    channel: channel,
+                    mode: mode,
+                    search: search,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -201,7 +261,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List19",
                                 methodName: "List19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/campaigns\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -235,7 +295,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List19",
                                 methodName: "List19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/campaigns\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -276,7 +336,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List19",
                                 methodName: "List19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/campaigns\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,7 +384,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List19",
                                 methodName: "List19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/campaigns\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -346,7 +406,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "List19",
                                 methodName: "List19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures\"",
+                                pathTemplate: "\"/v1/convai/outbound-campaigns/campaigns\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -420,9 +480,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ListProceduresResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.CampaignPageResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CampaignPageResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -452,9 +512,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ListProceduresResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.CampaignPageResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ListProceduresResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CampaignPageResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -494,5 +554,58 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List19Async as an IAsyncEnumerable&lt;global::ElevenLabs.CampaignResponse&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="pageSize">
+        /// How many items to return at most.<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="status">
+        /// Only campaigns in one of these statuses.
+        /// </param>
+        /// <param name="agentId">
+        /// Only campaigns run by this agent.
+        /// </param>
+        /// <param name="channel">
+        /// Only campaigns on this channel.
+        /// </param>
+        /// <param name="mode">
+        /// Only voice or only message campaigns.
+        /// </param>
+        /// <param name="search">
+        /// Only campaigns whose name contains this text.
+        /// </param>
+        /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.CampaignResponse> List19AutoPagingAsync(
+              int? pageSize = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CampaignStatus>? status = default,
+            string? agentId = default,
+            global::ElevenLabs.OutboundChannel? channel = default,
+            global::ElevenLabs.ListCampaignsMode? mode = default,
+            string? search = default,
+            string? cursor = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.CampaignPageResponse, global::ElevenLabs.CampaignResponse>(
+                fetchPage: (__cursor, __ct) => List19Async(
+                    pageSize: pageSize,
+                    status: status,
+                    agentId: agentId,
+                    channel: channel,
+                    mode: mode,
+                    search: search,
+                    cursor: __cursor,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.CampaignResponse>?)__response.Campaigns,
+                extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
+                initialCursor: cursor,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

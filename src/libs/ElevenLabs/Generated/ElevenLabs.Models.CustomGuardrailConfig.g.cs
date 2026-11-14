@@ -44,6 +44,14 @@ namespace ElevenLabs
         public global::ElevenLabs.CustomGuardrailConfigModel? Model { get; set; }
 
         /// <summary>
+        /// Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.<br/>
+        /// Default Value: standard
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("service_tier")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.LLMServiceTierJsonConverter))]
+        public global::ElevenLabs.LLMServiceTier? ServiceTier { get; set; }
+
+        /// <summary>
         /// How much recent history the guardrail sees before the reply it evaluates, counted in user messages (the agent replies between them are included too). The guardrail always gets a single &lt;conversation_history&gt; transcript ending in the evaluated reply, marked 'AGENT [current reply]:'. 0 (default) adds no prior history (just that line); 1 adds the latest user message onward.<br/>
         /// Default Value: 0
         /// </summary>
@@ -96,6 +104,10 @@ namespace ElevenLabs
         /// LLM model to use for custom guardrail evaluation<br/>
         /// Default Value: gemini-3.1-flash-lite
         /// </param>
+        /// <param name="serviceTier">
+        /// Service tier of the model, trading a per-token price premium for higher token throughput. Only available for some models.<br/>
+        /// Default Value: standard
+        /// </param>
         /// <param name="historyMessageCount">
         /// How much recent history the guardrail sees before the reply it evaluates, counted in user messages (the agent replies between them are included too). The guardrail always gets a single &lt;conversation_history&gt; transcript ending in the evaluated reply, marked 'AGENT [current reply]:'. 0 (default) adds no prior history (just that line); 1 adds the latest user message onward.<br/>
         /// Default Value: 0
@@ -118,6 +130,7 @@ namespace ElevenLabs
             bool? isEnabled,
             global::ElevenLabs.GuardrailExecutionMode? executionMode,
             global::ElevenLabs.CustomGuardrailConfigModel? model,
+            global::ElevenLabs.LLMServiceTier? serviceTier,
             int? historyMessageCount,
             bool? historyIncludeToolCalls,
             global::ElevenLabs.TriggerAction3? triggerAction,
@@ -128,6 +141,7 @@ namespace ElevenLabs
             this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
             this.ExecutionMode = executionMode;
             this.Model = model;
+            this.ServiceTier = serviceTier;
             this.HistoryMessageCount = historyMessageCount;
             this.HistoryIncludeToolCalls = historyIncludeToolCalls;
             this.TriggerAction = triggerAction;

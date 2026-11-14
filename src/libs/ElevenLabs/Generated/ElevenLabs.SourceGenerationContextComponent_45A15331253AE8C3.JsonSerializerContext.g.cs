@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateGroupSessionSeatsParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0258.Create_UpdateGroupSessionSeatsParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0285.Create_UpdateGroupSessionSeatsParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

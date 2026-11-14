@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Update Staff Member<br/>
         /// Update an existing staff member. Only the fields sent are changed.
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -16,18 +18,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBStaffResourceDBModel> Update4Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionStaffResource> Update4Async(
             string staffId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateStaffRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateStaffRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Staff Member<br/>
         /// Update an existing staff member. Only the fields sent are changed.
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -35,18 +39,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBStaffResourceDBModel>> Update4AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionStaffResource>> Update4AsResponseAsync(
             string staffId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateStaffRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateStaffRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Staff Member<br/>
         /// Update an existing staff member. Only the fields sent are changed.
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -74,7 +80,9 @@ namespace ElevenLabs
         /// <param name="smsNotificationsOptedIn">
         /// Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.
         /// </param>
-        /// <param name="photoUrl"></param>
+        /// <param name="photoUrl">
+        /// URL of a photo of the staff member.
+        /// </param>
         /// <param name="locationId">
         /// Location this staff member is assigned to; empty means available at all locations.
         /// </param>
@@ -90,10 +98,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBStaffResourceDBModel> Update4Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionStaffResource> Update4Async(
             string staffId,
-            string? xiWorkspaceId = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            string xiWorkspaceId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? name = default,
             string? description = default,

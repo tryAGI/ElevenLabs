@@ -28,12 +28,14 @@ namespace ElevenLabs
         partial void PrepareCreate19Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            global::ElevenLabs.BodyCreateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsPost request);
+            ref string branchId,
+            global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request);
         partial void PrepareCreate19Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.BodyCreateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsPost request);
+            string branchId,
+            global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request);
         partial void ProcessCreate19Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,25 +46,30 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create A Merge Proposal<br/>
-        /// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+        /// Create Agent Draft<br/>
+        /// Create a new draft for an agent
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="branchId">
+        /// The ID of the agent branch to use
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentMergeProposalResponseModel> Create19Async(
+        public async global::System.Threading.Tasks.Task<string> Create19Async(
             string agentId,
+            string branchId,
 
-            global::ElevenLabs.BodyCreateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsPost request,
+            global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create19AsResponseAsync(
                 agentId: agentId,
+                branchId: branchId,
 
                 request: request,
                 requestOptions: requestOptions,
@@ -72,20 +79,24 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create A Merge Proposal<br/>
-        /// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+        /// Create Agent Draft<br/>
+        /// Create a new draft for an agent
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="branchId">
+        /// The ID of the agent branch to use
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentMergeProposalResponseModel>> Create19AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Create19AsResponseAsync(
             string agentId,
+            string branchId,
 
-            global::ElevenLabs.BodyCreateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsPost request,
+            global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -98,6 +109,7 @@ namespace ElevenLabs
             PrepareCreate19Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
+                branchId: ref branchId,
                 request: request);
 
 
@@ -124,8 +136,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/merge-proposals",
+                                path: $"/v1/convai/agents/{agentId}/drafts",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddRequiredParameter("branch_id", branchId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -173,6 +188,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
+                    branchId: branchId,
                     request: request);
 
                 return __httpRequest;
@@ -192,7 +208,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create19",
                                 methodName: "Create19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -226,7 +242,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create19",
                                 methodName: "Create19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -267,7 +283,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create19",
                                 methodName: "Create19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -315,7 +331,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create19",
                                 methodName: "Create19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -337,7 +353,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create19",
                                 methodName: "Create19Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/drafts\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -411,13 +427,11 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.CreateAgentMergeProposalResponseModel.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentMergeProposalResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -437,19 +451,17 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.CreateAgentMergeProposalResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentMergeProposalResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -486,56 +498,57 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create A Merge Proposal<br/>
-        /// Record a request to merge a source branch into a target branch. Anyone with edit access can open one; merging it later is gated on write access to the target branch, so this is how a change reaches a protected branch the author cannot merge into themselves.
+        /// Create Agent Draft<br/>
+        /// Create a new draft for an agent
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="sourceBranchId">
-        /// Branch whose changes should be merged.
+        /// <param name="branchId">
+        /// The ID of the agent branch to use
         /// </param>
-        /// <param name="targetBranchId">
-        /// Branch that should receive the changes.
+        /// <param name="conversationConfig">
+        /// Conversation config for the draft
         /// </param>
-        /// <param name="title">
-        /// Short title for the merge_proposal.
+        /// <param name="platformSettings">
+        /// Platform settings for the draft
         /// </param>
-        /// <param name="description">
-        /// Optional longer description for reviewers.
+        /// <param name="workflow">
+        /// Workflow for the draft<br/>
+        /// Example: {"edges":{"entry_to_tool_a":{"forward_condition":{"condition":"Tool A condition"},"source":"entry_node","target":"tool_node_a"},"start_to_entry":{"forward_condition":{},"source":"start_node","target":"entry_node"},"tool_a_to_failure":{"forward_condition":{"successful":false},"source":"tool_node_a","target":"failure_node"},"tool_a_to_tool_b":{"forward_condition":{"successful":true},"source":"tool_node_a","target":"tool_node_b"},"tool_b_to_agent_transfer":{"forward_condition":{},"source":"tool_node_b","target":"success_transfer"},"tool_b_to_conversation":{"forward_condition":{"condition":"Conversation condition"},"source":"tool_node_b","target":"success_conversation"},"tool_b_to_end":{"forward_condition":{"condition":"End condition"},"source":"tool_node_b","target":"success_end"},"tool_b_to_phone":{"forward_condition":{"expression":{"children":[{"name":"force_phone_transfer"},{"prompt":"Phone condition","value_schema":{"description":"Phone condition","type":"boolean"}},{"left":{"name":"mode"},"right":{"value":"dev"}}]}},"source":"tool_node_b","target":"success_phone"}},"nodes":{"entry_node":{"conversation_config":{},"edge_order":["entry_to_tool_a"],"label":"Entry"},"failure_node":{"conversation_config":{},"label":"Failure"},"start_node":{"edge_order":["start_to_entry"]},"success_conversation":{"conversation_config":{},"label":"Success A"},"success_end":{},"success_phone":{"transfer_destination":{"phone_number":"\u002B1234567890"}},"success_transfer":{"agent_id":"success_transfer_agent"},"tool_node_a":{"edge_order":["tool_a_to_failure","tool_a_to_tool_b"],"tools":[{"tool_id":"tool_a"},{"tool_id":"tool_b"}]},"tool_node_b":{"edge_order":["tool_b_to_conversation","tool_b_to_end","tool_b_to_phone","tool_b_to_agent_transfer"],"tools":[{"tool_id":"tool_a"}]}}}
         /// </param>
-        /// <param name="requestedReviewerUserIds">
-        /// User IDs to request a review from.
+        /// <param name="name">
+        /// Name for the draft
         /// </param>
-        /// <param name="triageTicketId">
-        /// Triage ticket of this agent that the merge_proposal resolves. Merging it resolves the ticket if still open.
+        /// <param name="tags">
+        /// Tags to help classify and filter the agent
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentMergeProposalResponseModel> Create19Async(
+        public async global::System.Threading.Tasks.Task<string> Create19Async(
             string agentId,
-            string sourceBranchId,
-            string targetBranchId,
-            string title,
-            string? description = default,
-            global::System.Collections.Generic.IList<string>? requestedReviewerUserIds = default,
-            string? triageTicketId = default,
+            string branchId,
+            object conversationConfig,
+            object platformSettings,
+            global::ElevenLabs.AgentWorkflowRequestModel workflow,
+            string name,
+            global::System.Collections.Generic.IList<string>? tags = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateAMergeProposalV1ConvaiAgentsAgentIdMergeProposalsPost
+            var __request = new global::ElevenLabs.BodyCreateAgentDraftV1ConvaiAgentsAgentIdDraftsPost
             {
-                SourceBranchId = sourceBranchId,
-                TargetBranchId = targetBranchId,
-                Title = title,
-                Description = description,
-                RequestedReviewerUserIds = requestedReviewerUserIds,
-                TriageTicketId = triageTicketId,
+                ConversationConfig = conversationConfig,
+                PlatformSettings = platformSettings,
+                Workflow = workflow,
+                Name = name,
+                Tags = tags,
             };
 
             return await Create19Async(
                 agentId: agentId,
+                branchId: branchId,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

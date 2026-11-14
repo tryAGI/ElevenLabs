@@ -32,23 +32,23 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ArraySchema))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0014.Create_ArraySchema(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0015.Create_ArraySchema(options);
                 }
                 if (type == typeof(global::ElevenLabs.ContentSchema))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0039.Create_ContentSchema2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0044.Create_ContentSchema2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ObjectSchema))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0149.Create_ObjectSchema(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0164.Create_ObjectSchema(options);
                 }
                 if (type == typeof(global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.ContentSchema>))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0219.Create_SourceGenerationContextMetadataType_A75EB51312C893EE(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0240.Create_SourceGenerationContextMetadataType_A75EB51312C893EE(options);
                 }
                 if (type == typeof(global::ElevenLabs.ContentSchema?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0111.Create_NullableContentSchema2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0121.Create_NullableContentSchema2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

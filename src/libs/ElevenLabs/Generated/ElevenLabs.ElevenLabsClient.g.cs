@@ -120,6 +120,15 @@ namespace ElevenLabs
         };
 
         /// <summary>
+        ///
+        /// </summary>
+        public ContentProvenanceClient ContentProvenance => new ContentProvenanceClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContextProvider = JsonSerializerContextProvider,
+        };
+
+        /// <summary>
         /// Build and manage conversational AI agents (legacy tag — see also Agents Platform).
         /// </summary>
         public ConversationalAiClient ConversationalAi => new ConversationalAiClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)

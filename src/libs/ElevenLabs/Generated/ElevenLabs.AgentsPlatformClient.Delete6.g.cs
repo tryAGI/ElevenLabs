@@ -27,55 +27,44 @@ namespace ElevenLabs
             };
         partial void PrepareDelete6Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string phoneNumberId);
+            ref string tagId);
         partial void PrepareDelete6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string phoneNumberId);
+            string tagId);
         partial void ProcessDelete6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDelete6ResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Delete Phone Number<br/>
-        /// Delete Phone Number by ID
+        /// Delete Conversation Tag<br/>
+        /// Delete a conversation tag. Restricted to the tag owner or a workspace admin.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The phone number ID. This is returned when a phone number is imported.
-        /// </param>
+        /// <param name="tagId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Delete6Async(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task Delete6Async(
+            string tagId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await Delete6AsResponseAsync(
-                phoneNumberId: phoneNumberId,
+            await Delete6AsResponseAsync(
+                tagId: tagId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
-
-            return __response.Body;
         }
         /// <summary>
-        /// Delete Phone Number<br/>
-        /// Delete Phone Number by ID
+        /// Delete Conversation Tag<br/>
+        /// Delete a conversation tag. Restricted to the tag owner or a workspace admin.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The phone number ID. This is returned when a phone number is imported.
-        /// </param>
+        /// <param name="tagId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete6AsResponseAsync(
-            string phoneNumberId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse> Delete6AsResponseAsync(
+            string tagId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +74,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete6Arguments(
                 httpClient: HttpClient,
-                phoneNumberId: ref phoneNumberId);
+                tagId: ref tagId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,7 +100,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
+                                path: $"/v1/convai/tags/{tagId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -153,7 +142,7 @@ namespace ElevenLabs
                 PrepareDelete6Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    phoneNumberId: phoneNumberId);
+                    tagId: tagId);
 
                 return __httpRequest;
             }
@@ -172,7 +161,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -206,7 +195,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -247,7 +236,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -295,7 +284,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -317,7 +306,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete6",
                                 methodName: "Delete6Async",
-                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
+                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -382,20 +371,15 @@ namespace ElevenLabs
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDelete6ResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
 
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -415,17 +399,10 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
-                #if NET5_0_OR_GREATER
-                                        __effectiveCancellationToken
-                #endif
-                                    ).ConfigureAwait(false);
-
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        requestUri: __response.RequestMessage?.RequestUri);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

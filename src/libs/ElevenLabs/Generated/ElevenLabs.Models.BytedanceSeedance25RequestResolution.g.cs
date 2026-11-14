@@ -20,6 +20,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        x4k,
+        /// <summary>
+        ///
+        /// </summary>
         x720p,
     }
 
@@ -37,6 +41,7 @@ namespace ElevenLabs
             {
                 BytedanceSeedance25RequestResolution.x1080p => "1080p",
                 BytedanceSeedance25RequestResolution.x480p => "480p",
+                BytedanceSeedance25RequestResolution.x4k => "4k",
                 BytedanceSeedance25RequestResolution.x720p => "720p",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -50,6 +55,7 @@ namespace ElevenLabs
             {
                 "1080p" => BytedanceSeedance25RequestResolution.x1080p,
                 "480p" => BytedanceSeedance25RequestResolution.x480p,
+                "4k" => BytedanceSeedance25RequestResolution.x4k,
                 "720p" => BytedanceSeedance25RequestResolution.x720p,
                 _ => null,
             };

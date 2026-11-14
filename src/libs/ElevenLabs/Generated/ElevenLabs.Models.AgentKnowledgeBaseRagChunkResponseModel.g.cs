@@ -49,7 +49,7 @@ namespace ElevenLabs
         public double? VectorDistance { get; set; }
 
         /// <summary>
-        /// Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML.<br/>
+        /// Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML. Keyword search always returns markdown, including the plain text it indexes for HTML documents.<br/>
         /// Default Value: html
         /// </summary>
         /// <default>global::ElevenLabs.ContentFormat.Html</default>
@@ -88,7 +88,7 @@ namespace ElevenLabs
         /// Text content of the retrieved chunk.
         /// </param>
         /// <param name="contentFormat">
-        /// Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML.<br/>
+        /// Format of the chunk text. Markdown chunks contain raw markdown; HTML chunks contain HTML. Keyword search always returns markdown, including the plain text it indexes for HTML documents.<br/>
         /// Default Value: html
         /// </param>
         /// <param name="documentType">

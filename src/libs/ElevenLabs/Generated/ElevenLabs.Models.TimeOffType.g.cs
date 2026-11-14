@@ -4,20 +4,20 @@
 namespace ElevenLabs
 {
     /// <summary>
-    ///
+    /// What a time-off entry blocks: a staff member, an asset, or a location.
     /// </summary>
     public enum TimeOffType
     {
         /// <summary>
-        ///
+        /// a staff member, an asset, or a location.
         /// </summary>
         Asset,
         /// <summary>
-        ///
+        /// a staff member, an asset, or a location.
         /// </summary>
         Location,
         /// <summary>
-        ///
+        /// a staff member, an asset, or a location.
         /// </summary>
         Staff,
     }

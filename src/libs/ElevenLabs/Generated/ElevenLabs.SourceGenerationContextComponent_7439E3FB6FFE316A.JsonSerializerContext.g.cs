@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkflowToolNodeModelInput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0273.Create_WorkflowToolNodeModelInput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0302.Create_WorkflowToolNodeModelInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

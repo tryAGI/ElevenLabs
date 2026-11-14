@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_672C85ABE3ABF3EF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6867640151F33071.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B3147F30CA304EE6.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_2023E244CCF0FEF8.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_672C85ABE3ABF3EF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6867640151F33071.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AgentsItem4))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0010.Create_AgentsItem42(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0011.Create_AgentsItem42(options);
                 }
                 if (type == typeof(global::ElevenLabs.AgentsItem4?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0102.Create_NullableAgentsItem42(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0111.Create_NullableAgentsItem42(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

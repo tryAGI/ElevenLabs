@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TopicEvaluationCriteriaAggregate))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0252.Create_TopicEvaluationCriteriaAggregate(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0276.Create_TopicEvaluationCriteriaAggregate(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

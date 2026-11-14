@@ -44,7 +44,7 @@ namespace ElevenLabs
         public required bool NeedsClustering { get; set; }
 
         /// <summary>
-        /// One-line headline for the ticket. None only on tickets created before titles existed.
+        /// One-line headline for the agent issue. None only on issues created before titles existed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
@@ -130,7 +130,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.TicketStatusChangeResponseModel> StatusChanges { get; set; }
 
         /// <summary>
-        /// The ticket this one was merged into, set while its status is 'merged'.
+        /// The agent issue this one was merged into, set while its status is 'merged'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("merged_into_ticket_id")]
         public string? MergedIntoTicketId { get; set; }
@@ -194,7 +194,7 @@ namespace ElevenLabs
         /// <param name="createdAtUnixSecs"></param>
         /// <param name="updatedAtUnixSecs"></param>
         /// <param name="title">
-        /// One-line headline for the ticket. None only on tickets created before titles existed.
+        /// One-line headline for the agent issue. None only on issues created before titles existed.
         /// </param>
         /// <param name="issueType"></param>
         /// <param name="firstSeenUnixSecs"></param>
@@ -202,7 +202,7 @@ namespace ElevenLabs
         /// <param name="qaComment"></param>
         /// <param name="priority"></param>
         /// <param name="mergedIntoTicketId">
-        /// The ticket this one was merged into, set while its status is 'merged'.
+        /// The agent issue this one was merged into, set while its status is 'merged'.
         /// </param>
         /// <param name="assigneeUserId"></param>
         /// <param name="searchMatch">

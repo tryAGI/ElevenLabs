@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AnalysisItemAttachmentDestination))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0011.Create_AnalysisItemAttachmentDestination(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0013.Create_AnalysisItemAttachmentDestination(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

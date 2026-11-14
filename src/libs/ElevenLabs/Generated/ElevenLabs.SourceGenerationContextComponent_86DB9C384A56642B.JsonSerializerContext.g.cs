@@ -30,11 +30,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::System.DateTimeOffset))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0055.Create_DateTimeOffset(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0060.Create_DateTimeOffset(options);
                 }
                 if (type == typeof(global::System.DateTimeOffset?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0114.Create_NullableDateTimeOffset(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0124.Create_NullableDateTimeOffset(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);
