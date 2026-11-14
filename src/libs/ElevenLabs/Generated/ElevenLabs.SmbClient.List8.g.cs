@@ -32,7 +32,7 @@ namespace ElevenLabs
             ref global::ElevenLabs.TimeOffType? timeOffType,
             ref string? resourceId,
             ref string? locationId,
-            ref string? xiWorkspaceId);
+            ref string xiWorkspaceId);
         partial void PrepareList8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -41,7 +41,7 @@ namespace ElevenLabs
             global::ElevenLabs.TimeOffType? timeOffType,
             string? resourceId,
             string? locationId,
-            string? xiWorkspaceId);
+            string xiWorkspaceId);
         partial void ProcessList8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -77,22 +77,22 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>> List8Async(
+            string xiWorkspaceId,
             int? startUnix = default,
             int? endUnix = default,
             global::ElevenLabs.TimeOffType? timeOffType = default,
             string? resourceId = default,
             string? locationId = default,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List8AsResponseAsync(
+                xiWorkspaceId: xiWorkspaceId,
                 startUnix: startUnix,
                 endUnix: endUnix,
                 timeOffType: timeOffType,
                 resourceId: resourceId,
                 locationId: locationId,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -125,12 +125,12 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>> List8AsResponseAsync(
+            string xiWorkspaceId,
             int? startUnix = default,
             int? endUnix = default,
             global::ElevenLabs.TimeOffType? timeOffType = default,
             string? resourceId = default,
             string? locationId = default,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -210,10 +210,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

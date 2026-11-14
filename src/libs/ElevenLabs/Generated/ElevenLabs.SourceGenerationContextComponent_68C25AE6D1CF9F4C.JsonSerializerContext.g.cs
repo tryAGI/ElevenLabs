@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.CustomLLM))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0054.Create_CustomLLM(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0059.Create_CustomLLM(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

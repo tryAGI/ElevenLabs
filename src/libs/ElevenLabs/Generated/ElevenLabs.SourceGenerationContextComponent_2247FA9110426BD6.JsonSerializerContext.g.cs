@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0026.Create_BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0028.Create_BodyRegisterMediaV1ProductionsOrdersOrderIdMediaPost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

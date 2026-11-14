@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    ///
+    /// The member's new role.
     /// </summary>
     public enum BodySmbUpdateTeamMemberRoleRole
     {

@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DynamicVariableSchemaOverride))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0064.Create_DynamicVariableSchemaOverride(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0069.Create_DynamicVariableSchemaOverride(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

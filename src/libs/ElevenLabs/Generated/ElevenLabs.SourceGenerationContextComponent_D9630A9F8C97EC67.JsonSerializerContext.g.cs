@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ListClientsParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0090.Create_ListClientsParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0099.Create_ListClientsParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

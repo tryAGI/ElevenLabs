@@ -38,7 +38,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Delete Agent Conversation Ticket<br/>
-        /// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+        /// Delete an agent issue. Restricted to the issue creator or a workspace admin.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -57,7 +57,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Delete Agent Conversation Ticket<br/>
-        /// Delete an agent conversation ticket. Restricted to the ticket creator or a workspace admin.
+        /// Delete an agent issue. Restricted to the issue creator or a workspace admin.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

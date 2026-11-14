@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareList7Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiWorkspaceId);
+            ref string xiWorkspaceId);
         partial void PrepareList7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiWorkspaceId);
+            string xiWorkspaceId);
         partial void ProcessList7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,8 +51,8 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>> List7Async(
-            string? xiWorkspaceId = default,
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>> List7Async(
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,8 +74,8 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>>> List7AsResponseAsync(
-            string? xiWorkspaceId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>>> List7AsResponseAsync(
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -143,10 +143,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -397,9 +394,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>))) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>))) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -429,9 +426,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>))).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>))).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBPhoneAssignmentDBModel>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionPhoneAssignment>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

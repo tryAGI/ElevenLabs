@@ -28,12 +28,12 @@ namespace ElevenLabs
         partial void PrepareDelete4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string staffId,
-            ref string? xiWorkspaceId);
+            ref string xiWorkspaceId);
         partial void PrepareDelete4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string staffId,
-            string? xiWorkspaceId);
+            string xiWorkspaceId);
         partial void ProcessDelete4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -47,7 +47,9 @@ namespace ElevenLabs
         /// Delete Staff Member<br/>
         /// Delete a staff member
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -56,7 +58,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Delete4Async(
             string staffId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -73,7 +75,9 @@ namespace ElevenLabs
         /// Delete Staff Member<br/>
         /// Delete a staff member
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -82,7 +86,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Delete4AsResponseAsync(
             string staffId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -151,10 +155,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

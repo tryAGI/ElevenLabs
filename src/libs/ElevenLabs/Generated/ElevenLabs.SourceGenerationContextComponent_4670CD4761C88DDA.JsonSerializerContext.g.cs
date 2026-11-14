@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_05BF36C073875770.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A2FC484C4923115D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BC89E4D8000E012B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C3CB84E0EB4CC249.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D5273FB248EAB436.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_05BF36C073875770.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A2FC484C4923115D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BC89E4D8000E012B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C3CB84E0EB4CC249.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D5273FB248EAB436.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkflowOverrideAgentNodeModelInput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0271.Create_WorkflowOverrideAgentNodeModelInput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0300.Create_WorkflowOverrideAgentNodeModelInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

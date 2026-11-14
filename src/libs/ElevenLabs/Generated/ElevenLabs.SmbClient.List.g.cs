@@ -30,16 +30,16 @@ namespace ElevenLabs
             ref string? staffId,
             ref string? assetId,
             bool? isActive,
-            ref global::ElevenLabs.SMBServiceKind? kind,
-            ref string? xiWorkspaceId);
+            ref global::ElevenLabs.ReceptionServiceKind? kind,
+            ref string xiWorkspaceId);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? staffId,
             string? assetId,
             bool? isActive,
-            global::ElevenLabs.SMBServiceKind? kind,
-            string? xiWorkspaceId);
+            global::ElevenLabs.ReceptionServiceKind? kind,
+            string xiWorkspaceId);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -53,31 +53,39 @@ namespace ElevenLabs
         /// Get All Services<br/>
         /// Get all services for the current workspace with optional filters
         /// </summary>
-        /// <param name="staffId"></param>
-        /// <param name="assetId"></param>
-        /// <param name="isActive"></param>
-        /// <param name="kind"></param>
+        /// <param name="staffId">
+        /// Only services this staff member performs.
+        /// </param>
+        /// <param name="assetId">
+        /// Only services that book this asset.
+        /// </param>
+        /// <param name="isActive">
+        /// Only active (`true`) or inactive (`false`) services.
+        /// </param>
+        /// <param name="kind">
+        /// Only services of this kind.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>> ListAsync(
+        public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>> ListAsync(
+            string xiWorkspaceId,
             string? staffId = default,
             string? assetId = default,
             bool? isActive = default,
-            global::ElevenLabs.SMBServiceKind? kind = default,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionServiceKind? kind = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await ListAsResponseAsync(
+                xiWorkspaceId: xiWorkspaceId,
                 staffId: staffId,
                 assetId: assetId,
                 isActive: isActive,
                 kind: kind,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -88,22 +96,30 @@ namespace ElevenLabs
         /// Get All Services<br/>
         /// Get all services for the current workspace with optional filters
         /// </summary>
-        /// <param name="staffId"></param>
-        /// <param name="assetId"></param>
-        /// <param name="isActive"></param>
-        /// <param name="kind"></param>
+        /// <param name="staffId">
+        /// Only services this staff member performs.
+        /// </param>
+        /// <param name="assetId">
+        /// Only services that book this asset.
+        /// </param>
+        /// <param name="isActive">
+        /// Only active (`true`) or inactive (`false`) services.
+        /// </param>
+        /// <param name="kind">
+        /// Only services of this kind.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>>> ListAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>>> ListAsResponseAsync(
+            string xiWorkspaceId,
             string? staffId = default,
             string? assetId = default,
             bool? isActive = default,
-            global::ElevenLabs.SMBServiceKind? kind = default,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionServiceKind? kind = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -181,10 +197,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -439,9 +452,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>))) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>?)global::System.Text.Json.JsonSerializer.Deserialize(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>))) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -471,9 +484,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>))).ConfigureAwait(false) ??
+                                    var __value = (global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>?)await global::System.Text.Json.JsonSerializer.DeserializeAsync(__content, JsonSerializerContext.Options.GetTypeInfo(typeof(global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>))).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.SMBServiceDBModel>>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionService>>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

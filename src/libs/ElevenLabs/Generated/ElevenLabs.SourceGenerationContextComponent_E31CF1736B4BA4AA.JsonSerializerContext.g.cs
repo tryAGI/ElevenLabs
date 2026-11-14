@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodySmbCancelTeamInvite))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0027.Create_BodySmbCancelTeamInvite(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0029.Create_BodySmbCancelTeamInvite(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

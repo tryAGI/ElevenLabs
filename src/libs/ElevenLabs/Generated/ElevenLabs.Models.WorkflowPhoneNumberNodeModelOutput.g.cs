@@ -13,15 +13,15 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_sip_headers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3> CustomSipHeaders { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem5> CustomSipHeaders { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination3JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination15JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TransferDestination3 TransferDestination { get; set; }
+        public required global::ElevenLabs.TransferDestination15 TransferDestination { get; set; }
 
         /// <summary>
         /// Default Value: conference
@@ -50,7 +50,7 @@ namespace ElevenLabs
         /// DTMF digits to send after call connects (e.g., 'ww1234' for extension). Can be either a static value or a dynamic variable reference. Use 'w' for 0.5s pause. Only supported for Twilio transfers.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("post_dial_digits")]
-        public global::ElevenLabs.PostDialDigitsVariant13? PostDialDigits { get; set; }
+        public global::ElevenLabs.PostDialDigitsVariant17? PostDialDigits { get; set; }
 
         /// <summary>
         /// Default Value: phone_number
@@ -72,6 +72,13 @@ namespace ElevenLabs
         [global::System.Text.Json.Serialization.JsonPropertyName("edge_order")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> EdgeOrder { get; set; }
+
+        /// <summary>
+        /// Per-provider transfer configuration. Mutually exclusive with a non-empty `transfer_destination`: when present, the configuration matching the call's telephony provider is executed and the legacy transfer fields are ignored.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("provider_configs")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ProviderConfigsItem4> ProviderConfigs { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -99,6 +106,9 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
+        /// <param name="providerConfigs">
+        /// Per-provider transfer configuration. Mutually exclusive with a non-empty `transfer_destination`: when present, the configuration matching the call's telephony provider is executed and the legacy transfer fields are ignored.
+        /// </param>
         /// <param name="uui">
         /// User-to-User Information (RFC 7433) to attach to SIP REFER transfers. Carries call context such as CRM identifiers or escalation reason across the transfer boundary.
         /// </param>
@@ -112,14 +122,15 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WorkflowPhoneNumberNodeModelOutput(
-            global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem3> customSipHeaders,
-            global::ElevenLabs.TransferDestination3 transferDestination,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem5> customSipHeaders,
+            global::ElevenLabs.TransferDestination15 transferDestination,
             global::ElevenLabs.TransferTypeEnum transferType,
             bool sipReferPlayDialtone,
             global::ElevenLabs.PositionOutput position,
             global::System.Collections.Generic.IList<string> edgeOrder,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ProviderConfigsItem4> providerConfigs,
             global::ElevenLabs.UUITransferConfig? uui,
-            global::ElevenLabs.PostDialDigitsVariant13? postDialDigits,
+            global::ElevenLabs.PostDialDigitsVariant17? postDialDigits,
             string type = "phone_number")
         {
             this.CustomSipHeaders = customSipHeaders ?? throw new global::System.ArgumentNullException(nameof(customSipHeaders));
@@ -131,6 +142,7 @@ namespace ElevenLabs
             this.Type = type;
             this.Position = position ?? throw new global::System.ArgumentNullException(nameof(position));
             this.EdgeOrder = edgeOrder ?? throw new global::System.ArgumentNullException(nameof(edgeOrder));
+            this.ProviderConfigs = providerConfigs ?? throw new global::System.ArgumentNullException(nameof(providerConfigs));
         }
 
         /// <summary>

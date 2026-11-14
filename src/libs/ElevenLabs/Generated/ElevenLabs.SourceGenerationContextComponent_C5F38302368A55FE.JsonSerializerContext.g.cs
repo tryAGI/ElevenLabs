@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ExotelOutboundCallResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0067.Create_ExotelOutboundCallResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0073.Create_ExotelOutboundCallResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0156.Create_PhoneNumberTransferTransferDestinationDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0171.Create_PhoneNumberTransferTransferDestinationDiscriminatorType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.PhoneNumberTransferTransferDestinationDiscriminatorType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0130.Create_NullablePhoneNumberTransferTransferDestinationDiscriminatorType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0142.Create_NullablePhoneNumberTransferTransferDestinationDiscriminatorType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_0963E47EE1CA68D9.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_462B97FF82942ED5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6D6C967809EAF86C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_70E54118529F6D81.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9A1D78F6432C17D5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A047E4F5DD818D86.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C349B7498BEE2BAF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D7599BC8C3196711.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_0963E47EE1CA68D9.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_462B97FF82942ED5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6D6C967809EAF86C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_70E54118529F6D81.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9A1D78F6432C17D5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A047E4F5DD818D86.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_A20A21F8D92AE0AF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C349B7498BEE2BAF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D7599BC8C3196711.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetKnowledgeBaseSummaryFileResponseModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0076.Create_GetKnowledgeBaseSummaryFileResponseModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0084.Create_GetKnowledgeBaseSummaryFileResponseModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

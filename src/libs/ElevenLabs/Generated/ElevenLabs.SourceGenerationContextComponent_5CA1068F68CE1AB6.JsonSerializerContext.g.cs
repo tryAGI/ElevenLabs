@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.LLMCategoryUsage))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0087.Create_LLMCategoryUsage(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0095.Create_LLMCategoryUsage(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

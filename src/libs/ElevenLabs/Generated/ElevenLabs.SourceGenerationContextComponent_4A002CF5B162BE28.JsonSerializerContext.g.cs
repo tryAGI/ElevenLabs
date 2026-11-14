@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.UpdateTransferRuleParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0260.Create_UpdateTransferRuleParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0288.Create_UpdateTransferRuleParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

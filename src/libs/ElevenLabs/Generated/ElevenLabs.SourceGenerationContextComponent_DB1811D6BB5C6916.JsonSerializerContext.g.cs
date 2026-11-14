@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0043.Create_ConversationHistoryTranscriptOtherToolsResultCommonModelType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0048.Create_ConversationHistoryTranscriptOtherToolsResultCommonModelType2(options);
                 }
                 if (type == typeof(global::ElevenLabs.ConversationHistoryTranscriptOtherToolsResultCommonModelType?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0112.Create_NullableConversationHistoryTranscriptOtherToolsResultCommonModelType2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0122.Create_NullableConversationHistoryTranscriptOtherToolsResultCommonModelType2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

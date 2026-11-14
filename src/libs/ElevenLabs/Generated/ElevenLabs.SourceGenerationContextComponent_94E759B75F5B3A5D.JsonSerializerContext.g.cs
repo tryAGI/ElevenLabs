@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ToolInputSchema))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0250.Create_ToolInputSchema(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0275.Create_ToolInputSchema(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

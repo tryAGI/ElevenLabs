@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Add Turn Comment To Agent Conversation Ticket<br/>
-        /// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+        /// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -71,7 +71,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Add Turn Comment To Agent Conversation Ticket<br/>
-        /// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+        /// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -483,7 +483,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Add Turn Comment To Agent Conversation Ticket<br/>
-        /// Append a turn-level comment to a ticket. Requires viewer access to the ticket's agent.
+        /// Append a turn-level comment to an agent issue. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="turnIndex">

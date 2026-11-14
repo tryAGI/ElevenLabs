@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.GetAgentKnowledgeBaseSummariesRouteResponse))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0072.Create_GetAgentKnowledgeBaseSummariesRouteResponse(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0079.Create_GetAgentKnowledgeBaseSummariesRouteResponse(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

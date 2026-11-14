@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Add Comment To Agent Conversation Ticket<br/>
-        /// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+        /// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -71,7 +71,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Add Comment To Agent Conversation Ticket<br/>
-        /// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+        /// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -483,11 +483,11 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Add Comment To Agent Conversation Ticket<br/>
-        /// Append a comment discussing how to resolve the ticket. Requires viewer access to the ticket's agent.
+        /// Append a comment discussing how to resolve the agent issue. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="comment">
-        /// A comment discussing how to resolve the ticket.
+        /// A comment discussing how to resolve the agent issue.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -30,11 +30,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(int))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0084.Create_Int32(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0092.Create_Int32(options);
                 }
                 if (type == typeof(int?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0123.Create_NullableInt32(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0134.Create_NullableInt32(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

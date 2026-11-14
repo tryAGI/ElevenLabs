@@ -28,14 +28,14 @@ namespace ElevenLabs
         partial void PrepareUpdate11Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string locationId,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBLocationRequestPatch request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionLocationRequestPatch request);
         partial void PrepareUpdate11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string locationId,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBLocationRequestPatch request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionLocationRequestPatch request);
         partial void ProcessUpdate11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -49,7 +49,9 @@ namespace ElevenLabs
         /// Update Location<br/>
         /// Update an existing location. Only the fields sent are changed.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="locationId">
+        /// ID of the location. Returned when you create one; list them with `GET /v1/reception/locations`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -57,19 +59,19 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Update11Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionLocationResponse> Update11Async(
             string locationId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBLocationRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionLocationRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update11AsResponseAsync(
                 locationId: locationId,
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,7 +82,9 @@ namespace ElevenLabs
         /// Update Location<br/>
         /// Update an existing location. Only the fields sent are changed.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="locationId">
+        /// ID of the location. Returned when you create one; list them with `GET /v1/reception/locations`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -88,11 +92,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>> Update11AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionLocationResponse>> Update11AsResponseAsync(
             string locationId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBLocationRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionLocationRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -164,10 +168,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -426,9 +427,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.LocationResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionLocationResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionLocationResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -458,9 +459,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.LocationResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionLocationResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionLocationResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -504,7 +505,9 @@ namespace ElevenLabs
         /// Update Location<br/>
         /// Update an existing location. Only the fields sent are changed.
         /// </summary>
-        /// <param name="locationId"></param>
+        /// <param name="locationId">
+        /// ID of the location. Returned when you create one; list them with `GET /v1/reception/locations`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -526,13 +529,15 @@ namespace ElevenLabs
         /// <param name="maxConcurrentAppointments">
         /// Maximum number of appointments that may overlap at this location at a single instant. Only enforced while the booking page setting concurrent_limit_enabled is on.
         /// </param>
-        /// <param name="isActive"></param>
+        /// <param name="isActive">
+        /// Whether the location is active. Inactive locations take no bookings.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Update11Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionLocationResponse> Update11Async(
             string locationId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             string? name = default,
             string? address = default,
             string? notes = default,
@@ -543,7 +548,7 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBLocationRequestPatch
+            var __request = new global::ElevenLabs.ReceptionLocationRequestPatch
             {
                 Name = name,
                 Address = address,

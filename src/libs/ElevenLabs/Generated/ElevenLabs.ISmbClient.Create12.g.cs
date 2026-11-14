@@ -16,9 +16,9 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Create12Async(
+            string xiWorkspaceId,
 
             global::ElevenLabs.CreateTeamInviteRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -33,9 +33,9 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Create12AsResponseAsync(
+            string xiWorkspaceId,
 
             global::ElevenLabs.CreateTeamInviteRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -45,16 +45,19 @@ namespace ElevenLabs
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="email"></param>
+        /// <param name="email">
+        /// The email address to invite.
+        /// </param>
         /// <param name="role">
+        /// The role the invitee joins with: 'workspace_admin' or 'workspace_member'.<br/>
         /// Default Value: workspace_member
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Create12Async(
+            string xiWorkspaceId,
             string email,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.CreateTeamInviteRequestRole? role = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

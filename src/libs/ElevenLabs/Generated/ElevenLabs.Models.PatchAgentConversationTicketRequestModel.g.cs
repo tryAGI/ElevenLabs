@@ -9,31 +9,31 @@ namespace ElevenLabs
     public sealed partial class PatchAgentConversationTicketRequestModel
     {
         /// <summary>
-        /// If provided, updates the ticket title. Omit to leave unchanged.
+        /// If provided, updates the agent issue's title. Omit to leave unchanged.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        /// If provided, updates the ticket description. Omit to leave unchanged.
+        /// If provided, updates the agent issue's description. Omit to leave unchanged.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("qa_comment")]
         public string? QaComment { get; set; }
 
         /// <summary>
-        /// If provided, updates the ticket status. Omit to leave unchanged.
+        /// If provided, updates the agent issue's status. Omit to leave unchanged.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         public global::ElevenLabs.AgentConversationTicketStatus? Status { get; set; }
 
         /// <summary>
-        /// If provided, updates who is responsible for resolving this ticket. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged.
+        /// If provided, updates who is responsible for resolving this agent issue. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("assignee_user_id")]
         public string? AssigneeUserId { get; set; }
 
         /// <summary>
-        /// If provided, updates how urgently the ticket needs attention. Pass null to clear it. Omit to leave unchanged.
+        /// If provided, updates how urgently the agent issue needs attention. Pass null to clear it. Omit to leave unchanged.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("priority")]
         public global::ElevenLabs.AgentConversationTicketPriority? Priority { get; set; }
@@ -48,19 +48,19 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="PatchAgentConversationTicketRequestModel" /> class.
         /// </summary>
         /// <param name="title">
-        /// If provided, updates the ticket title. Omit to leave unchanged.
+        /// If provided, updates the agent issue's title. Omit to leave unchanged.
         /// </param>
         /// <param name="qaComment">
-        /// If provided, updates the ticket description. Omit to leave unchanged.
+        /// If provided, updates the agent issue's description. Omit to leave unchanged.
         /// </param>
         /// <param name="status">
-        /// If provided, updates the ticket status. Omit to leave unchanged.
+        /// If provided, updates the agent issue's status. Omit to leave unchanged.
         /// </param>
         /// <param name="assigneeUserId">
-        /// If provided, updates who is responsible for resolving this ticket. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged.
+        /// If provided, updates who is responsible for resolving this agent issue. Must be a workspace member with at least viewer access to the agent. Pass null to unassign. Omit to leave unchanged.
         /// </param>
         /// <param name="priority">
-        /// If provided, updates how urgently the ticket needs attention. Pass null to clear it. Omit to leave unchanged.
+        /// If provided, updates how urgently the agent issue needs attention. Pass null to clear it. Omit to leave unchanged.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

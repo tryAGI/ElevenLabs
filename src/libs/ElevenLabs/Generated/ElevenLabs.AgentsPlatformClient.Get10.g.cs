@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet10Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? agentId,
-            global::System.Collections.Generic.IList<string>? agentIds);
+            ref string phoneNumberId);
         partial void PrepareGet10Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? agentId,
-            global::System.Collections.Generic.IList<string>? agentIds);
+            string phoneNumberId);
         partial void ProcessGet10Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,27 +42,22 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Live Count<br/>
-        /// Get the live count of the ongoing conversations.
+        /// Get Phone Number<br/>
+        /// Retrieve Phone Number details by ID
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent to restrict the analytics to.
-        /// </param>
-        /// <param name="agentIds">
-        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
+        /// <param name="phoneNumberId">
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get10Async(
-            string? agentId = default,
-            global::System.Collections.Generic.IList<string>? agentIds = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> Get10Async(
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get10AsResponseAsync(
-                agentId: agentId,
-                agentIds: agentIds,
+                phoneNumberId: phoneNumberId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -72,21 +65,17 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Live Count<br/>
-        /// Get the live count of the ongoing conversations.
+        /// Get Phone Number<br/>
+        /// Retrieve Phone Number details by ID
         /// </summary>
-        /// <param name="agentId">
-        /// The id of an agent to restrict the analytics to.
-        /// </param>
-        /// <param name="agentIds">
-        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
+        /// <param name="phoneNumberId">
+        /// The phone number ID. This is returned when a phone number is imported.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>> Get10AsResponseAsync(
-            string? agentId = default,
-            global::System.Collections.Generic.IList<string>? agentIds = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPhoneNumberRouteResponse>> Get10AsResponseAsync(
+            string phoneNumberId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -96,8 +85,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet10Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                agentIds: agentIds);
+                phoneNumberId: ref phoneNumberId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -123,12 +111,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/analytics/live-count",
+                                path: $"/v1/convai/phone-numbers/{phoneNumberId}",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("agent_id", agentId)
-                                .AddOptionalParameter("agent_ids", agentIds, delimiter: ",", explode: true)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -169,8 +153,7 @@ namespace ElevenLabs
                 PrepareGet10Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    agentIds: agentIds);
+                    phoneNumberId: phoneNumberId);
 
                 return __httpRequest;
             }
@@ -189,7 +172,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -223,7 +206,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -264,7 +247,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -312,7 +295,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -334,7 +317,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get10",
                                 methodName: "Get10Async",
-                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
+                                pathTemplate: "$\"/v1/convai/phone-numbers/{phoneNumberId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -408,9 +391,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetLiveCountResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.GetPhoneNumberRouteResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPhoneNumberRouteResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -440,9 +423,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetLiveCountResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.GetPhoneNumberRouteResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPhoneNumberRouteResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

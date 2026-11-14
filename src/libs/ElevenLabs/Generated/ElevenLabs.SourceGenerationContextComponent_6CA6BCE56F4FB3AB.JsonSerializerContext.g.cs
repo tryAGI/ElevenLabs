@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TestFromConversationMetadataOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0247.Create_TestFromConversationMetadataOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0271.Create_TestFromConversationMetadataOutput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

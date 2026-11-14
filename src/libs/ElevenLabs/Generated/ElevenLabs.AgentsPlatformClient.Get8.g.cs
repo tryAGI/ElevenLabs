@@ -27,35 +27,39 @@ namespace ElevenLabs
             };
         partial void PrepareGet8Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string tagId);
+            ref string conversationId,
+            ref string fileId);
         partial void PrepareGet8Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string tagId);
+            string conversationId,
+            string fileId);
         partial void ProcessGet8Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGet8ResponseContent(
-            global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpResponseMessage httpResponseMessage,
-            ref string content);
-
         /// <summary>
-        /// Get Conversation Tag<br/>
-        /// Get a conversation tag by ID.
+        /// Get Conversation File<br/>
+        /// Download a file the user attached to a conversation, including while the conversation is still active.
         /// </summary>
-        /// <param name="tagId"></param>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
+        /// <param name="fileId">
+        /// The file ID returned when it was uploaded.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationTagResponseModel> Get8Async(
-            string tagId,
+        public async global::System.Threading.Tasks.Task<global::System.IO.Stream> Get8Async(
+            string conversationId,
+            string fileId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get8AsResponseAsync(
-                tagId: tagId,
+                conversationId: conversationId,
+                fileId: fileId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -63,15 +67,21 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Conversation Tag<br/>
-        /// Get a conversation tag by ID.
+        /// Get Conversation File<br/>
+        /// Download a file the user attached to a conversation, including while the conversation is still active.
         /// </summary>
-        /// <param name="tagId"></param>
+        /// <param name="conversationId">
+        /// The id of the conversation you're taking the action on.
+        /// </param>
+        /// <param name="fileId">
+        /// The file ID returned when it was uploaded.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConversationTagResponseModel>> Get8AsResponseAsync(
-            string tagId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>> Get8AsResponseAsync(
+            string conversationId,
+            string fileId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -81,7 +91,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet8Arguments(
                 httpClient: HttpClient,
-                tagId: ref tagId);
+                conversationId: ref conversationId,
+                fileId: ref fileId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -107,7 +118,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/tags/{tagId}",
+                                path: $"/v1/convai/conversations/{conversationId}/files/{fileId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -149,7 +160,8 @@ namespace ElevenLabs
                 PrepareGet8Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    tagId: tagId);
+                    conversationId: conversationId,
+                    fileId: fileId);
 
                 return __httpRequest;
             }
@@ -168,7 +180,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -186,7 +198,7 @@ namespace ElevenLabs
                     {
                         __response = await HttpClient.SendAsync(
                 request: __httpRequest,
-                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseContentRead,
+                completionOption: global::System.Net.Http.HttpCompletionOption.ResponseHeadersRead,
                 cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
@@ -202,7 +214,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -243,7 +255,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -275,7 +287,7 @@ namespace ElevenLabs
                     throw new global::System.InvalidOperationException("No response received.");
                 }
 
-                using (__response)
+                try
                 {
 
                 ProcessResponse(
@@ -291,7 +303,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -313,7 +325,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get8",
                                 methodName: "Get8Async",
-                                pathTemplate: "$\"/v1/convai/tags/{tagId}\"",
+                                pathTemplate: "$\"/v1/convai/conversations/{conversationId}/files/{fileId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -366,94 +378,57 @@ namespace ElevenLabs
                                         h => h.Value));
                             }
 
-                            if (__effectiveReadResponseAsString)
+                            try
                             {
-                                var __content = await __response.Content.ReadAsStringAsync(
+                                __response.EnsureSuccessStatusCode();
+
+                                var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                     __effectiveCancellationToken
                 #endif
                                 ).ConfigureAwait(false);
 
-                                ProcessResponseContent(
-                                    client: HttpClient,
-                                    response: __response,
-                                    content: ref __content);
-                                ProcessGet8ResponseContent(
-                                    httpClient: HttpClient,
-                                    httpResponseMessage: __response,
-                                    content: ref __content);
-
-                                try
-                                {
-                                    __response.EnsureSuccessStatusCode();
-
-                                    var __value = global::ElevenLabs.ConversationTagResponseModel.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConversationTagResponseModel>(
-                                        statusCode: __response.StatusCode,
-                                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    throw global::ElevenLabs.ApiException.Create(
-                                        statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                                        innerException: __ex,
-                                        responseBody: __content,
-                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                            __response.Headers,
-                                            h => h.Key,
-                                            h => h.Value));
-                                }
+                                return new global::ElevenLabs.AutoSDKHttpResponse<global::System.IO.Stream>(
+                                    statusCode: __response.StatusCode,
+                                    headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
+                                    requestUri: __response.RequestMessage?.RequestUri,
+                                    body: new global::ElevenLabs.ResponseStream(__response, __content));
                             }
-                            else
+                            catch (global::System.OperationCanceledException)
                             {
+                                throw;
+                            }
+                            catch (global::System.Exception __ex)
+                            {
+                                string? __content = null;
                                 try
                                 {
-                                    __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
-
-                                    var __value = await global::ElevenLabs.ConversationTagResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConversationTagResponseModel>(
-                                        statusCode: __response.StatusCode,
-                                        headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
-                                        requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
                                 }
-                                catch (global::System.Exception __ex)
+                                catch (global::System.Exception)
                                 {
-                                    string? __content = null;
-                                    try
-                                    {
-                                        __content = await __response.Content.ReadAsStringAsync(
-                #if NET5_0_OR_GREATER
-                                            __effectiveCancellationToken
-                #endif
-                                        ).ConfigureAwait(false);
-                                    }
-                                    catch (global::System.Exception)
-                                    {
-                                    }
-
-                                    throw global::ElevenLabs.ApiException.Create(
-                                        statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
-                                        innerException: __ex,
-                                        responseBody: __content,
-                                        responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                            __response.Headers,
-                                            h => h.Key,
-                                            h => h.Value));
                                 }
+
+                                throw global::ElevenLabs.ApiException.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __ex,
+                                    responseBody: __content,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
                             }
 
+                }
+                catch
+                {
+                    __response.Dispose();
+                    throw;
                 }
             }
             finally

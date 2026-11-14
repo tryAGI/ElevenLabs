@@ -28,12 +28,12 @@ namespace ElevenLabs
         partial void PrepareGet2Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string assetId,
-            ref string? xiWorkspaceId);
+            ref string xiWorkspaceId);
         partial void PrepareGet2Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string assetId,
-            string? xiWorkspaceId);
+            string xiWorkspaceId);
         partial void ProcessGet2Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -47,16 +47,18 @@ namespace ElevenLabs
         /// Get Asset<br/>
         /// Get an asset by ID.
         /// </summary>
-        /// <param name="assetId"></param>
+        /// <param name="assetId">
+        /// ID of the asset. Returned when you create one; list them with `GET /v1/reception/assets`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAssetResourceDBModel> Get2Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAssetResource> Get2Async(
             string assetId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -73,16 +75,18 @@ namespace ElevenLabs
         /// Get Asset<br/>
         /// Get an asset by ID.
         /// </summary>
-        /// <param name="assetId"></param>
+        /// <param name="assetId">
+        /// ID of the asset. Returned when you create one; list them with `GET /v1/reception/assets`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAssetResourceDBModel>> Get2AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAssetResource>> Get2AsResponseAsync(
             string assetId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -151,10 +155,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -406,9 +407,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBAssetResourceDBModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionAssetResource.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAssetResourceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAssetResource>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -438,9 +439,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBAssetResourceDBModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionAssetResource.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAssetResourceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAssetResource>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

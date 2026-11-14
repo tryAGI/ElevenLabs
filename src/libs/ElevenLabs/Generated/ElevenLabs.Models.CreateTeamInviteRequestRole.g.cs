@@ -4,16 +4,17 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// The role the invitee joins with: 'workspace_admin' or 'workspace_member'.<br/>
     /// Default Value: workspace_member
     /// </summary>
     public enum CreateTeamInviteRequestRole
     {
         /// <summary>
-        ///
+        /// 'workspace_admin' or 'workspace_member'.
         /// </summary>
         WorkspaceAdmin,
         /// <summary>
-        ///
+        /// 'workspace_admin' or 'workspace_member'.
         /// </summary>
         WorkspaceMember,
     }

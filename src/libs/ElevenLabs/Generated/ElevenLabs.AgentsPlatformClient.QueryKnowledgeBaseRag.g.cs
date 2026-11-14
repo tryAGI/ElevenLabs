@@ -47,7 +47,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Query Agent Knowledge Base Rag<br/>
-        /// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+        /// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -80,7 +80,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Query Agent Knowledge Base Rag<br/>
-        /// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+        /// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -503,7 +503,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Query Agent Knowledge Base Rag<br/>
-        /// Run the agent's exact RAG retrieval for an ad-hoc query and return the ranked chunks the agent would retrieve. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
+        /// Run one of the agent's exact knowledge base retrieval strategies for an ad-hoc request and return what the agent would retrieve: ranked chunks for semantic or keyword search, a document's content for cat, or the entries of a folder for ls. Read-only: no conversation is created. The response reflects current retrieval internals and may evolve.
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -511,8 +511,15 @@ namespace ElevenLabs
         /// <param name="branchId">
         /// The ID of the branch to use
         /// </param>
+        /// <param name="strategy">
+        /// Retrieval strategy to run, as in the agent's knowledge_base tool: semantic or keyword search for a query, cat to read one document in full, or ls to list the entries of a folder. Any strategy runs, whether or not the agent has it enabled.<br/>
+        /// Default Value: semantic
+        /// </param>
         /// <param name="query">
-        /// Query to run against the agent's knowledge base RAG index.
+        /// Query to search the knowledge base for. Required for the semantic and keyword strategies.
+        /// </param>
+        /// <param name="documents">
+        /// IDs or names of knowledge base documents or folders. Semantic and keyword search only search these entries; cat reads the single document given; ls lists the single folder given, or the top level of the knowledge base when omitted.
         /// </param>
         /// <param name="useAgentDefaults">
         /// When true (the default), retrieval uses the agent's own RAG settings, reproducing exactly what the agent would retrieve. Set to false to retrieve with neutral default RAG settings instead (the agent's embedding model is always kept, since it determines which vector index exists). Useful for auditing the knowledge base independently of how a particular agent is tuned.<br/>
@@ -529,8 +536,10 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentKnowledgeBaseRagQueryResponseModel> QueryKnowledgeBaseRagAsync(
             string agentId,
-            string query,
             string? branchId = default,
+            global::ElevenLabs.SearchStrategy? strategy = default,
+            string? query = default,
+            global::System.Collections.Generic.IList<string>? documents = default,
             bool? useAgentDefaults = default,
             int? maxDocumentsLength = default,
             int? maxRetrievedRagChunksCount = default,
@@ -539,7 +548,9 @@ namespace ElevenLabs
         {
             var __request = new global::ElevenLabs.AgentKnowledgeBaseRagQueryRequestModel
             {
+                Strategy = strategy,
                 Query = query,
+                Documents = documents,
                 UseAgentDefaults = useAgentDefaults,
                 MaxDocumentsLength = maxDocumentsLength,
                 MaxRetrievedRagChunksCount = maxRetrievedRagChunksCount,

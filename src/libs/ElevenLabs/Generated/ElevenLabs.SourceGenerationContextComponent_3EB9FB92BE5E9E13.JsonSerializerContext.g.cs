@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AlertingSettingsMonitorConfigs))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0010.Create_AlertingSettingsMonitorConfigs(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0012.Create_AlertingSettingsMonitorConfigs(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

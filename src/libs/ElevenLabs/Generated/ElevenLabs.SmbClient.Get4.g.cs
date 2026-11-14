@@ -28,12 +28,12 @@ namespace ElevenLabs
         partial void PrepareGet4Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string staffId,
-            ref string? xiWorkspaceId);
+            ref string xiWorkspaceId);
         partial void PrepareGet4Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string staffId,
-            string? xiWorkspaceId);
+            string xiWorkspaceId);
         partial void ProcessGet4Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -47,16 +47,18 @@ namespace ElevenLabs
         /// Get Staff Member<br/>
         /// Get a specific staff member by ID
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBStaffResourceDBModel> Get4Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionStaffResource> Get4Async(
             string staffId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -73,16 +75,18 @@ namespace ElevenLabs
         /// Get Staff Member<br/>
         /// Get a specific staff member by ID
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBStaffResourceDBModel>> Get4AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionStaffResource>> Get4AsResponseAsync(
             string staffId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -151,10 +155,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -406,9 +407,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBStaffResourceDBModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionStaffResource.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBStaffResourceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionStaffResource>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -438,9 +439,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBStaffResourceDBModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionStaffResource.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBStaffResourceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionStaffResource>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

@@ -53,13 +53,19 @@ namespace ElevenLabs
         public string? FolderParentId { get; set; }
 
         /// <summary>
+        /// Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("chunking_override")]
+        public global::ElevenLabs.ChunkingOverride? ChunkingOverride { get; set; }
+
+        /// <summary>
         /// The folder path segments leading to this entity, from root to parent folder.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("folder_path")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? FolderPath { get; set; }
 
         /// <summary>
-        /// This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
+        /// This field is deprecated, always empty, and will be removed in the future. Use the separate endpoint to get dependent agents instead.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dependent_agents")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -89,10 +95,13 @@ namespace ElevenLabs
         /// Example: {"access_source":"creator","creator_email":"john.doe@example.com","creator_name":"John Doe","is_creator":true,"role":"admin"}
         /// </param>
         /// <param name="dependentAgents">
-        /// This field is deprecated and will be removed in the future, use the separate endpoint to get dependent agents instead.
+        /// This field is deprecated, always empty, and will be removed in the future. Use the separate endpoint to get dependent agents instead.
         /// </param>
         /// <param name="folderParentId">
         /// The ID of the parent folder, or null if the document is at the root level.
+        /// </param>
+        /// <param name="chunkingOverride">
+        /// Per-entity RAG chunking override. Null means inherit from ancestors or the embedding model default.
         /// </param>
         /// <param name="folderPath">
         /// The folder path segments leading to this entity, from root to parent folder.
@@ -109,6 +118,7 @@ namespace ElevenLabs
             global::ElevenLabs.ResourceAccessInfo accessInfo,
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem3> dependentAgents,
             string? folderParentId,
+            global::ElevenLabs.ChunkingOverride? chunkingOverride,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseFolderPathSegmentSummaryResponseModel>? folderPath,
             string type = "text")
         {
@@ -118,6 +128,7 @@ namespace ElevenLabs
             this.SupportedUsages = supportedUsages ?? throw new global::System.ArgumentNullException(nameof(supportedUsages));
             this.AccessInfo = accessInfo ?? throw new global::System.ArgumentNullException(nameof(accessInfo));
             this.FolderParentId = folderParentId;
+            this.ChunkingOverride = chunkingOverride;
             this.FolderPath = folderPath;
             this.DependentAgents = dependentAgents ?? throw new global::System.ArgumentNullException(nameof(dependentAgents));
             this.Type = type;

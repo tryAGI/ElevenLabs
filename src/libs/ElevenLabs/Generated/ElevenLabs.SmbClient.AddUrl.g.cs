@@ -27,12 +27,12 @@ namespace ElevenLabs
             };
         partial void PrepareAddUrlArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiWorkspaceId,
+            ref string xiWorkspaceId,
             global::ElevenLabs.AddUrlRequest request);
         partial void PrepareAddUrlRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiWorkspaceId,
+            string xiWorkspaceId,
             global::ElevenLabs.AddUrlRequest request);
         partial void ProcessAddUrlResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -54,17 +54,17 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBKnowledgeSourceDBModel> AddUrlAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionKnowledgeSource> AddUrlAsync(
+            string xiWorkspaceId,
 
             global::ElevenLabs.AddUrlRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await AddUrlAsResponseAsync(
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -82,10 +82,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBKnowledgeSourceDBModel>> AddUrlAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionKnowledgeSource>> AddUrlAsResponseAsync(
+            string xiWorkspaceId,
 
             global::ElevenLabs.AddUrlRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -156,10 +156,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -417,9 +414,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBKnowledgeSourceDBModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionKnowledgeSource.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBKnowledgeSourceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionKnowledgeSource>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -449,9 +446,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBKnowledgeSourceDBModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionKnowledgeSource.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBKnowledgeSourceDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionKnowledgeSource>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -498,16 +495,19 @@ namespace ElevenLabs
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="url"></param>
+        /// <param name="url">
+        /// The HTTPS page or site to read.
+        /// </param>
         /// <param name="crawlEntireSite">
+        /// Crawl the whole site instead of only the page at url.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBKnowledgeSourceDBModel> AddUrlAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionKnowledgeSource> AddUrlAsync(
+            string xiWorkspaceId,
             string url,
-            string? xiWorkspaceId = default,
             bool? crawlEntireSite = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

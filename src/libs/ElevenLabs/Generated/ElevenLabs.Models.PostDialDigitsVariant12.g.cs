@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelInputPostDialDigitsVariant1DiscriminatorType? Type { get; }
+        public global::ElevenLabs.TwilioColdBlindTransferConfigInputPostDialDigitsVariant1DiscriminatorType? Type { get; }
 
         /// <summary>
         ///
@@ -137,7 +137,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public PostDialDigitsVariant12(
-            global::ElevenLabs.WorkflowPhoneNumberNodeModelInputPostDialDigitsVariant1DiscriminatorType? type,
+            global::ElevenLabs.TwilioColdBlindTransferConfigInputPostDialDigitsVariant1DiscriminatorType? type,
             global::ElevenLabs.PostDialDigitsStatic? @static,
             global::ElevenLabs.PostDialDigitsDynamicVariable? dynamic
             )

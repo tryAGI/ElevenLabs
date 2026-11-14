@@ -27,12 +27,12 @@ namespace ElevenLabs
             };
         partial void PrepareCreate12Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiWorkspaceId,
+            ref string xiWorkspaceId,
             global::ElevenLabs.CreateTeamInviteRequest request);
         partial void PrepareCreate12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiWorkspaceId,
+            string xiWorkspaceId,
             global::ElevenLabs.CreateTeamInviteRequest request);
         partial void ProcessCreate12Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -55,16 +55,16 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Create12Async(
+            string xiWorkspaceId,
 
             global::ElevenLabs.CreateTeamInviteRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create12AsResponseAsync(
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -83,9 +83,9 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Create12AsResponseAsync(
+            string xiWorkspaceId,
 
             global::ElevenLabs.CreateTeamInviteRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -156,10 +156,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -498,16 +495,19 @@ namespace ElevenLabs
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="email"></param>
+        /// <param name="email">
+        /// The email address to invite.
+        /// </param>
         /// <param name="role">
+        /// The role the invitee joins with: 'workspace_admin' or 'workspace_member'.<br/>
         /// Default Value: workspace_member
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Create12Async(
+            string xiWorkspaceId,
             string email,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.CreateTeamInviteRequestRole? role = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

@@ -43,7 +43,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Create Agent Conversation Ticket<br/>
-        /// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+        /// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +66,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Create Agent Conversation Ticket<br/>
-        /// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+        /// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -474,22 +474,22 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Create Agent Conversation Ticket<br/>
-        /// Raise a ticket about an agent's performance on a conversation, for triage with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
+        /// Raise an issue about an agent's performance on a conversation, to work on with Architect. Provide an overall comment and/or turn-level comments describing what went wrong.
         /// </summary>
         /// <param name="conversationId">
-        /// Conversation this ticket is about.
+        /// Conversation this agent issue is about.
         /// </param>
         /// <param name="title">
-        /// One-line headline shown in the triage list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open ticket.
+        /// One-line headline shown in the issues list. Defaults to one derived from the comments, falling back to the conversation's summary title. Ignored when the comment is added to the conversation's open issue.
         /// </param>
         /// <param name="qaComment">
-        /// The issue this ticket is about, covering the whole conversation rather than a single turn.
+        /// The problem this agent issue is about, covering the whole conversation rather than a single turn.
         /// </param>
         /// <param name="turnComments">
         /// Optional turn-level comments on what went wrong.
         /// </param>
         /// <param name="priority">
-        /// How urgently the ticket needs attention. If the conversation already has an open ticket, it is raised to this priority when lower.
+        /// How urgently the agent issue needs attention. If the conversation already has an open issue, it is raised to this priority when lower.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

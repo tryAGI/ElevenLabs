@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ValidateUserVerificationCodeParams))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0262.Create_ValidateUserVerificationCodeParams(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0290.Create_ValidateUserVerificationCodeParams(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

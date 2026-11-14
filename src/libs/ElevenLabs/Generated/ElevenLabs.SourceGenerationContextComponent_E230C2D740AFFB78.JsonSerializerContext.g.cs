@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OpenAIFunctionToolParameters))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0150.Create_OpenAIFunctionToolParameters(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0165.Create_OpenAIFunctionToolParameters(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

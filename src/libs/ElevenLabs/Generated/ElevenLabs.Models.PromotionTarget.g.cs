@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// What a promotion discounts: the service price or add-on prices.<br/>
     /// Default Value: service
     /// </summary>
     public enum PromotionTarget
@@ -13,7 +14,7 @@ namespace ElevenLabs
         /// </summary>
         AddOn,
         /// <summary>
-        ///
+        /// the service price or add-on prices.
         /// </summary>
         Service,
     }

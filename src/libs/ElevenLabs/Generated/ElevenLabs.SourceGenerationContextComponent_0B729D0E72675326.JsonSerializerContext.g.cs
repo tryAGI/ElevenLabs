@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_0E8F01761D55D5F4.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6DA88C34BA124C41.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C4CD4AE1EEFD172B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CDE4A4241C0393F2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E5F48EC45017ADF1.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_0E8F01761D55D5F4.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_86DB9C384A56642B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C4CD4AE1EEFD172B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CDE4A4241C0393F2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E5F48EC45017ADF1.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.HolidayResponseModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0082.Create_HolidayResponseModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0089.Create_HolidayResponseModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

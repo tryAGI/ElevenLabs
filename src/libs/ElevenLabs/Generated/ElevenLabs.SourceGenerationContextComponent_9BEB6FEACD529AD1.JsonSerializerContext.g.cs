@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.OpenAISessionConfigInput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0150.Create_OpenAISessionConfigInput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0165.Create_OpenAISessionConfigInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

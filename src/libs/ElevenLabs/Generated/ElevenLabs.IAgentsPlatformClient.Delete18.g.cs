@@ -5,47 +5,31 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Remove An Outbound Campaign Lead<br/>
+        /// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
+        /// <param name="campaignId"></param>
+        /// <param name="leadId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<string> Delete18Async(
-            string agentId,
-            string branchId,
-            string procedureId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.SuppressLeadResponse> Delete18Async(
+            string campaignId,
+            string leadId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Remove An Outbound Campaign Lead<br/>
+        /// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
+        /// <param name="campaignId"></param>
+        /// <param name="leadId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete18AsResponseAsync(
-            string agentId,
-            string branchId,
-            string procedureId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SuppressLeadResponse>> Delete18AsResponseAsync(
+            string campaignId,
+            string leadId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

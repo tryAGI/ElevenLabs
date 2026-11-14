@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_01BC8B526CA00CA7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4121ABB2D1E4B63F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BF599E5C17A9EFCD.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_01BC8B526CA00CA7.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4121ABB2D1E4B63F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_473287F8298DBA71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BF599E5C17A9EFCD.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C5824DE3A482ABF4.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 

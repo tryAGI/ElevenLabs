@@ -28,13 +28,13 @@ namespace ElevenLabs
         partial void PrepareUpdate9Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string phoneAssignmentId,
-            ref string? xiWorkspaceId,
+            ref string xiWorkspaceId,
             global::ElevenLabs.ReassignPhoneRequest request);
         partial void PrepareUpdate9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string phoneAssignmentId,
-            string? xiWorkspaceId,
+            string xiWorkspaceId,
             global::ElevenLabs.ReassignPhoneRequest request);
         partial void ProcessUpdate9Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -49,7 +49,9 @@ namespace ElevenLabs
         /// Move Phone Number<br/>
         /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
         /// </summary>
-        /// <param name="phoneAssignmentId"></param>
+        /// <param name="phoneAssignmentId">
+        /// ID of the phone number assignment. Returned when you assign a number; list them with `GET /v1/reception/phone-numbers/assignments`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -57,19 +59,19 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBPhoneAssignmentDBModel> Update9Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionPhoneAssignment> Update9Async(
             string phoneAssignmentId,
+            string xiWorkspaceId,
 
             global::ElevenLabs.ReassignPhoneRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update9AsResponseAsync(
                 phoneAssignmentId: phoneAssignmentId,
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,7 +82,9 @@ namespace ElevenLabs
         /// Move Phone Number<br/>
         /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
         /// </summary>
-        /// <param name="phoneAssignmentId"></param>
+        /// <param name="phoneAssignmentId">
+        /// ID of the phone number assignment. Returned when you assign a number; list them with `GET /v1/reception/phone-numbers/assignments`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -88,11 +92,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBPhoneAssignmentDBModel>> Update9AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionPhoneAssignment>> Update9AsResponseAsync(
             string phoneAssignmentId,
+            string xiWorkspaceId,
 
             global::ElevenLabs.ReassignPhoneRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -164,10 +168,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -426,9 +427,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBPhoneAssignmentDBModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionPhoneAssignment.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBPhoneAssignmentDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionPhoneAssignment>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -458,9 +459,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBPhoneAssignmentDBModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionPhoneAssignment.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBPhoneAssignmentDBModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionPhoneAssignment>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -504,7 +505,9 @@ namespace ElevenLabs
         /// Move Phone Number<br/>
         /// Move a phone number to a different receptionist in the same workspace, which answers its calls from then on. Returns 409 `phone_number_not_attached` for a number no receptionist answers yet (attach it with `POST /v1/reception/phone-numbers/assignments`).
         /// </summary>
-        /// <param name="phoneAssignmentId"></param>
+        /// <param name="phoneAssignmentId">
+        /// ID of the phone number assignment. Returned when you assign a number; list them with `GET /v1/reception/phone-numbers/assignments`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -514,10 +517,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBPhoneAssignmentDBModel> Update9Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionPhoneAssignment> Update9Async(
             string phoneAssignmentId,
+            string xiWorkspaceId,
             string customerFacingAgentId,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

@@ -20,9 +20,9 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestinationJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination5JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TransferDestination TransferDestination { get; set; }
+        public required global::ElevenLabs.TransferDestination5 TransferDestination { get; set; }
 
         /// <summary>
         /// Default Value: conference
@@ -95,7 +95,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PhoneNumberTransfer(
-            global::ElevenLabs.TransferDestination transferDestination,
+            global::ElevenLabs.TransferDestination5 transferDestination,
             string condition,
             global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem>? customSipHeaders,
             global::ElevenLabs.TransferTypeEnum? transferType,

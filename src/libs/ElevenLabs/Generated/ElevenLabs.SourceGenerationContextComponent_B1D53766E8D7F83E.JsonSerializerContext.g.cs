@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.LLMAnyOfJsonSchemaPropertyInput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0087.Create_LLMAnyOfJsonSchemaPropertyInput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0094.Create_LLMAnyOfJsonSchemaPropertyInput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

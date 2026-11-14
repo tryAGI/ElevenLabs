@@ -28,12 +28,12 @@ namespace ElevenLabs
         partial void PrepareCreate17Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
         partial void PrepareCreate17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request);
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request);
         partial void ProcessCreate17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,8 +44,8 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create A New Branch<br/>
+        /// Create a new branch from a given version of any branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -54,10 +54,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create17Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create17Async(
             string agentId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -72,8 +72,8 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create A New Branch<br/>
+        /// Create a new branch from a given version of any branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
@@ -82,10 +82,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>> Create17AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentBranchResponseModel>> Create17AsResponseAsync(
             string agentId,
 
-            global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost request,
+            global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -124,7 +124,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/deployments",
+                                path: $"/v1/convai/agents/{agentId}/branches",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -192,7 +192,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create17",
                                 methodName: "Create17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -226,7 +226,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create17",
                                 methodName: "Create17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -267,7 +267,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create17",
                                 methodName: "Create17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -315,7 +315,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create17",
                                 methodName: "Create17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -337,7 +337,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create17",
                                 methodName: "Create17Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/deployments\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -411,9 +411,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.AgentDeploymentResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.CreateAgentBranchResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentBranchResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -443,9 +443,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.AgentDeploymentResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.CreateAgentBranchResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentDeploymentResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.CreateAgentBranchResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -486,27 +486,58 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Or Update Deployments<br/>
-        /// Create a new deployment for an agent
+        /// Create A New Branch<br/>
+        /// Create a new branch from a given version of any branch
         /// </summary>
         /// <param name="agentId">
         /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="deploymentRequest">
-        /// Request to create a new deployment
+        /// <param name="parentVersionId">
+        /// ID of the version to branch from
+        /// </param>
+        /// <param name="name">
+        /// Name of the branch. It is unique within the agent.
+        /// </param>
+        /// <param name="description">
+        /// Description for the branch
+        /// </param>
+        /// <param name="conversationConfig">
+        /// Changes to apply to conversation config
+        /// </param>
+        /// <param name="platformSettings">
+        /// Changes to apply to platform settings
+        /// </param>
+        /// <param name="workflow">
+        /// Updated workflow definition
+        /// </param>
+        /// <param name="includeDraft">
+        /// When true, the new branch uses the caller's draft procedure set instead of the branch tip. Requires parent_version_id to be the branch tip.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentDeploymentResponse> Create17Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.CreateAgentBranchResponseModel> Create17Async(
             string agentId,
-            global::ElevenLabs.AgentDeploymentRequest deploymentRequest,
+            string parentVersionId,
+            string name,
+            string description,
+            object? conversationConfig = default,
+            object? platformSettings = default,
+            global::ElevenLabs.AgentWorkflowRequestModel? workflow = default,
+            bool? includeDraft = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.BodyCreateOrUpdateDeploymentsV1ConvaiAgentsAgentIdDeploymentsPost
+            var __request = new global::ElevenLabs.BodyCreateANewBranchV1ConvaiAgentsAgentIdBranchesPost
             {
-                DeploymentRequest = deploymentRequest,
+                ParentVersionId = parentVersionId,
+                Name = name,
+                Description = description,
+                ConversationConfig = conversationConfig,
+                PlatformSettings = platformSettings,
+                Workflow = workflow,
+                IncludeDraft = includeDraft,
             };
 
             return await Create17Async(

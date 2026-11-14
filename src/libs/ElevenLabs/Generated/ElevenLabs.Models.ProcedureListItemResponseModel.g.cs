@@ -73,6 +73,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ReferencedDynamicVariables { get; set; }
 
         /// <summary>
+        /// Dynamic variable names written by Update state steps
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("written_dynamic_variables")]
+        public global::System.Collections.Generic.IList<string>? WrittenDynamicVariables { get; set; }
+
+        /// <summary>
         /// Procedure ID of the folder this procedure is placed in. None means root.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("folder_parent_id")]
@@ -118,6 +124,9 @@ namespace ElevenLabs
         /// <param name="referencedDynamicVariables">
         /// Dynamic variable names used in the procedure content
         /// </param>
+        /// <param name="writtenDynamicVariables">
+        /// Dynamic variable names written by Update state steps
+        /// </param>
         /// <param name="folderParentId">
         /// Procedure ID of the folder this procedure is placed in. None means root.
         /// </param>
@@ -135,6 +144,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? referencedKbIds,
             global::System.Collections.Generic.IList<string>? referencedProcedureIds,
             global::System.Collections.Generic.IList<string>? referencedDynamicVariables,
+            global::System.Collections.Generic.IList<string>? writtenDynamicVariables,
             string? folderParentId)
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
@@ -147,6 +157,7 @@ namespace ElevenLabs
             this.ReferencedKbIds = referencedKbIds;
             this.ReferencedProcedureIds = referencedProcedureIds;
             this.ReferencedDynamicVariables = referencedDynamicVariables;
+            this.WrittenDynamicVariables = writtenDynamicVariables;
             this.FolderParentId = folderParentId;
         }
 

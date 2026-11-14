@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Adjust Product Stock<br/>
         /// Add to or subtract from the on-hand quantity of a counted product at one location, without overwriting orders taken at the same time.
         /// </summary>
-        /// <param name="productId"></param>
+        /// <param name="productId">
+        /// ID of the product. Returned when you create one; list them with `GET /v1/reception/products`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -16,18 +18,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProductDBModel> AdjustAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProduct> AdjustAsync(
             string productId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBAdjustProductStockRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionAdjustProductStockRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Adjust Product Stock<br/>
         /// Add to or subtract from the on-hand quantity of a counted product at one location, without overwriting orders taken at the same time.
         /// </summary>
-        /// <param name="productId"></param>
+        /// <param name="productId">
+        /// ID of the product. Returned when you create one; list them with `GET /v1/reception/products`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -35,18 +39,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProductDBModel>> AdjustAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProduct>> AdjustAsResponseAsync(
             string productId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBAdjustProductStockRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionAdjustProductStockRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Adjust Product Stock<br/>
         /// Add to or subtract from the on-hand quantity of a counted product at one location, without overwriting orders taken at the same time.
         /// </summary>
-        /// <param name="productId"></param>
+        /// <param name="productId">
+        /// ID of the product. Returned when you create one; list them with `GET /v1/reception/products`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -59,11 +65,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProductDBModel> AdjustAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProduct> AdjustAsync(
             string productId,
+            string xiWorkspaceId,
             string locationId,
             int delta,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

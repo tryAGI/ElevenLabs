@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate11Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.PostWorkspaceSecretRequest request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request);
         partial void PrepareCreate11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.PostWorkspaceSecretRequest request);
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request);
         partial void ProcessCreate11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,16 +42,16 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Create Analysis Item<br/>
+        /// Create a new analysis item (evaluation criterion or data collection) in the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create11Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Create11Async(
 
-            global::ElevenLabs.PostWorkspaceSecretRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -65,23 +65,21 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Create Analysis Item<br/>
+        /// Create a new analysis item (evaluation criterion or data collection) in the workspace.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>> Create11AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>> Create11AsResponseAsync(
 
-            global::ElevenLabs.PostWorkspaceSecretRequest request,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput> request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var JsonSerializerContext = JsonSerializerContextProvider?.Value ??
                 global::ElevenLabs.SourceGenerationContextOperation_DADDBC5B27D95635.Default;
-            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
-
             PrepareArguments(
                 client: HttpClient);
             PrepareCreate11Arguments(
@@ -112,7 +110,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/secrets",
+                                path: "/v1/convai/analysis-items",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -179,7 +177,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -213,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -254,7 +252,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -302,7 +300,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -324,7 +322,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Create11",
                                 methodName: "Create11Async",
-                                pathTemplate: "\"/v1/convai/secrets\"",
+                                pathTemplate: "\"/v1/convai/analysis-items\"",
                                 httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -398,9 +396,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AnalysisItemResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -430,9 +428,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.PostWorkspaceSecretResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AnalysisItemResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.PostWorkspaceSecretResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -473,27 +471,18 @@ namespace ElevenLabs
             }
         }
         /// <summary>
-        /// Create Convai Workspace Secret<br/>
-        /// Create a new secret for the workspace
+        /// Create Analysis Item<br/>
+        /// Create a new analysis item (evaluation criterion or data collection) in the workspace.
         /// </summary>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.PostWorkspaceSecretResponseModel> Create11Async(
-            string name,
-            string value,
-            string type = "new",
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Create11Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.PostWorkspaceSecretRequest
+            var __request = new global::ElevenLabs.AnyOf<global::ElevenLabs.UserEvaluationAnalysisItem, global::ElevenLabs.UserDataCollectionAnalysisItemInput>
             {
-                Type = type,
-                Name = name,
-                Value = value,
             };
 
             return await Create11Async(

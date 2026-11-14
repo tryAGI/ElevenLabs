@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AutoRebaseAttempt))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0017.Create_AutoRebaseAttempt(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0019.Create_AutoRebaseAttempt(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

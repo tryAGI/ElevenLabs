@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AgentsEnvironmentVariablesWrite,
+        /// <summary>
+        ///
+        /// </summary>
         AudioIsolation,
         /// <summary>
         ///
@@ -191,6 +195,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Watermark,
+        /// <summary>
+        ///
+        /// </summary>
         WebhooksWrite,
         /// <summary>
         ///
@@ -232,6 +240,7 @@ namespace ElevenLabs
             {
                 PermissionType.AddVoiceFromVoiceLibrary => "add_voice_from_voice_library",
                 PermissionType.AgentsArchitect => "agents_architect",
+                PermissionType.AgentsEnvironmentVariablesWrite => "agents_environment_variables_write",
                 PermissionType.AudioIsolation => "audio_isolation",
                 PermissionType.AudioNativeRead => "audio_native_read",
                 PermissionType.AudioNativeWrite => "audio_native_write",
@@ -275,6 +284,7 @@ namespace ElevenLabs
                 PermissionType.VoiceGeneration => "voice_generation",
                 PermissionType.VoicesRead => "voices_read",
                 PermissionType.VoicesWrite => "voices_write",
+                PermissionType.Watermark => "watermark",
                 PermissionType.WebhooksWrite => "webhooks_write",
                 PermissionType.WorkspaceAnalyticsFullRead => "workspace_analytics_full_read",
                 PermissionType.WorkspaceMembersInvite => "workspace_members_invite",
@@ -294,6 +304,7 @@ namespace ElevenLabs
             {
                 "add_voice_from_voice_library" => PermissionType.AddVoiceFromVoiceLibrary,
                 "agents_architect" => PermissionType.AgentsArchitect,
+                "agents_environment_variables_write" => PermissionType.AgentsEnvironmentVariablesWrite,
                 "audio_isolation" => PermissionType.AudioIsolation,
                 "audio_native_read" => PermissionType.AudioNativeRead,
                 "audio_native_write" => PermissionType.AudioNativeWrite,
@@ -337,6 +348,7 @@ namespace ElevenLabs
                 "voice_generation" => PermissionType.VoiceGeneration,
                 "voices_read" => PermissionType.VoicesRead,
                 "voices_write" => PermissionType.VoicesWrite,
+                "watermark" => PermissionType.Watermark,
                 "webhooks_write" => PermissionType.WebhooksWrite,
                 "workspace_analytics_full_read" => PermissionType.WorkspaceAnalyticsFullRead,
                 "workspace_members_invite" => PermissionType.WorkspaceMembersInvite,

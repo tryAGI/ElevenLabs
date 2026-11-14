@@ -29,13 +29,13 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string ruleId,
-            ref string? xiWorkspaceId);
+            ref string xiWorkspaceId);
         partial void PrepareDelete5Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string ruleId,
-            string? xiWorkspaceId);
+            string xiWorkspaceId);
         partial void ProcessDelete5Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -49,8 +49,12 @@ namespace ElevenLabs
         /// Delete Rule<br/>
         /// Delete a rule from the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -60,7 +64,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Delete5Async(
             string agentId,
             string ruleId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -78,8 +82,12 @@ namespace ElevenLabs
         /// Delete Rule<br/>
         /// Delete a rule from the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -89,7 +97,7 @@ namespace ElevenLabs
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Delete5AsResponseAsync(
             string agentId,
             string ruleId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -159,10 +167,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                 global::ElevenLabs.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

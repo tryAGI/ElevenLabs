@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_1CC69C28B231E55F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6DF1338CE0C2C2D0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CAD4551B78DF6A2E.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_1CC69C28B231E55F.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_496DCA0D1ACD4703.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_CAD4551B78DF6A2E.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -32,7 +32,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.PostDialDigitsVariant13))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0158.Create_PostDialDigitsVariant13(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0173.Create_PostDialDigitsVariant13(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

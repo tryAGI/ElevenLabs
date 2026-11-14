@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Add Rule<br/>
         /// Add a behavioral rule to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -18,16 +20,18 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Create5Async(
             string agentId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateAgentRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateAgentRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Rule<br/>
         /// Add a behavioral rule to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -37,16 +41,18 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>> Create5AsResponseAsync(
             string agentId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateAgentRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateAgentRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Rule<br/>
         /// Add a behavioral rule to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -65,9 +71,9 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Create5Async(
             string agentId,
+            string xiWorkspaceId,
             string title,
             string description,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.RulePriority? priority = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

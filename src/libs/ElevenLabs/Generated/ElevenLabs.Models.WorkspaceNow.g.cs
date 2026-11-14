@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class WorkspaceNow
     {
         /// <summary>
-        /// Represents a calendar date as individual numeric components.
+        /// Current date in the business's timezone.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("today")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -46,7 +46,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="WorkspaceNow" /> class.
         /// </summary>
         /// <param name="today">
-        /// Represents a calendar date as individual numeric components.
+        /// Current date in the business's timezone.
         /// </param>
         /// <param name="hour">
         /// Current hour (0-23)

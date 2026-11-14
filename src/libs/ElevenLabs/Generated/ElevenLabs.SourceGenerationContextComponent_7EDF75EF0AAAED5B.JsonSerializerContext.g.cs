@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.LenientCurrencyEnum))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0089.Create_LenientCurrencyEnum2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0097.Create_LenientCurrencyEnum2(options);
                 }
                 if (type == typeof(global::ElevenLabs.LenientCurrencyEnum?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0124.Create_NullableLenientCurrencyEnum2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0135.Create_NullableLenientCurrencyEnum2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

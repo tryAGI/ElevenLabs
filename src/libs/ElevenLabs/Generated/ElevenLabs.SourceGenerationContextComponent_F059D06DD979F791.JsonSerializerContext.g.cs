@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MCPToolConfigOverrideUpdateRequestModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0096.Create_MCPToolConfigOverrideUpdateRequestModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0104.Create_MCPToolConfigOverrideUpdateRequestModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

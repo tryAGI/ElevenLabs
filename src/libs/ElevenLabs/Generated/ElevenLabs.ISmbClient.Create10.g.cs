@@ -15,10 +15,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Create10Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionLocationResponse> Create10Async(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBLocationRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionLocationRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.LocationResponse>> Create10AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionLocationResponse>> Create10AsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBLocationRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionLocationRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -65,14 +65,15 @@ namespace ElevenLabs
         /// Default Value: 1
         /// </param>
         /// <param name="isActive">
+        /// Whether the location is active. Inactive locations take no bookings.<br/>
         /// Default Value: true
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.LocationResponse> Create10Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionLocationResponse> Create10Async(
+            string xiWorkspaceId,
             string name,
-            string? xiWorkspaceId = default,
             string? address = default,
             string? notes = default,
             global::ElevenLabs.WorkingHours? operatingHours = default,

@@ -45,7 +45,7 @@ namespace ElevenLabs
 
         /// <summary>
         /// Merge Agent Conversation Tickets<br/>
-        /// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+        /// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -71,7 +71,7 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Merge Agent Conversation Tickets<br/>
-        /// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+        /// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="request"></param>
@@ -483,11 +483,11 @@ namespace ElevenLabs
         }
         /// <summary>
         /// Merge Agent Conversation Tickets<br/>
-        /// Merge other open tickets of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this ticket, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the ticket's agent.
+        /// Merge other open issues of the same agent into this pending, in-progress, or resolved one. Their conversations move onto this issue, its priority is raised to the highest among them, and they are kept with status 'merged'. Requires viewer access to the issue's agent.
         /// </summary>
         /// <param name="agentqaTicketId"></param>
         /// <param name="sourceTicketIds">
-        /// Open tickets of the same agent to fold into this one. They are kept with status 'merged', pointing at this ticket.
+        /// Open issues of the same agent to fold into this one. They are kept with status 'merged', pointing at this issue.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AgentWorkflowRequestModelEdges))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0009.Create_AgentWorkflowRequestModelEdges(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0011.Create_AgentWorkflowRequestModelEdges(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

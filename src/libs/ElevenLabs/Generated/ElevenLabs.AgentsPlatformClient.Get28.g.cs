@@ -28,18 +28,12 @@ namespace ElevenLabs
         partial void PrepareGet28Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string branchId,
-            ref string procedureId,
-            ref string? versionId,
-            ref string? agentVersionId);
+            ref string mergeProposalId);
         partial void PrepareGet28Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string branchId,
-            string procedureId,
-            string? versionId,
-            string? agentVersionId);
+            string mergeProposalId);
         partial void ProcessGet28Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -50,42 +44,27 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Procedure<br/>
-        /// Retrieve a procedure at a specific version or the current branch HEAD.
+        /// Get A Merge Proposal<br/>
+        /// Get a single merge_proposal.
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
-        /// <param name="versionId">
-        /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
-        /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureAtVersionResponseModel> Get28Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AgentMergeProposalResponse> Get28Async(
             string agentId,
-            string branchId,
-            string procedureId,
-            string? versionId = default,
-            string? agentVersionId = default,
+            string mergeProposalId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get28AsResponseAsync(
                 agentId: agentId,
-                branchId: branchId,
-                procedureId: procedureId,
-                versionId: versionId,
-                agentVersionId: agentVersionId,
+                mergeProposalId: mergeProposalId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -93,33 +72,21 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Procedure<br/>
-        /// Retrieve a procedure at a specific version or the current branch HEAD.
+        /// Get A Merge Proposal<br/>
+        /// Get a single merge_proposal.
         /// </summary>
         /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
+        /// The id of an agent. This is returned on agent creation.
         /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
-        /// <param name="versionId">
-        /// The version ID to retrieve. If omitted, returns the version at branch HEAD.
-        /// </param>
-        /// <param name="agentVersionId">
-        /// The agent version ID to retrieve the procedure for.
+        /// <param name="mergeProposalId">
+        /// Unique identifier for the merge_proposal.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureAtVersionResponseModel>> Get28AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>> Get28AsResponseAsync(
             string agentId,
-            string branchId,
-            string procedureId,
-            string? versionId = default,
-            string? agentVersionId = default,
+            string mergeProposalId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -130,10 +97,7 @@ namespace ElevenLabs
             PrepareGet28Arguments(
                 httpClient: HttpClient,
                 agentId: ref agentId,
-                branchId: ref branchId,
-                procedureId: ref procedureId,
-                versionId: ref versionId,
-                agentVersionId: ref agentVersionId);
+                mergeProposalId: ref mergeProposalId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -159,12 +123,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}",
+                                path: $"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("version_id", versionId)
-                                .AddOptionalParameter("agent_version_id", agentVersionId)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -206,10 +166,7 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     agentId: agentId,
-                    branchId: branchId,
-                    procedureId: procedureId,
-                    versionId: versionId,
-                    agentVersionId: agentVersionId);
+                    mergeProposalId: mergeProposalId);
 
                 return __httpRequest;
             }
@@ -228,7 +185,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get28",
                                 methodName: "Get28Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -262,7 +219,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get28",
                                 methodName: "Get28Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -303,7 +260,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get28",
                                 methodName: "Get28Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -351,7 +308,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get28",
                                 methodName: "Get28Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -373,7 +330,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get28",
                                 methodName: "Get28Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}\"",
+                                pathTemplate: "$\"/v1/convai/agents/{agentId}/merge-proposals/{mergeProposalId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -447,9 +404,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ProcedureAtVersionResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AgentMergeProposalResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureAtVersionResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -479,9 +436,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ProcedureAtVersionResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AgentMergeProposalResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureAtVersionResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentMergeProposalResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

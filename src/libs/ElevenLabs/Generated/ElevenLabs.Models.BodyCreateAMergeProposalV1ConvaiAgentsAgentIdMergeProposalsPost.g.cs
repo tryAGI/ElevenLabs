@@ -42,7 +42,7 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? RequestedReviewerUserIds { get; set; }
 
         /// <summary>
-        /// Triage ticket of this agent that the merge_proposal resolves. Merging it resolves the ticket if still open.
+        /// Issue of this agent that the merge_proposal resolves. Merging it resolves the issue if still open.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triage_ticket_id")]
         public string? TriageTicketId { get; set; }
@@ -72,7 +72,7 @@ namespace ElevenLabs
         /// User IDs to request a review from.
         /// </param>
         /// <param name="triageTicketId">
-        /// Triage ticket of this agent that the merge_proposal resolves. Merging it resolves the ticket if still open.
+        /// Issue of this agent that the merge_proposal resolves. Merging it resolves the issue if still open.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

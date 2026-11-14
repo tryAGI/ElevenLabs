@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.MCPToolAddApprovalRequestModel))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0094.Create_MCPToolAddApprovalRequestModel(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0103.Create_MCPToolAddApprovalRequestModel(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

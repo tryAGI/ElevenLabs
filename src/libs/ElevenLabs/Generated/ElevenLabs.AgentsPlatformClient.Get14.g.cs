@@ -27,13 +27,15 @@ namespace ElevenLabs
             };
         partial void PrepareGet14Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string toolId,
-            ref string? environment);
+            ref string documentationId,
+            ref string chunkId,
+            ref global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
         partial void PrepareGet14Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string toolId,
-            string? environment);
+            string documentationId,
+            string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel);
         partial void ProcessGet14Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,28 +46,32 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Tool<br/>
-        /// Get tool that is available in the workspace.
+        /// Get Documentation Chunk From Knowledge Base<br/>
+        /// Get details about a specific documentation part used by RAG.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="environment">
-        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
-        /// Default Value: production
+        /// <param name="chunkId">
+        /// The id of a document RAG chunk from the knowledge base.
+        /// </param>
+        /// <param name="embeddingModel">
+        /// The embedding model used to retrieve the chunk.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ToolResponseModel> Get14Async(
-            string toolId,
-            string? environment = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel> Get14Async(
+            string documentationId,
+            string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get14AsResponseAsync(
-                toolId: toolId,
-                environment: environment,
+                documentationId: documentationId,
+                chunkId: chunkId,
+                embeddingModel: embeddingModel,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -73,22 +79,25 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Tool<br/>
-        /// Get tool that is available in the workspace.
+        /// Get Documentation Chunk From Knowledge Base<br/>
+        /// Get details about a specific documentation part used by RAG.
         /// </summary>
-        /// <param name="toolId">
-        /// ID of the requested tool.
+        /// <param name="documentationId">
+        /// The id of a document from the knowledge base. This is returned on document addition.
         /// </param>
-        /// <param name="environment">
-        /// Environment whose values are used when the MCP server URL, headers, or auth connection reference environment variables. Mirrors the environment a conversation would run in; defaults to production.<br/>
-        /// Default Value: production
+        /// <param name="chunkId">
+        /// The id of a document RAG chunk from the knowledge base.
+        /// </param>
+        /// <param name="embeddingModel">
+        /// The embedding model used to retrieve the chunk.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ToolResponseModel>> Get14AsResponseAsync(
-            string toolId,
-            string? environment = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>> Get14AsResponseAsync(
+            string documentationId,
+            string chunkId,
+            global::ElevenLabs.EmbeddingModelEnum? embeddingModel = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -98,8 +107,9 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet14Arguments(
                 httpClient: HttpClient,
-                toolId: ref toolId,
-                environment: ref environment);
+                documentationId: ref documentationId,
+                chunkId: ref chunkId,
+                embeddingModel: ref embeddingModel);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -125,10 +135,10 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/tools/{toolId}",
+                                path: $"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("environment", environment)
+                                .AddOptionalParameter("embedding_model", embeddingModel?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -170,8 +180,9 @@ namespace ElevenLabs
                 PrepareGet14Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolId: toolId,
-                    environment: environment);
+                    documentationId: documentationId,
+                    chunkId: chunkId,
+                    embeddingModel: embeddingModel);
 
                 return __httpRequest;
             }
@@ -190,7 +201,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get14",
                                 methodName: "Get14Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -224,7 +235,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get14",
                                 methodName: "Get14Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -265,7 +276,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get14",
                                 methodName: "Get14Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -313,7 +324,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get14",
                                 methodName: "Get14Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -335,7 +346,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get14",
                                 methodName: "Get14Async",
-                                pathTemplate: "$\"/v1/convai/tools/{toolId}\"",
+                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}/chunk/{chunkId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -409,9 +420,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.ToolResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ToolResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -441,9 +452,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.ToolResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ToolResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.KnowledgeBaseDocumentChunkResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

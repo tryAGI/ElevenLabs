@@ -28,14 +28,14 @@ namespace ElevenLabs
         partial void PrepareCreate6Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBCreateProcedureRequest request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionCreateProcedureRequest request);
         partial void PrepareCreate6Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBCreateProcedureRequest request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionCreateProcedureRequest request);
         partial void ProcessCreate6Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -49,7 +49,9 @@ namespace ElevenLabs
         /// Add Procedure<br/>
         /// Add a procedure (SOP) to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -57,19 +59,19 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Create6Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProcedure> Create6Async(
             string agentId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateProcedureRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateProcedureRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create6AsResponseAsync(
                 agentId: agentId,
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,7 +82,9 @@ namespace ElevenLabs
         /// Add Procedure<br/>
         /// Add a procedure (SOP) to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -88,11 +92,11 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>> Create6AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProcedure>> Create6AsResponseAsync(
             string agentId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateProcedureRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateProcedureRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -164,10 +168,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -426,9 +427,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBProcedure.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionProcedure.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -458,9 +459,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBProcedure.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionProcedure.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -504,7 +505,9 @@ namespace ElevenLabs
         /// Add Procedure<br/>
         /// Add a procedure (SOP) to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -520,16 +523,16 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Create6Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProcedure> Create6Async(
             string agentId,
+            string xiWorkspaceId,
             string name,
             string trigger,
-            string? xiWorkspaceId = default,
             string? body = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBCreateProcedureRequest
+            var __request = new global::ElevenLabs.ReceptionCreateProcedureRequest
             {
                 Name = name,
                 Trigger = trigger,

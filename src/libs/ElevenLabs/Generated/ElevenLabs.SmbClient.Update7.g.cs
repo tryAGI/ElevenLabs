@@ -29,15 +29,15 @@ namespace ElevenLabs
             global::System.Net.Http.HttpClient httpClient,
             ref string agentId,
             ref string procedureId,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateProcedureRequest request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateProcedureRequest request);
         partial void PrepareUpdate7Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string agentId,
             string procedureId,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBUpdateProcedureRequest request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionUpdateProcedureRequest request);
         partial void ProcessUpdate7Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,8 +51,12 @@ namespace ElevenLabs
         /// Update Procedure<br/>
         /// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="procedureId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="procedureId">
+        /// ID of the procedure. Returned when you add one; list them with `GET /v1/reception/customer-facing-agents/{agent_id}/procedures`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -60,21 +64,21 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Update7Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProcedure> Update7Async(
             string agentId,
             string procedureId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateProcedureRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateProcedureRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Update7AsResponseAsync(
                 agentId: agentId,
                 procedureId: procedureId,
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -85,8 +89,12 @@ namespace ElevenLabs
         /// Update Procedure<br/>
         /// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="procedureId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="procedureId">
+        /// ID of the procedure. Returned when you add one; list them with `GET /v1/reception/customer-facing-agents/{agent_id}/procedures`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -94,12 +102,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>> Update7AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProcedure>> Update7AsResponseAsync(
             string agentId,
             string procedureId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateProcedureRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateProcedureRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -172,10 +180,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -435,9 +440,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.SMBProcedure.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.ReceptionProcedure.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -467,9 +472,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.SMBProcedure.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.ReceptionProcedure.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProcedure>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProcedure>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -513,8 +518,12 @@ namespace ElevenLabs
         /// Update Procedure<br/>
         /// Replace an existing procedure on the named receptionist. Send every field: an omitted `body` resets to empty.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="procedureId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="procedureId">
+        /// ID of the procedure. Returned when you add one; list them with `GET /v1/reception/customer-facing-agents/{agent_id}/procedures`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -530,17 +539,17 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProcedure> Update7Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProcedure> Update7Async(
             string agentId,
             string procedureId,
+            string xiWorkspaceId,
             string name,
             string trigger,
-            string? xiWorkspaceId = default,
             string? body = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBUpdateProcedureRequest
+            var __request = new global::ElevenLabs.ReceptionUpdateProcedureRequest
             {
                 Name = name,
                 Trigger = trigger,

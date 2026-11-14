@@ -27,11 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareGet11Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Collections.Generic.IList<string> documentIds);
+            ref string? agentId,
+            global::System.Collections.Generic.IList<string>? agentIds);
         partial void PrepareGet11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Collections.Generic.IList<string> documentIds);
+            string? agentId,
+            global::System.Collections.Generic.IList<string>? agentIds);
         partial void ProcessGet11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,22 +44,27 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Knowledge Base Summaries By Ids<br/>
-        /// Gets multiple knowledge base document summaries by their IDs.
+        /// Get Live Count<br/>
+        /// Get the live count of the ongoing conversations.
         /// </summary>
-        /// <param name="documentIds">
-        /// The ids of knowledge base documents.
+        /// <param name="agentId">
+        /// The id of an agent to restrict the analytics to.
+        /// </param>
+        /// <param name="agentIds">
+        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Get11Async(
-            global::System.Collections.Generic.IList<string> documentIds,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetLiveCountResponse> Get11Async(
+            string? agentId = default,
+            global::System.Collections.Generic.IList<string>? agentIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get11AsResponseAsync(
-                documentIds: documentIds,
+                agentId: agentId,
+                agentIds: agentIds,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -65,17 +72,21 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Knowledge Base Summaries By Ids<br/>
-        /// Gets multiple knowledge base document summaries by their IDs.
+        /// Get Live Count<br/>
+        /// Get the live count of the ongoing conversations.
         /// </summary>
-        /// <param name="documentIds">
-        /// The ids of knowledge base documents.
+        /// <param name="agentId">
+        /// The id of an agent to restrict the analytics to.
+        /// </param>
+        /// <param name="agentIds">
+        /// Restrict analytics to the union of the given agents. Takes precedence over `agent_id` when both are supplied.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Get11AsResponseAsync(
-            global::System.Collections.Generic.IList<string> documentIds,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>> Get11AsResponseAsync(
+            string? agentId = default,
+            global::System.Collections.Generic.IList<string>? agentIds = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +96,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet11Arguments(
                 httpClient: HttpClient,
-                documentIds: documentIds);
+                agentId: ref agentId,
+                agentIds: agentIds);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,10 +123,11 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: "/v1/convai/knowledge-base/summaries",
+                                path: "/v1/convai/analytics/live-count",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddRequiredParameter("document_ids", documentIds, delimiter: ",", explode: true)
+                                .AddOptionalParameter("agent_id", agentId)
+                                .AddOptionalParameter("agent_ids", agentIds, delimiter: ",", explode: true)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -156,7 +169,8 @@ namespace ElevenLabs
                 PrepareGet11Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentIds: documentIds);
+                    agentId: agentId,
+                    agentIds: agentIds);
 
                 return __httpRequest;
             }
@@ -175,7 +189,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -209,7 +223,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -250,7 +264,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -298,7 +312,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -320,7 +334,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get11",
                                 methodName: "Get11Async",
-                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
+                                pathTemplate: "\"/v1/convai/analytics/live-count\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -394,11 +408,13 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = global::ElevenLabs.GetLiveCountResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -418,17 +434,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = await global::ElevenLabs.GetLiveCountResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetLiveCountResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

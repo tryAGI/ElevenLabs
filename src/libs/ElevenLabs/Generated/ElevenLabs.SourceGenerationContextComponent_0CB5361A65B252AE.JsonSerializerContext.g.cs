@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.TTSConversationalConfigOverrideConfig))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0244.Create_TTSConversationalConfigOverrideConfig(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0268.Create_TTSConversationalConfigOverrideConfig(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

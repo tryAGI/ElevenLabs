@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.WorkingHoursHours))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0274.Create_WorkingHoursHours(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0302.Create_WorkingHoursHours(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);
