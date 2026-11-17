@@ -43,6 +43,38 @@ difference is the contract, not the dates.
 Giving the STT WebSocket a handcrafted contract, the way Inworld and SmallestAI have, would let it be
 generated. That is new work, not a cleanup.
 
+## If you write the STT AsyncAPI contract, these are the two sources
+
+Authoring one is feasible — ~10 message types — but **neither the docs nor our models are
+sufficient alone**, and transcribing either one would bake its gaps into a contract that then
+generates a client, which is worse than having no contract.
+
+From ElevenLabs' docs (the API reference pages 403 for automated clients; the guides and event
+reference are readable):
+
+- `wss://api.elevenlabs.io/v1/speech-to-text/realtime`, API key in the `xi-api-key` header on the
+  upgrade request. Client-side uses a single-use token whose transport on a raw socket is undocumented.
+- Query parameters with enums: `model_id` (`scribe_v3_live`), `audio_format` (`pcm_8000` …
+  `pcm_48000`, `ulaw_8000`), `commit_strategy` (`manual` default, `vad`, `turn_prediction`),
+  `vad_silence_threshold_secs` (0.192–3.0), `include_timestamps`, `include_language_detection`,
+  `diarize`, `filter_background_audio`, `keepalive_interval_ms` (500–10000).
+- One client message, `input_audio_chunk`, discriminated by `message_type`, carrying
+  `audio_base_64`, `commit`, `sample_rate`. A commit is the same message with empty audio.
+- Server messages: `session_started`, `partial_transcript`, `committed_transcript`,
+  `committed_transcript_with_timestamps`, plus `diarized_transcript`, `speakers_merged` and the
+  entity/redaction/edit variants.
+- The docs **do not** define the error envelope's shape or its `message_type` literal, the realtime
+  word schema, `session_started`'s fields beyond `config`, or the wire name of `previous_text`.
+
+From `Realtime/RealtimeSpeechToTextEvents.cs`, which fills exactly those gaps:
+`ErrorEvent(ErrorType, Error)`, `SessionStartedEvent(SessionId, Config)`, `TranscriptionWord`, and
+`previous_text` written out as a wire name. Those came from working against the service, not from the
+docs, so they are the better source for the parts the docs omit — and the parts most worth verifying
+against live traffic before they go into a contract.
+
+I did not write the contract: its error path would have to be invented from one of the two sources,
+and a wrong error shape fails deserialization exactly when something is already going wrong.
+
 ## Architecture
 
 ### Code Generation Pipeline
