@@ -22,6 +22,27 @@ dotnet test src/tests/IntegrationTests/ElevenLabs.IntegrationTests.csproj
 cd src/libs/ElevenLabs && ./generate.sh
 ```
 
+## The hand-written realtime STT session is not superseded — do not deprecate it
+
+`Extensions/RealtimeSpeechToTextSession.cs` and `SpeechToText2Client.Realtime.cs` open their own
+`ClientWebSocket`, and they predate the generated realtime clients by five months (2026-05-25 and
+2026-08-30 against 2026-10-19). By age that looks exactly like a leftover.
+
+It is not. The three AsyncAPI contracts here — `asyncapi.json`,
+`text-to-dialogue-asyncapi.json`, `text-to-dialogue-multi-context-asyncapi.json`, all three wired
+into `generate.sh` — declare the channels `realtime`, `dialogue` and `dialogueMulti`. **None of them
+is speech-to-text**, and the upstream OpenAPI declares no STT WebSocket path either. So that session
+is the only implementation of the channel it serves, and nothing exists to generate a replacement
+from.
+
+Checked with `scripts/audit_generation_inputs.py --sdk ElevenLabs` in the workspace repo, which
+reads the `autosdk generate` invocations rather than guessing from filenames. Cartesia's equivalent
+hand-written client *was* deprecated, because its contracts do cover both STT channels — the
+difference is the contract, not the dates.
+
+Giving the STT WebSocket a handcrafted contract, the way Inworld and SmallestAI have, would let it be
+generated. That is new work, not a cleanup.
+
 ## Architecture
 
 ### Code Generation Pipeline
