@@ -72,8 +72,23 @@ From `Realtime/RealtimeSpeechToTextEvents.cs`, which fills exactly those gaps:
 docs, so they are the better source for the parts the docs omit — and the parts most worth verifying
 against live traffic before they go into a contract.
 
-I did not write the contract: its error path would have to be invented from one of the two sources,
-and a wrong error shape fails deserialization exactly when something is already going wrong.
+### The error envelope is confirmed from live traffic
+
+Connecting with a deliberately invalid `xi-api-key` — no real key needed, and nothing secret is
+sent — returns one message and closes with 1000:
+
+```json
+{"message_type":"auth_error","error":"You must be authenticated to use this endpoint."}
+```
+
+So the error is discriminated by `message_type` like every other message, and the literal **is the
+error type** (`auth_error`, `quota_exceeded`, `invalid_request`, …) rather than a generic `error`
+with a separate type field. The text is in `error`.
+
+`RealtimeEventParser` already does exactly this — its default branch builds
+`ErrorEvent(type, error)` — so the hand-written models match the wire, and the one blocker on
+writing the contract is gone. What remains undocumented and unprobed is the realtime word schema and
+the entity/redaction/edit event shapes.
 
 ## Architecture
 
