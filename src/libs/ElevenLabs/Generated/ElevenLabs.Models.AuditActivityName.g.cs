@@ -243,6 +243,18 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        OAuthAppAuthorizationGrant,
+        /// <summary>
+        ///
+        /// </summary>
+        OAuthAppAuthorizationManagement,
+        /// <summary>
+        ///
+        /// </summary>
+        OAuthAppAuthorizationRevocation,
+        /// <summary>
+        ///
+        /// </summary>
         PasswordResetEmailRequest,
         /// <summary>
         ///
@@ -467,6 +479,38 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        WorkloadIdentityFederationAssignmentCreation,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkloadIdentityFederationAssignmentDeletion,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkloadIdentityFederationAssignmentManagement,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkloadIdentityFederationPoolCreation,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkloadIdentityFederationPoolDeletion,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkloadIdentityFederationPoolManagement,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkloadIdentityFederationPoolUpdate,
+        /// <summary>
+        ///
+        /// </summary>
+        WorkloadIdentityFederationTokenExchange,
+        /// <summary>
+        ///
+        /// </summary>
         WorkspaceCreation,
         /// <summary>
         ///
@@ -600,6 +644,9 @@ namespace ElevenLabs
                 AuditActivityName.NotificationPreferenceDeletion => "Notification Preference Deletion",
                 AuditActivityName.NotificationPreferenceManagement => "Notification Preference Management",
                 AuditActivityName.NotificationPreferenceUpdate => "Notification Preference Update",
+                AuditActivityName.OAuthAppAuthorizationGrant => "OAuth App Authorization Grant",
+                AuditActivityName.OAuthAppAuthorizationManagement => "OAuth App Authorization Management",
+                AuditActivityName.OAuthAppAuthorizationRevocation => "OAuth App Authorization Revocation",
                 AuditActivityName.PasswordResetEmailRequest => "Password Reset Email Request",
                 AuditActivityName.PasswordResetLinkGeneration => "Password Reset Link Generation",
                 AuditActivityName.ReportingWorkspaceSsoInheritanceUpdate => "Reporting Workspace SSO Inheritance Update",
@@ -656,6 +703,14 @@ namespace ElevenLabs
                 AuditActivityName.WebhookDeletion => "Webhook Deletion",
                 AuditActivityName.WebhookManagement => "Webhook Management",
                 AuditActivityName.WebhookUpdate => "Webhook Update",
+                AuditActivityName.WorkloadIdentityFederationAssignmentCreation => "Workload Identity Federation Assignment Creation",
+                AuditActivityName.WorkloadIdentityFederationAssignmentDeletion => "Workload Identity Federation Assignment Deletion",
+                AuditActivityName.WorkloadIdentityFederationAssignmentManagement => "Workload Identity Federation Assignment Management",
+                AuditActivityName.WorkloadIdentityFederationPoolCreation => "Workload Identity Federation Pool Creation",
+                AuditActivityName.WorkloadIdentityFederationPoolDeletion => "Workload Identity Federation Pool Deletion",
+                AuditActivityName.WorkloadIdentityFederationPoolManagement => "Workload Identity Federation Pool Management",
+                AuditActivityName.WorkloadIdentityFederationPoolUpdate => "Workload Identity Federation Pool Update",
+                AuditActivityName.WorkloadIdentityFederationTokenExchange => "Workload Identity Federation Token Exchange",
                 AuditActivityName.WorkspaceCreation => "Workspace Creation",
                 AuditActivityName.WorkspaceDeletion => "Workspace Deletion",
                 AuditActivityName.WorkspaceDeletionCancellation => "Workspace Deletion Cancellation",
@@ -740,6 +795,9 @@ namespace ElevenLabs
                 "Notification Preference Deletion" => AuditActivityName.NotificationPreferenceDeletion,
                 "Notification Preference Management" => AuditActivityName.NotificationPreferenceManagement,
                 "Notification Preference Update" => AuditActivityName.NotificationPreferenceUpdate,
+                "OAuth App Authorization Grant" => AuditActivityName.OAuthAppAuthorizationGrant,
+                "OAuth App Authorization Management" => AuditActivityName.OAuthAppAuthorizationManagement,
+                "OAuth App Authorization Revocation" => AuditActivityName.OAuthAppAuthorizationRevocation,
                 "Password Reset Email Request" => AuditActivityName.PasswordResetEmailRequest,
                 "Password Reset Link Generation" => AuditActivityName.PasswordResetLinkGeneration,
                 "Reporting Workspace SSO Inheritance Update" => AuditActivityName.ReportingWorkspaceSsoInheritanceUpdate,
@@ -796,6 +854,14 @@ namespace ElevenLabs
                 "Webhook Deletion" => AuditActivityName.WebhookDeletion,
                 "Webhook Management" => AuditActivityName.WebhookManagement,
                 "Webhook Update" => AuditActivityName.WebhookUpdate,
+                "Workload Identity Federation Assignment Creation" => AuditActivityName.WorkloadIdentityFederationAssignmentCreation,
+                "Workload Identity Federation Assignment Deletion" => AuditActivityName.WorkloadIdentityFederationAssignmentDeletion,
+                "Workload Identity Federation Assignment Management" => AuditActivityName.WorkloadIdentityFederationAssignmentManagement,
+                "Workload Identity Federation Pool Creation" => AuditActivityName.WorkloadIdentityFederationPoolCreation,
+                "Workload Identity Federation Pool Deletion" => AuditActivityName.WorkloadIdentityFederationPoolDeletion,
+                "Workload Identity Federation Pool Management" => AuditActivityName.WorkloadIdentityFederationPoolManagement,
+                "Workload Identity Federation Pool Update" => AuditActivityName.WorkloadIdentityFederationPoolUpdate,
+                "Workload Identity Federation Token Exchange" => AuditActivityName.WorkloadIdentityFederationTokenExchange,
                 "Workspace Creation" => AuditActivityName.WorkspaceCreation,
                 "Workspace Deletion" => AuditActivityName.WorkspaceDeletion,
                 "Workspace Deletion Cancellation" => AuditActivityName.WorkspaceDeletionCancellation,

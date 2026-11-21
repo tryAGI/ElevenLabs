@@ -5,31 +5,27 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Get Phone Number<br/>
-        /// Retrieve Phone Number details by ID
+        /// Get Conversation Tag<br/>
+        /// Get a conversation tag by ID.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The phone number ID. This is returned when a phone number is imported.
-        /// </param>
+        /// <param name="tagId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.GetPhoneNumberRouteResponse> Get9Async(
-            string phoneNumberId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ConversationTagResponseModel> Get9Async(
+            string tagId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Phone Number<br/>
-        /// Retrieve Phone Number details by ID
+        /// Get Conversation Tag<br/>
+        /// Get a conversation tag by ID.
         /// </summary>
-        /// <param name="phoneNumberId">
-        /// The phone number ID. This is returned when a phone number is imported.
-        /// </param>
+        /// <param name="tagId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetPhoneNumberRouteResponse>> Get9AsResponseAsync(
-            string phoneNumberId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ConversationTagResponseModel>> Get9AsResponseAsync(
+            string tagId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

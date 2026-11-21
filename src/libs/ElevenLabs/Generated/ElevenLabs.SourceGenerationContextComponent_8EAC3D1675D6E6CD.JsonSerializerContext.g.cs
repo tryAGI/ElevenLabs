@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_36E0E4A2FFAD07AB.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_49429DB2CADBC696.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_7F2CB30DCEFBC819.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_98AFE1A10B7D666B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DF050133D714B5F3.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_2CDE53051A59C31B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_36E0E4A2FFAD07AB.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_49429DB2CADBC696.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_7F2CB30DCEFBC819.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_98AFE1A10B7D666B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B760F44FA5965C24.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ConvAIStoredSecretDependencies))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0040.Create_ConvAIStoredSecretDependencies(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0044.Create_ConvAIStoredSecretDependencies(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

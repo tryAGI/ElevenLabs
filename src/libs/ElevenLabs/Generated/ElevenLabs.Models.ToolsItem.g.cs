@@ -12,157 +12,156 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType? Type { get; }
+        public global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType? Type { get; }
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.DependentAvailableToolIdentifier? Available { get; init; }
+        public global::ElevenLabs.OpenAIFunctionTool? Function { get; init; }
 #else
-        public global::ElevenLabs.DependentAvailableToolIdentifier? Available { get; }
+        public global::ElevenLabs.OpenAIFunctionTool? Function { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Available))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Function))]
 #endif
-        public bool IsAvailable => Available != null;
+        public bool IsFunction => Function != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickAvailable(
+        public bool TryPickFunction(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::ElevenLabs.DependentAvailableToolIdentifier? value)
+            out global::ElevenLabs.OpenAIFunctionTool? value)
         {
-            value = Available;
-            return IsAvailable;
+            value = Function;
+            return IsFunction;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentAvailableToolIdentifier PickAvailable() => Available is { } value
+        public global::ElevenLabs.OpenAIFunctionTool PickFunction() => Function is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'Available' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Function' but the value was {ToString()}.");
 
         /// <summary>
-        /// A model that represents an tool dependent on a knowledge base/tools<br/>
-        /// to which the user has no direct access.
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::ElevenLabs.DependentUnknownToolIdentifier? Unknown { get; init; }
+        public global::ElevenLabs.OpenAIMCPTool? Mcp { get; init; }
 #else
-        public global::ElevenLabs.DependentUnknownToolIdentifier? Unknown { get; }
+        public global::ElevenLabs.OpenAIMCPTool? Mcp { get; }
 #endif
 
         /// <summary>
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Unknown))]
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Mcp))]
 #endif
-        public bool IsUnknown => Unknown != null;
+        public bool IsMcp => Mcp != null;
 
         /// <summary>
         ///
         /// </summary>
-        public bool TryPickUnknown(
+        public bool TryPickMcp(
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::ElevenLabs.DependentUnknownToolIdentifier? value)
+            out global::ElevenLabs.OpenAIMCPTool? value)
         {
-            value = Unknown;
-            return IsUnknown;
+            value = Mcp;
+            return IsMcp;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.DependentUnknownToolIdentifier PickUnknown() => Unknown is { } value
+        public global::ElevenLabs.OpenAIMCPTool PickMcp() => Mcp is { } value
             ? value
-            : throw new global::System.InvalidOperationException($"Expected union variant 'Unknown' but the value was {ToString()}.");
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Mcp' but the value was {ToString()}.");
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator ToolsItem(global::ElevenLabs.DependentAvailableToolIdentifier value) => new ToolsItem((global::ElevenLabs.DependentAvailableToolIdentifier?)value);
+        public static implicit operator ToolsItem(global::ElevenLabs.OpenAIFunctionTool value) => new ToolsItem((global::ElevenLabs.OpenAIFunctionTool?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.DependentAvailableToolIdentifier?(ToolsItem @this) => @this.Available;
+        public static implicit operator global::ElevenLabs.OpenAIFunctionTool?(ToolsItem @this) => @this.Function;
 
         /// <summary>
         ///
         /// </summary>
-        public ToolsItem(global::ElevenLabs.DependentAvailableToolIdentifier? value)
+        public ToolsItem(global::ElevenLabs.OpenAIFunctionTool? value)
         {
-            Available = value;
+            Function = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static ToolsItem FromAvailable(global::ElevenLabs.DependentAvailableToolIdentifier? value) => new ToolsItem(value);
+        public static ToolsItem FromFunction(global::ElevenLabs.OpenAIFunctionTool? value) => new ToolsItem(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator ToolsItem(global::ElevenLabs.DependentUnknownToolIdentifier value) => new ToolsItem((global::ElevenLabs.DependentUnknownToolIdentifier?)value);
+        public static implicit operator ToolsItem(global::ElevenLabs.OpenAIMCPTool value) => new ToolsItem((global::ElevenLabs.OpenAIMCPTool?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::ElevenLabs.DependentUnknownToolIdentifier?(ToolsItem @this) => @this.Unknown;
+        public static implicit operator global::ElevenLabs.OpenAIMCPTool?(ToolsItem @this) => @this.Mcp;
 
         /// <summary>
         ///
         /// </summary>
-        public ToolsItem(global::ElevenLabs.DependentUnknownToolIdentifier? value)
+        public ToolsItem(global::ElevenLabs.OpenAIMCPTool? value)
         {
-            Unknown = value;
+            Mcp = value;
         }
 
         /// <summary>
         ///
         /// </summary>
-        public static ToolsItem FromUnknown(global::ElevenLabs.DependentUnknownToolIdentifier? value) => new ToolsItem(value);
+        public static ToolsItem FromMcp(global::ElevenLabs.OpenAIMCPTool? value) => new ToolsItem(value);
 
         /// <summary>
         ///
         /// </summary>
         public ToolsItem(
-            global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType? type,
-            global::ElevenLabs.DependentAvailableToolIdentifier? available,
-            global::ElevenLabs.DependentUnknownToolIdentifier? unknown
+            global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType? type,
+            global::ElevenLabs.OpenAIFunctionTool? function,
+            global::ElevenLabs.OpenAIMCPTool? mcp
             )
         {
             Type = type;
 
-            Available = available;
-            Unknown = unknown;
+            Function = function;
+            Mcp = mcp;
         }
 
         /// <summary>
         ///
         /// </summary>
         public object? Object =>
-            Unknown as object ??
-            Available as object
+            Mcp as object ??
+            Function as object
             ;
 
         /// <summary>
         ///
         /// </summary>
         public override string? ToString() =>
-            Available?.ToString() ??
-            Unknown?.ToString()
+            Function?.ToString() ??
+            Mcp?.ToString()
             ;
 
         /// <summary>
@@ -170,15 +169,15 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsAvailable && !IsUnknown || !IsAvailable && IsUnknown;
+            return IsFunction && !IsMcp || !IsFunction && IsMcp;
         }
 
         /// <summary>
         ///
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::ElevenLabs.DependentAvailableToolIdentifier, TResult>? available = null,
-            global::System.Func<global::ElevenLabs.DependentUnknownToolIdentifier, TResult>? unknown = null,
+            global::System.Func<global::ElevenLabs.OpenAIFunctionTool, TResult>? function = null,
+            global::System.Func<global::ElevenLabs.OpenAIMCPTool, TResult>? mcp = null,
             bool validate = true)
         {
             if (validate)
@@ -186,13 +185,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (Available is { } __value0 && available != null)
+            if (Function is { } __value0 && function != null)
             {
-                return available(__value0);
+                return function(__value0);
             }
-            else if (Unknown is { } __value1 && unknown != null)
+            else if (Mcp is { } __value1 && mcp != null)
             {
-                return unknown(__value1);
+                return mcp(__value1);
             }
 
             return default(TResult);
@@ -202,9 +201,9 @@ namespace ElevenLabs
         ///
         /// </summary>
         public void Match(
-            global::System.Action<global::ElevenLabs.DependentAvailableToolIdentifier>? available = null,
+            global::System.Action<global::ElevenLabs.OpenAIFunctionTool>? function = null,
 
-            global::System.Action<global::ElevenLabs.DependentUnknownToolIdentifier>? unknown = null,
+            global::System.Action<global::ElevenLabs.OpenAIMCPTool>? mcp = null,
             bool validate = true)
         {
             if (validate)
@@ -212,13 +211,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (Available is { } __value0)
+            if (Function is { } __value0)
             {
-                available?.Invoke(__value0);
+                function?.Invoke(__value0);
             }
-            else if (Unknown is { } __value1)
+            else if (Mcp is { } __value1)
             {
-                unknown?.Invoke(__value1);
+                mcp?.Invoke(__value1);
             }
         }
 
@@ -226,8 +225,8 @@ namespace ElevenLabs
         ///
         /// </summary>
         public void Switch(
-            global::System.Action<global::ElevenLabs.DependentAvailableToolIdentifier>? available = null,
-            global::System.Action<global::ElevenLabs.DependentUnknownToolIdentifier>? unknown = null,
+            global::System.Action<global::ElevenLabs.OpenAIFunctionTool>? function = null,
+            global::System.Action<global::ElevenLabs.OpenAIMCPTool>? mcp = null,
             bool validate = true)
         {
             if (validate)
@@ -235,13 +234,13 @@ namespace ElevenLabs
                 Validate();
             }
 
-            if (Available is { } __value0)
+            if (Function is { } __value0)
             {
-                available?.Invoke(__value0);
+                function?.Invoke(__value0);
             }
-            else if (Unknown is { } __value1)
+            else if (Mcp is { } __value1)
             {
-                unknown?.Invoke(__value1);
+                mcp?.Invoke(__value1);
             }
         }
 
@@ -252,10 +251,10 @@ namespace ElevenLabs
         {
             var fields = new object?[]
             {
-                Available,
-                typeof(global::ElevenLabs.DependentAvailableToolIdentifier),
-                Unknown,
-                typeof(global::ElevenLabs.DependentUnknownToolIdentifier),
+                Function,
+                typeof(global::ElevenLabs.OpenAIFunctionTool),
+                Mcp,
+                typeof(global::ElevenLabs.OpenAIMCPTool),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -272,8 +271,8 @@ namespace ElevenLabs
         public bool Equals(ToolsItem other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentAvailableToolIdentifier?>.Default.Equals(Available, other.Available) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.DependentUnknownToolIdentifier?>.Default.Equals(Unknown, other.Unknown)
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OpenAIFunctionTool?>.Default.Equals(Function, other.Function) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.OpenAIMCPTool?>.Default.Equals(Mcp, other.Mcp)
                 ;
         }
 

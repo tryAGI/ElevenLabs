@@ -68,6 +68,13 @@ namespace ElevenLabs
         public global::ElevenLabs.EntryBehavior? EntryBehavior { get; set; }
 
         /// <summary>
+        /// Lets the caller interrupt the response this node gives on entry. Ignored unless entry_behavior is "generate_immediately".<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("allow_interruptions_on_entry")]
+        public bool? AllowInterruptionsOnEntry { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -105,6 +112,10 @@ namespace ElevenLabs
         /// Dictates whether this node should immediately generate a response upon entry or wait for the user input. When set to "auto", the behavior will be decided based on the type of the preceding node: "wait_for_user" after the "say" and "start" nodes and "generate_immediately" otherwise.<br/>
         /// Default Value: auto
         /// </param>
+        /// <param name="allowInterruptionsOnEntry">
+        /// Lets the caller interrupt the response this node gives on entry. Ignored unless entry_behavior is "generate_immediately".<br/>
+        /// Default Value: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -117,7 +128,8 @@ namespace ElevenLabs
             string? additionalPrompt,
             global::System.Collections.Generic.IList<global::ElevenLabs.KnowledgeBaseLocator>? additionalKnowledgeBase,
             global::System.Collections.Generic.IList<string>? additionalToolIds,
-            global::ElevenLabs.EntryBehavior? entryBehavior)
+            global::ElevenLabs.EntryBehavior? entryBehavior,
+            bool? allowInterruptionsOnEntry)
         {
             this.Type = type;
             this.Position = position;
@@ -128,6 +140,7 @@ namespace ElevenLabs
             this.AdditionalToolIds = additionalToolIds;
             this.Label = label ?? throw new global::System.ArgumentNullException(nameof(label));
             this.EntryBehavior = entryBehavior;
+            this.AllowInterruptionsOnEntry = allowInterruptionsOnEntry;
         }
 
         /// <summary>

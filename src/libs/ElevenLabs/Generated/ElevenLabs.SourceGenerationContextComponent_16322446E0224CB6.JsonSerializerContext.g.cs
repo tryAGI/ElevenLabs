@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_672C85ABE3ABF3EF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6867640151F33071.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B5BF02F51AADCE6C.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_01DFD8AEFCC3322E.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_672C85ABE3ABF3EF.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6867640151F33071.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.DependentAgentsItem2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0058.Create_DependentAgentsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0063.Create_DependentAgentsItem22(options);
                 }
                 if (type == typeof(global::ElevenLabs.DependentAgentsItem2?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0115.Create_NullableDependentAgentsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0123.Create_NullableDependentAgentsItem22(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

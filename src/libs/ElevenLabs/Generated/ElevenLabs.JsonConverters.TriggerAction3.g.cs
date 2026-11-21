@@ -18,19 +18,19 @@ namespace ElevenLabs.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.EndCallTriggerAction? endCall = default;
-            if (discriminator?.Type == global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType.EndCall)
+            if (discriminator?.Type == global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminatorType.EndCall)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.EndCallTriggerAction), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.EndCallTriggerAction> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.EndCallTriggerAction)}");
                 endCall = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.RetryTriggerAction? retry = default;
-            if (discriminator?.Type == global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType.Retry)
+            if (discriminator?.Type == global::ElevenLabs.ContentGuardrailOutputTriggerActionDiscriminatorType.Retry)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.RetryTriggerAction), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.RetryTriggerAction> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.RetryTriggerAction)}");

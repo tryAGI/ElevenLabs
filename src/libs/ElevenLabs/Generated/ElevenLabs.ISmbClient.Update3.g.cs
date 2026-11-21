@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Update Product<br/>
         /// Update a product's catalog fields. Only the fields sent are changed. On-hand quantities are not part of this call; use the stock endpoints.
         /// </summary>
-        /// <param name="productId"></param>
+        /// <param name="productId">
+        /// ID of the product. Returned when you create one; list them with `GET /v1/reception/products`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -16,18 +18,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProductDBModel> Update3Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProduct> Update3Async(
             string productId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateProductRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateProductRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Product<br/>
         /// Update a product's catalog fields. Only the fields sent are changed. On-hand quantities are not part of this call; use the stock endpoints.
         /// </summary>
-        /// <param name="productId"></param>
+        /// <param name="productId">
+        /// ID of the product. Returned when you create one; list them with `GET /v1/reception/products`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -35,18 +39,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProductDBModel>> Update3AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProduct>> Update3AsResponseAsync(
             string productId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateProductRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateProductRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Product<br/>
         /// Update a product's catalog fields. Only the fields sent are changed. On-hand quantities are not part of this call; use the stock endpoints.
         /// </summary>
-        /// <param name="productId"></param>
+        /// <param name="productId">
+        /// ID of the product. Returned when you create one; list them with `GET /v1/reception/products`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -90,12 +96,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProductDBModel> Update3Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProduct> Update3Async(
             string productId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.PricingMode? pricingMode = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBIntakeQuestion>? intakeQuestions = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionIntakeQuestion>? intakeQuestions = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? name = default,
             string? description = default,

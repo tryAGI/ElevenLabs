@@ -9,21 +9,19 @@ namespace ElevenLabs
     public sealed partial class AdhocAgentConfigOverrideForTestRequestModel
     {
         /// <summary>
-        ///
+        /// Conversation config fields to change for this run. Fields left out keep the agent's values.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("conversation_config")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.ConversationalConfigAPIModelInput ConversationConfig { get; set; }
+        public global::ElevenLabs.ConversationalConfigAPIModelInput? ConversationConfig { get; set; }
 
         /// <summary>
-        ///
+        /// Platform settings fields to change for this run. Fields left out keep the agent's values.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("platform_settings")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.AgentPlatformSettingsRequestModel PlatformSettings { get; set; }
+        public global::ElevenLabs.AgentPlatformSettingsRequestModel? PlatformSettings { get; set; }
 
         /// <summary>
-        ///
+        /// A workflow to run instead of the agent's. It replaces the agent's workflow whole.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workflow")]
         public global::ElevenLabs.AgentWorkflowRequestModel? Workflow { get; set; }
@@ -37,19 +35,25 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AdhocAgentConfigOverrideForTestRequestModel" /> class.
         /// </summary>
-        /// <param name="conversationConfig"></param>
-        /// <param name="platformSettings"></param>
-        /// <param name="workflow"></param>
+        /// <param name="conversationConfig">
+        /// Conversation config fields to change for this run. Fields left out keep the agent's values.
+        /// </param>
+        /// <param name="platformSettings">
+        /// Platform settings fields to change for this run. Fields left out keep the agent's values.
+        /// </param>
+        /// <param name="workflow">
+        /// A workflow to run instead of the agent's. It replaces the agent's workflow whole.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AdhocAgentConfigOverrideForTestRequestModel(
-            global::ElevenLabs.ConversationalConfigAPIModelInput conversationConfig,
-            global::ElevenLabs.AgentPlatformSettingsRequestModel platformSettings,
+            global::ElevenLabs.ConversationalConfigAPIModelInput? conversationConfig,
+            global::ElevenLabs.AgentPlatformSettingsRequestModel? platformSettings,
             global::ElevenLabs.AgentWorkflowRequestModel? workflow)
         {
-            this.ConversationConfig = conversationConfig ?? throw new global::System.ArgumentNullException(nameof(conversationConfig));
-            this.PlatformSettings = platformSettings ?? throw new global::System.ArgumentNullException(nameof(platformSettings));
+            this.ConversationConfig = conversationConfig;
+            this.PlatformSettings = platformSettings;
             this.Workflow = workflow;
         }
 

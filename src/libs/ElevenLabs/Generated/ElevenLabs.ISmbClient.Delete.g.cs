@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Delete Service<br/>
         /// Delete a service
         /// </summary>
-        /// <param name="serviceId"></param>
+        /// <param name="serviceId">
+        /// ID of the service. Returned when you create one; list them with `GET /v1/reception/services`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -17,14 +19,16 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> DeleteAsync(
             string serviceId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Service<br/>
         /// Delete a service
         /// </summary>
-        /// <param name="serviceId"></param>
+        /// <param name="serviceId">
+        /// ID of the service. Returned when you create one; list them with `GET /v1/reception/services`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -33,7 +37,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> DeleteAsResponseAsync(
             string serviceId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

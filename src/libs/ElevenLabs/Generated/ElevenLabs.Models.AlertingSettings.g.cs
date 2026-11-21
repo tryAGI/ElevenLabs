@@ -23,6 +23,12 @@ namespace ElevenLabs
         public int? AutoResolveAfterInactiveMinutes { get; set; }
 
         /// <summary>
+        /// Environments whose conversations are monitored, e.g. ``['production']``. The list must include ``production``. Unset values fall through to the next layer; when no layer sets it, every environment is monitored.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environments")]
+        public global::System.Collections.Generic.IList<string>? Environments { get; set; }
+
+        /// <summary>
         /// Delivery channels for alert lifecycle notifications. Stacked with other layers and deduped by ``webhook_id``, PagerDuty ``connection_id``, or Slack ``(connection_id, channel_id)``.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
@@ -43,6 +49,9 @@ namespace ElevenLabs
         /// <param name="autoResolveAfterInactiveMinutes">
         /// How many minutes an alert can stay inactive before it is auto-resolved. Unset values fall through to the next layer.
         /// </param>
+        /// <param name="environments">
+        /// Environments whose conversations are monitored, e.g. ``['production']``. The list must include ``production``. Unset values fall through to the next layer; when no layer sets it, every environment is monitored.
+        /// </param>
         /// <param name="notifiers">
         /// Delivery channels for alert lifecycle notifications. Stacked with other layers and deduped by ``webhook_id``, PagerDuty ``connection_id``, or Slack ``(connection_id, channel_id)``.
         /// </param>
@@ -52,10 +61,12 @@ namespace ElevenLabs
         public AlertingSettings(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? monitorConfigs,
             int? autoResolveAfterInactiveMinutes,
+            global::System.Collections.Generic.IList<string>? environments,
             global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifier, global::ElevenLabs.AlertingPagerDutyNotifier, global::ElevenLabs.AlertingSlackNotifier>>? notifiers)
         {
             this.MonitorConfigs = monitorConfigs;
             this.AutoResolveAfterInactiveMinutes = autoResolveAfterInactiveMinutes;
+            this.Environments = environments;
             this.Notifiers = notifiers;
         }
 

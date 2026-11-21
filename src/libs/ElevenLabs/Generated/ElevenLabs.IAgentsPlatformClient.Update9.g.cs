@@ -39,7 +39,7 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.GetConvAIDashboardSettingsResponseModel> Update9Async(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? charts = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem>? charts = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

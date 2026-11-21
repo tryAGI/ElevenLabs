@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_38A82D185D2E4A78.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6E503E6363A6D300.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_9756CF24E8D5D16D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B141B1CFB8BFEFB5.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B81E8BAB6B031AF6.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C3B9863D5E022BE0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C8943DCE08C94C01.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_0BC036ACB7BE475D.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_1621C24A96DB4FF2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_DA3C11FA77B58D20.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ToolsItem6))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0252.Create_ToolsItem62(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0271.Create_ToolsItem62(options);
                 }
                 if (type == typeof(global::ElevenLabs.ToolsItem6?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0141.Create_NullableToolsItem62(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0151.Create_NullableToolsItem62(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

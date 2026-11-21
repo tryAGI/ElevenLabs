@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType? Type { get; }
+        public global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType? Type { get; }
 
         /// <summary>
         ///
@@ -137,7 +137,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public TriggerAction(
-            global::ElevenLabs.ContentGuardrailInputTriggerActionDiscriminatorType? type,
+            global::ElevenLabs.CustomGuardrailConfigTriggerActionDiscriminatorType? type,
             global::ElevenLabs.EndCallTriggerAction? endCall,
             global::ElevenLabs.RetryTriggerAction? retry
             )

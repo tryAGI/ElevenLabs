@@ -25,6 +25,12 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("environments")]
+        public global::System.Collections.Generic.IList<string>? Environments { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notifiers")]
         public global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>>? Notifiers { get; set; }
 
@@ -39,6 +45,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="monitorConfigs"></param>
         /// <param name="autoResolveAfterInactiveMinutes"></param>
+        /// <param name="environments"></param>
         /// <param name="notifiers"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -46,10 +53,12 @@ namespace ElevenLabs
         public AlertingSettingsResponse(
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.AlertingMonitorConfig>? monitorConfigs,
             int? autoResolveAfterInactiveMinutes,
+            global::System.Collections.Generic.IList<string>? environments,
             global::System.Collections.Generic.IList<global::ElevenLabs.OneOf<global::ElevenLabs.AlertingWebhookNotifierResponse, global::ElevenLabs.AlertingPagerDutyNotifierResponse, global::ElevenLabs.AlertingSlackNotifierResponse>>? notifiers)
         {
             this.MonitorConfigs = monitorConfigs;
             this.AutoResolveAfterInactiveMinutes = autoResolveAfterInactiveMinutes;
+            this.Environments = environments;
             this.Notifiers = notifiers;
         }
 

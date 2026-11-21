@@ -12,15 +12,15 @@ namespace ElevenLabs
         /// Custom SIP headers to include when transferring the call. Each header can be either a static value or a dynamic variable reference.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_sip_headers")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>? CustomSipHeaders { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem4>? CustomSipHeaders { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transfer_destination")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination2JsonConverter))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TransferDestination6JsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.TransferDestination2 TransferDestination { get; set; }
+        public required global::ElevenLabs.TransferDestination6 TransferDestination { get; set; }
 
         /// <summary>
         /// Default Value: conference
@@ -67,6 +67,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? EdgeOrder { get; set; }
 
         /// <summary>
+        /// Per-provider transfer configuration. Mutually exclusive with a non-empty `transfer_destination`: when present, the configuration matching the call's telephony provider is executed and the legacy transfer fields are ignored.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("provider_configs")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ProviderConfigsItem3>? ProviderConfigs { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -101,19 +107,23 @@ namespace ElevenLabs
         /// <param name="edgeOrder">
         /// The ids of outgoing edges in the order they should be evaluated.
         /// </param>
+        /// <param name="providerConfigs">
+        /// Per-provider transfer configuration. Mutually exclusive with a non-empty `transfer_destination`: when present, the configuration matching the call's telephony provider is executed and the legacy transfer fields are ignored.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public WorkflowPhoneNumberNodeModelInput(
-            global::ElevenLabs.TransferDestination2 transferDestination,
-            global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem2>? customSipHeaders,
+            global::ElevenLabs.TransferDestination6 transferDestination,
+            global::System.Collections.Generic.IList<global::ElevenLabs.CustomSipHeadersItem4>? customSipHeaders,
             global::ElevenLabs.TransferTypeEnum? transferType,
             bool? sipReferPlayDialtone,
             global::ElevenLabs.UUITransferConfig? uui,
             global::ElevenLabs.PostDialDigitsVariant12? postDialDigits,
             string? type,
             global::ElevenLabs.PositionInput? position,
-            global::System.Collections.Generic.IList<string>? edgeOrder)
+            global::System.Collections.Generic.IList<string>? edgeOrder,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ProviderConfigsItem3>? providerConfigs)
         {
             this.CustomSipHeaders = customSipHeaders;
             this.TransferDestination = transferDestination;
@@ -124,6 +134,7 @@ namespace ElevenLabs
             this.Type = type;
             this.Position = position;
             this.EdgeOrder = edgeOrder;
+            this.ProviderConfigs = providerConfigs;
         }
 
         /// <summary>

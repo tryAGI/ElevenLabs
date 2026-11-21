@@ -14,7 +14,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create11Async(
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.ReceptionProvisionResellerWorkspaceRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -27,7 +27,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProvisionResellerWorkspaceResponse>> Create11AsResponseAsync(
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.ReceptionProvisionResellerWorkspaceRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,6 +35,9 @@ namespace ElevenLabs
         /// Create a workspace for one of your customers, optionally with a tier, a phone number and team invites.
         /// </summary>
         /// <param name="businessName"></param>
+        /// <param name="vertical">
+        /// The business's vertical, used with `complete_onboarding`. Without it, onboarding picks the vertical as usual.
+        /// </param>
         /// <param name="subscription">
         /// Paid tier to subscribe to. Omitted leaves the workspace with no subscription.
         /// </param>
@@ -57,6 +60,7 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create11Async(
             string businessName,
+            global::ElevenLabs.ReceptionVertical? vertical = default,
             global::ElevenLabs.ProvisionResellerWorkspaceSubscription? subscription = default,
             string? phoneNumber = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TeamInviteRequest>? members = default,

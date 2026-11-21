@@ -244,9 +244,9 @@ namespace ElevenLabs
 
         /// <summary>
         /// Request body for the ByteDance Seedance 2.5 video model.<br/>
-        /// Diverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,<br/>
-        /// larger reference caps, audio-only input allowed, and no ``seed`` (Ark<br/>
-        /// tolerates it but does not honour it).<br/>
+        /// Diverges from the Seedance 2.0 public shape: durations up to 30s, larger<br/>
+        /// reference caps, audio-only input allowed, and no ``seed`` (Ark tolerates it<br/>
+        /// but does not honour it).<br/>
         /// ByteDance models are disabled by default and require explicit approval<br/>
         /// before use. Contact support to request access.
         /// </summary>

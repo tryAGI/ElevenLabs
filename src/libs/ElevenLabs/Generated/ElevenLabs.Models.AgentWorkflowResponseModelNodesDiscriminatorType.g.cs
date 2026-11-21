@@ -31,6 +31,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        StartProcedure,
+        /// <summary>
+        ///
+        /// </summary>
         Tool,
     }
 
@@ -51,6 +55,7 @@ namespace ElevenLabs
                 AgentWorkflowResponseModelNodesDiscriminatorType.PhoneNumber => "phone_number",
                 AgentWorkflowResponseModelNodesDiscriminatorType.StandaloneAgent => "standalone_agent",
                 AgentWorkflowResponseModelNodesDiscriminatorType.Start => "start",
+                AgentWorkflowResponseModelNodesDiscriminatorType.StartProcedure => "start_procedure",
                 AgentWorkflowResponseModelNodesDiscriminatorType.Tool => "tool",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -67,6 +72,7 @@ namespace ElevenLabs
                 "phone_number" => AgentWorkflowResponseModelNodesDiscriminatorType.PhoneNumber,
                 "standalone_agent" => AgentWorkflowResponseModelNodesDiscriminatorType.StandaloneAgent,
                 "start" => AgentWorkflowResponseModelNodesDiscriminatorType.Start,
+                "start_procedure" => AgentWorkflowResponseModelNodesDiscriminatorType.StartProcedure,
                 "tool" => AgentWorkflowResponseModelNodesDiscriminatorType.Tool,
                 _ => null,
             };

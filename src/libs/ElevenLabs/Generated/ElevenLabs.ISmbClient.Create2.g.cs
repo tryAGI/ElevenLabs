@@ -15,10 +15,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAssetResourceDBModel> Create2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAssetResource> Create2Async(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateAssetRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateAssetRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAssetResourceDBModel>> Create2AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAssetResource>> Create2AsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateAssetRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateAssetRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -76,10 +76,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAssetResourceDBModel> Create2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAssetResource> Create2Async(
+            string xiWorkspaceId,
             string name,
-            string? xiWorkspaceId = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? description = default,
             bool? isActive = default,

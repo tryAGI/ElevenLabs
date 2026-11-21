@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyComposeMusicWithADetailedResponseV1MusicDetailedPost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0020.Create_BodyComposeMusicWithADetailedResponseV1MusicDetailedPost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0022.Create_BodyComposeMusicWithADetailedResponseV1MusicDetailedPost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

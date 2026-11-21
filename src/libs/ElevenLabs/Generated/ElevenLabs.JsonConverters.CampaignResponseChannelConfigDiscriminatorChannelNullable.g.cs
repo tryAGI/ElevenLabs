@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace ElevenLabs.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class CampaignResponseChannelConfigDiscriminatorChannelNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.CampaignResponseChannelConfigDiscriminatorChannel?>
+    {
+        /// <inheritdoc />
+        public override global::ElevenLabs.CampaignResponseChannelConfigDiscriminatorChannel? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::ElevenLabs.CampaignResponseChannelConfigDiscriminatorChannelExtensions.ToEnum(stringValue);
+                    }
+
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::ElevenLabs.CampaignResponseChannelConfigDiscriminatorChannel)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::ElevenLabs.CampaignResponseChannelConfigDiscriminatorChannel?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::ElevenLabs.CampaignResponseChannelConfigDiscriminatorChannel? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::ElevenLabs.CampaignResponseChannelConfigDiscriminatorChannelExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}

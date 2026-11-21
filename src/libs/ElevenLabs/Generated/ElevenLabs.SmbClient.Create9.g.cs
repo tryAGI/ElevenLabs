@@ -27,13 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareCreate9Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string? xiWorkspaceId,
-            global::ElevenLabs.SMBCreateHolidayRequest request);
+            ref string xiWorkspaceId,
+            global::ElevenLabs.ReceptionCreateHolidayRequest request);
         partial void PrepareCreate9Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string? xiWorkspaceId,
-            global::ElevenLabs.SMBCreateHolidayRequest request);
+            string xiWorkspaceId,
+            global::ElevenLabs.ReceptionCreateHolidayRequest request);
         partial void ProcessCreate9Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -55,16 +55,16 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Create9Async(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateHolidayRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateHolidayRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Create9AsResponseAsync(
+                xiWorkspaceId: xiWorkspaceId,
 
                 request: request,
-                xiWorkspaceId: xiWorkspaceId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -83,9 +83,9 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.HolidayResponseModel>> Create9AsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateHolidayRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateHolidayRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -156,10 +156,7 @@ namespace ElevenLabs
                 }
             }
 
-            if (xiWorkspaceId != default)
-            {
                 __httpRequest.Headers.TryAddWithoutValidation("xi-workspace-id", xiWorkspaceId.ToString());
-            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(
@@ -369,13 +366,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -386,7 +383,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -429,7 +426,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -474,7 +471,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -498,34 +495,43 @@ namespace ElevenLabs
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="name"></param>
+        /// <param name="name">
+        /// Display name of the closure or time off.
+        /// </param>
         /// <param name="startDate">
-        /// Represents a calendar date as individual numeric components.
+        /// First day of the closure or time off, inclusive.
         /// </param>
         /// <param name="endDate">
-        /// Represents a calendar date as individual numeric components.
+        /// Last day of the closure or time off, inclusive.
         /// </param>
         /// <param name="holidayType">
+        /// 'closed' for no availability, or 'override' to use override_hours instead of the regular hours.<br/>
         /// Default Value: closed
         /// </param>
         /// <param name="overrideHours">
         /// Replacement working hours when holiday_type is 'override'.
         /// </param>
-        /// <param name="timeOffType"></param>
-        /// <param name="resourceId"></param>
+        /// <param name="timeOffType">
+        /// What the entry applies to: a location, a staff member, or an asset.
+        /// </param>
+        /// <param name="resourceId">
+        /// The staff member or asset ID; required when time_off_type is 'staff' or 'asset'.
+        /// </param>
         /// <param name="locationId">
         /// For LOCATION type: the location this closure applies to.
         /// </param>
-        /// <param name="reason"></param>
+        /// <param name="reason">
+        /// Optional note on why the closure or time off happens, up to 500 characters.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.HolidayResponseModel> Create9Async(
+            string xiWorkspaceId,
             string name,
             global::ElevenLabs.DateModel startDate,
             global::ElevenLabs.DateModel endDate,
             global::ElevenLabs.TimeOffType timeOffType,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.HolidayType? holidayType = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TimeRangeModel>? overrideHours = default,
             string? resourceId = default,
@@ -534,7 +540,7 @@ namespace ElevenLabs
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.SMBCreateHolidayRequest
+            var __request = new global::ElevenLabs.ReceptionCreateHolidayRequest
             {
                 Name = name,
                 StartDate = startDate,

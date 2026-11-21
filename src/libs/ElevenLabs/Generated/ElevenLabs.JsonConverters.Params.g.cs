@@ -533,6 +533,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetBookingSlugStatusParams)}");
                 getBookingSlugStatus = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.ConfirmChangeParams? smbConfirmChange = default;
+            if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.SmbConfirmChange)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConfirmChangeParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConfirmChangeParams> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.ConfirmChangeParams)}");
+                smbConfirmChange = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.SetBookingSlugParams? setBookingSlug = default;
             if (discriminator?.SmbToolType == global::ElevenLabs.SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug)
             {
@@ -835,6 +842,8 @@ namespace ElevenLabs.JsonConverters
                 updateBookingPageAppearance,
 
                 getBookingSlugStatus,
+
+                smbConfirmChange,
 
                 setBookingSlug,
 
@@ -1331,6 +1340,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetBookingSlugStatusParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetBookingSlugStatusParams?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.GetBookingSlugStatusParams).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickGetBookingSlugStatus(), typeInfo);
+            }
+            else if (value.IsSmbConfirmChange)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.ConfirmChangeParams), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.ConfirmChangeParams?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.ConfirmChangeParams).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickSmbConfirmChange(), typeInfo);
             }
             else if (value.IsSetBookingSlug)
             {

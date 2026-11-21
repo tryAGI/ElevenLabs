@@ -12,6 +12,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AgentMessagesApi,
+        /// <summary>
+        ///
+        /// </summary>
         AndroidSdk,
         /// <summary>
         ///
@@ -53,6 +57,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         NodeJsSdk,
+        /// <summary>
+        ///
+        /// </summary>
+        PlainIntegration,
         /// <summary>
         ///
         /// </summary>
@@ -104,6 +112,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        UnitySdk,
+        /// <summary>
+        ///
+        /// </summary>
         Unknown,
         /// <summary>
         ///
@@ -131,6 +143,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                ConversationInitiationSource.AgentMessagesApi => "agent_messages_api",
                 ConversationInitiationSource.AndroidSdk => "android_sdk",
                 ConversationInitiationSource.Audiocodes => "audiocodes",
                 ConversationInitiationSource.Avaya => "avaya",
@@ -142,6 +155,7 @@ namespace ElevenLabs
                 ConversationInitiationSource.IntercomIntegration => "intercom_integration",
                 ConversationInitiationSource.JsSdk => "js_sdk",
                 ConversationInitiationSource.NodeJsSdk => "node_js_sdk",
+                ConversationInitiationSource.PlainIntegration => "plain_integration",
                 ConversationInitiationSource.PythonSdk => "python_sdk",
                 ConversationInitiationSource.ReactNativeSdk => "react_native_sdk",
                 ConversationInitiationSource.ReactSdk => "react_sdk",
@@ -154,6 +168,7 @@ namespace ElevenLabs
                 ConversationInitiationSource.TemplatePreview => "template_preview",
                 ConversationInitiationSource.Twilio => "twilio",
                 ConversationInitiationSource.TwilioSms => "twilio_sms",
+                ConversationInitiationSource.UnitySdk => "unity_sdk",
                 ConversationInitiationSource.Unknown => "unknown",
                 ConversationInitiationSource.Whatsapp => "whatsapp",
                 ConversationInitiationSource.Widget => "widget",
@@ -168,6 +183,7 @@ namespace ElevenLabs
         {
             return value switch
             {
+                "agent_messages_api" => ConversationInitiationSource.AgentMessagesApi,
                 "android_sdk" => ConversationInitiationSource.AndroidSdk,
                 "audiocodes" => ConversationInitiationSource.Audiocodes,
                 "avaya" => ConversationInitiationSource.Avaya,
@@ -179,6 +195,7 @@ namespace ElevenLabs
                 "intercom_integration" => ConversationInitiationSource.IntercomIntegration,
                 "js_sdk" => ConversationInitiationSource.JsSdk,
                 "node_js_sdk" => ConversationInitiationSource.NodeJsSdk,
+                "plain_integration" => ConversationInitiationSource.PlainIntegration,
                 "python_sdk" => ConversationInitiationSource.PythonSdk,
                 "react_native_sdk" => ConversationInitiationSource.ReactNativeSdk,
                 "react_sdk" => ConversationInitiationSource.ReactSdk,
@@ -191,6 +208,7 @@ namespace ElevenLabs
                 "template_preview" => ConversationInitiationSource.TemplatePreview,
                 "twilio" => ConversationInitiationSource.Twilio,
                 "twilio_sms" => ConversationInitiationSource.TwilioSms,
+                "unity_sdk" => ConversationInitiationSource.UnitySdk,
                 "unknown" => ConversationInitiationSource.Unknown,
                 "whatsapp" => ConversationInitiationSource.Whatsapp,
                 "widget" => ConversationInitiationSource.Widget,

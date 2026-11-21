@@ -18,26 +18,26 @@ namespace ElevenLabs.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
             global::ElevenLabs.DashboardCallSuccessChartModel? callSuccess = default;
-            if (discriminator?.Type == global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType.CallSuccess)
+            if (discriminator?.Type == global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType.CallSuccess)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardCallSuccessChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardCallSuccessChartModel> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DashboardCallSuccessChartModel)}");
                 callSuccess = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.DashboardCriteriaChartModel? criteria = default;
-            if (discriminator?.Type == global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType.Criteria)
+            if (discriminator?.Type == global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType.Criteria)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardCriteriaChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardCriteriaChartModel> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DashboardCriteriaChartModel)}");
                 criteria = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
             global::ElevenLabs.DashboardDataCollectionChartModel? dataCollection = default;
-            if (discriminator?.Type == global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType.DataCollection)
+            if (discriminator?.Type == global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType.DataCollection)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DashboardDataCollectionChartModel), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DashboardDataCollectionChartModel> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DashboardDataCollectionChartModel)}");

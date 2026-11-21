@@ -7,13 +7,14 @@ namespace ElevenLabs
     /// Request-time processing tier for a model.<br/>
     /// STANDARD: default price and throughput.<br/>
     /// FAST: pays a per-token price premium for higher throughput / lower latency.<br/>
-    ///     See OpenAI's fast mode: https://openai.com/api-fast-mode/<br/>
+    ///     See OpenAI's fast mode: https://openai.com/api-fast-mode/ and, for Gemini, Vertex<br/>
+    ///     Priority PayGo: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/priority-paygo<br/>
     /// Default Value: standard
     /// </summary>
     public enum LLMServiceTier
     {
         /// <summary>
-        /// https://openai.com/api-fast-mode/
+        /// https://openai.com/api-fast-mode/ and, for Gemini, Vertex
         /// </summary>
         Fast,
         /// <summary>

@@ -27,15 +27,13 @@ namespace ElevenLabs
             };
         partial void PrepareDelete18Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string agentId,
-            ref string branchId,
-            ref string procedureId);
+            ref string campaignId,
+            ref string leadId);
         partial void PrepareDelete18Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string agentId,
-            string branchId,
-            string procedureId);
+            string campaignId,
+            string leadId);
         partial void ProcessDelete18Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,32 +44,23 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Remove An Outbound Campaign Lead<br/>
+        /// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
+        /// <param name="campaignId"></param>
+        /// <param name="leadId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> Delete18Async(
-            string agentId,
-            string branchId,
-            string procedureId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.SuppressLeadResponse> Delete18Async(
+            string campaignId,
+            string leadId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Delete18AsResponseAsync(
-                agentId: agentId,
-                branchId: branchId,
-                procedureId: procedureId,
+                campaignId: campaignId,
+                leadId: leadId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -79,25 +68,17 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Delete Procedure Draft<br/>
-        /// Delete user's draft for a procedure, resetting to the committed version
+        /// Remove An Outbound Campaign Lead<br/>
+        /// Remove a lead from an outbound campaign so it is never called again. Returns `202` when a call already placed may still go through.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
+        /// <param name="campaignId"></param>
+        /// <param name="leadId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Delete18AsResponseAsync(
-            string agentId,
-            string branchId,
-            string procedureId,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SuppressLeadResponse>> Delete18AsResponseAsync(
+            string campaignId,
+            string leadId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -107,9 +88,8 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareDelete18Arguments(
                 httpClient: HttpClient,
-                agentId: ref agentId,
-                branchId: ref branchId,
-                procedureId: ref procedureId);
+                campaignId: ref campaignId,
+                leadId: ref leadId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -135,7 +115,7 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft",
+                                path: $"/v1/convai/outbound-campaigns/campaigns/{campaignId}/leads/{leadId}",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -177,9 +157,8 @@ namespace ElevenLabs
                 PrepareDelete18Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    agentId: agentId,
-                    branchId: branchId,
-                    procedureId: procedureId);
+                    campaignId: campaignId,
+                    leadId: leadId);
 
                 return __httpRequest;
             }
@@ -198,7 +177,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/outbound-campaigns/campaigns/{campaignId}/leads/{leadId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -232,7 +211,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/outbound-campaigns/campaigns/{campaignId}/leads/{leadId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -273,7 +252,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/outbound-campaigns/campaigns/{campaignId}/leads/{leadId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -321,7 +300,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/outbound-campaigns/campaigns/{campaignId}/leads/{leadId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -343,7 +322,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Delete18",
                                 methodName: "Delete18Async",
-                                pathTemplate: "$\"/v1/convai/agents/{agentId}/branches/{branchId}/procedures/{procedureId}/draft\"",
+                                pathTemplate: "$\"/v1/convai/outbound-campaigns/campaigns/{campaignId}/leads/{leadId}\"",
                                 httpMethod: "DELETE",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -369,13 +348,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -386,7 +365,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -417,17 +396,19 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = global::ElevenLabs.SuppressLeadResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SuppressLeadResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -441,17 +422,19 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
+                                    var __value = await global::ElevenLabs.SuppressLeadResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SuppressLeadResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -470,7 +453,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(

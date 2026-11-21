@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.BodyComputeRagIndexesInBatchV1ConvaiKnowledgeBaseRagIndexPost))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0021.Create_BodyComputeRagIndexesInBatchV1ConvaiKnowledgeBaseRagIndexPost(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0022.Create_BodyComputeRagIndexesInBatchV1ConvaiKnowledgeBaseRagIndexPost(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

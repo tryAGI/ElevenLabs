@@ -8,32 +8,36 @@ namespace ElevenLabs
         /// Get Staff Member<br/>
         /// Get a specific staff member by ID
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBStaffResourceDBModel> Get4Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionStaffResource> Get4Async(
             string staffId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Staff Member<br/>
         /// Get a specific staff member by ID
         /// </summary>
-        /// <param name="staffId"></param>
+        /// <param name="staffId">
+        /// ID of the staff member. Returned when you create one; list them with `GET /v1/reception/staff`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBStaffResourceDBModel>> Get4AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionStaffResource>> Get4AsResponseAsync(
             string staffId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

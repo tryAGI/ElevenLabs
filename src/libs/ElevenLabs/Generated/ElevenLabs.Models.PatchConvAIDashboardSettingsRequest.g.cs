@@ -12,7 +12,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("charts")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? Charts { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem>? Charts { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -28,7 +28,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchConvAIDashboardSettingsRequest(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem2>? charts)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ChartsItem>? charts)
         {
             this.Charts = charts;
         }

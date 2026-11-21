@@ -5,47 +5,23 @@ namespace ElevenLabs
     public partial interface IAgentsPlatformClient
     {
         /// <summary>
-        /// Get Procedure Draft<br/>
-        /// Get user's draft for a procedure
+        /// Get Outbound Campaign Configuration<br/>
+        /// Get the workspace's outbound campaign configuration: the default policy new campaigns take, and per-agent overrides.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.ProcedureDraftResponseModel> Get29Async(
-            string agentId,
-            string branchId,
-            string procedureId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.WorkspaceConfigResponse> Get29Async(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get Procedure Draft<br/>
-        /// Get user's draft for a procedure
+        /// Get Outbound Campaign Configuration<br/>
+        /// Get the workspace's outbound campaign configuration: the default policy new campaigns take, and per-agent overrides.
         /// </summary>
-        /// <param name="agentId">
-        /// Agent ID to get the procedure draft from
-        /// </param>
-        /// <param name="branchId">
-        /// Branch ID to get the procedure draft from
-        /// </param>
-        /// <param name="procedureId">
-        /// The procedure ID
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProcedureDraftResponseModel>> Get29AsResponseAsync(
-            string agentId,
-            string branchId,
-            string procedureId,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.WorkspaceConfigResponse>> Get29AsResponseAsync(
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
