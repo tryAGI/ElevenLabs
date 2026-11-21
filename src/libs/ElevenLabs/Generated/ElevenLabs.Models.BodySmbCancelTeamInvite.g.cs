@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class BodySmbCancelTeamInvite
     {
         /// <summary>
-        ///
+        /// Email address the pending invite was sent to.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("email")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -24,7 +24,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="BodySmbCancelTeamInvite" /> class.
         /// </summary>
-        /// <param name="email"></param>
+        /// <param name="email">
+        /// Email address the pending invite was sent to.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

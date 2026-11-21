@@ -35,7 +35,6 @@ namespace ElevenLabs
             ref global::ElevenLabs.AgentConversationTicketSortBy? sortBy,
             ref string? ownerUserId,
             ref string? assigneeUserId,
-            ref global::ElevenLabs.AgentConversationTicketIssueType? issueType,
             ref string? label,
             ref string? mergedIntoTicketId,
             ref string? search,
@@ -51,7 +50,6 @@ namespace ElevenLabs
             global::ElevenLabs.AgentConversationTicketSortBy? sortBy,
             string? ownerUserId,
             string? assigneeUserId,
-            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
             string? label,
             string? mergedIntoTicketId,
             string? search,
@@ -67,45 +65,42 @@ namespace ElevenLabs
 
         /// <summary>
         /// List Workspace Conversation Tickets<br/>
-        /// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
+        /// List agent issues across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, issues assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Issues for agents the caller cannot access are omitted.
         /// </summary>
         /// <param name="pageSize">
-        /// How many agent conversation tickets to return. Can not exceed 100.<br/>
+        /// How many agent issues to return. Can not exceed 100.<br/>
         /// Default Value: 100
         /// </param>
         /// <param name="agentId">
-        /// Only tickets for this agent.
+        /// Only issues for this agent.
         /// </param>
         /// <param name="status">
-        /// Filter tickets by status.
+        /// Filter agent issues by status.
         /// </param>
         /// <param name="sources">
-        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// Filter agent issues by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
         /// </param>
         /// <param name="priorities">
-        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// Filter agent issues by priority. Repeat the parameter to filter by multiple priorities.
         /// </param>
         /// <param name="sortBy">
-        /// Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).<br/>
+        /// Order by most recently created, by priority (most urgent first, then most recently created), by most recently reported (the newest report merged into the agent issue, else its creation), or by report count (most reports merged into the agent issue first, then most recently created).<br/>
         /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">
-        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// Filter agent issues by creator. Use 'agent' for agent-raised issues.
         /// </param>
         /// <param name="assigneeUserId">
-        /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
-        /// </param>
-        /// <param name="issueType">
-        /// Filter clusters by issue type.
+        /// Filter agent issues by assignee. Use 'unassigned' for issues with no assignee.
         /// </param>
         /// <param name="label">
-        /// Filter tickets by an exact label.
+        /// Filter agent issues by an exact label.
         /// </param>
         /// <param name="mergedIntoTicketId">
-        /// Filter tickets merged into this ticket.
+        /// Filter agent issues merged into this issue.
         /// </param>
         /// <param name="search">
-        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// Case-insensitive free-text search across the agent issue's title, description, comments, and turn comments.
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -122,7 +117,6 @@ namespace ElevenLabs
             global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
-            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
             string? mergedIntoTicketId = default,
             string? search = default,
@@ -139,7 +133,6 @@ namespace ElevenLabs
                 sortBy: sortBy,
                 ownerUserId: ownerUserId,
                 assigneeUserId: assigneeUserId,
-                issueType: issueType,
                 label: label,
                 mergedIntoTicketId: mergedIntoTicketId,
                 search: search,
@@ -152,45 +145,42 @@ namespace ElevenLabs
         }
         /// <summary>
         /// List Workspace Conversation Tickets<br/>
-        /// List conversation triage tickets across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, tickets assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Tickets for agents the caller cannot access are omitted.
+        /// List agent issues across every agent in the workspace, ordered by most recently created first. Use this to build a workspace-wide view (for example, issues assigned to the caller). Supports the same filters, sorting and search as the per-agent endpoint. Issues for agents the caller cannot access are omitted.
         /// </summary>
         /// <param name="pageSize">
-        /// How many agent conversation tickets to return. Can not exceed 100.<br/>
+        /// How many agent issues to return. Can not exceed 100.<br/>
         /// Default Value: 100
         /// </param>
         /// <param name="agentId">
-        /// Only tickets for this agent.
+        /// Only issues for this agent.
         /// </param>
         /// <param name="status">
-        /// Filter tickets by status.
+        /// Filter agent issues by status.
         /// </param>
         /// <param name="sources">
-        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// Filter agent issues by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
         /// </param>
         /// <param name="priorities">
-        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// Filter agent issues by priority. Repeat the parameter to filter by multiple priorities.
         /// </param>
         /// <param name="sortBy">
-        /// Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).<br/>
+        /// Order by most recently created, by priority (most urgent first, then most recently created), by most recently reported (the newest report merged into the agent issue, else its creation), or by report count (most reports merged into the agent issue first, then most recently created).<br/>
         /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">
-        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// Filter agent issues by creator. Use 'agent' for agent-raised issues.
         /// </param>
         /// <param name="assigneeUserId">
-        /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
-        /// </param>
-        /// <param name="issueType">
-        /// Filter clusters by issue type.
+        /// Filter agent issues by assignee. Use 'unassigned' for issues with no assignee.
         /// </param>
         /// <param name="label">
-        /// Filter tickets by an exact label.
+        /// Filter agent issues by an exact label.
         /// </param>
         /// <param name="mergedIntoTicketId">
-        /// Filter tickets merged into this ticket.
+        /// Filter agent issues merged into this issue.
         /// </param>
         /// <param name="search">
-        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// Case-insensitive free-text search across the agent issue's title, description, comments, and turn comments.
         /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
@@ -207,7 +197,6 @@ namespace ElevenLabs
             global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
-            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
             string? mergedIntoTicketId = default,
             string? search = default,
@@ -229,7 +218,6 @@ namespace ElevenLabs
                 sortBy: ref sortBy,
                 ownerUserId: ref ownerUserId,
                 assigneeUserId: ref assigneeUserId,
-                issueType: ref issueType,
                 label: ref label,
                 mergedIntoTicketId: ref mergedIntoTicketId,
                 search: ref search,
@@ -270,7 +258,6 @@ namespace ElevenLabs
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("owner_user_id", ownerUserId)
                                 .AddOptionalParameter("assignee_user_id", assigneeUserId)
-                                .AddOptionalParameter("issue_type", issueType?.ToValueString())
                                 .AddOptionalParameter("label", label)
                                 .AddOptionalParameter("merged_into_ticket_id", mergedIntoTicketId)
                                 .AddOptionalParameter("search", search)
@@ -324,7 +311,6 @@ namespace ElevenLabs
                     sortBy: sortBy,
                     ownerUserId: ownerUserId,
                     assigneeUserId: assigneeUserId,
-                    issueType: issueType,
                     label: label,
                     mergedIntoTicketId: mergedIntoTicketId,
                     search: search,
@@ -518,13 +504,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -535,7 +521,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -578,7 +564,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -623,7 +609,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -645,42 +631,39 @@ namespace ElevenLabs
         /// Wraps ListForWorkspaceAsync as an IAsyncEnumerable&lt;global::ElevenLabs.AgentConversationTicketResponseModel&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
-        /// How many agent conversation tickets to return. Can not exceed 100.<br/>
+        /// How many agent issues to return. Can not exceed 100.<br/>
         /// Default Value: 100
         /// </param>
         /// <param name="agentId">
-        /// Only tickets for this agent.
+        /// Only issues for this agent.
         /// </param>
         /// <param name="status">
-        /// Filter tickets by status.
+        /// Filter agent issues by status.
         /// </param>
         /// <param name="sources">
-        /// Filter tickets by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
+        /// Filter agent issues by how they were raised (qa, agent, manual). Repeat the parameter to filter by multiple sources.
         /// </param>
         /// <param name="priorities">
-        /// Filter tickets by priority. Repeat the parameter to filter by multiple priorities.
+        /// Filter agent issues by priority. Repeat the parameter to filter by multiple priorities.
         /// </param>
         /// <param name="sortBy">
-        /// Order by most recently created, by priority (most urgent first, then most recently created), or by most recently reported (the newest report merged into the issue, else its creation).<br/>
+        /// Order by most recently created, by priority (most urgent first, then most recently created), by most recently reported (the newest report merged into the agent issue, else its creation), or by report count (most reports merged into the agent issue first, then most recently created).<br/>
         /// Default Value: created_at
         /// </param>
         /// <param name="ownerUserId">
-        /// Filter tickets by creator. Use 'agent' for agent-raised tickets.
+        /// Filter agent issues by creator. Use 'agent' for agent-raised issues.
         /// </param>
         /// <param name="assigneeUserId">
-        /// Filter tickets by assignee. Use 'unassigned' for tickets with no assignee.
-        /// </param>
-        /// <param name="issueType">
-        /// Filter clusters by issue type.
+        /// Filter agent issues by assignee. Use 'unassigned' for issues with no assignee.
         /// </param>
         /// <param name="label">
-        /// Filter tickets by an exact label.
+        /// Filter agent issues by an exact label.
         /// </param>
         /// <param name="mergedIntoTicketId">
-        /// Filter tickets merged into this ticket.
+        /// Filter agent issues merged into this issue.
         /// </param>
         /// <param name="search">
-        /// Case-insensitive free-text search across the ticket's title, description, comments, and turn comments.
+        /// Case-insensitive free-text search across the agent issue's title, description, comments, and turn comments.
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
@@ -693,7 +676,6 @@ namespace ElevenLabs
             global::ElevenLabs.AgentConversationTicketSortBy? sortBy = default,
             string? ownerUserId = default,
             string? assigneeUserId = default,
-            global::ElevenLabs.AgentConversationTicketIssueType? issueType = default,
             string? label = default,
             string? mergedIntoTicketId = default,
             string? search = default,
@@ -710,7 +692,6 @@ namespace ElevenLabs
                     sortBy: sortBy,
                     ownerUserId: ownerUserId,
                     assigneeUserId: assigneeUserId,
-                    issueType: issueType,
                     label: label,
                     mergedIntoTicketId: mergedIntoTicketId,
                     search: search,

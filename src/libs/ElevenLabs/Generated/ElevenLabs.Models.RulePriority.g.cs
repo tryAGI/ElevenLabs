@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// How strictly the receptionist follows a rule.<br/>
     /// Default Value: strict
     /// </summary>
     public enum RulePriority

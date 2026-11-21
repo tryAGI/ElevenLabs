@@ -22,6 +22,12 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> Transfers { get; set; }
 
         /// <summary>
+        /// Per-provider transfer configuration. Mutually exclusive with `transfers`: a tool sets exactly one of the two. When present, the configuration matching the call's telephony provider is offered to the agent and executed.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("transfer_rules")]
+        public global::System.Collections.Generic.IList<global::ElevenLabs.TransferRuleOutput>? TransferRules { get; set; }
+
+        /// <summary>
         /// Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.<br/>
         /// Default Value: true
         /// </summary>
@@ -41,6 +47,9 @@ namespace ElevenLabs
         /// <param name="systemToolType">
         /// Default Value: transfer_to_number
         /// </param>
+        /// <param name="transferRules">
+        /// Per-provider transfer configuration. Mutually exclusive with `transfers`: a tool sets exactly one of the two. When present, the configuration matching the call's telephony provider is offered to the agent and executed.
+        /// </param>
         /// <param name="enableClientMessage">
         /// Whether to play a message to the client while they wait for transfer. Defaults to true for backward compatibility.<br/>
         /// Default Value: true
@@ -51,10 +60,12 @@ namespace ElevenLabs
         public TransferToNumberToolConfigOutput(
             global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumberTransfer> transfers,
             string? systemToolType,
+            global::System.Collections.Generic.IList<global::ElevenLabs.TransferRuleOutput>? transferRules,
             bool? enableClientMessage)
         {
             this.SystemToolType = systemToolType;
             this.Transfers = transfers ?? throw new global::System.ArgumentNullException(nameof(transfers));
+            this.TransferRules = transferRules;
             this.EnableClientMessage = enableClientMessage;
         }
 

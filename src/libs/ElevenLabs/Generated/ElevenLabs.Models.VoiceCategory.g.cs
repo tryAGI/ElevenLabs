@@ -15,10 +15,6 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        Famous,
-        /// <summary>
-        ///
-        /// </summary>
         Generated,
         /// <summary>
         ///
@@ -43,7 +39,6 @@ namespace ElevenLabs
             return value switch
             {
                 VoiceCategory.Cloned => "cloned",
-                VoiceCategory.Famous => "famous",
                 VoiceCategory.Generated => "generated",
                 VoiceCategory.Premade => "premade",
                 VoiceCategory.Professional => "professional",
@@ -58,7 +53,6 @@ namespace ElevenLabs
             return value switch
             {
                 "cloned" => VoiceCategory.Cloned,
-                "famous" => VoiceCategory.Famous,
                 "generated" => VoiceCategory.Generated,
                 "premade" => VoiceCategory.Premade,
                 "professional" => VoiceCategory.Professional,

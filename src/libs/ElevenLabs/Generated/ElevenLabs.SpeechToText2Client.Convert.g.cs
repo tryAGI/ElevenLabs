@@ -231,6 +231,22 @@ namespace ElevenLabs
                                     name: "\"language_code\"");
 
                             }
+                            if (request.SecondaryLanguageCodes != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.SecondaryLanguageCodes.ToString() ?? string.Empty),
+                                    name: "\"secondary_language_codes\"");
+
+                            }
+                            if (request.NumbersFormat != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(request.NumbersFormat.ToString() ?? string.Empty),
+                                    name: "\"numbers_format\"");
+
+                            }
                             if (request.TranscriptEdit != default)
                             {
 
@@ -661,13 +677,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -678,7 +694,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -721,7 +737,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -766,7 +782,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -805,6 +821,12 @@ namespace ElevenLabs
         /// </param>
         /// <param name="languageCode">
         /// An ISO-639-1 or ISO-639-3 language_code corresponding to the language of the audio file. Can sometimes improve transcription performance if known beforehand. Defaults to null, in this case the language is predicted automatically.
+        /// </param>
+        /// <param name="secondaryLanguageCodes">
+        /// Additional ISO-639-1 or ISO-639-3 language codes that may be present in the audio, alongside language_code. Improves transcription accuracy for multilingual audio. Supported by scribe_v3.
+        /// </param>
+        /// <param name="numbersFormat">
+        /// How numbers are formatted in the transcript: 'digits' (e.g. '42') or 'words' (e.g. 'forty-two'). Supported by scribe_v3.
         /// </param>
         /// <param name="transcriptEdit">
         /// Natural-language instruction applied to the final transcript (max 2000 characters). The edited text is returned in 'edited_transcript' alongside the original transcript. Cannot be combined with entity_detection, entity_redaction or use_multi_channel. Usage of this parameter will incur an additional 30% surcharge on the base transcription cost, billed for at least 10 seconds of audio.
@@ -865,7 +887,7 @@ namespace ElevenLabs
         /// Detect entities in the transcript. Can be 'all' to detect all entities, a single entity type or category string, or a list of entity types/categories. Categories include 'pii', 'phi', 'pci', 'other', 'offensive_language'. When enabled, detected entities will be returned in the 'entities' field with their text, type, and character positions.
         /// </param>
         /// <param name="noVerbatim">
-        /// If true, the transcription will not have any filler words, false starts and non-speech sounds.<br/>
+        /// If true, the transcription will not have any filler words, false starts and non-speech sounds. Supported by scribe_v2, scribe_v2_medical and scribe_v3.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="useSpeakerLibrary">
@@ -897,6 +919,8 @@ namespace ElevenLabs
             byte[]? file = default,
             string? filename = default,
             string? languageCode = default,
+            global::System.Collections.Generic.IList<string>? secondaryLanguageCodes = default,
+            global::ElevenLabs.BodySpeechToTextV1SpeechToTextPostNumbersFormat? numbersFormat = default,
             string? transcriptEdit = default,
             bool? tagAudioEvents = default,
             int? numSpeakers = default,
@@ -929,6 +953,8 @@ namespace ElevenLabs
                 File = file,
                 Filename = filename,
                 LanguageCode = languageCode,
+                SecondaryLanguageCodes = secondaryLanguageCodes,
+                NumbersFormat = numbersFormat,
                 TranscriptEdit = transcriptEdit,
                 TagAudioEvents = tagAudioEvents,
                 NumSpeakers = numSpeakers,

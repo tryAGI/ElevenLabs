@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class WorkingHours
     {
         /// <summary>
-        ///
+        /// Open time ranges per day of the week, keyed 0 (Monday) to 6 (Sunday). A day with no ranges is closed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hours")]
         public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::ElevenLabs.TimeRangeModel>>? Hours { get; set; }
@@ -29,7 +29,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkingHours" /> class.
         /// </summary>
-        /// <param name="hours"></param>
+        /// <param name="hours">
+        /// Open time ranges per day of the week, keyed 0 (Monday) to 6 (Sunday). A day with no ranges is closed.
+        /// </param>
         /// <param name="timezone">
         /// Timezone of these hours. Null uses the business's timezone.
         /// </param>

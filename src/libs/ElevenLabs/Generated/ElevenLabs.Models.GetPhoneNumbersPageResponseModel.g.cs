@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("phone_numbers")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem2> PhoneNumbers { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem3> PhoneNumbers { get; set; }
 
         /// <summary>
         /// Pass this value as `cursor` to fetch the next page. Null when there are no more results.
@@ -51,7 +51,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetPhoneNumbersPageResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem2> phoneNumbers,
+            global::System.Collections.Generic.IList<global::ElevenLabs.PhoneNumbersItem3> phoneNumbers,
             string? nextCursor,
             bool? hasMore)
         {

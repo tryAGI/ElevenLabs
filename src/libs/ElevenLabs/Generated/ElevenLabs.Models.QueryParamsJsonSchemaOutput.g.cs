@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("properties")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty> Properties { get; set; }
+        public required object Properties { get; set; }
 
         /// <summary>
         ///
@@ -36,7 +36,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public QueryParamsJsonSchemaOutput(
-            global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.LiteralJsonSchemaProperty> properties,
+            object properties,
             global::System.Collections.Generic.IList<string>? required)
         {
             this.Properties = properties ?? throw new global::System.ArgumentNullException(nameof(properties));

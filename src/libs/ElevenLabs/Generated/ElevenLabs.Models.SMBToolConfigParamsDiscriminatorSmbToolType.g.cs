@@ -311,6 +311,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        SmbConfirmChange,
+        /// <summary>
+        ///
+        /// </summary>
         SubmitBusinessInfo,
         /// <summary>
         ///
@@ -477,6 +481,7 @@ namespace ElevenLabs
                 SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients => "search_clients",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SendCustomEmail => "send_custom_email",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug => "set_booking_slug",
+                SMBToolConfigParamsDiscriminatorSmbToolType.SmbConfirmChange => "smb_confirm_change",
                 SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo => "submit_business_info",
                 SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification => "trigger_user_verification",
                 SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentConfig => "update_agent_config",
@@ -582,6 +587,7 @@ namespace ElevenLabs
                 "search_clients" => SMBToolConfigParamsDiscriminatorSmbToolType.SearchClients,
                 "send_custom_email" => SMBToolConfigParamsDiscriminatorSmbToolType.SendCustomEmail,
                 "set_booking_slug" => SMBToolConfigParamsDiscriminatorSmbToolType.SetBookingSlug,
+                "smb_confirm_change" => SMBToolConfigParamsDiscriminatorSmbToolType.SmbConfirmChange,
                 "submit_business_info" => SMBToolConfigParamsDiscriminatorSmbToolType.SubmitBusinessInfo,
                 "trigger_user_verification" => SMBToolConfigParamsDiscriminatorSmbToolType.TriggerUserVerification,
                 "update_agent_config" => SMBToolConfigParamsDiscriminatorSmbToolType.UpdateAgentConfig,

@@ -82,12 +82,27 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="toolIds">
+        /// Filter conversations by IDs of tools used during the call. Use '__system_&lt;tool_name&gt;' for system tools. Unlike tool_names, distinguishes between tools that share a name.
+        /// </param>
+        /// <param name="toolIdsSuccessful">
+        /// Filter conversations by IDs of tools that had successful calls.
+        /// </param>
+        /// <param name="toolIdsErrored">
+        /// Filter conversations by IDs of tools that had errored calls.
+        /// </param>
         /// <param name="includeInvalidToolCalls">
         /// Also match tool calls that never ran.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="phoneNumberIds">
+        /// Filter conversations by agent phone number IDs.
+        /// </param>
+        /// <param name="whatsappPhoneNumberIds">
+        /// Filter conversations by agent WhatsApp number IDs.
         /// </param>
         /// <param name="pageSize">
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
@@ -167,8 +182,13 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            global::System.Collections.Generic.IList<string>? toolIds = default,
+            global::System.Collections.Generic.IList<string>? toolIdsSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolIdsErrored = default,
             bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<string>? phoneNumberIds = default,
+            global::System.Collections.Generic.IList<string>? whatsappPhoneNumberIds = default,
             int? pageSize = default,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? search = default,
@@ -264,12 +284,27 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="toolIds">
+        /// Filter conversations by IDs of tools used during the call. Use '__system_&lt;tool_name&gt;' for system tools. Unlike tool_names, distinguishes between tools that share a name.
+        /// </param>
+        /// <param name="toolIdsSuccessful">
+        /// Filter conversations by IDs of tools that had successful calls.
+        /// </param>
+        /// <param name="toolIdsErrored">
+        /// Filter conversations by IDs of tools that had errored calls.
+        /// </param>
         /// <param name="includeInvalidToolCalls">
         /// Also match tool calls that never ran.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="phoneNumberIds">
+        /// Filter conversations by agent phone number IDs.
+        /// </param>
+        /// <param name="whatsappPhoneNumberIds">
+        /// Filter conversations by agent WhatsApp number IDs.
         /// </param>
         /// <param name="pageSize">
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
@@ -349,8 +384,13 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            global::System.Collections.Generic.IList<string>? toolIds = default,
+            global::System.Collections.Generic.IList<string>? toolIdsSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolIdsErrored = default,
             bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<string>? phoneNumberIds = default,
+            global::System.Collections.Generic.IList<string>? whatsappPhoneNumberIds = default,
             int? pageSize = default,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? search = default,
@@ -443,12 +483,27 @@ namespace ElevenLabs
         /// <param name="toolNamesErrored">
         /// Filter conversations by tool names that had errored calls.
         /// </param>
+        /// <param name="toolIds">
+        /// Filter conversations by IDs of tools used during the call. Use '__system_&lt;tool_name&gt;' for system tools. Unlike tool_names, distinguishes between tools that share a name.
+        /// </param>
+        /// <param name="toolIdsSuccessful">
+        /// Filter conversations by IDs of tools that had successful calls.
+        /// </param>
+        /// <param name="toolIdsErrored">
+        /// Filter conversations by IDs of tools that had errored calls.
+        /// </param>
         /// <param name="includeInvalidToolCalls">
         /// Also match tool calls that never ran.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="mainLanguages">
         /// Filter conversations by detected main language (language code).
+        /// </param>
+        /// <param name="phoneNumberIds">
+        /// Filter conversations by agent phone number IDs.
+        /// </param>
+        /// <param name="whatsappPhoneNumberIds">
+        /// Filter conversations by agent WhatsApp number IDs.
         /// </param>
         /// <param name="pageSize">
         /// How many conversations to return at maximum. Can not exceed 100, defaults to 30.<br/>
@@ -526,8 +581,13 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? toolNames = default,
             global::System.Collections.Generic.IList<string>? toolNamesSuccessful = default,
             global::System.Collections.Generic.IList<string>? toolNamesErrored = default,
+            global::System.Collections.Generic.IList<string>? toolIds = default,
+            global::System.Collections.Generic.IList<string>? toolIdsSuccessful = default,
+            global::System.Collections.Generic.IList<string>? toolIdsErrored = default,
             bool? includeInvalidToolCalls = default,
             global::System.Collections.Generic.IList<string>? mainLanguages = default,
+            global::System.Collections.Generic.IList<string>? phoneNumberIds = default,
+            global::System.Collections.Generic.IList<string>? whatsappPhoneNumberIds = default,
             int? pageSize = default,
             global::ElevenLabs.GetConversationHistoriesRouteSummaryMode? summaryMode = default,
             string? search = default,

@@ -16,7 +16,7 @@ namespace ElevenLabs
         public bool? ArchiveSourceBranch { get; set; }
 
         /// <summary>
-        /// Force source branch changes onto the target, overriding timestamp-based conflict resolution.<br/>
+        /// Keep the source branch's value for every conflict.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("force")]
@@ -36,7 +36,7 @@ namespace ElevenLabs
         /// Default Value: true
         /// </param>
         /// <param name="force">
-        /// Force source branch changes onto the target, overriding timestamp-based conflict resolution.<br/>
+        /// Keep the source branch's value for every conflict.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

@@ -86,6 +86,11 @@ namespace ElevenLabs
         public AudioNativeClient AudioNative { get; }
 
         /// <summary>
+        ///
+        /// </summary>
+        public ContentProvenanceClient ContentProvenance { get; }
+
+        /// <summary>
         /// Build and manage conversational AI agents (legacy tag — see also Agents Platform).
         /// </summary>
         public ConversationalAiClient ConversationalAi { get; }

@@ -61,7 +61,7 @@ namespace ElevenLabs
         /// Default Value: true
         /// </param>
         /// <param name="force">
-        /// Force source branch changes onto the target, overriding timestamp-based conflict resolution.<br/>
+        /// Keep the source branch's value for every conflict.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

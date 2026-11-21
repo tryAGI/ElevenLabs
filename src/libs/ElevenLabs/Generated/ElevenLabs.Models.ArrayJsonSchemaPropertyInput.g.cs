@@ -51,8 +51,8 @@ namespace ElevenLabs
         /// Default Value: {"type":"string","description":"Array element","is_system_provided":false,"dynamic_variable":"","allowed_values_dynamic_variable":"","constant_value":"","is_omitted":false}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("items")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>))]
-        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>? Items { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.OneOfJsonConverter<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput, global::ElevenLabs.AnyOfJsonSchemaPropertyInput>))]
+        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput, global::ElevenLabs.AnyOfJsonSchemaPropertyInput>? Items { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -94,7 +94,7 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<object>? constantValue,
             bool? isOmitted,
             string? type,
-            global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput>? items)
+            global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput, global::ElevenLabs.AnyOfJsonSchemaPropertyInput>? items)
         {
             this.PropertyKind = propertyKind;
             this.Description = description;

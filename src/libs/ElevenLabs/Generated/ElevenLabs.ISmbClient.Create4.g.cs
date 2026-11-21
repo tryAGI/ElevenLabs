@@ -15,10 +15,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBStaffResourceDBModel> Create4Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionStaffResource> Create4Async(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateStaffRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateStaffRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBStaffResourceDBModel>> Create4AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionStaffResource>> Create4AsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateStaffRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateStaffRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -71,7 +71,9 @@ namespace ElevenLabs
         /// Whether this staff member currently receives SMS booking notifications. Defaults to opted out — a staff member must be explicitly opted in; flipped to False automatically when they reply STOP to the workspace number.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="photoUrl"></param>
+        /// <param name="photoUrl">
+        /// URL of a photo of the staff member.
+        /// </param>
         /// <param name="locationId">
         /// Location this staff member is assigned to; empty means available at all locations.
         /// </param>
@@ -88,10 +90,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBStaffResourceDBModel> Create4Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionStaffResource> Create4Async(
+            string xiWorkspaceId,
             string name,
-            string? xiWorkspaceId = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? description = default,
             bool? isActive = default,

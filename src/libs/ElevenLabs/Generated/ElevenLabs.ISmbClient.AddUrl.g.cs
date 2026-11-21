@@ -15,10 +15,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBKnowledgeSourceDBModel> AddUrlAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionKnowledgeSource> AddUrlAsync(
+            string xiWorkspaceId,
 
             global::ElevenLabs.AddUrlRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBKnowledgeSourceDBModel>> AddUrlAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionKnowledgeSource>> AddUrlAsResponseAsync(
+            string xiWorkspaceId,
 
             global::ElevenLabs.AddUrlRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -45,16 +45,19 @@ namespace ElevenLabs
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
-        /// <param name="url"></param>
+        /// <param name="url">
+        /// The HTTPS page or site to read.
+        /// </param>
         /// <param name="crawlEntireSite">
+        /// Crawl the whole site instead of only the page at url.<br/>
         /// Default Value: false
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBKnowledgeSourceDBModel> AddUrlAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionKnowledgeSource> AddUrlAsync(
+            string xiWorkspaceId,
             string url,
-            string? xiWorkspaceId = default,
             bool? crawlEntireSite = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

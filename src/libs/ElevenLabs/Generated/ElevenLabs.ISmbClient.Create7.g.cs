@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Add Transfer Rule<br/>
         /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -16,18 +18,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBTransferRule> Create7Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionTransferRule> Create7Async(
             string agentId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateTransferRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateTransferRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Transfer Rule<br/>
         /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -35,18 +39,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBTransferRule>> Create7AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionTransferRule>> Create7AsResponseAsync(
             string agentId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateTransferRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateTransferRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Add Transfer Rule<br/>
         /// Add a phone forwarding rule to the named receptionist.
         /// </summary>
-        /// <param name="agentId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -65,12 +71,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBTransferRule> Create7Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionTransferRule> Create7Async(
             string agentId,
+            string xiWorkspaceId,
             string label,
             string phoneNumber,
             string condition,
-            string? xiWorkspaceId = default,
             string? postDialDigits = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

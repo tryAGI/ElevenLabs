@@ -32,7 +32,7 @@ namespace ElevenLabs
         /// List of agents that depend on this MCP Server.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("dependent_agents")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem5>? DependentAgents { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem>? DependentAgents { get; set; }
 
         /// <summary>
         /// The metadata of the MCP Server
@@ -69,7 +69,7 @@ namespace ElevenLabs
             global::ElevenLabs.MCPServerConfigOutput config,
             global::ElevenLabs.MCPServerMetadataResponseModel metadata,
             global::ElevenLabs.ResourceAccessInfo? accessInfo,
-            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem5>? dependentAgents)
+            global::System.Collections.Generic.IList<global::ElevenLabs.DependentAgentsItem>? dependentAgents)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));

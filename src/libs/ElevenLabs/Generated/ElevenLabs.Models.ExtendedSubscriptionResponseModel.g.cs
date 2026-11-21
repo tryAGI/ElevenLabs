@@ -186,6 +186,13 @@ namespace ElevenLabs
         public required bool HasOpenInvoices { get; set; }
 
         /// <summary>
+        /// Whether cancelling the subscription now ends it immediately, because an unpaid invoice is being collected, rather than at the end of the billing period.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cancels_immediately")]
+        public bool? CancelsImmediately { get; set; }
+
+        /// <summary>
         /// The pending change for the user.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pending_change")]
@@ -300,6 +307,10 @@ namespace ElevenLabs
         /// <param name="nextInvoice">
         /// The next invoice for the user.
         /// </param>
+        /// <param name="cancelsImmediately">
+        /// Whether cancelling the subscription now ends it immediately, because an unpaid invoice is being collected, rather than at the end of the billing period.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="pendingChange">
         /// The pending change for the user.
         /// </param>
@@ -345,6 +356,7 @@ namespace ElevenLabs
             global::ElevenLabs.BillingPeriod? billingPeriod,
             global::ElevenLabs.CharacterRefreshPeriod? characterRefreshPeriod,
             global::ElevenLabs.InvoiceResponseModel? nextInvoice,
+            bool? cancelsImmediately,
             global::ElevenLabs.AnyOf<global::ElevenLabs.PendingSubscriptionSwitchResponseModel, global::ElevenLabs.PendingCancellationResponseModel>? pendingChange,
             bool? hasUsedStarterCouponOnAccount,
             bool? hasUsedCreatorCouponOnAccount,
@@ -376,6 +388,7 @@ namespace ElevenLabs
             this.NextInvoice = nextInvoice;
             this.OpenInvoices = openInvoices ?? throw new global::System.ArgumentNullException(nameof(openInvoices));
             this.HasOpenInvoices = hasOpenInvoices;
+            this.CancelsImmediately = cancelsImmediately;
             this.PendingChange = pendingChange;
             this.HasUsedStarterCouponOnAccount = hasUsedStarterCouponOnAccount;
             this.HasUsedCreatorCouponOnAccount = hasUsedCreatorCouponOnAccount;

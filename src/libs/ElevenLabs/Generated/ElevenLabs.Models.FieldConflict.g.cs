@@ -42,6 +42,22 @@ namespace ElevenLabs
         public object? TargetValue { get; set; }
 
         /// <summary>
+        /// Stable identifier of this conflict within a merge.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id")]
+        public string Id { get; set; } = default!;
+
+        /// <summary>
+        /// Whether a resolution of this conflict may use `custom` with a `custom_value` instead of keeping a side.<br/>
+        /// Included only in responses
+        /// </summary>
+        /// <default>default!</default>
+        [global::System.Text.Json.Serialization.JsonPropertyName("accepts_custom_value")]
+        public bool AcceptsCustomValue { get; set; } = default!;
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -65,6 +81,14 @@ namespace ElevenLabs
         /// <param name="targetValue">
         /// Value on the target branch tip.
         /// </param>
+        /// <param name="id">
+        /// Stable identifier of this conflict within a merge.<br/>
+        /// Included only in responses
+        /// </param>
+        /// <param name="acceptsCustomValue">
+        /// Whether a resolution of this conflict may use `custom` with a `custom_value` instead of keeping a side.<br/>
+        /// Included only in responses
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,13 +97,17 @@ namespace ElevenLabs
             global::ElevenLabs.ConflictSection section,
             object? baseValue,
             object? sourceValue,
-            object? targetValue)
+            object? targetValue,
+            string id = default!,
+            bool acceptsCustomValue = default!)
         {
             this.Path = path ?? throw new global::System.ArgumentNullException(nameof(path));
             this.Section = section;
             this.BaseValue = baseValue;
             this.SourceValue = sourceValue;
             this.TargetValue = targetValue;
+            this.Id = id;
+            this.AcceptsCustomValue = acceptsCustomValue;
         }
 
         /// <summary>

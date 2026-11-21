@@ -18,30 +18,30 @@ namespace ElevenLabs.JsonConverters
 
 
             var readerCopy = reader;
-            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OpenAISessionConfigInputToolDiscriminator> ??
-                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OpenAISessionConfigInputToolDiscriminator)}");
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.AuthConnectionDependenciesToolDiscriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.AuthConnectionDependenciesToolDiscriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.AuthConnectionDependenciesToolDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
-            global::ElevenLabs.OpenAIFunctionTool? function = default;
-            if (discriminator?.Type == global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType.Function)
+            global::ElevenLabs.DependentAvailableToolIdentifier? available = default;
+            if (discriminator?.Type == global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType.Available)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OpenAIFunctionTool), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OpenAIFunctionTool> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OpenAIFunctionTool)}");
-                function = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentAvailableToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentAvailableToolIdentifier> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentAvailableToolIdentifier)}");
+                available = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::ElevenLabs.OpenAIMCPTool? mcp = default;
-            if (discriminator?.Type == global::ElevenLabs.OpenAISessionConfigInputToolDiscriminatorType.Mcp)
+            global::ElevenLabs.DependentUnknownToolIdentifier? unknown = default;
+            if (discriminator?.Type == global::ElevenLabs.AuthConnectionDependenciesToolDiscriminatorType.Unknown)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OpenAIMCPTool), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OpenAIMCPTool> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.OpenAIMCPTool)}");
-                mcp = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentUnknownToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentUnknownToolIdentifier> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.DependentUnknownToolIdentifier)}");
+                unknown = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.ToolsItem3(
                 discriminator?.Type,
-                function,
+                available,
 
-                mcp
+                unknown
                 );
 
             return __value;
@@ -57,17 +57,17 @@ namespace ElevenLabs.JsonConverters
             var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
             typeInfoResolver = global::ElevenLabs.AutoSDKJsonMetadataCachedResolver.Instance;
 
-            if (value.IsFunction)
+            if (value.IsAvailable)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OpenAIFunctionTool), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OpenAIFunctionTool?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OpenAIFunctionTool).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickFunction(), typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentAvailableToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentAvailableToolIdentifier?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DependentAvailableToolIdentifier).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAvailable(), typeInfo);
             }
-            else if (value.IsMcp)
+            else if (value.IsUnknown)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.OpenAIMCPTool), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.OpenAIMCPTool?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.OpenAIMCPTool).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickMcp(), typeInfo);
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.DependentUnknownToolIdentifier), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.DependentUnknownToolIdentifier?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.DependentUnknownToolIdentifier).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickUnknown(), typeInfo);
             }
         }
     }

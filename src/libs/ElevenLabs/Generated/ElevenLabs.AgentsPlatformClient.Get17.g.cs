@@ -27,15 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet17Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string analysisItemId,
-            ref int? pageSize,
-            ref string? cursor);
+            ref string analysisItemId);
         partial void PrepareGet17Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string analysisItemId,
-            int? pageSize,
-            string? cursor);
+            string analysisItemId);
         partial void ProcessGet17Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,33 +42,22 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Analysis Item Dependent Agents<br/>
-        /// Get a list of agents (and branches) that reference this analysis item.
+        /// Get Analysis Item<br/>
+        /// Get an analysis item available in the workspace.
         /// </summary>
         /// <param name="analysisItemId">
         /// ID of the requested analysis item.
         /// </param>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
-        /// Default Value: 30
-        /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetAnalysisItemDependentAgentsResponseModel> Get17Async(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AnalysisItemResponseModel> Get17Async(
             string analysisItemId,
-            int? pageSize = default,
-            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get17AsResponseAsync(
                 analysisItemId: analysisItemId,
-                pageSize: pageSize,
-                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,26 +65,17 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Analysis Item Dependent Agents<br/>
-        /// Get a list of agents (and branches) that reference this analysis item.
+        /// Get Analysis Item<br/>
+        /// Get an analysis item available in the workspace.
         /// </summary>
         /// <param name="analysisItemId">
         /// ID of the requested analysis item.
         /// </param>
-        /// <param name="pageSize">
-        /// How many documents to return at maximum. Can not exceed 100, defaults to 30.<br/>
-        /// Default Value: 30
-        /// </param>
-        /// <param name="cursor">
-        /// Used for fetching next page. Cursor is returned in the response.
-        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAnalysisItemDependentAgentsResponseModel>> Get17AsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>> Get17AsResponseAsync(
             string analysisItemId,
-            int? pageSize = default,
-            string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -109,9 +85,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet17Arguments(
                 httpClient: HttpClient,
-                analysisItemId: ref analysisItemId,
-                pageSize: ref pageSize,
-                cursor: ref cursor);
+                analysisItemId: ref analysisItemId);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -137,12 +111,8 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/analysis-items/{analysisItemId}/dependent-agents",
+                                path: $"/v1/convai/analysis-items/{analysisItemId}",
                                 baseUri: HttpClient.BaseAddress);
-                            __pathBuilder
-                                .AddOptionalParameter("page_size", pageSize?.ToString())
-                                .AddOptionalParameter("cursor", cursor)
-                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -183,9 +153,7 @@ namespace ElevenLabs
                 PrepareGet17Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    analysisItemId: analysisItemId,
-                    pageSize: pageSize,
-                    cursor: cursor);
+                    analysisItemId: analysisItemId);
 
                 return __httpRequest;
             }
@@ -204,7 +172,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}/dependent-agents\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -238,7 +206,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}/dependent-agents\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -279,7 +247,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}/dependent-agents\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -327,7 +295,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}/dependent-agents\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -349,7 +317,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get17",
                                 methodName: "Get17Async",
-                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}/dependent-agents\"",
+                                pathTemplate: "$\"/v1/convai/analysis-items/{analysisItemId}\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -375,13 +343,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -392,7 +360,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -423,9 +391,9 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetAnalysisItemDependentAgentsResponseModel.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::ElevenLabs.AnalysisItemResponseModel.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAnalysisItemDependentAgentsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -435,7 +403,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -455,9 +423,9 @@ namespace ElevenLabs
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetAnalysisItemDependentAgentsResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::ElevenLabs.AnalysisItemResponseModel.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetAnalysisItemDependentAgentsResponseModel>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AnalysisItemResponseModel>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -480,7 +448,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(

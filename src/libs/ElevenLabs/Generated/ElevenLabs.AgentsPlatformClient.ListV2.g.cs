@@ -490,13 +490,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -507,7 +507,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -550,7 +550,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -595,7 +595,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -614,7 +614,7 @@ namespace ElevenLabs
         }
 
         /// <summary>
-        /// Wraps ListV2Async as an IAsyncEnumerable&lt;global::ElevenLabs.PhoneNumbersItem2&gt; that auto-pages over the response.
+        /// Wraps ListV2Async as an IAsyncEnumerable&lt;global::ElevenLabs.PhoneNumbersItem3&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
         /// Number of phone numbers per page<br/>
@@ -650,7 +650,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.PhoneNumbersItem2> ListV2AutoPagingAsync(
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.PhoneNumbersItem3> ListV2AutoPagingAsync(
               int? pageSize = default,
             string? search = default,
             string? label = default,
@@ -664,7 +664,7 @@ namespace ElevenLabs
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetPhoneNumbersPageResponseModel, global::ElevenLabs.PhoneNumbersItem2>(
+            return global::ElevenLabs.AutoSDKPager.CursorAsync<global::ElevenLabs.GetPhoneNumbersPageResponseModel, global::ElevenLabs.PhoneNumbersItem3>(
                 fetchPage: (__cursor, __ct) => ListV2Async(
                     pageSize: pageSize,
                     search: search,
@@ -680,7 +680,7 @@ namespace ElevenLabs
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null
-                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.PhoneNumbersItem2>?)__response.PhoneNumbers,
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.PhoneNumbersItem3>?)__response.PhoneNumbers,
                 extractNextCursor: static __response => __response is null ? null : __response.NextCursor,
                 initialCursor: cursor,
                 cancellationToken: cancellationToken);

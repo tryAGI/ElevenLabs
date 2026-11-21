@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.VeoImageReferenceRole))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0263.Create_VeoImageReferenceRole2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0285.Create_VeoImageReferenceRole2(options);
                 }
                 if (type == typeof(global::ElevenLabs.VeoImageReferenceRole?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0144.Create_NullableVeoImageReferenceRole2(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0155.Create_NullableVeoImageReferenceRole2(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

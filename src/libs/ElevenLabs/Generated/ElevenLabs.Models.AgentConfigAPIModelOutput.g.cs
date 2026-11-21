@@ -56,6 +56,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.BehaviorOverride>? TextBehaviorOverrides { get; set; }
 
         /// <summary>
+        /// Agents this agent can hand a single turn to. They don't see this conversation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("subagent_config")]
+        public global::ElevenLabs.SubagentConfigOutput? SubagentConfig { get; set; }
+
+        /// <summary>
         /// The prompt for the agent<br/>
         /// Example: {"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}
         /// </summary>
@@ -97,6 +103,9 @@ namespace ElevenLabs
         /// <param name="textBehaviorOverrides">
         /// Per-channel response behavior overrides for text conversations. Built-in channel defaults apply when unset.
         /// </param>
+        /// <param name="subagentConfig">
+        /// Agents this agent can hand a single turn to. They don't see this conversation.
+        /// </param>
         /// <param name="prompt">
         /// The prompt for the agent<br/>
         /// Example: {"knowledge_base":[],"llm":"gemini-2.0-flash-001","max_tokens":-1,"prompt":"You are a helpful assistant that can answer questions about the topic of the conversation.","temperature":0.0,"tool_ids":[],"tools":[]}
@@ -112,6 +121,7 @@ namespace ElevenLabs
             bool? disableFirstMessageInterruptions,
             string? maxConversationDurationMessage,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.BehaviorOverride>? textBehaviorOverrides,
+            global::ElevenLabs.SubagentConfigOutput? subagentConfig,
             global::ElevenLabs.PromptAgentAPIModelOutput? prompt)
         {
             this.FirstMessage = firstMessage;
@@ -121,6 +131,7 @@ namespace ElevenLabs
             this.DisableFirstMessageInterruptions = disableFirstMessageInterruptions;
             this.MaxConversationDurationMessage = maxConversationDurationMessage;
             this.TextBehaviorOverrides = textBehaviorOverrides;
+            this.SubagentConfig = subagentConfig;
             this.Prompt = prompt;
         }
 

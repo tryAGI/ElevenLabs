@@ -4,6 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
+    /// Whether the entry closes the target for the whole range or replaces its working hours.<br/>
     /// Default Value: closed
     /// </summary>
     public enum HolidayType

@@ -23,7 +23,7 @@ namespace ElevenLabs
         public string? HistoryItemSampleId { get; set; }
 
         /// <summary>
-        /// The date of the voice sharing in Unix time.
+        /// The Unix time, in seconds, at which the voice was shared.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("date_unix")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -91,7 +91,7 @@ namespace ElevenLabs
         public required int NoticePeriod { get; set; }
 
         /// <summary>
-        /// The date of the voice sharing in Unix time.
+        /// The Unix time, in seconds, at which users who added the voice from the Voice Library lose access to it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disable_at_unix")]
         public int? DisableAtUnix { get; set; }
@@ -240,7 +240,7 @@ namespace ElevenLabs
         /// The status of the voice sharing.
         /// </param>
         /// <param name="dateUnix">
-        /// The date of the voice sharing in Unix time.
+        /// The Unix time, in seconds, at which the voice was shared.
         /// </param>
         /// <param name="whitelistedEmails">
         /// A list of whitelisted emails.
@@ -300,7 +300,7 @@ namespace ElevenLabs
         /// The rate of the voice sharing in USD per 1000 credits.
         /// </param>
         /// <param name="disableAtUnix">
-        /// The date of the voice sharing in Unix time.
+        /// The Unix time, in seconds, at which users who added the voice from the Voice Library lose access to it.
         /// </param>
         /// <param name="readerAppEnabled">
         /// Whether the reader app is enabled.

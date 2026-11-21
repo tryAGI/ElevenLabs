@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// Default Value: []
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? Tools { get; set; }
 
         /// <summary>
         /// Default Value: []
@@ -48,7 +48,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AuthConnectionDependencies(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? tools,
             global::System.Collections.Generic.IList<global::ElevenLabs.McpServersItem>? mcpServers,
             global::System.Collections.Generic.IList<global::ElevenLabs.DependentIntegrationConnectionIdentifier>? integrationConnections)
         {

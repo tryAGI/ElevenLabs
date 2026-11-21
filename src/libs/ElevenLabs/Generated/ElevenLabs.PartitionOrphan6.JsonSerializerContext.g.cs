@@ -13,8 +13,8 @@ namespace ElevenLabs
             internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope Value = new(
                 null,
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_3F94B7F83B522489.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4DF7FE2368D93267.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_05BF36C073875770.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_16D70ACA0D58A95C.MetadataScope,                    static () => global::ElevenLabs.PartitionCoreSourceGenerationContext.MetadataScope,
-                }, ContributeConverters);
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_F383F91C64C0519C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_464A2C6A0EB40A68.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_554224A19854A885.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_EB4DD90AAF40A6E2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_86605725E3C4A4A0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2B6665CAE83B9A74.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_05BF36C073875770.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_16D70ACA0D58A95C.MetadataScope,                    static () => global::ElevenLabs.PartitionCoreSourceGenerationContext.MetadataScope,
+                }, null);
         }
         private static class DefaultHolder
         {
@@ -33,14 +33,6 @@ namespace ElevenLabs
         /// <summary>Adds converters required by this scope.</summary>
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         public static void AddConverters(global::System.Text.Json.JsonSerializerOptions options) => MetadataScope.AddConverters(options);
-
-        #pragma warning disable CS0612, CS0618 // Generated converters may target deprecated API models.
-        private static void ContributeConverters(global::ElevenLabs.SourceGenerationContextMetadataScope.ConverterCollector collector)
-        {
-            collector.AddEnum(typeof(global::ElevenLabs.SFXModelId), static () => new global::ElevenLabs.JsonConverters.SFXModelIdJsonConverter());
-            collector.AddEnum(typeof(global::ElevenLabs.SFXModelId?), static () => new global::ElevenLabs.JsonConverters.SFXModelIdNullableJsonConverter());
-        }
-        #pragma warning restore CS0612, CS0618
 
     }
 }

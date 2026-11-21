@@ -40,6 +40,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails WebhookDetails { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("function_details")]
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallIntegrationFunctionDetails? FunctionDetails { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -55,6 +61,7 @@ namespace ElevenLabs
         /// <param name="integrationId"></param>
         /// <param name="credentialId"></param>
         /// <param name="integrationConnectionId"></param>
+        /// <param name="functionDetails"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -63,13 +70,15 @@ namespace ElevenLabs
             string? type,
             string? integrationId,
             string? credentialId,
-            string? integrationConnectionId)
+            string? integrationConnectionId,
+            global::ElevenLabs.ConversationHistoryTranscriptToolCallIntegrationFunctionDetails? functionDetails)
         {
             this.Type = type;
             this.IntegrationId = integrationId;
             this.CredentialId = credentialId;
             this.IntegrationConnectionId = integrationConnectionId;
             this.WebhookDetails = webhookDetails ?? throw new global::System.ArgumentNullException(nameof(webhookDetails));
+            this.FunctionDetails = functionDetails;
         }
 
         /// <summary>

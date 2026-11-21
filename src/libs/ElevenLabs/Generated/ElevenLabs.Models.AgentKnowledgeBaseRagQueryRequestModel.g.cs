@@ -9,11 +9,24 @@ namespace ElevenLabs
     public sealed partial class AgentKnowledgeBaseRagQueryRequestModel
     {
         /// <summary>
-        /// Query to run against the agent's knowledge base RAG index.
+        /// Retrieval strategy to run, as in the agent's knowledge_base tool: semantic or keyword search for a query, cat to read one document in full, or ls to list the entries of a folder. Any strategy runs, whether or not the agent has it enabled.<br/>
+        /// Default Value: semantic
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("strategy")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.SearchStrategyJsonConverter))]
+        public global::ElevenLabs.SearchStrategy? Strategy { get; set; }
+
+        /// <summary>
+        /// Query to search the knowledge base for. Required for the semantic and keyword strategies.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("query")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Query { get; set; }
+        public string? Query { get; set; }
+
+        /// <summary>
+        /// IDs or names of knowledge base documents or folders. Semantic and keyword search only search these entries; cat reads the single document given; ls lists the single folder given, or the top level of the knowledge base when omitted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("documents")]
+        public global::System.Collections.Generic.IList<string>? Documents { get; set; }
 
         /// <summary>
         /// When true (the default), retrieval uses the agent's own RAG settings, reproducing exactly what the agent would retrieve. Set to false to retrieve with neutral default RAG settings instead (the agent's embedding model is always kept, since it determines which vector index exists). Useful for auditing the knowledge base independently of how a particular agent is tuned.<br/>
@@ -43,8 +56,15 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AgentKnowledgeBaseRagQueryRequestModel" /> class.
         /// </summary>
+        /// <param name="strategy">
+        /// Retrieval strategy to run, as in the agent's knowledge_base tool: semantic or keyword search for a query, cat to read one document in full, or ls to list the entries of a folder. Any strategy runs, whether or not the agent has it enabled.<br/>
+        /// Default Value: semantic
+        /// </param>
         /// <param name="query">
-        /// Query to run against the agent's knowledge base RAG index.
+        /// Query to search the knowledge base for. Required for the semantic and keyword strategies.
+        /// </param>
+        /// <param name="documents">
+        /// IDs or names of knowledge base documents or folders. Semantic and keyword search only search these entries; cat reads the single document given; ls lists the single folder given, or the top level of the knowledge base when omitted.
         /// </param>
         /// <param name="useAgentDefaults">
         /// When true (the default), retrieval uses the agent's own RAG settings, reproducing exactly what the agent would retrieve. Set to false to retrieve with neutral default RAG settings instead (the agent's embedding model is always kept, since it determines which vector index exists). Useful for auditing the knowledge base independently of how a particular agent is tuned.<br/>
@@ -60,12 +80,16 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public AgentKnowledgeBaseRagQueryRequestModel(
-            string query,
+            global::ElevenLabs.SearchStrategy? strategy,
+            string? query,
+            global::System.Collections.Generic.IList<string>? documents,
             bool? useAgentDefaults,
             int? maxDocumentsLength,
             int? maxRetrievedRagChunksCount)
         {
-            this.Query = query ?? throw new global::System.ArgumentNullException(nameof(query));
+            this.Strategy = strategy;
+            this.Query = query;
+            this.Documents = documents;
             this.UseAgentDefaults = useAgentDefaults;
             this.MaxDocumentsLength = maxDocumentsLength;
             this.MaxRetrievedRagChunksCount = maxRetrievedRagChunksCount;
