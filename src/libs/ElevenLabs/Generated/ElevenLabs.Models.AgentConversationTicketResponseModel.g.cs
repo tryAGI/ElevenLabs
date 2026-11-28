@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace ElevenLabs
@@ -44,16 +46,17 @@ namespace ElevenLabs
         public required bool NeedsClustering { get; set; }
 
         /// <summary>
-        /// One-line headline for the ticket. None only on tickets created before titles existed.
+        /// One-line headline for the agent issue. None only on issues created before titles existed.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("title")]
         public string? Title { get; set; }
 
         /// <summary>
-        ///
+        /// Always null. Issue types are labels, written as `issue_type:&lt;value&gt;`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("issue_type")]
-        public global::ElevenLabs.AgentConversationTicketIssueType? IssueType { get; set; }
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public object? IssueType { get; set; }
 
         /// <summary>
         ///
@@ -130,7 +133,7 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.TicketStatusChangeResponseModel> StatusChanges { get; set; }
 
         /// <summary>
-        /// The ticket this one was merged into, set while its status is 'merged'.
+        /// The agent issue this one was merged into, set while its status is 'merged'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("merged_into_ticket_id")]
         public string? MergedIntoTicketId { get; set; }
@@ -194,15 +197,14 @@ namespace ElevenLabs
         /// <param name="createdAtUnixSecs"></param>
         /// <param name="updatedAtUnixSecs"></param>
         /// <param name="title">
-        /// One-line headline for the ticket. None only on tickets created before titles existed.
+        /// One-line headline for the agent issue. None only on issues created before titles existed.
         /// </param>
-        /// <param name="issueType"></param>
         /// <param name="firstSeenUnixSecs"></param>
         /// <param name="lastSeenUnixSecs"></param>
         /// <param name="qaComment"></param>
         /// <param name="priority"></param>
         /// <param name="mergedIntoTicketId">
-        /// The ticket this one was merged into, set while its status is 'merged'.
+        /// The agent issue this one was merged into, set while its status is 'merged'.
         /// </param>
         /// <param name="assigneeUserId"></param>
         /// <param name="searchMatch">
@@ -228,7 +230,6 @@ namespace ElevenLabs
             int createdAtUnixSecs,
             int updatedAtUnixSecs,
             string? title,
-            global::ElevenLabs.AgentConversationTicketIssueType? issueType,
             int? firstSeenUnixSecs,
             int? lastSeenUnixSecs,
             string? qaComment,
@@ -243,7 +244,6 @@ namespace ElevenLabs
             this.AgentId = agentId ?? throw new global::System.ArgumentNullException(nameof(agentId));
             this.NeedsClustering = needsClustering;
             this.Title = title;
-            this.IssueType = issueType;
             this.Labels = labels ?? throw new global::System.ArgumentNullException(nameof(labels));
             this.ConversationIds = conversationIds ?? throw new global::System.ArgumentNullException(nameof(conversationIds));
             this.FirstSeenUnixSecs = firstSeenUnixSecs;

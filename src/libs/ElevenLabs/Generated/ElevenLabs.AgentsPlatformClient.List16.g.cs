@@ -30,6 +30,7 @@ namespace ElevenLabs
             ref string agentId,
             ref bool? includeArchived,
             ref int? limit,
+            ref int? page,
             ref bool? includeCommitStatus);
         partial void PrepareList16Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,6 +38,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived,
             int? limit,
+            int? page,
             bool? includeCommitStatus);
         partial void ProcessList16Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -62,6 +64,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="page">
+        /// Page number, starting at 1. Each page holds up to `limit` branches, and `meta.total` in the response is the number of branches across all pages.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="includeCommitStatus">
         /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
         /// Default Value: false
@@ -73,6 +79,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            int? page = default,
             bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -81,6 +88,7 @@ namespace ElevenLabs
                 agentId: agentId,
                 includeArchived: includeArchived,
                 limit: limit,
+                page: page,
                 includeCommitStatus: includeCommitStatus,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -103,6 +111,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="page">
+        /// Page number, starting at 1. Each page holds up to `limit` branches, and `meta.total` in the response is the number of branches across all pages.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="includeCommitStatus">
         /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
         /// Default Value: false
@@ -114,6 +126,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            int? page = default,
             bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -127,6 +140,7 @@ namespace ElevenLabs
                 agentId: ref agentId,
                 includeArchived: ref includeArchived,
                 limit: ref limit,
+                page: ref page,
                 includeCommitStatus: ref includeCommitStatus);
 
 
@@ -158,6 +172,7 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("include_archived", includeArchived?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("page", page?.ToString())
                                 .AddOptionalParameter("include_commit_status", includeCommitStatus?.ToString().ToLowerInvariant())
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -203,6 +218,7 @@ namespace ElevenLabs
                     agentId: agentId,
                     includeArchived: includeArchived,
                     limit: limit,
+                    page: page,
                     includeCommitStatus: includeCommitStatus);
 
                 return __httpRequest;
@@ -393,13 +409,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -410,7 +426,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -453,7 +469,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -498,7 +514,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -515,5 +531,48 @@ namespace ElevenLabs
                 __httpRequest?.Dispose();
             }
         }
+
+        /// <summary>
+        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentBranchSummary&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="includeArchived">
+        /// Whether archived branches should be included<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="limit">
+        /// How many results at most should be returned<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
+        /// <param name="cancellationToken"></param>
+        public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentBranchSummary> List16AutoPagingAsync(
+            string agentId,             bool? includeArchived = default,
+            int? limit = default,
+            bool? includeCommitStatus = default,
+            int? page = null,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            return global::ElevenLabs.AutoSDKPager.OffsetAsync<global::ElevenLabs.ListResponseAgentBranchSummary, global::ElevenLabs.AgentBranchSummary>(
+                fetchPage: (__page, __ct) => List16Async(
+                    agentId: agentId,
+                    includeArchived: includeArchived,
+                    limit: limit,
+                    page: __page,
+                    includeCommitStatus: includeCommitStatus,
+                    cancellationToken: __ct),
+                extractItems: static __response => __response is null
+                    ? null
+                    : (global::System.Collections.Generic.IEnumerable<global::ElevenLabs.AgentBranchSummary>?)__response.Results,
+                initialPage: page ?? 1,
+                cancellationToken: cancellationToken);
+        }
+
     }
 }

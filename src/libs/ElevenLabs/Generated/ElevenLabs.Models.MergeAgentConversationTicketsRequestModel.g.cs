@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class MergeAgentConversationTicketsRequestModel
     {
         /// <summary>
-        /// Open tickets of the same agent to fold into this one. They are kept with status 'merged', pointing at this ticket.
+        /// Open issues of the same agent to fold into this one. They are kept with status 'merged', pointing at this issue.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("source_ticket_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="MergeAgentConversationTicketsRequestModel" /> class.
         /// </summary>
         /// <param name="sourceTicketIds">
-        /// Open tickets of the same agent to fold into this one. They are kept with status 'merged', pointing at this ticket.
+        /// Open issues of the same agent to fold into this one. They are kept with status 'merged', pointing at this issue.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

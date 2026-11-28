@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType? Type { get; }
+        public global::ElevenLabs.SIPColdReferTransferConfigOutputCustomSipHeaderDiscriminatorType? Type { get; }
 
         /// <summary>
         /// Custom SIP header for phone transfers with a static (validated) value.
@@ -139,7 +139,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public CustomSipHeadersItem3(
-            global::ElevenLabs.WorkflowPhoneNumberNodeModelOutputCustomSipHeaderDiscriminatorType? type,
+            global::ElevenLabs.SIPColdReferTransferConfigOutputCustomSipHeaderDiscriminatorType? type,
             global::ElevenLabs.CustomSIPHeader? @static,
             global::ElevenLabs.CustomSIPHeaderWithDynamicVariable? dynamic
             )

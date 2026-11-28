@@ -31,6 +31,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AgentSpeaker,
+        /// <summary>
+        ///
+        /// </summary>
         AgentToolRequest,
         /// <summary>
         ///
@@ -127,6 +131,7 @@ namespace ElevenLabs
                 ClientEvent.AgentResponseComplete => "agent_response_complete",
                 ClientEvent.AgentResponseCorrection => "agent_response_correction",
                 ClientEvent.AgentResponseMetadata => "agent_response_metadata",
+                ClientEvent.AgentSpeaker => "agent_speaker",
                 ClientEvent.AgentToolRequest => "agent_tool_request",
                 ClientEvent.AgentToolResponse => "agent_tool_response",
                 ClientEvent.AgentToolResponseFullPayload => "agent_tool_response_full_payload",
@@ -162,6 +167,7 @@ namespace ElevenLabs
                 "agent_response_complete" => ClientEvent.AgentResponseComplete,
                 "agent_response_correction" => ClientEvent.AgentResponseCorrection,
                 "agent_response_metadata" => ClientEvent.AgentResponseMetadata,
+                "agent_speaker" => ClientEvent.AgentSpeaker,
                 "agent_tool_request" => ClientEvent.AgentToolRequest,
                 "agent_tool_response" => ClientEvent.AgentToolResponse,
                 "agent_tool_response_full_payload" => ClientEvent.AgentToolResponseFullPayload,

@@ -41,6 +41,12 @@ namespace ElevenLabs
         public string? FolderParentId { get; set; }
 
         /// <summary>
+        /// The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("visibility")]
+        public global::ElevenLabs.ProcedureVisibilityInput? Visibility { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -65,6 +71,9 @@ namespace ElevenLabs
         /// <param name="folderParentId">
         /// Procedure ID of the folder to create this procedure in, or null for root.
         /// </param>
+        /// <param name="visibility">
+        /// The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,13 +82,15 @@ namespace ElevenLabs
             string? content,
             global::ElevenLabs.ProcedureType? type,
             string? trigger,
-            string? folderParentId)
+            string? folderParentId,
+            global::ElevenLabs.ProcedureVisibilityInput? visibility)
         {
             this.Name = name;
             this.Content = content;
             this.Type = type;
             this.Trigger = trigger;
             this.FolderParentId = folderParentId;
+            this.Visibility = visibility;
         }
 
         /// <summary>

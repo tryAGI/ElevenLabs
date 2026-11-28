@@ -99,7 +99,7 @@ namespace ElevenLabs
         public global::ElevenLabs.AnalysisCharging? Analysis { get; set; }
 
         /// <summary>
-        /// Credits charged as the voice actor reward for the Voice Library voices this conversation used. It is not included in `cost`.
+        /// Credits charged as the voice owner fee for the custom rate voices this conversation used. It is not included in `cost`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice_surcharge_charge")]
         public int? VoiceSurchargeCharge { get; set; }
@@ -145,7 +145,7 @@ namespace ElevenLabs
         /// <param name="asrUsage"></param>
         /// <param name="analysis"></param>
         /// <param name="voiceSurchargeCharge">
-        /// Credits charged as the voice actor reward for the Voice Library voices this conversation used. It is not included in `cost`.
+        /// Credits charged as the voice owner fee for the custom rate voices this conversation used. It is not included in `cost`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

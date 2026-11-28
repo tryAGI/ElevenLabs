@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Delete Knowledge Source<br/>
         /// Delete a knowledge source
         /// </summary>
-        /// <param name="sourceId"></param>
+        /// <param name="sourceId">
+        /// ID of the knowledge source. Returned when you add one; list them with `GET /v1/reception/knowledge-sources`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -17,14 +19,16 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> Delete11Async(
             string sourceId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete Knowledge Source<br/>
         /// Delete a knowledge source
         /// </summary>
-        /// <param name="sourceId"></param>
+        /// <param name="sourceId">
+        /// ID of the knowledge source. Returned when you add one; list them with `GET /v1/reception/knowledge-sources`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -33,7 +37,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.Dictionary<string, string>>> Delete11AsResponseAsync(
             string sourceId,
-            string? xiWorkspaceId = default,
+            string xiWorkspaceId,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

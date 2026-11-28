@@ -71,7 +71,7 @@ namespace ElevenLabs
         public bool? AutoRebase { get; set; }
 
         /// <summary>
-        /// Set while the branch is kept in sync with another branch (Main today), pulling in its new versions automatically. Null when it is not synced.
+        /// Set while the branch is kept in sync with another branch: automatically (`auto_rebase`), or with a chosen branch other than main. Null otherwise.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sync_status")]
         public global::ElevenLabs.BranchSyncStatus? SyncStatus { get; set; }
@@ -163,7 +163,7 @@ namespace ElevenLabs
         /// Default Value: false
         /// </param>
         /// <param name="syncStatus">
-        /// Set while the branch is kept in sync with another branch (Main today), pulling in its new versions automatically. Null when it is not synced.
+        /// Set while the branch is kept in sync with another branch: automatically (`auto_rebase`), or with a chosen branch other than main. Null otherwise.
         /// </param>
         /// <param name="accessInfo">
         /// Access information for the branch

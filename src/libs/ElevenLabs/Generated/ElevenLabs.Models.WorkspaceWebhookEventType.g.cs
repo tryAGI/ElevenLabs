@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        SupportTicket,
+        /// <summary>
+        ///
+        /// </summary>
         VoiceLibraryRemovalNotice,
     }
 
@@ -41,6 +45,7 @@ namespace ElevenLabs
                 WorkspaceWebhookEventType.AgentQa => "agent_qa",
                 WorkspaceWebhookEventType.Flows => "flows",
                 WorkspaceWebhookEventType.SpeechToText => "speech_to_text",
+                WorkspaceWebhookEventType.SupportTicket => "support_ticket",
                 WorkspaceWebhookEventType.VoiceLibraryRemovalNotice => "voice_library_removal_notice",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -55,6 +60,7 @@ namespace ElevenLabs
                 "agent_qa" => WorkspaceWebhookEventType.AgentQa,
                 "flows" => WorkspaceWebhookEventType.Flows,
                 "speech_to_text" => WorkspaceWebhookEventType.SpeechToText,
+                "support_ticket" => WorkspaceWebhookEventType.SupportTicket,
                 "voice_library_removal_notice" => WorkspaceWebhookEventType.VoiceLibraryRemovalNotice,
                 _ => null,
             };

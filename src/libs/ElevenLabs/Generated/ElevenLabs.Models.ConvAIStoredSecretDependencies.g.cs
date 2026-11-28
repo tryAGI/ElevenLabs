@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2> Tools { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem6> Tools { get; set; }
 
         /// <summary>
         /// Whether there are more tool dependents beyond the returned preview<br/>
@@ -92,7 +92,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ConvAIStoredSecretDependencies(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem2> tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem6> tools,
             global::System.Collections.Generic.IList<global::ElevenLabs.AgentsItem> agents,
             global::System.Collections.Generic.IList<global::ElevenLabs.SecretDependencyType> others,
             bool? toolsHasMore,

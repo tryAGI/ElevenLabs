@@ -45,6 +45,12 @@ namespace ElevenLabs
         public int? MaxSoftTimeoutsPerGeneration { get; set; }
 
         /// <summary>
+        /// If enabled, leave a short pause after a filler message before the agent's response, so the two do not run together.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("pause_after_filler")]
+        public bool? PauseAfterFiller { get; set; }
+
+        /// <summary>
         /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("llm_generated_message_prompt_override")]
@@ -83,6 +89,9 @@ namespace ElevenLabs
         /// <param name="maxSoftTimeoutsPerGeneration">
         /// Maximum filler messages while waiting for a single LLM response. Fires every timeout_seconds until the LLM streams content or this limit is reached.
         /// </param>
+        /// <param name="pauseAfterFiller">
+        /// If enabled, leave a short pause after a filler message before the agent's response, so the two do not run together.
+        /// </param>
         /// <param name="llmGeneratedMessagePromptOverride">
         /// Custom prompt for generating the soft timeout filler message when use_llm_generated_message is enabled. Recent conversation context is provided as a separate user message. If not set, the default prompt will be used. Supports dynamic variables (e.g., {{system__time}}, {{custom_variable}}).
         /// </param>
@@ -99,6 +108,7 @@ namespace ElevenLabs
             bool? useLlmGeneratedMessage,
             bool? randomizeFillers,
             int? maxSoftTimeoutsPerGeneration,
+            bool? pauseAfterFiller,
             string? llmGeneratedMessagePromptOverride,
             bool? disableUntilFirstUserMessage)
         {
@@ -108,6 +118,7 @@ namespace ElevenLabs
             this.UseLlmGeneratedMessage = useLlmGeneratedMessage;
             this.RandomizeFillers = randomizeFillers;
             this.MaxSoftTimeoutsPerGeneration = maxSoftTimeoutsPerGeneration;
+            this.PauseAfterFiller = pauseAfterFiller;
             this.LlmGeneratedMessagePromptOverride = llmGeneratedMessagePromptOverride;
             this.DisableUntilFirstUserMessage = disableUntilFirstUserMessage;
         }

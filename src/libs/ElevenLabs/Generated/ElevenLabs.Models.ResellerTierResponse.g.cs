@@ -23,11 +23,19 @@ namespace ElevenLabs
         public required string DisplayName { get; set; }
 
         /// <summary>
-        /// A tier's prices and quotas, in the fields a tier is created with.
+        /// What the prices are in. The same for every tier on a ladder.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("currency")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ResellerTierResponseCurrencyJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ResellerTierResponseCurrency Currency { get; set; }
+
+        /// <summary>
+        /// A tier's prices and the limits shown on its tier card.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tier_economics")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::ElevenLabs.SMBTierEconomics TierEconomics { get; set; }
+        public required global::ElevenLabs.ResellerTierEconomics TierEconomics { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,8 +48,11 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="tierId"></param>
         /// <param name="displayName"></param>
+        /// <param name="currency">
+        /// What the prices are in. The same for every tier on a ladder.
+        /// </param>
         /// <param name="tierEconomics">
-        /// A tier's prices and quotas, in the fields a tier is created with.
+        /// A tier's prices and the limits shown on its tier card.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -49,10 +60,12 @@ namespace ElevenLabs
         public ResellerTierResponse(
             string tierId,
             string displayName,
-            global::ElevenLabs.SMBTierEconomics tierEconomics)
+            global::ElevenLabs.ResellerTierResponseCurrency currency,
+            global::ElevenLabs.ResellerTierEconomics tierEconomics)
         {
             this.TierId = tierId ?? throw new global::System.ArgumentNullException(nameof(tierId));
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
+            this.Currency = currency;
             this.TierEconomics = tierEconomics ?? throw new global::System.ArgumentNullException(nameof(tierEconomics));
         }
 

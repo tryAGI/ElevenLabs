@@ -13,7 +13,8 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExternalSyncProviderJsonConverter))]
-        public global::ElevenLabs.ExternalSyncProvider Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ExternalSyncProvider Type { get; set; }
 
         /// <summary>
         ///
@@ -110,13 +111,13 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="KbExternalSyncJob" /> class.
         /// </summary>
+        /// <param name="type"></param>
         /// <param name="folderId"></param>
         /// <param name="integrationConnectionId"></param>
         /// <param name="triggeredBy"></param>
         /// <param name="updatedAt"></param>
         /// <param name="id"></param>
         /// <param name="createdAt"></param>
-        /// <param name="type"></param>
         /// <param name="status">
         /// Default Value: queued
         /// </param>
@@ -134,13 +135,13 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public KbExternalSyncJob(
+            global::ElevenLabs.ExternalSyncProvider type,
             string folderId,
             string integrationConnectionId,
             global::ElevenLabs.ExternalSyncJobTrigger triggeredBy,
             int updatedAt,
             string id,
             int createdAt,
-            global::ElevenLabs.ExternalSyncProvider type,
             global::ElevenLabs.CrawlStatus? status,
             global::ElevenLabs.ExternalSyncJobType? syncType,
             int? itemsIdentified,

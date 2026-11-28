@@ -30,6 +30,7 @@ namespace ElevenLabs
             int? pageSize,
             int? dependencyLimit,
             ref string? search,
+            ref bool? includeDependencies,
             ref string? cursor);
         partial void PrepareList11Request(
             global::System.Net.Http.HttpClient httpClient,
@@ -37,6 +38,7 @@ namespace ElevenLabs
             int? pageSize,
             int? dependencyLimit,
             string? search,
+            bool? includeDependencies,
             string? cursor);
         partial void ProcessList11Response(
             global::System.Net.Http.HttpClient httpClient,
@@ -60,6 +62,10 @@ namespace ElevenLabs
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
         /// </param>
+        /// <param name="includeDependencies">
+        /// Whether to return the resources that use each secret. If false, used_by is empty and the list returns much faster for workspaces with many secrets.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -70,6 +76,7 @@ namespace ElevenLabs
             int? pageSize = default,
             int? dependencyLimit = default,
             string? search = default,
+            bool? includeDependencies = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -78,6 +85,7 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 dependencyLimit: dependencyLimit,
                 search: search,
+                includeDependencies: includeDependencies,
                 cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
@@ -98,6 +106,10 @@ namespace ElevenLabs
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
         /// </param>
+        /// <param name="includeDependencies">
+        /// Whether to return the resources that use each secret. If false, used_by is empty and the list returns much faster for workspaces with many secrets.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -108,6 +120,7 @@ namespace ElevenLabs
             int? pageSize = default,
             int? dependencyLimit = default,
             string? search = default,
+            bool? includeDependencies = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -121,6 +134,7 @@ namespace ElevenLabs
                 pageSize: pageSize,
                 dependencyLimit: dependencyLimit,
                 search: ref search,
+                includeDependencies: ref includeDependencies,
                 cursor: ref cursor);
 
 
@@ -153,6 +167,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
                                 .AddOptionalParameter("dependency_limit", dependencyLimit?.ToString())
                                 .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("include_dependencies", includeDependencies?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
@@ -198,6 +213,7 @@ namespace ElevenLabs
                     pageSize: pageSize,
                     dependencyLimit: dependencyLimit,
                     search: search,
+                    includeDependencies: includeDependencies,
                     cursor: cursor);
 
                 return __httpRequest;
@@ -388,13 +404,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -405,7 +421,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -448,7 +464,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -493,7 +509,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -523,12 +539,17 @@ namespace ElevenLabs
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
         /// </param>
+        /// <param name="includeDependencies">
+        /// Whether to return the resources that use each secret. If false, used_by is empty and the list returns much faster for workspaces with many secrets.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> List11AutoPagingAsync(
               int? pageSize = default,
             int? dependencyLimit = default,
             string? search = default,
+            bool? includeDependencies = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -537,6 +558,7 @@ namespace ElevenLabs
                     pageSize: pageSize,
                     dependencyLimit: dependencyLimit,
                     search: search,
+                    includeDependencies: includeDependencies,
                     cursor: __cursor,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null

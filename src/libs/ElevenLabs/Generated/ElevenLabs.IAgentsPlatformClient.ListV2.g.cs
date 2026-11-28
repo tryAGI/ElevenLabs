@@ -118,7 +118,7 @@ namespace ElevenLabs
             global::System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Wraps ListV2Async as an IAsyncEnumerable&lt;global::ElevenLabs.PhoneNumbersItem2&gt; that auto-pages over the response.
+        /// Wraps ListV2Async as an IAsyncEnumerable&lt;global::ElevenLabs.PhoneNumbersItem3&gt; that auto-pages over the response.
         /// </summary>
         /// <param name="pageSize">
         /// Number of phone numbers per page<br/>
@@ -154,7 +154,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
-        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.PhoneNumbersItem2> ListV2AutoPagingAsync(
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.PhoneNumbersItem3> ListV2AutoPagingAsync(
               int? pageSize = default,
             string? search = default,
             string? label = default,

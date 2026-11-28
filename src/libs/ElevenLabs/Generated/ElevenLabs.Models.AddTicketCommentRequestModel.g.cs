@@ -9,7 +9,7 @@ namespace ElevenLabs
     public sealed partial class AddTicketCommentRequestModel
     {
         /// <summary>
-        /// A comment discussing how to resolve the ticket.
+        /// A comment discussing how to resolve the agent issue.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("comment")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="AddTicketCommentRequestModel" /> class.
         /// </summary>
         /// <param name="comment">
-        /// A comment discussing how to resolve the ticket.
+        /// A comment discussing how to resolve the agent issue.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

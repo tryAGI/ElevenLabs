@@ -57,12 +57,33 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput)}");
                 standaloneAgent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.WorkflowSayNodeModelInput? say = default;
+            if (discriminator?.Type == global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType.Say)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowSayNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowSayNodeModelInput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WorkflowSayNodeModelInput)}");
+                say = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.WorkflowToolNodeModelInput? tool = default;
             if (discriminator?.Type == global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType.Tool)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowToolNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowToolNodeModelInput> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WorkflowToolNodeModelInput)}");
                 tool = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.WorkflowUpdateStateNodeModelInput? updateState = default;
+            if (discriminator?.Type == global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType.UpdateState)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowUpdateStateNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowUpdateStateNodeModelInput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WorkflowUpdateStateNodeModelInput)}");
+                updateState = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.WorkflowStartProcedureNodeModelInput? startProcedure = default;
+            if (discriminator?.Type == global::ElevenLabs.AgentWorkflowRequestModelNodesDiscriminatorType.StartProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowStartProcedureNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowStartProcedureNodeModelInput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.WorkflowStartProcedureNodeModelInput)}");
+                startProcedure = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
             var __value = new global::ElevenLabs.Nodes(
@@ -77,7 +98,13 @@ namespace ElevenLabs.JsonConverters
 
                 standaloneAgent,
 
-                tool
+                say,
+
+                tool,
+
+                updateState,
+
+                startProcedure
                 );
 
             return __value;
@@ -123,11 +150,29 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowStandaloneAgentNodeModelInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickStandaloneAgent(), typeInfo);
             }
+            else if (value.IsSay)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowSayNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowSayNodeModelInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowSayNodeModelInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickSay(), typeInfo);
+            }
             else if (value.IsTool)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowToolNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowToolNodeModelInput?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowToolNodeModelInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickTool(), typeInfo);
+            }
+            else if (value.IsUpdateState)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowUpdateStateNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowUpdateStateNodeModelInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowUpdateStateNodeModelInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickUpdateState(), typeInfo);
+            }
+            else if (value.IsStartProcedure)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.WorkflowStartProcedureNodeModelInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.WorkflowStartProcedureNodeModelInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.WorkflowStartProcedureNodeModelInput).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickStartProcedure(), typeInfo);
             }
         }
     }

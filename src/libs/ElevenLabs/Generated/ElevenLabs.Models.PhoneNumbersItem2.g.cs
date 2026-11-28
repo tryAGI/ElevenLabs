@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminatorProvider? Provider { get; }
+        public global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? Provider { get; }
 
         /// <summary>
         /// Example: {"label":"Customer Support","phone_number":"\u002B1234567890","phone_number_id":"phone_123","provider":"twilio"}
@@ -197,7 +197,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public PhoneNumbersItem2(
-            global::ElevenLabs.GetPhoneNumbersPageResponseModelPhoneNumberDiscriminatorProvider? provider,
+            global::ElevenLabs.MergePreviewResponseModelPhoneNumberDiscriminatorProvider? provider,
             global::ElevenLabs.GetPhoneNumberTwilioResponseModel? twilio,
             global::ElevenLabs.GetPhoneNumberExotelResponseModel? exotel,
             global::ElevenLabs.GetPhoneNumberSIPTrunkResponseModel? sipTrunk

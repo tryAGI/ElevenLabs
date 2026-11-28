@@ -13,7 +13,7 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::ElevenLabs.ResultsItem> Results { get; set; }
+        public required global::System.Collections.Generic.IList<global::ElevenLabs.ResultsItem3> Results { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -29,7 +29,7 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UpdateAnalysisItemAttachmentsResponseModel(
-            global::System.Collections.Generic.IList<global::ElevenLabs.ResultsItem> results)
+            global::System.Collections.Generic.IList<global::ElevenLabs.ResultsItem3> results)
         {
             this.Results = results ?? throw new global::System.ArgumentNullException(nameof(results));
         }

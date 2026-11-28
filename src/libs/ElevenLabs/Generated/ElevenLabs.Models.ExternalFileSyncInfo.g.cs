@@ -13,7 +13,8 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExternalSyncProviderJsonConverter))]
-        public global::ElevenLabs.ExternalSyncProvider Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ExternalSyncProvider Type { get; set; }
 
         /// <summary>
         /// Entity ID in the external system
@@ -65,6 +66,9 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalFileSyncInfo" /> class.
         /// </summary>
+        /// <param name="type">
+        /// Provider identifier
+        /// </param>
         /// <param name="sourceEntityId">
         /// Entity ID in the external system
         /// </param>
@@ -80,9 +84,6 @@ namespace ElevenLabs
         /// <param name="sourceModifiedTime">
         /// Last modified time from the external system
         /// </param>
-        /// <param name="type">
-        /// Provider identifier
-        /// </param>
         /// <param name="rootFolderId">
         /// KB folder ID of the sync root, used to query all entities under a sync tree
         /// </param>
@@ -90,12 +91,12 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ExternalFileSyncInfo(
+            global::ElevenLabs.ExternalSyncProvider type,
             string sourceEntityId,
             string integrationConnectionId,
             string sourceParentEntityId,
             string sourceMimeType,
             global::System.DateTime sourceModifiedTime,
-            global::ElevenLabs.ExternalSyncProvider type,
             string? rootFolderId)
         {
             this.Type = type;

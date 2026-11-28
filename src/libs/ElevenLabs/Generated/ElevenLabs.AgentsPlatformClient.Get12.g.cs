@@ -27,13 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareGet12Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string documentationId,
-            ref string? agentId);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void PrepareGet12Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string documentationId,
-            string? agentId);
+            global::System.Collections.Generic.IList<string> documentIds);
         partial void ProcessGet12Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -44,25 +42,22 @@ namespace ElevenLabs
             ref string content);
 
         /// <summary>
-        /// Get Documentation From Knowledge Base<br/>
-        /// Get details about a specific documentation making up the agent's knowledge base
+        /// Get Knowledge Base Summaries By Ids<br/>
+        /// Gets multiple knowledge base document summaries by their IDs.
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// <param name="documentIds">
+        /// The ids of knowledge base documents.
         /// </param>
-        /// <param name="agentId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse> Get12Async(
-            string documentationId,
-            string? agentId = default,
+        public async global::System.Threading.Tasks.Task<string> Get12Async(
+            global::System.Collections.Generic.IList<string> documentIds,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await Get12AsResponseAsync(
-                documentationId: documentationId,
-                agentId: agentId,
+                documentIds: documentIds,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -70,19 +65,17 @@ namespace ElevenLabs
             return __response.Body;
         }
         /// <summary>
-        /// Get Documentation From Knowledge Base<br/>
-        /// Get details about a specific documentation making up the agent's knowledge base
+        /// Get Knowledge Base Summaries By Ids<br/>
+        /// Gets multiple knowledge base document summaries by their IDs.
         /// </summary>
-        /// <param name="documentationId">
-        /// The id of a document from the knowledge base. This is returned on document addition.
+        /// <param name="documentIds">
+        /// The ids of knowledge base documents.
         /// </param>
-        /// <param name="agentId"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse>> Get12AsResponseAsync(
-            string documentationId,
-            string? agentId = default,
+        public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<string>> Get12AsResponseAsync(
+            global::System.Collections.Generic.IList<string> documentIds,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -92,8 +85,7 @@ namespace ElevenLabs
                 client: HttpClient);
             PrepareGet12Arguments(
                 httpClient: HttpClient,
-                documentationId: ref documentationId,
-                agentId: ref agentId);
+                documentIds: documentIds);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -119,10 +111,10 @@ namespace ElevenLabs
             {
 
                             var __pathBuilder = new global::ElevenLabs.PathBuilder(
-                                path: $"/v1/convai/knowledge-base/{documentationId}",
+                                path: "/v1/convai/knowledge-base/summaries",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddOptionalParameter("agent_id", agentId)
+                                .AddRequiredParameter("document_ids", documentIds, delimiter: ",", explode: true)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -164,8 +156,7 @@ namespace ElevenLabs
                 PrepareGet12Request(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    documentationId: documentationId,
-                    agentId: agentId);
+                    documentIds: documentIds);
 
                 return __httpRequest;
             }
@@ -184,7 +175,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get12",
                                 methodName: "Get12Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -218,7 +209,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get12",
                                 methodName: "Get12Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -259,7 +250,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get12",
                                 methodName: "Get12Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -307,7 +298,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get12",
                                 methodName: "Get12Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -329,7 +320,7 @@ namespace ElevenLabs
                             context: global::ElevenLabs.AutoSDKRequestOptionsSupport.CreateHookContext(
                                 operationId: "Get12",
                                 methodName: "Get12Async",
-                                pathTemplate: "$\"/v1/convai/knowledge-base/{documentationId}\"",
+                                pathTemplate: "\"/v1/convai/knowledge-base/summaries\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
@@ -355,13 +346,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -372,7 +363,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -403,19 +394,17 @@ namespace ElevenLabs
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -429,19 +418,17 @@ namespace ElevenLabs
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.GetDocumentationFromKnowledgeBaseResponse>(
+                                    return new global::ElevenLabs.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::ElevenLabs.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -460,7 +447,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(

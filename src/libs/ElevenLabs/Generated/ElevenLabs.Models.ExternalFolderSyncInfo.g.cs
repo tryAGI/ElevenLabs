@@ -13,7 +13,8 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.ExternalSyncProviderJsonConverter))]
-        public global::ElevenLabs.ExternalSyncProvider Type { get; set; }
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::ElevenLabs.ExternalSyncProvider Type { get; set; }
 
         /// <summary>
         /// Entity ID in the external system
@@ -56,14 +57,14 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalFolderSyncInfo" /> class.
         /// </summary>
+        /// <param name="type">
+        /// Provider identifier
+        /// </param>
         /// <param name="sourceEntityId">
         /// Entity ID in the external system
         /// </param>
         /// <param name="integrationConnectionId">
         /// Integration connection instance ID
-        /// </param>
-        /// <param name="type">
-        /// Provider identifier
         /// </param>
         /// <param name="rootFolderId">
         /// KB folder ID of the sync root. None means this folder is the root.
@@ -78,9 +79,9 @@ namespace ElevenLabs
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ExternalFolderSyncInfo(
+            global::ElevenLabs.ExternalSyncProvider type,
             string sourceEntityId,
             string integrationConnectionId,
-            global::ElevenLabs.ExternalSyncProvider type,
             string? rootFolderId,
             string? syncCursor,
             int? lastSyncAt)

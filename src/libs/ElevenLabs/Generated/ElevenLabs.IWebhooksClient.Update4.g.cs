@@ -60,6 +60,9 @@ namespace ElevenLabs
         /// <param name="events">
         /// The complete set of workspace-level events this webhook should be subscribed to. The webhook is added to the events in the list and removed from any not in the list. Omit to leave the current event subscriptions unchanged.
         /// </param>
+        /// <param name="logRedactedFields">
+        /// Field names whose values the delivery log hides when it shows the request payload, matched at any depth, ignoring case and punctuation such as _ or -. Fields with secret-looking names, such as tokens and passwords, are always hidden. The stored log and redeliveries keep the original values. At most 50 names, each 1 to 128 characters, with no whitespace, dots or wildcards.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -70,6 +73,7 @@ namespace ElevenLabs
             bool? retryEnabled = default,
             global::System.Collections.Generic.Dictionary<string, string>? requestHeaders = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.WorkspaceWebhookEventType>? events = default,
+            global::System.Collections.Generic.IList<string>? logRedactedFields = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -33,10 +33,16 @@ namespace ElevenLabs
         public global::ElevenLabs.BranchProtectionStatus? ProtectionStatus { get; set; }
 
         /// <summary>
-        /// When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
+        /// When true, rebase this branch automatically after each new version of the branch it is kept in sync with (`sync_branch_id`, main by default). Cannot be enabled on the main branch, or while this branch is more protected than a non-main branch it is kept in sync with.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_rebase")]
         public bool? AutoRebase { get; set; }
+
+        /// <summary>
+        /// ID of the branch to keep this branch in sync with: its new versions are pulled in automatically while `auto_rebase` is on. Pass the main branch's ID to sync with main again. Must be the main branch or the active branch this branch was created from (`parent_branch_id`). At most 10 branches can be kept in sync with one another in a row. Cannot be set on the main branch.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sync_branch_id")]
+        public string? SyncBranchId { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -60,7 +66,10 @@ namespace ElevenLabs
         /// The protection level for the branch
         /// </param>
         /// <param name="autoRebase">
-        /// When true, rebase this branch onto main automatically after each new main version. Cannot be enabled on the main branch.
+        /// When true, rebase this branch automatically after each new version of the branch it is kept in sync with (`sync_branch_id`, main by default). Cannot be enabled on the main branch, or while this branch is more protected than a non-main branch it is kept in sync with.
+        /// </param>
+        /// <param name="syncBranchId">
+        /// ID of the branch to keep this branch in sync with: its new versions are pulled in automatically while `auto_rebase` is on. Pass the main branch's ID to sync with main again. Must be the main branch or the active branch this branch was created from (`parent_branch_id`). At most 10 branches can be kept in sync with one another in a row. Cannot be set on the main branch.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -70,13 +79,15 @@ namespace ElevenLabs
             string? description,
             bool? isArchived,
             global::ElevenLabs.BranchProtectionStatus? protectionStatus,
-            bool? autoRebase)
+            bool? autoRebase,
+            string? syncBranchId)
         {
             this.Name = name;
             this.Description = description;
             this.IsArchived = isArchived;
             this.ProtectionStatus = protectionStatus;
             this.AutoRebase = autoRebase;
+            this.SyncBranchId = syncBranchId;
         }
 
         /// <summary>

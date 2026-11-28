@@ -40,6 +40,12 @@ namespace ElevenLabs
         public string? Note { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("conference_transfer_sip_call_id")]
+        public string? ConferenceTransferSipCallId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -57,6 +63,7 @@ namespace ElevenLabs
         /// </param>
         /// <param name="reason"></param>
         /// <param name="note"></param>
+        /// <param name="conferenceTransferSipCallId"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -65,13 +72,15 @@ namespace ElevenLabs
             string? resultType,
             string? status,
             string? reason,
-            string? note)
+            string? note,
+            string? conferenceTransferSipCallId)
         {
             this.ResultType = resultType;
             this.Status = status;
             this.TransferNumber = transferNumber ?? throw new global::System.ArgumentNullException(nameof(transferNumber));
             this.Reason = reason;
             this.Note = note;
+            this.ConferenceTransferSipCallId = conferenceTransferSipCallId;
         }
 
         /// <summary>

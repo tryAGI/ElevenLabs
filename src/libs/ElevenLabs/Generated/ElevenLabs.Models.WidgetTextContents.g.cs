@@ -33,10 +33,22 @@ namespace ElevenLabs
         public string? NewCall { get; set; }
 
         /// <summary>
+        /// Text and ARIA label for the button that resumes the conversation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("resume_call")]
+        public string? ResumeCall { get; set; }
+
+        /// <summary>
         /// Text and ARIA label for the end call button.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_call")]
         public string? EndCall { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the end chat button.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_chat")]
+        public string? EndChat { get; set; }
 
         /// <summary>
         /// ARIA label for the mute microphone button.
@@ -63,6 +75,30 @@ namespace ElevenLabs
         public string? Expand { get; set; }
 
         /// <summary>
+        /// ARIA label for the header button that expands the widget.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("expand_widget")]
+        public string? ExpandWidget { get; set; }
+
+        /// <summary>
+        /// ARIA label for the header button that collapses the widget back to its compact size.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("collapse_widget")]
+        public string? CollapseWidget { get; set; }
+
+        /// <summary>
+        /// ARIA label for the button that hides a dismissible widget.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("dismiss")]
+        public string? Dismiss { get; set; }
+
+        /// <summary>
+        /// ARIA label for the launcher button that reopens a dismissed widget.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("open_chat")]
+        public string? OpenChat { get; set; }
+
+        /// <summary>
         /// Text displayed when the user copies a value using the copy button.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("copied")]
@@ -81,6 +117,42 @@ namespace ElevenLabs
         public string? DismissTerms { get; set; }
 
         /// <summary>
+        /// Title displayed in the confirmation dialog before ending a chat.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_chat_confirmation_title")]
+        public string? EndChatConfirmationTitle { get; set; }
+
+        /// <summary>
+        /// Description displayed in the confirmation dialog before ending a chat.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_chat_confirmation_description")]
+        public string? EndChatConfirmationDescription { get; set; }
+
+        /// <summary>
+        /// Title displayed in the confirmation dialog before ending a call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_call_confirmation_title")]
+        public string? EndCallConfirmationTitle { get; set; }
+
+        /// <summary>
+        /// Description displayed in the confirmation dialog before ending a call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_call_confirmation_description")]
+        public string? EndCallConfirmationDescription { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the button that confirms ending a call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("end_call_confirm")]
+        public string? EndCallConfirm { get; set; }
+
+        /// <summary>
+        /// Text and ARIA label for the button that cancels ending a chat or call.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cancel_end_confirmation")]
+        public string? CancelEndConfirmation { get; set; }
+
+        /// <summary>
         /// Status displayed when the agent is listening.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("listening_status")]
@@ -97,6 +169,12 @@ namespace ElevenLabs
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connecting_status")]
         public string? ConnectingStatus { get; set; }
+
+        /// <summary>
+        /// Status displayed when the agent is reconnecting.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("reconnecting_status")]
+        public string? ReconnectingStatus { get; set; }
 
         /// <summary>
         /// Status displayed when the agent is chatting (text only)
@@ -237,6 +315,18 @@ namespace ElevenLabs
         public string? VoiceMode { get; set; }
 
         /// <summary>
+        /// Label for the voice option in the conversation mode toggle.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("voice_mode_label")]
+        public string? VoiceModeLabel { get; set; }
+
+        /// <summary>
+        /// Label for the text option in the conversation mode toggle.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("text_mode_label")]
+        public string? TextModeLabel { get; set; }
+
+        /// <summary>
         /// Toast notification displayed when switching to text mode.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("switched_to_text_mode")]
@@ -327,10 +417,40 @@ namespace ElevenLabs
         public string? TypingIndicator { get; set; }
 
         /// <summary>
+        /// Status text displayed while the agent is thinking.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("thinking_status")]
+        public string? ThinkingStatus { get; set; }
+
+        /// <summary>
         /// Fallback message displayed when rich content cannot be rendered.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rich_content_unavailable")]
         public string? RichContentUnavailable { get; set; }
+
+        /// <summary>
+        /// ARIA label for the previous button in a rich content carousel.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("carousel_previous")]
+        public string? CarouselPrevious { get; set; }
+
+        /// <summary>
+        /// ARIA label for the next button in a rich content carousel.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("carousel_next")]
+        public string? CarouselNext { get; set; }
+
+        /// <summary>
+        /// Label for the button that scrolls to one new message.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("new_message")]
+        public string? NewMessage { get; set; }
+
+        /// <summary>
+        /// Label for the button that scrolls to new messages. Keep the count placeholder from the default, which is replaced with the number of messages.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("new_messages")]
+        public string? NewMessages { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -353,8 +473,14 @@ namespace ElevenLabs
         /// <param name="newCall">
         /// Text and ARIA label for the new call button. Displayed when the caller already finished at least one call in order ot start the next one.
         /// </param>
+        /// <param name="resumeCall">
+        /// Text and ARIA label for the button that resumes the conversation.
+        /// </param>
         /// <param name="endCall">
         /// Text and ARIA label for the end call button.
+        /// </param>
+        /// <param name="endChat">
+        /// Text and ARIA label for the end chat button.
         /// </param>
         /// <param name="muteMicrophone">
         /// ARIA label for the mute microphone button.
@@ -368,6 +494,18 @@ namespace ElevenLabs
         /// <param name="expand">
         /// ARIA label for the expand button.
         /// </param>
+        /// <param name="expandWidget">
+        /// ARIA label for the header button that expands the widget.
+        /// </param>
+        /// <param name="collapseWidget">
+        /// ARIA label for the header button that collapses the widget back to its compact size.
+        /// </param>
+        /// <param name="dismiss">
+        /// ARIA label for the button that hides a dismissible widget.
+        /// </param>
+        /// <param name="openChat">
+        /// ARIA label for the launcher button that reopens a dismissed widget.
+        /// </param>
         /// <param name="copied">
         /// Text displayed when the user copies a value using the copy button.
         /// </param>
@@ -377,6 +515,24 @@ namespace ElevenLabs
         /// <param name="dismissTerms">
         /// Text and ARIA label for the cancel terms button.
         /// </param>
+        /// <param name="endChatConfirmationTitle">
+        /// Title displayed in the confirmation dialog before ending a chat.
+        /// </param>
+        /// <param name="endChatConfirmationDescription">
+        /// Description displayed in the confirmation dialog before ending a chat.
+        /// </param>
+        /// <param name="endCallConfirmationTitle">
+        /// Title displayed in the confirmation dialog before ending a call.
+        /// </param>
+        /// <param name="endCallConfirmationDescription">
+        /// Description displayed in the confirmation dialog before ending a call.
+        /// </param>
+        /// <param name="endCallConfirm">
+        /// Text and ARIA label for the button that confirms ending a call.
+        /// </param>
+        /// <param name="cancelEndConfirmation">
+        /// Text and ARIA label for the button that cancels ending a chat or call.
+        /// </param>
         /// <param name="listeningStatus">
         /// Status displayed when the agent is listening.
         /// </param>
@@ -385,6 +541,9 @@ namespace ElevenLabs
         /// </param>
         /// <param name="connectingStatus">
         /// Status displayed when the agent is connecting.
+        /// </param>
+        /// <param name="reconnectingStatus">
+        /// Status displayed when the agent is reconnecting.
         /// </param>
         /// <param name="chattingStatus">
         /// Status displayed when the agent is chatting (text only)
@@ -455,6 +614,12 @@ namespace ElevenLabs
         /// <param name="voiceMode">
         /// Text and ARIA label for the switch to voice mode button.
         /// </param>
+        /// <param name="voiceModeLabel">
+        /// Label for the voice option in the conversation mode toggle.
+        /// </param>
+        /// <param name="textModeLabel">
+        /// Label for the text option in the conversation mode toggle.
+        /// </param>
         /// <param name="switchedToTextMode">
         /// Toast notification displayed when switching to text mode.
         /// </param>
@@ -500,8 +665,23 @@ namespace ElevenLabs
         /// <param name="typingIndicator">
         /// Status text displayed while the agent is typing.
         /// </param>
+        /// <param name="thinkingStatus">
+        /// Status text displayed while the agent is thinking.
+        /// </param>
         /// <param name="richContentUnavailable">
         /// Fallback message displayed when rich content cannot be rendered.
+        /// </param>
+        /// <param name="carouselPrevious">
+        /// ARIA label for the previous button in a rich content carousel.
+        /// </param>
+        /// <param name="carouselNext">
+        /// ARIA label for the next button in a rich content carousel.
+        /// </param>
+        /// <param name="newMessage">
+        /// Label for the button that scrolls to one new message.
+        /// </param>
+        /// <param name="newMessages">
+        /// Label for the button that scrolls to new messages. Keep the count placeholder from the default, which is replaced with the number of messages.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -511,17 +691,30 @@ namespace ElevenLabs
             string? startCall,
             string? startChat,
             string? newCall,
+            string? resumeCall,
             string? endCall,
+            string? endChat,
             string? muteMicrophone,
             string? changeLanguage,
             string? collapse,
             string? expand,
+            string? expandWidget,
+            string? collapseWidget,
+            string? dismiss,
+            string? openChat,
             string? copied,
             string? acceptTerms,
             string? dismissTerms,
+            string? endChatConfirmationTitle,
+            string? endChatConfirmationDescription,
+            string? endCallConfirmationTitle,
+            string? endCallConfirmationDescription,
+            string? endCallConfirm,
+            string? cancelEndConfirmation,
             string? listeningStatus,
             string? speakingStatus,
             string? connectingStatus,
+            string? reconnectingStatus,
             string? chattingStatus,
             string? queueWaitingStatus,
             string? queueWaitingStatusShort,
@@ -545,6 +738,8 @@ namespace ElevenLabs
             string? sendMessage,
             string? textMode,
             string? voiceMode,
+            string? voiceModeLabel,
+            string? textModeLabel,
             string? switchedToTextMode,
             string? switchedToVoiceMode,
             string? copy,
@@ -560,23 +755,41 @@ namespace ElevenLabs
             string? fileTooLarge,
             string? fileLimitReached,
             string? typingIndicator,
-            string? richContentUnavailable)
+            string? thinkingStatus,
+            string? richContentUnavailable,
+            string? carouselPrevious,
+            string? carouselNext,
+            string? newMessage,
+            string? newMessages)
         {
             this.MainLabel = mainLabel;
             this.StartCall = startCall;
             this.StartChat = startChat;
             this.NewCall = newCall;
+            this.ResumeCall = resumeCall;
             this.EndCall = endCall;
+            this.EndChat = endChat;
             this.MuteMicrophone = muteMicrophone;
             this.ChangeLanguage = changeLanguage;
             this.Collapse = collapse;
             this.Expand = expand;
+            this.ExpandWidget = expandWidget;
+            this.CollapseWidget = collapseWidget;
+            this.Dismiss = dismiss;
+            this.OpenChat = openChat;
             this.Copied = copied;
             this.AcceptTerms = acceptTerms;
             this.DismissTerms = dismissTerms;
+            this.EndChatConfirmationTitle = endChatConfirmationTitle;
+            this.EndChatConfirmationDescription = endChatConfirmationDescription;
+            this.EndCallConfirmationTitle = endCallConfirmationTitle;
+            this.EndCallConfirmationDescription = endCallConfirmationDescription;
+            this.EndCallConfirm = endCallConfirm;
+            this.CancelEndConfirmation = cancelEndConfirmation;
             this.ListeningStatus = listeningStatus;
             this.SpeakingStatus = speakingStatus;
             this.ConnectingStatus = connectingStatus;
+            this.ReconnectingStatus = reconnectingStatus;
             this.ChattingStatus = chattingStatus;
             this.QueueWaitingStatus = queueWaitingStatus;
             this.QueueWaitingStatusShort = queueWaitingStatusShort;
@@ -600,6 +813,8 @@ namespace ElevenLabs
             this.SendMessage = sendMessage;
             this.TextMode = textMode;
             this.VoiceMode = voiceMode;
+            this.VoiceModeLabel = voiceModeLabel;
+            this.TextModeLabel = textModeLabel;
             this.SwitchedToTextMode = switchedToTextMode;
             this.SwitchedToVoiceMode = switchedToVoiceMode;
             this.Copy = copy;
@@ -615,7 +830,12 @@ namespace ElevenLabs
             this.FileTooLarge = fileTooLarge;
             this.FileLimitReached = fileLimitReached;
             this.TypingIndicator = typingIndicator;
+            this.ThinkingStatus = thinkingStatus;
             this.RichContentUnavailable = richContentUnavailable;
+            this.CarouselPrevious = carouselPrevious;
+            this.CarouselNext = carouselNext;
+            this.NewMessage = newMessage;
+            this.NewMessages = newMessages;
         }
 
         /// <summary>

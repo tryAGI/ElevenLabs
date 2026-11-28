@@ -36,6 +36,13 @@ namespace ElevenLabs
         public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? AuthConnection { get; set; }
 
         /// <summary>
+        /// Optional mTLS auth connection. When set, its client certificate is used for the TLS handshake with the LLM endpoint and, when auth_connection is OAuth2 client credentials or OAuth2 JWT, with its token endpoint too. Application auth stays on auth_connection or api_key. auth_connection must then be OAuth2 client credentials, OAuth2 JWT or bearer.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("mtls_auth_connection")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.AnyOfJsonConverter<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>))]
+        public global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? MtlsAuthConnection { get; set; }
+
+        /// <summary>
         /// Headers that should be included in the request
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_headers")]
@@ -76,6 +83,9 @@ namespace ElevenLabs
         /// <param name="authConnection">
         /// Optional workspace auth connection for authentication. Only auth connections that produce an Authorization Bearer token are supported; Basic auth, mTLS, custom header, and URL secret auth connections are not supported.
         /// </param>
+        /// <param name="mtlsAuthConnection">
+        /// Optional mTLS auth connection. When set, its client certificate is used for the TLS handshake with the LLM endpoint and, when auth_connection is OAuth2 client credentials or OAuth2 JWT, with its token endpoint too. Application auth stays on auth_connection or api_key. auth_connection must then be OAuth2 client credentials, OAuth2 JWT or bearer.
+        /// </param>
         /// <param name="requestHeaders">
         /// Headers that should be included in the request
         /// </param>
@@ -94,6 +104,7 @@ namespace ElevenLabs
             string? modelId,
             global::ElevenLabs.AnyOf<global::ElevenLabs.ConvAISecretLocator, global::ElevenLabs.ConvAIEnvVarLocator>? apiKey,
             global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? authConnection,
+            global::ElevenLabs.AnyOf<global::ElevenLabs.AuthConnectionLocator, global::ElevenLabs.EnvironmentAuthConnectionLocator>? mtlsAuthConnection,
             object? requestHeaders,
             string? apiVersion,
             global::ElevenLabs.CustomLLMAPIType? apiType)
@@ -102,6 +113,7 @@ namespace ElevenLabs
             this.ModelId = modelId;
             this.ApiKey = apiKey;
             this.AuthConnection = authConnection;
+            this.MtlsAuthConnection = mtlsAuthConnection;
             this.RequestHeaders = requestHeaders;
             this.ApiVersion = apiVersion;
             this.ApiType = apiType;

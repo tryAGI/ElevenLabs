@@ -8,7 +8,9 @@ namespace ElevenLabs
         /// Update Asset<br/>
         /// Update an asset. Only the fields sent are changed.
         /// </summary>
-        /// <param name="assetId"></param>
+        /// <param name="assetId">
+        /// ID of the asset. Returned when you create one; list them with `GET /v1/reception/assets`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -16,18 +18,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAssetResourceDBModel> Update2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAssetResource> Update2Async(
             string assetId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAssetRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAssetRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Asset<br/>
         /// Update an asset. Only the fields sent are changed.
         /// </summary>
-        /// <param name="assetId"></param>
+        /// <param name="assetId">
+        /// ID of the asset. Returned when you create one; list them with `GET /v1/reception/assets`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -35,18 +39,20 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAssetResourceDBModel>> Update2AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAssetResource>> Update2AsResponseAsync(
             string assetId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAssetRequestPatch request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAssetRequestPatch request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Asset<br/>
         /// Update an asset. Only the fields sent are changed.
         /// </summary>
-        /// <param name="assetId"></param>
+        /// <param name="assetId">
+        /// ID of the asset. Returned when you create one; list them with `GET /v1/reception/assets`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -80,10 +86,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAssetResourceDBModel> Update2Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAssetResource> Update2Async(
             string assetId,
-            string? xiWorkspaceId = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            string xiWorkspaceId,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? name = default,
             string? description = default,

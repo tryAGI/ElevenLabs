@@ -36,6 +36,12 @@ namespace ElevenLabs
         public global::System.Collections.Generic.Dictionary<string, string>? RequestHeaders { get; set; }
 
         /// <summary>
+        /// Field names whose values the delivery log hides when it shows the request payload, matched at any depth, ignoring case and punctuation such as _ or -. Fields with secret-looking names, such as tokens and passwords, are always hidden. The stored log and redeliveries keep the original values. At most 50 names, each 1 to 128 characters, with no whitespace, dots or wildcards.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("log_redacted_fields")]
+        public global::System.Collections.Generic.IList<string>? LogRedactedFields { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -53,6 +59,9 @@ namespace ElevenLabs
         /// <param name="requestHeaders">
         /// Optional custom request headers to include with each webhook delivery
         /// </param>
+        /// <param name="logRedactedFields">
+        /// Field names whose values the delivery log hides when it shows the request payload, matched at any depth, ignoring case and punctuation such as _ or -. Fields with secret-looking names, such as tokens and passwords, are always hidden. The stored log and redeliveries keep the original values. At most 50 names, each 1 to 128 characters, with no whitespace, dots or wildcards.
+        /// </param>
         /// <param name="authType">
         /// The authentication type for this webhook
         /// </param>
@@ -63,12 +72,14 @@ namespace ElevenLabs
             string name,
             string webhookUrl,
             global::System.Collections.Generic.Dictionary<string, string>? requestHeaders,
+            global::System.Collections.Generic.IList<string>? logRedactedFields,
             string authType = "hmac")
         {
             this.AuthType = authType;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.WebhookUrl = webhookUrl ?? throw new global::System.ArgumentNullException(nameof(webhookUrl));
             this.RequestHeaders = requestHeaders;
+            this.LogRedactedFields = logRedactedFields;
         }
 
         /// <summary>

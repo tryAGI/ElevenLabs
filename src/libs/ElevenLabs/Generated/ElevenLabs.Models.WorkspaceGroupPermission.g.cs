@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        AgentsEnvironmentVariablesWrite,
+        /// <summary>
+        ///
+        /// </summary>
         AiSpeechClassifier,
         /// <summary>
         ///
@@ -151,6 +155,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Watermark,
+        /// <summary>
+        ///
+        /// </summary>
         WebhooksManage,
         /// <summary>
         ///
@@ -179,6 +187,7 @@ namespace ElevenLabs
             return value switch
             {
                 WorkspaceGroupPermission.AddVoiceFromVoiceLibrary => "add_voice_from_voice_library",
+                WorkspaceGroupPermission.AgentsEnvironmentVariablesWrite => "agents_environment_variables_write",
                 WorkspaceGroupPermission.AiSpeechClassifier => "ai_speech_classifier",
                 WorkspaceGroupPermission.AllResourcesAccess => "all_resources_access",
                 WorkspaceGroupPermission.Architect => "architect",
@@ -213,6 +222,7 @@ namespace ElevenLabs
                 WorkspaceGroupPermission.VoiceIsolator => "voice_isolator",
                 WorkspaceGroupPermission.VoiceLab => "voice_lab",
                 WorkspaceGroupPermission.VoiceoverStudio => "voiceover_studio",
+                WorkspaceGroupPermission.Watermark => "watermark",
                 WorkspaceGroupPermission.WebhooksManage => "webhooks_manage",
                 WorkspaceGroupPermission.WorkspaceAnalyticsFullRead => "workspace_analytics_full_read",
                 WorkspaceGroupPermission.WorkspaceMembersInvite => "workspace_members_invite",
@@ -228,6 +238,7 @@ namespace ElevenLabs
             return value switch
             {
                 "add_voice_from_voice_library" => WorkspaceGroupPermission.AddVoiceFromVoiceLibrary,
+                "agents_environment_variables_write" => WorkspaceGroupPermission.AgentsEnvironmentVariablesWrite,
                 "ai_speech_classifier" => WorkspaceGroupPermission.AiSpeechClassifier,
                 "all_resources_access" => WorkspaceGroupPermission.AllResourcesAccess,
                 "architect" => WorkspaceGroupPermission.Architect,
@@ -262,6 +273,7 @@ namespace ElevenLabs
                 "voice_isolator" => WorkspaceGroupPermission.VoiceIsolator,
                 "voice_lab" => WorkspaceGroupPermission.VoiceLab,
                 "voiceover_studio" => WorkspaceGroupPermission.VoiceoverStudio,
+                "watermark" => WorkspaceGroupPermission.Watermark,
                 "webhooks_manage" => WorkspaceGroupPermission.WebhooksManage,
                 "workspace_analytics_full_read" => WorkspaceGroupPermission.WorkspaceAnalyticsFullRead,
                 "workspace_members_invite" => WorkspaceGroupPermission.WorkspaceMembersInvite,

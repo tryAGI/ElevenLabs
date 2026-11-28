@@ -12,6 +12,10 @@ namespace ElevenLabs
         ///
         /// </summary>
         GoogleDrive,
+        /// <summary>
+        ///
+        /// </summary>
+        Sharepoint,
     }
 
     /// <summary>
@@ -27,6 +31,7 @@ namespace ElevenLabs
             return value switch
             {
                 ExternalSyncProvider.GoogleDrive => "google_drive",
+                ExternalSyncProvider.Sharepoint => "sharepoint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -38,6 +43,7 @@ namespace ElevenLabs
             return value switch
             {
                 "google_drive" => ExternalSyncProvider.GoogleDrive,
+                "sharepoint" => ExternalSyncProvider.Sharepoint,
                 _ => null,
             };
         }

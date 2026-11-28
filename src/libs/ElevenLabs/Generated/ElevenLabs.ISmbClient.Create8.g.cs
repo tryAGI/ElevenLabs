@@ -15,10 +15,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBPhoneAssignmentDBModel> Create8Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionPhoneAssignment> Create8Async(
+            string xiWorkspaceId,
 
             global::ElevenLabs.CreatePhoneAssignmentRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBPhoneAssignmentDBModel>> Create8AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionPhoneAssignment>> Create8AsResponseAsync(
+            string xiWorkspaceId,
 
             global::ElevenLabs.CreatePhoneAssignmentRequest request,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -60,9 +60,9 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBPhoneAssignmentDBModel> Create8Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionPhoneAssignment> Create8Async(
+            string xiWorkspaceId,
             string customerFacingAgentId,
-            string? xiWorkspaceId = default,
             global::System.Collections.Generic.IList<string>? areaCodes = default,
             global::ElevenLabs.ApplicationNumberType? numberType = default,
             string? idempotencyKey = default,

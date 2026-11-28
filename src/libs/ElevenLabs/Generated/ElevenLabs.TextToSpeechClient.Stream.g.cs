@@ -420,13 +420,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -437,7 +437,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -484,7 +484,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __ex,
                                     responseBody: __content,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -567,10 +567,6 @@ namespace ElevenLabs
         /// This parameter controls text normalization with three modes: 'auto', 'on', and 'off'. When set to 'auto', the system will automatically decide whether to apply text normalization (e.g., spelling out numbers). With 'on', text normalization will always be applied, while with 'off', it will be skipped.<br/>
         /// Default Value: auto
         /// </param>
-        /// <param name="applyLanguageTextNormalization">
-        /// This parameter controls language text normalization. This helps with proper pronunciation of text in some supported languages. WARNING: This parameter can heavily increase the latency of the request. Currently only supported for Japanese.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="audioEffects">
         /// Audio effects applied to the generated audio. Unknown IDs return 404 with `param` naming the field. Reverb (`environment_id` with `send_level` above 0) and a non-zero `pan` produce stereo audio and are rejected with 400 for `ulaw_*`, `alaw_*`, and `pcm_*` output formats. Effects don't change the cost of the request.
         /// </param>
@@ -594,7 +590,6 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? nextRequestIds = default,
             bool? usePvcAsIvc = default,
             global::ElevenLabs.BodyTextToSpeechStreamApplyTextNormalization? applyTextNormalization = default,
-            bool? applyLanguageTextNormalization = default,
             global::ElevenLabs.EffectsSpecInput? audioEffects = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -613,7 +608,6 @@ namespace ElevenLabs
                 NextRequestIds = nextRequestIds,
                 UsePvcAsIvc = usePvcAsIvc,
                 ApplyTextNormalization = applyTextNormalization,
-                ApplyLanguageTextNormalization = applyLanguageTextNormalization,
                 AudioEffects = audioEffects,
             };
 

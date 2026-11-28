@@ -8,8 +8,12 @@ namespace ElevenLabs
         /// Update Rule<br/>
         /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -20,17 +24,21 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Update6Async(
             string agentId,
             string ruleId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Rule<br/>
         /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -41,17 +49,21 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.AgentRule>> Update6AsResponseAsync(
             string agentId,
             string ruleId,
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentRuleRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentRuleRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update Rule<br/>
         /// Replace an existing rule on the named receptionist. Send every field: an omitted `priority` resets to `strict`.
         /// </summary>
-        /// <param name="agentId"></param>
-        /// <param name="ruleId"></param>
+        /// <param name="agentId">
+        /// ID of the receptionist. List them with `GET /v1/reception/customer-facing-agents`.
+        /// </param>
+        /// <param name="ruleId">
+        /// ID of the rule. Returned when you add one, and listed in the receptionist's `config.agent_rules`.
+        /// </param>
         /// <param name="xiWorkspaceId">
         /// The customer workspace a reseller's API key acts on.
         /// </param>
@@ -71,9 +83,9 @@ namespace ElevenLabs
         global::System.Threading.Tasks.Task<global::ElevenLabs.AgentRule> Update6Async(
             string agentId,
             string ruleId,
+            string xiWorkspaceId,
             string title,
             string description,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.RulePriority? priority = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

@@ -15,6 +15,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        TurnStopped,
+        /// <summary>
+        ///
+        /// </summary>
         UserTurnTimeout,
     }
 
@@ -31,6 +35,7 @@ namespace ElevenLabs
             return value switch
             {
                 TranscriptPlatformEvent.SkipTurnWaitElapsed => "skip_turn_wait_elapsed",
+                TranscriptPlatformEvent.TurnStopped => "turn_stopped",
                 TranscriptPlatformEvent.UserTurnTimeout => "user_turn_timeout",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace ElevenLabs
             return value switch
             {
                 "skip_turn_wait_elapsed" => TranscriptPlatformEvent.SkipTurnWaitElapsed,
+                "turn_stopped" => TranscriptPlatformEvent.TurnStopped,
                 "user_turn_timeout" => TranscriptPlatformEvent.UserTurnTimeout,
                 _ => null,
             };

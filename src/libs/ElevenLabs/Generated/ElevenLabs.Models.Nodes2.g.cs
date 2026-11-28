@@ -200,6 +200,43 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'StandaloneAgent' but the value was {ToString()}.");
 
         /// <summary>
+        /// Say a predefined literal message or generate a single LLM response according to a given prompt.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.WorkflowSayNodeModelOutput? Say { get; init; }
+#else
+        public global::ElevenLabs.WorkflowSayNodeModelOutput? Say { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Say))]
+#endif
+        public bool IsSay => Say != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickSay(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowSayNodeModelOutput? value)
+        {
+            value = Say;
+            return IsSay;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.WorkflowSayNodeModelOutput PickSay() => Say is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Say' but the value was {ToString()}.");
+
+        /// <summary>
         /// Executes one or more tools in parallel.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -235,6 +272,80 @@ namespace ElevenLabs
         public global::ElevenLabs.WorkflowToolNodeModelOutput PickTool() => Tool is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Tool' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Applies updates to the conversation state.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.WorkflowUpdateStateNodeModelOutput? UpdateState { get; init; }
+#else
+        public global::ElevenLabs.WorkflowUpdateStateNodeModelOutput? UpdateState { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UpdateState))]
+#endif
+        public bool IsUpdateState => UpdateState != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickUpdateState(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowUpdateStateNodeModelOutput? value)
+        {
+            value = UpdateState;
+            return IsUpdateState;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.WorkflowUpdateStateNodeModelOutput PickUpdateState() => UpdateState is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'UpdateState' but the value was {ToString()}.");
+
+        /// <summary>
+        /// Starts a procedure, then continues along its outgoing edges.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.WorkflowStartProcedureNodeModelOutput? StartProcedure { get; init; }
+#else
+        public global::ElevenLabs.WorkflowStartProcedureNodeModelOutput? StartProcedure { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(StartProcedure))]
+#endif
+        public bool IsStartProcedure => StartProcedure != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickStartProcedure(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.WorkflowStartProcedureNodeModelOutput? value)
+        {
+            value = StartProcedure;
+            return IsStartProcedure;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.WorkflowStartProcedureNodeModelOutput PickStartProcedure() => StartProcedure is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'StartProcedure' but the value was {ToString()}.");
         /// <summary>
         ///
         /// </summary>
@@ -353,6 +464,29 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public static implicit operator Nodes2(global::ElevenLabs.WorkflowSayNodeModelOutput value) => new Nodes2((global::ElevenLabs.WorkflowSayNodeModelOutput?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.WorkflowSayNodeModelOutput?(Nodes2 @this) => @this.Say;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Nodes2(global::ElevenLabs.WorkflowSayNodeModelOutput? value)
+        {
+            Say = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Nodes2 FromSay(global::ElevenLabs.WorkflowSayNodeModelOutput? value) => new Nodes2(value);
+
+        /// <summary>
+        ///
+        /// </summary>
         public static implicit operator Nodes2(global::ElevenLabs.WorkflowToolNodeModelOutput value) => new Nodes2((global::ElevenLabs.WorkflowToolNodeModelOutput?)value);
 
         /// <summary>
@@ -376,6 +510,52 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        public static implicit operator Nodes2(global::ElevenLabs.WorkflowUpdateStateNodeModelOutput value) => new Nodes2((global::ElevenLabs.WorkflowUpdateStateNodeModelOutput?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.WorkflowUpdateStateNodeModelOutput?(Nodes2 @this) => @this.UpdateState;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Nodes2(global::ElevenLabs.WorkflowUpdateStateNodeModelOutput? value)
+        {
+            UpdateState = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Nodes2 FromUpdateState(global::ElevenLabs.WorkflowUpdateStateNodeModelOutput? value) => new Nodes2(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator Nodes2(global::ElevenLabs.WorkflowStartProcedureNodeModelOutput value) => new Nodes2((global::ElevenLabs.WorkflowStartProcedureNodeModelOutput?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.WorkflowStartProcedureNodeModelOutput?(Nodes2 @this) => @this.StartProcedure;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public Nodes2(global::ElevenLabs.WorkflowStartProcedureNodeModelOutput? value)
+        {
+            StartProcedure = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static Nodes2 FromStartProcedure(global::ElevenLabs.WorkflowStartProcedureNodeModelOutput? value) => new Nodes2(value);
+
+        /// <summary>
+        ///
+        /// </summary>
         public Nodes2(
             global::ElevenLabs.AgentWorkflowResponseModelNodesDiscriminatorType? type,
             global::ElevenLabs.WorkflowStartNodeModelOutput? start,
@@ -383,7 +563,10 @@ namespace ElevenLabs
             global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput? phoneNumber,
             global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput? overrideAgent,
             global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput? standaloneAgent,
-            global::ElevenLabs.WorkflowToolNodeModelOutput? tool
+            global::ElevenLabs.WorkflowSayNodeModelOutput? say,
+            global::ElevenLabs.WorkflowToolNodeModelOutput? tool,
+            global::ElevenLabs.WorkflowUpdateStateNodeModelOutput? updateState,
+            global::ElevenLabs.WorkflowStartProcedureNodeModelOutput? startProcedure
             )
         {
             Type = type;
@@ -393,14 +576,20 @@ namespace ElevenLabs
             PhoneNumber = phoneNumber;
             OverrideAgent = overrideAgent;
             StandaloneAgent = standaloneAgent;
+            Say = say;
             Tool = tool;
+            UpdateState = updateState;
+            StartProcedure = startProcedure;
         }
 
         /// <summary>
         ///
         /// </summary>
         public object? Object =>
+            StartProcedure as object ??
+            UpdateState as object ??
             Tool as object ??
+            Say as object ??
             StandaloneAgent as object ??
             OverrideAgent as object ??
             PhoneNumber as object ??
@@ -417,7 +606,10 @@ namespace ElevenLabs
             PhoneNumber?.ToString() ??
             OverrideAgent?.ToString() ??
             StandaloneAgent?.ToString() ??
-            Tool?.ToString()
+            Say?.ToString() ??
+            Tool?.ToString() ??
+            UpdateState?.ToString() ??
+            StartProcedure?.ToString()
             ;
 
         /// <summary>
@@ -425,7 +617,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsTool || !IsStart && IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsTool || !IsStart && !IsEnd && IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsTool || !IsStart && !IsEnd && !IsPhoneNumber && IsOverrideAgent && !IsStandaloneAgent && !IsTool || !IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && IsStandaloneAgent && !IsTool || !IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && IsTool;
+            return IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsSay && !IsTool && !IsUpdateState && !IsStartProcedure || !IsStart && IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsSay && !IsTool && !IsUpdateState && !IsStartProcedure || !IsStart && !IsEnd && IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsSay && !IsTool && !IsUpdateState && !IsStartProcedure || !IsStart && !IsEnd && !IsPhoneNumber && IsOverrideAgent && !IsStandaloneAgent && !IsSay && !IsTool && !IsUpdateState && !IsStartProcedure || !IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && IsStandaloneAgent && !IsSay && !IsTool && !IsUpdateState && !IsStartProcedure || !IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && IsSay && !IsTool && !IsUpdateState && !IsStartProcedure || !IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsSay && IsTool && !IsUpdateState && !IsStartProcedure || !IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsSay && !IsTool && IsUpdateState && !IsStartProcedure || !IsStart && !IsEnd && !IsPhoneNumber && !IsOverrideAgent && !IsStandaloneAgent && !IsSay && !IsTool && !IsUpdateState && IsStartProcedure;
         }
 
         /// <summary>
@@ -437,7 +629,10 @@ namespace ElevenLabs
             global::System.Func<global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput, TResult>? phoneNumber = null,
             global::System.Func<global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput, TResult>? overrideAgent = null,
             global::System.Func<global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput, TResult>? standaloneAgent = null,
+            global::System.Func<global::ElevenLabs.WorkflowSayNodeModelOutput, TResult>? say = null,
             global::System.Func<global::ElevenLabs.WorkflowToolNodeModelOutput, TResult>? tool = null,
+            global::System.Func<global::ElevenLabs.WorkflowUpdateStateNodeModelOutput, TResult>? updateState = null,
+            global::System.Func<global::ElevenLabs.WorkflowStartProcedureNodeModelOutput, TResult>? startProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -465,9 +660,21 @@ namespace ElevenLabs
             {
                 return standaloneAgent(__value4);
             }
-            else if (Tool is { } __value5 && tool != null)
+            else if (Say is { } __value5 && say != null)
             {
-                return tool(__value5);
+                return say(__value5);
+            }
+            else if (Tool is { } __value6 && tool != null)
+            {
+                return tool(__value6);
+            }
+            else if (UpdateState is { } __value7 && updateState != null)
+            {
+                return updateState(__value7);
+            }
+            else if (StartProcedure is { } __value8 && startProcedure != null)
+            {
+                return startProcedure(__value8);
             }
 
             return default(TResult);
@@ -487,7 +694,13 @@ namespace ElevenLabs
 
             global::System.Action<global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput>? standaloneAgent = null,
 
+            global::System.Action<global::ElevenLabs.WorkflowSayNodeModelOutput>? say = null,
+
             global::System.Action<global::ElevenLabs.WorkflowToolNodeModelOutput>? tool = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowUpdateStateNodeModelOutput>? updateState = null,
+
+            global::System.Action<global::ElevenLabs.WorkflowStartProcedureNodeModelOutput>? startProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -515,9 +728,21 @@ namespace ElevenLabs
             {
                 standaloneAgent?.Invoke(__value4);
             }
-            else if (Tool is { } __value5)
+            else if (Say is { } __value5)
             {
-                tool?.Invoke(__value5);
+                say?.Invoke(__value5);
+            }
+            else if (Tool is { } __value6)
+            {
+                tool?.Invoke(__value6);
+            }
+            else if (UpdateState is { } __value7)
+            {
+                updateState?.Invoke(__value7);
+            }
+            else if (StartProcedure is { } __value8)
+            {
+                startProcedure?.Invoke(__value8);
             }
         }
 
@@ -530,7 +755,10 @@ namespace ElevenLabs
             global::System.Action<global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput>? phoneNumber = null,
             global::System.Action<global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput>? overrideAgent = null,
             global::System.Action<global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput>? standaloneAgent = null,
+            global::System.Action<global::ElevenLabs.WorkflowSayNodeModelOutput>? say = null,
             global::System.Action<global::ElevenLabs.WorkflowToolNodeModelOutput>? tool = null,
+            global::System.Action<global::ElevenLabs.WorkflowUpdateStateNodeModelOutput>? updateState = null,
+            global::System.Action<global::ElevenLabs.WorkflowStartProcedureNodeModelOutput>? startProcedure = null,
             bool validate = true)
         {
             if (validate)
@@ -558,9 +786,21 @@ namespace ElevenLabs
             {
                 standaloneAgent?.Invoke(__value4);
             }
-            else if (Tool is { } __value5)
+            else if (Say is { } __value5)
             {
-                tool?.Invoke(__value5);
+                say?.Invoke(__value5);
+            }
+            else if (Tool is { } __value6)
+            {
+                tool?.Invoke(__value6);
+            }
+            else if (UpdateState is { } __value7)
+            {
+                updateState?.Invoke(__value7);
+            }
+            else if (StartProcedure is { } __value8)
+            {
+                startProcedure?.Invoke(__value8);
             }
         }
 
@@ -581,8 +821,14 @@ namespace ElevenLabs
                 typeof(global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput),
                 StandaloneAgent,
                 typeof(global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput),
+                Say,
+                typeof(global::ElevenLabs.WorkflowSayNodeModelOutput),
                 Tool,
                 typeof(global::ElevenLabs.WorkflowToolNodeModelOutput),
+                UpdateState,
+                typeof(global::ElevenLabs.WorkflowUpdateStateNodeModelOutput),
+                StartProcedure,
+                typeof(global::ElevenLabs.WorkflowStartProcedureNodeModelOutput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -604,7 +850,10 @@ namespace ElevenLabs
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowPhoneNumberNodeModelOutput?>.Default.Equals(PhoneNumber, other.PhoneNumber) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowOverrideAgentNodeModelOutput?>.Default.Equals(OverrideAgent, other.OverrideAgent) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowStandaloneAgentNodeModelOutput?>.Default.Equals(StandaloneAgent, other.StandaloneAgent) &&
-                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolNodeModelOutput?>.Default.Equals(Tool, other.Tool)
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowSayNodeModelOutput?>.Default.Equals(Say, other.Say) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowToolNodeModelOutput?>.Default.Equals(Tool, other.Tool) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowUpdateStateNodeModelOutput?>.Default.Equals(UpdateState, other.UpdateState) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.WorkflowStartProcedureNodeModelOutput?>.Default.Equals(StartProcedure, other.StartProcedure)
                 ;
         }
 

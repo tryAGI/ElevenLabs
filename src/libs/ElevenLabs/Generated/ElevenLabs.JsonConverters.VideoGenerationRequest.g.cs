@@ -29,6 +29,13 @@ namespace ElevenLabs.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreatifyAuroraRequest)}");
                 creatifyAurora = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
+            global::ElevenLabs.CreatifyAurora2Request? creatifyAurora2 = default;
+            if (discriminator?.ModelId == global::ElevenLabs.VideoGenerationRequestDiscriminatorModelId.CreatifyAurora2)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreatifyAurora2Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreatifyAurora2Request> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.CreatifyAurora2Request)}");
+                creatifyAurora2 = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
             global::ElevenLabs.Veo31Request? veo31Generate001 = default;
             if (discriminator?.ModelId == global::ElevenLabs.VideoGenerationRequestDiscriminatorModelId.Veo31Generate001)
             {
@@ -76,6 +83,8 @@ namespace ElevenLabs.JsonConverters
                 discriminator?.ModelId,
                 creatifyAurora,
 
+                creatifyAurora2,
+
                 veo31Generate001,
 
                 veo31FastGenerate001,
@@ -107,6 +116,12 @@ namespace ElevenLabs.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreatifyAuroraRequest), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreatifyAuroraRequest?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreatifyAuroraRequest).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCreatifyAurora(), typeInfo);
+            }
+            else if (value.IsCreatifyAurora2)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.CreatifyAurora2Request), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.CreatifyAurora2Request?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.CreatifyAurora2Request).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCreatifyAurora2(), typeInfo);
             }
             else if (value.IsVeo31Generate001)
             {

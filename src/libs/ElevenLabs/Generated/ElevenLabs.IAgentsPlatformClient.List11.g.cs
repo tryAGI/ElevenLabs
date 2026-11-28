@@ -17,6 +17,10 @@ namespace ElevenLabs
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
         /// </param>
+        /// <param name="includeDependencies">
+        /// Whether to return the resources that use each secret. If false, used_by is empty and the list returns much faster for workspaces with many secrets.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -27,6 +31,7 @@ namespace ElevenLabs
             int? pageSize = default,
             int? dependencyLimit = default,
             string? search = default,
+            bool? includeDependencies = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -43,6 +48,10 @@ namespace ElevenLabs
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
         /// </param>
+        /// <param name="includeDependencies">
+        /// Whether to return the resources that use each secret. If false, used_by is empty and the list returns much faster for workspaces with many secrets.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="cursor">
         /// Used for fetching next page. Cursor is returned in the response.
         /// </param>
@@ -53,6 +62,7 @@ namespace ElevenLabs
             int? pageSize = default,
             int? dependencyLimit = default,
             string? search = default,
+            bool? includeDependencies = default,
             string? cursor = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -69,12 +79,17 @@ namespace ElevenLabs
         /// <param name="search">
         /// If specified, returns only secrets whose names start with this string.
         /// </param>
+        /// <param name="includeDependencies">
+        /// Whether to return the resources that use each secret. If false, used_by is empty and the list returns much faster for workspaces with many secrets.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ConvAIWorkspaceStoredSecretConfig> List11AutoPagingAsync(
               int? pageSize = default,
             int? dependencyLimit = default,
             string? search = default,
+            bool? includeDependencies = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default);
 

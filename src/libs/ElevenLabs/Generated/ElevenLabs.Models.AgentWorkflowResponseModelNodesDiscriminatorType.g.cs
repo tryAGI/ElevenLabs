@@ -23,6 +23,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Say,
+        /// <summary>
+        ///
+        /// </summary>
         StandaloneAgent,
         /// <summary>
         ///
@@ -31,7 +35,15 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        StartProcedure,
+        /// <summary>
+        ///
+        /// </summary>
         Tool,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateState,
     }
 
     /// <summary>
@@ -49,9 +61,12 @@ namespace ElevenLabs
                 AgentWorkflowResponseModelNodesDiscriminatorType.End => "end",
                 AgentWorkflowResponseModelNodesDiscriminatorType.OverrideAgent => "override_agent",
                 AgentWorkflowResponseModelNodesDiscriminatorType.PhoneNumber => "phone_number",
+                AgentWorkflowResponseModelNodesDiscriminatorType.Say => "say",
                 AgentWorkflowResponseModelNodesDiscriminatorType.StandaloneAgent => "standalone_agent",
                 AgentWorkflowResponseModelNodesDiscriminatorType.Start => "start",
+                AgentWorkflowResponseModelNodesDiscriminatorType.StartProcedure => "start_procedure",
                 AgentWorkflowResponseModelNodesDiscriminatorType.Tool => "tool",
+                AgentWorkflowResponseModelNodesDiscriminatorType.UpdateState => "update_state",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -65,9 +80,12 @@ namespace ElevenLabs
                 "end" => AgentWorkflowResponseModelNodesDiscriminatorType.End,
                 "override_agent" => AgentWorkflowResponseModelNodesDiscriminatorType.OverrideAgent,
                 "phone_number" => AgentWorkflowResponseModelNodesDiscriminatorType.PhoneNumber,
+                "say" => AgentWorkflowResponseModelNodesDiscriminatorType.Say,
                 "standalone_agent" => AgentWorkflowResponseModelNodesDiscriminatorType.StandaloneAgent,
                 "start" => AgentWorkflowResponseModelNodesDiscriminatorType.Start,
+                "start_procedure" => AgentWorkflowResponseModelNodesDiscriminatorType.StartProcedure,
                 "tool" => AgentWorkflowResponseModelNodesDiscriminatorType.Tool,
+                "update_state" => AgentWorkflowResponseModelNodesDiscriminatorType.UpdateState,
                 _ => null,
             };
         }

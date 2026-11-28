@@ -50,10 +50,17 @@ namespace ElevenLabs
         public required int CreatedAtUnix { get; set; }
 
         /// <summary>
-        /// The reseller-managed subscription, when this workspace has one. None means nothing is sold here yet and a tier can be assigned.
+        /// The reseller-managed subscription, when this workspace has one. None means the reseller sells nothing here: no tier is assigned yet, or the workspace pays for its own subscription (see charge_customer).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("subscription")]
         public global::ElevenLabs.ResellerWorkspaceSubscription? Subscription { get; set; }
+
+        /// <summary>
+        /// The workspace pays for its own subscription, so its tier can't be assigned or changed here.<br/>
+        /// Default Value: false
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("charge_customer")]
+        public bool? ChargeCustomer { get; set; }
 
         /// <summary>
         /// A charge for this workspace is unpaid. Assigning or changing a tier is refused until it clears, so surface it rather than letting it fail.<br/>
@@ -63,10 +70,23 @@ namespace ElevenLabs
         public bool? HasPaymentIssue { get; set; }
 
         /// <summary>
+        /// The customer's main contact: the email of the workspace's earliest admin that is a person. None until someone invited as admin joins.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("owner_email")]
+        public string? OwnerEmail { get; set; }
+
+        /// <summary>
         /// When onboarding finished. Until then the onboarding wizard may replace or remove the workspace's business data.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("onboarding_completed_at_unix")]
         public int? OnboardingCompletedAtUnix { get; set; }
+
+        /// <summary>
+        /// Your own key-value pairs for the workspace.<br/>
+        /// Default Value: {}
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        public global::System.Collections.Generic.Dictionary<string, string>? Metadata { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -84,14 +104,25 @@ namespace ElevenLabs
         /// <param name="createdAtUnix"></param>
         /// <param name="billingTier"></param>
         /// <param name="subscription">
-        /// The reseller-managed subscription, when this workspace has one. None means nothing is sold here yet and a tier can be assigned.
+        /// The reseller-managed subscription, when this workspace has one. None means the reseller sells nothing here: no tier is assigned yet, or the workspace pays for its own subscription (see charge_customer).
+        /// </param>
+        /// <param name="chargeCustomer">
+        /// The workspace pays for its own subscription, so its tier can't be assigned or changed here.<br/>
+        /// Default Value: false
         /// </param>
         /// <param name="hasPaymentIssue">
         /// A charge for this workspace is unpaid. Assigning or changing a tier is refused until it clears, so surface it rather than letting it fail.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="ownerEmail">
+        /// The customer's main contact: the email of the workspace's earliest admin that is a person. None until someone invited as admin joins.
+        /// </param>
         /// <param name="onboardingCompletedAtUnix">
         /// When onboarding finished. Until then the onboarding wizard may replace or remove the workspace's business data.
+        /// </param>
+        /// <param name="metadata">
+        /// Your own key-value pairs for the workspace.<br/>
+        /// Default Value: {}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -104,8 +135,11 @@ namespace ElevenLabs
             int createdAtUnix,
             string? billingTier,
             global::ElevenLabs.ResellerWorkspaceSubscription? subscription,
+            bool? chargeCustomer,
             bool? hasPaymentIssue,
-            int? onboardingCompletedAtUnix)
+            string? ownerEmail,
+            int? onboardingCompletedAtUnix,
+            global::System.Collections.Generic.Dictionary<string, string>? metadata)
         {
             this.WorkspaceId = workspaceId ?? throw new global::System.ArgumentNullException(nameof(workspaceId));
             this.BusinessName = businessName ?? throw new global::System.ArgumentNullException(nameof(businessName));
@@ -114,8 +148,11 @@ namespace ElevenLabs
             this.CallsLast30Days = callsLast30Days;
             this.CreatedAtUnix = createdAtUnix;
             this.Subscription = subscription;
+            this.ChargeCustomer = chargeCustomer;
             this.HasPaymentIssue = hasPaymentIssue;
+            this.OwnerEmail = ownerEmail;
             this.OnboardingCompletedAtUnix = onboardingCompletedAtUnix;
+            this.Metadata = metadata;
         }
 
         /// <summary>

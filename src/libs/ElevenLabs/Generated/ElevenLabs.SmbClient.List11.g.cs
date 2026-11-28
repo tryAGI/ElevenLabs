@@ -28,12 +28,16 @@ namespace ElevenLabs
         partial void PrepareList11Arguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? cursor,
-            ref int? pageSize);
+            ref int? pageSize,
+            ref string? search,
+            ref global::ElevenLabs.ResellerWorkspaceSort? sort);
         partial void PrepareList11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? cursor,
-            int? pageSize);
+            int? pageSize,
+            string? search,
+            global::ElevenLabs.ResellerWorkspaceSort? sort);
         partial void ProcessList11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -54,18 +58,29 @@ namespace ElevenLabs
         /// Number of workspaces per page<br/>
         /// Default Value: 50
         /// </param>
+        /// <param name="search">
+        /// Case-insensitive substring of the business name
+        /// </param>
+        /// <param name="sort">
+        /// Order of the workspaces, newest first by default<br/>
+        /// Default Value: newest
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ResellerWorkspacesResponse> List11Async(
             string? cursor = default,
             int? pageSize = default,
+            string? search = default,
+            global::ElevenLabs.ResellerWorkspaceSort? sort = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await List11AsResponseAsync(
                 cursor: cursor,
                 pageSize: pageSize,
+                search: search,
+                sort: sort,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -83,12 +98,21 @@ namespace ElevenLabs
         /// Number of workspaces per page<br/>
         /// Default Value: 50
         /// </param>
+        /// <param name="search">
+        /// Case-insensitive substring of the business name
+        /// </param>
+        /// <param name="sort">
+        /// Order of the workspaces, newest first by default<br/>
+        /// Default Value: newest
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ResellerWorkspacesResponse>> List11AsResponseAsync(
             string? cursor = default,
             int? pageSize = default,
+            string? search = default,
+            global::ElevenLabs.ResellerWorkspaceSort? sort = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -99,7 +123,9 @@ namespace ElevenLabs
             PrepareList11Arguments(
                 httpClient: HttpClient,
                 cursor: ref cursor,
-                pageSize: ref pageSize);
+                pageSize: ref pageSize,
+                search: ref search,
+                sort: ref sort);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -130,6 +156,8 @@ namespace ElevenLabs
                             __pathBuilder
                                 .AddOptionalParameter("cursor", cursor)
                                 .AddOptionalParameter("page_size", pageSize?.ToString())
+                                .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("sort", sort?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -172,7 +200,9 @@ namespace ElevenLabs
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     cursor: cursor,
-                    pageSize: pageSize);
+                    pageSize: pageSize,
+                    search: search,
+                    sort: sort);
 
                 return __httpRequest;
             }
@@ -362,13 +392,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -379,7 +409,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -422,7 +452,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -467,7 +497,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -492,10 +522,19 @@ namespace ElevenLabs
         /// Number of workspaces per page<br/>
         /// Default Value: 50
         /// </param>
+        /// <param name="search">
+        /// Case-insensitive substring of the business name
+        /// </param>
+        /// <param name="sort">
+        /// Order of the workspaces, newest first by default<br/>
+        /// Default Value: newest
+        /// </param>
         /// <param name="cursor">Initial cursor to start enumerating from. Defaults to null (first page).</param>
         /// <param name="cancellationToken"></param>
         public global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.ResellerWorkspaceSummary> List11AutoPagingAsync(
               int? pageSize = default,
+            string? search = default,
+            global::ElevenLabs.ResellerWorkspaceSort? sort = default,
             string? cursor = null,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -503,6 +542,8 @@ namespace ElevenLabs
                 fetchPage: (__cursor, __ct) => List11Async(
                     cursor: __cursor,
                     pageSize: pageSize,
+                    search: search,
+                    sort: sort,
                     cancellationToken: __ct),
                 extractItems: static __response => __response is null
                     ? null

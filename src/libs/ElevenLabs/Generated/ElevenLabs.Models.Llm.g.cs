@@ -223,6 +223,14 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Gemini4Hydrogen,
+        /// <summary>
+        ///
+        /// </summary>
+        Gemini4Neon,
+        /// <summary>
+        ///
+        /// </summary>
         Glm45AirFp8,
         /// <summary>
         ///
@@ -419,15 +427,19 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        Gpt62Astra,
+        /// <summary>
+        ///
+        /// </summary>
+        Gpt62Sol,
+        /// <summary>
+        ///
+        /// </summary>
         GptOss120b,
         /// <summary>
         ///
         /// </summary>
         GptOss20b,
-        /// <summary>
-        ///
-        /// </summary>
-        GrokBeta,
         /// <summary>
         ///
         /// </summary>
@@ -523,6 +535,8 @@ namespace ElevenLabs
                 Llm.Gemini37Flash => "gemini-3.7-flash",
                 Llm.Gemini38Flash => "gemini-3.8-flash",
                 Llm.Gemini4Argon => "gemini-4-argon",
+                Llm.Gemini4Hydrogen => "gemini-4-hydrogen",
+                Llm.Gemini4Neon => "gemini-4-neon",
                 Llm.Glm45AirFp8 => "glm-45-air-fp8",
                 Llm.Glm52 => "glm-52",
                 Llm.Gpt35Turbo => "gpt-3.5-turbo",
@@ -572,9 +586,10 @@ namespace ElevenLabs
                 Llm.Gpt6Sol => "gpt-6-sol",
                 Llm.Gpt61Sol => "gpt-6.1-sol",
                 Llm.Gpt61Terra => "gpt-6.1-terra",
+                Llm.Gpt62Astra => "gpt-6.2-astra",
+                Llm.Gpt62Sol => "gpt-6.2-sol",
                 Llm.GptOss120b => "gpt-oss-120b",
                 Llm.GptOss20b => "gpt-oss-20b",
-                Llm.GrokBeta => "grok-beta",
                 Llm.Nemotron35SuperVlNvfp4 => "nemotron-35-super-vl-nvfp4",
                 Llm.Qwen330bA3b => "qwen3-30b-a3b",
                 Llm.Qwen34b => "qwen3-4b",
@@ -645,6 +660,8 @@ namespace ElevenLabs
                 "gemini-3.7-flash" => Llm.Gemini37Flash,
                 "gemini-3.8-flash" => Llm.Gemini38Flash,
                 "gemini-4-argon" => Llm.Gemini4Argon,
+                "gemini-4-hydrogen" => Llm.Gemini4Hydrogen,
+                "gemini-4-neon" => Llm.Gemini4Neon,
                 "glm-45-air-fp8" => Llm.Glm45AirFp8,
                 "glm-52" => Llm.Glm52,
                 "gpt-3.5-turbo" => Llm.Gpt35Turbo,
@@ -694,9 +711,10 @@ namespace ElevenLabs
                 "gpt-6-sol" => Llm.Gpt6Sol,
                 "gpt-6.1-sol" => Llm.Gpt61Sol,
                 "gpt-6.1-terra" => Llm.Gpt61Terra,
+                "gpt-6.2-astra" => Llm.Gpt62Astra,
+                "gpt-6.2-sol" => Llm.Gpt62Sol,
                 "gpt-oss-120b" => Llm.GptOss120b,
                 "gpt-oss-20b" => Llm.GptOss20b,
-                "grok-beta" => Llm.GrokBeta,
                 "nemotron-35-super-vl-nvfp4" => Llm.Nemotron35SuperVlNvfp4,
                 "qwen3-30b-a3b" => Llm.Qwen330bA3b,
                 "qwen3-4b" => Llm.Qwen34b,
