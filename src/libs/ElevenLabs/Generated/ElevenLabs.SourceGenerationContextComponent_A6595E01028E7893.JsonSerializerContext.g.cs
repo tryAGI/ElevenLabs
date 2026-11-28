@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_8B750A9CE72CACD0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C4BBCE3F2277AE71.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_D75738ACCD4892DC.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_8B750A9CE72CACD0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B27CA7D944301F85.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_C4BBCE3F2277AE71.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -31,7 +31,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ContentGuardrailOutput))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0039.Create_ContentGuardrailOutput(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0044.Create_ContentGuardrailOutput(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

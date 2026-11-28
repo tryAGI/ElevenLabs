@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_0D088DF1577BDFAE.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_15C2C80CE4793985.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3062147427826B21.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B768A45B9063ACC2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E38D6526D5EE40D8.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_15C2C80CE4793985.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_3062147427826B21.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_B768A45B9063ACC2.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_BA0CDC67D2DF7B2C.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E38D6526D5EE40D8.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.SchemaOverridesVariant1))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0176.Create_SchemaOverridesVariant12_3(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0200.Create_SchemaOverridesVariant12_3(options);
                 }
                 if (type == typeof(global::ElevenLabs.SchemaOverridesVariant1?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0135.Create_NullableSchemaOverridesVariant12_3(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0151.Create_NullableSchemaOverridesVariant12_3(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

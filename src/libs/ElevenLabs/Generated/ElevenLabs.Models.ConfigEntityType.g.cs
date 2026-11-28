@@ -24,6 +24,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        CriminalRecord,
+        /// <summary>
+        ///
+        /// </summary>
         Date,
         /// <summary>
         ///
@@ -249,6 +253,7 @@ namespace ElevenLabs
             {
                 ConfigEntityType.Age => "age",
                 ConfigEntityType.ContactNumber => "contact_number",
+                ConfigEntityType.CriminalRecord => "criminal_record",
                 ConfigEntityType.Date => "date",
                 ConfigEntityType.DateInterval => "date_interval",
                 ConfigEntityType.Dob => "dob",
@@ -314,6 +319,7 @@ namespace ElevenLabs
             {
                 "age" => ConfigEntityType.Age,
                 "contact_number" => ConfigEntityType.ContactNumber,
+                "criminal_record" => ConfigEntityType.CriminalRecord,
                 "date" => ConfigEntityType.Date,
                 "date_interval" => ConfigEntityType.DateInterval,
                 "dob" => ConfigEntityType.Dob,

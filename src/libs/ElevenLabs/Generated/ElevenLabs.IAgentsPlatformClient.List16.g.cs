@@ -19,6 +19,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="page">
+        /// Page number, starting at 1. Each page holds up to `limit` branches, and `meta.total` in the response is the number of branches across all pages.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="includeCommitStatus">
         /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
         /// Default Value: false
@@ -30,6 +34,7 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            int? page = default,
             bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
@@ -48,6 +53,10 @@ namespace ElevenLabs
         /// How many results at most should be returned<br/>
         /// Default Value: 100
         /// </param>
+        /// <param name="page">
+        /// Page number, starting at 1. Each page holds up to `limit` branches, and `meta.total` in the response is the number of branches across all pages.<br/>
+        /// Default Value: 1
+        /// </param>
         /// <param name="includeCommitStatus">
         /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
         /// Default Value: false
@@ -59,8 +68,37 @@ namespace ElevenLabs
             string agentId,
             bool? includeArchived = default,
             int? limit = default,
+            int? page = default,
             bool? includeCommitStatus = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Wraps List16Async as an IAsyncEnumerable&lt;global::ElevenLabs.AgentBranchSummary&gt; that auto-pages over the response.
+        /// </summary>
+        /// <param name="agentId">
+        /// The id of an agent. This is returned on agent creation.
+        /// </param>
+        /// <param name="includeArchived">
+        /// Whether archived branches should be included<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="limit">
+        /// How many results at most should be returned<br/>
+        /// Default Value: 100
+        /// </param>
+        /// <param name="includeCommitStatus">
+        /// Whether to compute how far each branch has diverged from main (commits_ahead/commits_behind). This walks the version DAG of every branch, so it is slow on agents with long histories and is off by default, leaving those fields null.<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="page">Initial page number to start enumerating from. Defaults to 1.</param>
+        /// <param name="cancellationToken"></param>
+        global::System.Collections.Generic.IAsyncEnumerable<global::ElevenLabs.AgentBranchSummary> List16AutoPagingAsync(
+            string agentId,             bool? includeArchived = default,
+            int? limit = default,
+            bool? includeCommitStatus = default,
+            int? page = null,
+            global::System.Threading.CancellationToken cancellationToken = default);
+
     }
 }

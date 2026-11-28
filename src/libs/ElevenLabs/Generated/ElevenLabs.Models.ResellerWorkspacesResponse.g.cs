@@ -16,6 +16,13 @@ namespace ElevenLabs
         public required global::System.Collections.Generic.IList<global::ElevenLabs.ResellerWorkspaceSummary> Workspaces { get; set; }
 
         /// <summary>
+        /// Workspaces matching the search, across every page.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("total")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int Total { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("next_cursor")]
@@ -37,6 +44,9 @@ namespace ElevenLabs
         /// Initializes a new instance of the <see cref="ResellerWorkspacesResponse" /> class.
         /// </summary>
         /// <param name="workspaces"></param>
+        /// <param name="total">
+        /// Workspaces matching the search, across every page.
+        /// </param>
         /// <param name="nextCursor"></param>
         /// <param name="hasMore">
         /// Default Value: false
@@ -46,10 +56,12 @@ namespace ElevenLabs
 #endif
         public ResellerWorkspacesResponse(
             global::System.Collections.Generic.IList<global::ElevenLabs.ResellerWorkspaceSummary> workspaces,
+            int total,
             string? nextCursor,
             bool? hasMore)
         {
             this.Workspaces = workspaces ?? throw new global::System.ArgumentNullException(nameof(workspaces));
+            this.Total = total;
             this.NextCursor = nextCursor;
             this.HasMore = hasMore;
         }

@@ -65,10 +65,16 @@ namespace ElevenLabs
         public global::ElevenLabs.RequiredConstraints? RequiredConstraints { get; set; }
 
         /// <summary>
+        /// Makes the object a map: the LLM may add keys beyond `properties`, and each of their values follows this schema, which the LLM must fill. Only for an LLM-provided nested object; ignored on a tool's top-level schema.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("additional_properties")]
+        public global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput, global::ElevenLabs.AnyOfJsonSchemaPropertyInput>? AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
-        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties2 { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectJsonSchemaPropertyInput" /> class.
@@ -93,6 +99,9 @@ namespace ElevenLabs
         /// <param name="required"></param>
         /// <param name="properties"></param>
         /// <param name="requiredConstraints"></param>
+        /// <param name="additionalProperties">
+        /// Makes the object a map: the LLM may add keys beyond `properties`, and each of their values follows this schema, which the LLM must fill. Only for an LLM-provided nested object; ignored on a tool's top-level schema.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -105,7 +114,8 @@ namespace ElevenLabs
             string? type,
             global::System.Collections.Generic.IList<string>? required,
             object? properties,
-            global::ElevenLabs.RequiredConstraints? requiredConstraints)
+            global::ElevenLabs.RequiredConstraints? requiredConstraints,
+            global::ElevenLabs.OneOf<global::ElevenLabs.LiteralJsonSchemaProperty, global::ElevenLabs.ObjectJsonSchemaPropertyInput, global::ElevenLabs.ArrayJsonSchemaPropertyInput, global::ElevenLabs.AnyOfJsonSchemaPropertyInput>? additionalProperties)
         {
             this.PropertyKind = propertyKind;
             this.Description = description;
@@ -116,6 +126,7 @@ namespace ElevenLabs
             this.Required = required;
             this.Properties = properties;
             this.RequiredConstraints = requiredConstraints;
+            this.AdditionalProperties = additionalProperties;
         }
 
         /// <summary>

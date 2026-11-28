@@ -15,10 +15,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProductDBModel> Create3Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProduct> Create3Async(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateProductRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateProductRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBProductDBModel>> Create3AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionProduct>> Create3AsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBCreateProductRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionCreateProductRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -88,12 +88,12 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBProductDBModel> Create3Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionProduct> Create3Async(
+            string xiWorkspaceId,
             string name,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.PricingMode? pricingMode = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBIntakeQuestion>? intakeQuestions = default,
-            global::System.Collections.Generic.IList<global::ElevenLabs.SMBGroupMembership>? groups = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionIntakeQuestion>? intakeQuestions = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ReceptionGroupMembership>? groups = default,
             int? ungroupedRank = default,
             string? description = default,
             double? price = default,

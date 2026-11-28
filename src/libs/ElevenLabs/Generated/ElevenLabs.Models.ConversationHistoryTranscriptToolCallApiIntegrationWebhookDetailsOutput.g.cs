@@ -44,6 +44,12 @@ namespace ElevenLabs
         public required global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails WebhookDetails { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("function_details")]
+        public global::ElevenLabs.ConversationHistoryTranscriptToolCallIntegrationFunctionDetails? FunctionDetails { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,6 +62,7 @@ namespace ElevenLabs
         /// <param name="credentialId"></param>
         /// <param name="integrationConnectionId"></param>
         /// <param name="webhookDetails"></param>
+        /// <param name="functionDetails"></param>
         /// <param name="type">
         /// Default Value: api_integration_webhook
         /// </param>
@@ -67,6 +74,7 @@ namespace ElevenLabs
             string credentialId,
             string integrationConnectionId,
             global::ElevenLabs.ConversationHistoryTranscriptToolCallWebhookDetails webhookDetails,
+            global::ElevenLabs.ConversationHistoryTranscriptToolCallIntegrationFunctionDetails? functionDetails,
             string type = "api_integration_webhook")
         {
             this.Type = type;
@@ -74,6 +82,7 @@ namespace ElevenLabs
             this.CredentialId = credentialId ?? throw new global::System.ArgumentNullException(nameof(credentialId));
             this.IntegrationConnectionId = integrationConnectionId ?? throw new global::System.ArgumentNullException(nameof(integrationConnectionId));
             this.WebhookDetails = webhookDetails ?? throw new global::System.ArgumentNullException(nameof(webhookDetails));
+            this.FunctionDetails = functionDetails;
         }
 
         /// <summary>

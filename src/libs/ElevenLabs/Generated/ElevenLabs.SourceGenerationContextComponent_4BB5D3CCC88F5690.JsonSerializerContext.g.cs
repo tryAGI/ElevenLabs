@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AgentConfigAPIModelWorkflowOverrideOutputTextBehaviorOverrides))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0005.Create_AgentConfigAPIModelWorkflowOverrideOutputTextBehaviorOverrides(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0006.Create_AgentConfigAPIModelWorkflowOverrideOutputTextBehaviorOverrides(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

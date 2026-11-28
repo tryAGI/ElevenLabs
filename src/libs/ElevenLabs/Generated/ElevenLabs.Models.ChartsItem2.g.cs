@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType? Type { get; }
+        public global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? Type { get; }
 
         /// <summary>
         ///
@@ -197,7 +197,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public ChartsItem2(
-            global::ElevenLabs.PatchConvAIDashboardSettingsRequestChartDiscriminatorType? type,
+            global::ElevenLabs.GetConvAIDashboardSettingsResponseModelChartDiscriminatorType? type,
             global::ElevenLabs.DashboardCallSuccessChartModel? callSuccess,
             global::ElevenLabs.DashboardCriteriaChartModel? criteria,
             global::ElevenLabs.DashboardDataCollectionChartModel? dataCollection

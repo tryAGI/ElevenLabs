@@ -37,6 +37,9 @@ namespace ElevenLabs
         /// <param name="source">
         /// Source of the generated history item
         /// </param>
+        /// <param name="sources">
+        /// Sources of the generated history items, matching any of them. Cannot be combined with source.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -50,6 +53,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
             global::ElevenLabs.GetSpeechHistorySource? source = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetSpeechHistorySourcesVariant1Item>? sources = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -85,6 +89,9 @@ namespace ElevenLabs
         /// <param name="source">
         /// Source of the generated history item
         /// </param>
+        /// <param name="sources">
+        /// Sources of the generated history items, matching any of them. Cannot be combined with source.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -98,6 +105,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
             global::ElevenLabs.GetSpeechHistorySource? source = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetSpeechHistorySourcesVariant1Item>? sources = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

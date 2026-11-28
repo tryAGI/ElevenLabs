@@ -47,6 +47,12 @@ namespace ElevenLabs
         public global::ElevenLabs.LivekitStackType? DefaultLivekitStack { get; set; }
 
         /// <summary>
+        /// User memory policy applied to the memory of every agent in the workspace with user memories on.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_memory")]
+        public global::ElevenLabs.WorkspaceUserMemorySettings? UserMemory { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -70,6 +76,9 @@ namespace ElevenLabs
         /// <param name="defaultLivekitStack">
         /// Default Value: standard
         /// </param>
+        /// <param name="userMemory">
+        /// User memory policy applied to the memory of every agent in the workspace with user memories on.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -79,7 +88,8 @@ namespace ElevenLabs
             bool? canUseMcpServers,
             int? ragRetentionPeriodDays,
             int? conversationEmbeddingRetentionDays,
-            global::ElevenLabs.LivekitStackType? defaultLivekitStack)
+            global::ElevenLabs.LivekitStackType? defaultLivekitStack,
+            global::ElevenLabs.WorkspaceUserMemorySettings? userMemory)
         {
             this.ConversationInitiationClientDataWebhook = conversationInitiationClientDataWebhook;
             this.Webhooks = webhooks;
@@ -87,6 +97,7 @@ namespace ElevenLabs
             this.RagRetentionPeriodDays = ragRetentionPeriodDays;
             this.ConversationEmbeddingRetentionDays = conversationEmbeddingRetentionDays;
             this.DefaultLivekitStack = defaultLivekitStack;
+            this.UserMemory = userMemory;
         }
 
         /// <summary>

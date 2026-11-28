@@ -49,6 +49,9 @@ namespace ElevenLabs
         /// <param name="defaultLivekitStack">
         /// Default Value: standard
         /// </param>
+        /// <param name="userMemory">
+        /// User memory policy applied to the memory of every agent in the workspace with user memories on.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -59,6 +62,7 @@ namespace ElevenLabs
             int? ragRetentionPeriodDays = default,
             int? conversationEmbeddingRetentionDays = default,
             global::ElevenLabs.LivekitStackType? defaultLivekitStack = default,
+            global::ElevenLabs.WorkspaceUserMemorySettings? userMemory = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

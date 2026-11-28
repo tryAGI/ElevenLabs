@@ -31,6 +31,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        CreatifyAurora2,
+        /// <summary>
+        ///
+        /// </summary>
         Veo31FastGenerate001,
         /// <summary>
         ///
@@ -55,6 +59,7 @@ namespace ElevenLabs
                 VideoGenerationRequestDiscriminatorModelId.BytedanceSeedanceV2Mini => "bytedance-seedance-v2-mini",
                 VideoGenerationRequestDiscriminatorModelId.BytedanceSeedanceV25 => "bytedance-seedance-v2.5",
                 VideoGenerationRequestDiscriminatorModelId.CreatifyAurora => "creatify-aurora",
+                VideoGenerationRequestDiscriminatorModelId.CreatifyAurora2 => "creatify-aurora-2",
                 VideoGenerationRequestDiscriminatorModelId.Veo31FastGenerate001 => "veo-3.1-fast-generate-001",
                 VideoGenerationRequestDiscriminatorModelId.Veo31Generate001 => "veo-3.1-generate-001",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -72,6 +77,7 @@ namespace ElevenLabs
                 "bytedance-seedance-v2-mini" => VideoGenerationRequestDiscriminatorModelId.BytedanceSeedanceV2Mini,
                 "bytedance-seedance-v2.5" => VideoGenerationRequestDiscriminatorModelId.BytedanceSeedanceV25,
                 "creatify-aurora" => VideoGenerationRequestDiscriminatorModelId.CreatifyAurora,
+                "creatify-aurora-2" => VideoGenerationRequestDiscriminatorModelId.CreatifyAurora2,
                 "veo-3.1-fast-generate-001" => VideoGenerationRequestDiscriminatorModelId.Veo31FastGenerate001,
                 "veo-3.1-generate-001" => VideoGenerationRequestDiscriminatorModelId.Veo31Generate001,
                 _ => null,

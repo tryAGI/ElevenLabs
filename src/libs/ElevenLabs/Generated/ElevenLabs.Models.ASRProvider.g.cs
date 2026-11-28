@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Default Value: scribe_realtime
+    /// Default Value: scribe_v3_live
     /// </summary>
     public enum ASRProvider
     {
@@ -20,6 +20,14 @@ namespace ElevenLabs
         ///
         /// </summary>
         ScribeV2Turbo,
+        /// <summary>
+        ///
+        /// </summary>
+        ScribeV3Live,
+        /// <summary>
+        ///
+        /// </summary>
+        ScribeV3LiveMedical,
     }
 
     /// <summary>
@@ -37,6 +45,8 @@ namespace ElevenLabs
                 ASRProvider.Elevenlabs => "elevenlabs",
                 ASRProvider.ScribeRealtime => "scribe_realtime",
                 ASRProvider.ScribeV2Turbo => "scribe_v2_turbo",
+                ASRProvider.ScribeV3Live => "scribe_v3_live",
+                ASRProvider.ScribeV3LiveMedical => "scribe_v3_live_medical",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -50,6 +60,8 @@ namespace ElevenLabs
                 "elevenlabs" => ASRProvider.Elevenlabs,
                 "scribe_realtime" => ASRProvider.ScribeRealtime,
                 "scribe_v2_turbo" => ASRProvider.ScribeV2Turbo,
+                "scribe_v3_live" => ASRProvider.ScribeV3Live,
+                "scribe_v3_live_medical" => ASRProvider.ScribeV3LiveMedical,
                 _ => null,
             };
         }

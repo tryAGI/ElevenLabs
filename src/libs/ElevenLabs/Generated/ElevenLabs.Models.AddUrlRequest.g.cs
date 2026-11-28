@@ -9,13 +9,14 @@ namespace ElevenLabs
     public sealed partial class AddUrlRequest
     {
         /// <summary>
-        ///
+        /// The HTTPS page or site to read.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Url { get; set; }
 
         /// <summary>
+        /// Crawl the whole site instead of only the page at url.<br/>
         /// Default Value: false
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("crawl_entire_site")]
@@ -30,8 +31,11 @@ namespace ElevenLabs
         /// <summary>
         /// Initializes a new instance of the <see cref="AddUrlRequest" /> class.
         /// </summary>
-        /// <param name="url"></param>
+        /// <param name="url">
+        /// The HTTPS page or site to read.
+        /// </param>
         /// <param name="crawlEntireSite">
+        /// Crawl the whole site instead of only the page at url.<br/>
         /// Default Value: false
         /// </param>
 #if NET7_0_OR_GREATER

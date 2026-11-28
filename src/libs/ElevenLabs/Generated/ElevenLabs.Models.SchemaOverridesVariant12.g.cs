@@ -12,7 +12,7 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
-        public global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminatorSource? Source { get; }
+        public global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource? Source { get; }
 
         /// <summary>
         ///
@@ -257,7 +257,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         public SchemaOverridesVariant12(
-            global::ElevenLabs.WorkflowToolLocatorSchemaOverridesDiscriminatorSource? source,
+            global::ElevenLabs.ApiIntegrationWebhookOverridesSchemaOverridesDiscriminatorSource? source,
             global::ElevenLabs.ConstantSchemaOverride? constant,
             global::ElevenLabs.DynamicVariableSchemaOverride? dynamicVariable,
             global::ElevenLabs.LLMSchemaOverride? llm,

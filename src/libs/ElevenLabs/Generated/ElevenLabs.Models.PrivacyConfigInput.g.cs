@@ -57,6 +57,12 @@ namespace ElevenLabs
         public global::ElevenLabs.ConversationHistoryRedactionConfig? ConversationHistoryRedaction { get; set; }
 
         /// <summary>
+        /// Whether this agent remembers returning end users, and how much. Only workspace admins can change these settings, though anyone can turn memories off. Not available in zero retention mode.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_memory")]
+        public global::ElevenLabs.UserMemorySettingsInput? UserMemory { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -92,6 +98,9 @@ namespace ElevenLabs
         /// <param name="conversationHistoryRedaction">
         /// Config for PII redaction in the conversation history
         /// </param>
+        /// <param name="userMemory">
+        /// Whether this agent remembers returning end users, and how much. Only workspace admins can change these settings, though anyone can turn memories off. Not available in zero retention mode.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -102,7 +111,8 @@ namespace ElevenLabs
             bool? deleteAudio,
             bool? applyToExistingConversations,
             bool? zeroRetentionMode,
-            global::ElevenLabs.ConversationHistoryRedactionConfig? conversationHistoryRedaction)
+            global::ElevenLabs.ConversationHistoryRedactionConfig? conversationHistoryRedaction,
+            global::ElevenLabs.UserMemorySettingsInput? userMemory)
         {
             this.RecordVoice = recordVoice;
             this.RetentionDays = retentionDays;
@@ -111,6 +121,7 @@ namespace ElevenLabs
             this.ApplyToExistingConversations = applyToExistingConversations;
             this.ZeroRetentionMode = zeroRetentionMode;
             this.ConversationHistoryRedaction = conversationHistoryRedaction;
+            this.UserMemory = userMemory;
         }
 
         /// <summary>

@@ -30,12 +30,12 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>> List8Async(
+            string xiWorkspaceId,
             int? startUnix = default,
             int? endUnix = default,
             global::ElevenLabs.TimeOffType? timeOffType = default,
             string? resourceId = default,
             string? locationId = default,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -64,12 +64,12 @@ namespace ElevenLabs
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::System.Collections.Generic.IList<global::ElevenLabs.HolidayResponseModel>>> List8AsResponseAsync(
+            string xiWorkspaceId,
             int? startUnix = default,
             int? endUnix = default,
             global::ElevenLabs.TimeOffType? timeOffType = default,
             string? resourceId = default,
             string? locationId = default,
-            string? xiWorkspaceId = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

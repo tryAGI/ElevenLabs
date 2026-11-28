@@ -15,7 +15,7 @@ namespace ElevenLabs
         public global::ElevenLabs.OpenAIAudioOutputFormat? Format { get; set; }
 
         /// <summary>
-        /// Default Value: brian
+        /// Default Value: default
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("voice")]
         public string? Voice { get; set; }
@@ -31,7 +31,7 @@ namespace ElevenLabs
         /// </summary>
         /// <param name="format"></param>
         /// <param name="voice">
-        /// Default Value: brian
+        /// Default Value: default
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

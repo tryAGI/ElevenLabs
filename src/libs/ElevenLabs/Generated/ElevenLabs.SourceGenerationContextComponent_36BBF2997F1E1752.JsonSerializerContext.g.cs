@@ -9,7 +9,7 @@ namespace ElevenLabs
         internal static readonly global::ElevenLabs.SourceGenerationContextMetadataScope MetadataScope = new(
                 new SharedMetadataResolver(),
                 new global::System.Func<global::ElevenLabs.SourceGenerationContextMetadataScope>[] {
-                    static () => global::ElevenLabs.SourceGenerationContextComponent_1F566B5EAE1B2DF3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2085C3A0078AF20B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_6E98380E5D57D8E8.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E09FC06E8C597F9E.MetadataScope,
+                    static () => global::ElevenLabs.SourceGenerationContextComponent_1F566B5EAE1B2DF3.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_2085C3A0078AF20B.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_4E434DBB011426B0.MetadataScope,                    static () => global::ElevenLabs.SourceGenerationContextComponent_E09FC06E8C597F9E.MetadataScope,
                 }, ContributeConverters);
         internal static global::System.Text.Json.Serialization.JsonSerializerContext Default => MetadataScope.Default;
 
@@ -32,11 +32,11 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.ChartsItem2))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0037.Create_ChartsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0041.Create_ChartsItem22(options);
                 }
                 if (type == typeof(global::ElevenLabs.ChartsItem2?))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0110.Create_NullableChartsItem22(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0122.Create_NullableChartsItem22(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

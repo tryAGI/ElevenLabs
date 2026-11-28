@@ -33,6 +33,12 @@ namespace ElevenLabs
         public global::ElevenLabs.LLMTokensCategoryUsage? OutputTotal { get; set; }
 
         /// <summary>
+        /// Subset of `output_total` spent on reasoning, when the provider reports it. Informational; already charged as part of `output_total`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("output_total_reasoning_portion")]
+        public global::ElevenLabs.LLMTokensCategoryUsage? OutputTotalReasoningPortion { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -53,6 +59,9 @@ namespace ElevenLabs
         /// <param name="outputTotal">
         /// Output (completion) tokens.
         /// </param>
+        /// <param name="outputTotalReasoningPortion">
+        /// Subset of `output_total` spent on reasoning, when the provider reports it. Informational; already charged as part of `output_total`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -60,12 +69,14 @@ namespace ElevenLabs
             global::ElevenLabs.LLMTokensCategoryUsage? input,
             global::ElevenLabs.LLMTokensCategoryUsage? inputCacheRead,
             global::ElevenLabs.LLMTokensCategoryUsage? inputCacheWrite,
-            global::ElevenLabs.LLMTokensCategoryUsage? outputTotal)
+            global::ElevenLabs.LLMTokensCategoryUsage? outputTotal,
+            global::ElevenLabs.LLMTokensCategoryUsage? outputTotalReasoningPortion)
         {
             this.Input = input;
             this.InputCacheRead = inputCacheRead;
             this.InputCacheWrite = inputCacheWrite;
             this.OutputTotal = outputTotal;
+            this.OutputTotalReasoningPortion = outputTotalReasoningPortion;
         }
 
         /// <summary>

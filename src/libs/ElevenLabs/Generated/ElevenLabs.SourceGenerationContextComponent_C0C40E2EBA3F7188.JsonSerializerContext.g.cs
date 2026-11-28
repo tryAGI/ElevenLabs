@@ -30,7 +30,7 @@ namespace ElevenLabs
             {
                 if (type == typeof(global::ElevenLabs.AgentPlatformSettingsRequestModelDataCollection))
                 {
-                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0007.Create_AgentPlatformSettingsRequestModelDataCollection(options);
+                    return global::ElevenLabs.SourceGenerationContextMetadata0FactoryBatch0008.Create_AgentPlatformSettingsRequestModelDataCollection(options);
                 }
                 global::System.Text.Json.Serialization.Metadata.JsonTypeInfo? additional = null;
                 ResolveAdditionalTypeInfo(type, options, ref additional);

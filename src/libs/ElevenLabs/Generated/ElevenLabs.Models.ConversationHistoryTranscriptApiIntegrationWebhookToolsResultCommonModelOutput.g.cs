@@ -23,6 +23,12 @@ namespace ElevenLabs
         public required string ToolName { get; set; }
 
         /// <summary>
+        /// ID of the tool that produced this result: a workspace tool ID, 'mcp:&lt;server_id&gt;:&lt;tool_name&gt;' for MCP tools, or '__system_&lt;tool_name&gt;' for system tools. Not set for conversations recorded before tool IDs were tracked.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_id")]
+        public string? ToolId { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("result_value")]
@@ -132,6 +138,9 @@ namespace ElevenLabs
         /// <param name="integrationId"></param>
         /// <param name="credentialId"></param>
         /// <param name="integrationConnectionId"></param>
+        /// <param name="toolId">
+        /// ID of the tool that produced this result: a workspace tool ID, 'mcp:&lt;server_id&gt;:&lt;tool_name&gt;' for MCP tools, or '__system_&lt;tool_name&gt;' for system tools. Not set for conversations recorded before tool IDs were tracked.
+        /// </param>
         /// <param name="type"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -150,10 +159,12 @@ namespace ElevenLabs
             string integrationId,
             string credentialId,
             string integrationConnectionId,
+            string? toolId,
             string type = "api_integration_webhook")
         {
             this.RequestId = requestId ?? throw new global::System.ArgumentNullException(nameof(requestId));
             this.ToolName = toolName ?? throw new global::System.ArgumentNullException(nameof(toolName));
+            this.ToolId = toolId;
             this.ResultValue = resultValue ?? throw new global::System.ArgumentNullException(nameof(resultValue));
             this.IsError = isError;
             this.IsBlocked = isBlocked;

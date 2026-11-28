@@ -43,7 +43,7 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
-        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? Tools { get; set; }
+        public global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? Tools { get; set; }
 
         /// <summary>
         /// Default Value: auto
@@ -166,7 +166,7 @@ namespace ElevenLabs
             string? instructions,
             global::System.Collections.Generic.IList<string>? outputModalities,
             global::ElevenLabs.OpenAIAudioConfigInput? audio,
-            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem3>? tools,
+            global::System.Collections.Generic.IList<global::ElevenLabs.ToolsItem>? tools,
             global::ElevenLabs.AnyOf<string, global::ElevenLabs.OpenAIToolChoiceFunction>? toolChoice,
             double? temperature,
             global::ElevenLabs.AnyOf<int?, string>? maxResponseOutputTokens,

@@ -27,11 +27,11 @@ namespace ElevenLabs
             };
         partial void PrepareCreate11Arguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request);
+            global::ElevenLabs.ReceptionProvisionResellerWorkspaceRequest request);
         partial void PrepareCreate11Request(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request);
+            global::ElevenLabs.ReceptionProvisionResellerWorkspaceRequest request);
         partial void ProcessCreate11Response(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -51,7 +51,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create11Async(
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.ReceptionProvisionResellerWorkspaceRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -74,7 +74,7 @@ namespace ElevenLabs
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ProvisionResellerWorkspaceResponse>> Create11AsResponseAsync(
 
-            global::ElevenLabs.ProvisionResellerWorkspaceRequest request,
+            global::ElevenLabs.ReceptionProvisionResellerWorkspaceRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -350,13 +350,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -367,7 +367,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -410,7 +410,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -455,7 +455,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -477,6 +477,13 @@ namespace ElevenLabs
         /// Create a workspace for one of your customers, optionally with a tier, a phone number and team invites.
         /// </summary>
         /// <param name="businessName"></param>
+        /// <param name="vertical">
+        /// The business's vertical, used with `complete_onboarding`. Without it, onboarding picks the vertical as usual.
+        /// </param>
+        /// <param name="chargeCustomer">
+        /// Bill the workspace's own customer instead of the reseller: it checks out and sees its billing itself, and the reseller earns a commission. Only for a reseller on standard billing.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="subscription">
         /// Paid tier to subscribe to. Omitted leaves the workspace with no subscription.
         /// </param>
@@ -491,6 +498,10 @@ namespace ElevenLabs
         /// Finish setup right away, as `POST /v1/reception/reseller/workspaces/{workspace_id}/complete-onboarding` does. Best-effort: `onboarding_completed_at_unix` stays null on failure, and that call can be retried.<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="metadata">
+        /// Your own key-value pairs for the workspace, such as your customer or contract id. Up to 20 keys of up to 40 characters, without `.` or `$`, and values of up to 500 characters. Not shown to the workspace's members.<br/>
+        /// Default Value: {}
+        /// </param>
         /// <param name="idempotencyKey">
         /// Client-generated key that makes a retry safe. The same key and body within 24 hours returns the first result without running again. While that first request is still running, a retry gets 409 `idempotency_key_in_progress`; a different body with the same key gets 400 `idempotency_key_reused`. A request that fails is not saved, so it can be retried with the same key.
         /// </param>
@@ -499,21 +510,27 @@ namespace ElevenLabs
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::ElevenLabs.ProvisionResellerWorkspaceResponse> Create11Async(
             string businessName,
+            global::ElevenLabs.ReceptionVertical? vertical = default,
+            bool? chargeCustomer = default,
             global::ElevenLabs.ProvisionResellerWorkspaceSubscription? subscription = default,
             string? phoneNumber = default,
             global::System.Collections.Generic.IList<global::ElevenLabs.TeamInviteRequest>? members = default,
             bool? completeOnboarding = default,
+            global::System.Collections.Generic.Dictionary<string, string>? metadata = default,
             string? idempotencyKey = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::ElevenLabs.ProvisionResellerWorkspaceRequest
+            var __request = new global::ElevenLabs.ReceptionProvisionResellerWorkspaceRequest
             {
                 BusinessName = businessName,
+                Vertical = vertical,
+                ChargeCustomer = chargeCustomer,
                 Subscription = subscription,
                 PhoneNumber = phoneNumber,
                 Members = members,
                 CompleteOnboarding = completeOnboarding,
+                Metadata = metadata,
                 IdempotencyKey = idempotencyKey,
             };
 

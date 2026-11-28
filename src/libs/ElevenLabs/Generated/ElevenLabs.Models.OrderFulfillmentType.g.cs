@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    ///
+    /// How an order reaches the customer.
     /// </summary>
     public enum OrderFulfillmentType
     {

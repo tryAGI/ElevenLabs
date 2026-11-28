@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    ///
+    /// Default Value: semantic
     /// </summary>
     public enum SearchStrategy
     {

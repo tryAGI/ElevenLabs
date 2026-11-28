@@ -52,6 +52,43 @@ namespace ElevenLabs
             : throw new global::System.InvalidOperationException($"Expected union variant 'CreatifyAurora' but the value was {ToString()}.");
 
         /// <summary>
+        /// Request body for the Creatify Aurora 2.0 lipsync video model.
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::ElevenLabs.CreatifyAurora2Request? CreatifyAurora2 { get; init; }
+#else
+        public global::ElevenLabs.CreatifyAurora2Request? CreatifyAurora2 { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(CreatifyAurora2))]
+#endif
+        public bool IsCreatifyAurora2 => CreatifyAurora2 != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickCreatifyAurora2(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::ElevenLabs.CreatifyAurora2Request? value)
+        {
+            value = CreatifyAurora2;
+            return IsCreatifyAurora2;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::ElevenLabs.CreatifyAurora2Request PickCreatifyAurora2() => CreatifyAurora2 is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'CreatifyAurora2' but the value was {ToString()}.");
+
+        /// <summary>
         /// Request body for the Google Veo 3.1 video model.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -244,9 +281,9 @@ namespace ElevenLabs
 
         /// <summary>
         /// Request body for the ByteDance Seedance 2.5 video model.<br/>
-        /// Diverges from the Seedance 2.0 public shape: no 4K, durations up to 30s,<br/>
-        /// larger reference caps, audio-only input allowed, and no ``seed`` (Ark<br/>
-        /// tolerates it but does not honour it).<br/>
+        /// Diverges from the Seedance 2.0 public shape: durations up to 30s, larger<br/>
+        /// reference caps, audio-only input allowed, and no ``seed`` (Ark tolerates it<br/>
+        /// but does not honour it).<br/>
         /// ByteDance models are disabled by default and require explicit approval<br/>
         /// before use. Contact support to request access.
         /// </summary>
@@ -305,6 +342,29 @@ namespace ElevenLabs
         ///
         /// </summary>
         public static VideoGenerationRequest FromCreatifyAurora(global::ElevenLabs.CreatifyAuroraRequest? value) => new VideoGenerationRequest(value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator VideoGenerationRequest(global::ElevenLabs.CreatifyAurora2Request value) => new VideoGenerationRequest((global::ElevenLabs.CreatifyAurora2Request?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::ElevenLabs.CreatifyAurora2Request?(VideoGenerationRequest @this) => @this.CreatifyAurora2;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public VideoGenerationRequest(global::ElevenLabs.CreatifyAurora2Request? value)
+        {
+            CreatifyAurora2 = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static VideoGenerationRequest FromCreatifyAurora2(global::ElevenLabs.CreatifyAurora2Request? value) => new VideoGenerationRequest(value);
 
         /// <summary>
         ///
@@ -450,6 +510,7 @@ namespace ElevenLabs
         public VideoGenerationRequest(
             global::ElevenLabs.VideoGenerationRequestDiscriminatorModelId? modelId,
             global::ElevenLabs.CreatifyAuroraRequest? creatifyAurora,
+            global::ElevenLabs.CreatifyAurora2Request? creatifyAurora2,
             global::ElevenLabs.Veo31Request? veo31Generate001,
             global::ElevenLabs.Veo31FastRequest? veo31FastGenerate001,
             global::ElevenLabs.BytedanceSeedance2Request? bytedanceSeedanceV2,
@@ -461,6 +522,7 @@ namespace ElevenLabs
             ModelId = modelId;
 
             CreatifyAurora = creatifyAurora;
+            CreatifyAurora2 = creatifyAurora2;
             Veo31Generate001 = veo31Generate001;
             Veo31FastGenerate001 = veo31FastGenerate001;
             BytedanceSeedanceV2 = bytedanceSeedanceV2;
@@ -479,6 +541,7 @@ namespace ElevenLabs
             BytedanceSeedanceV2 as object ??
             Veo31FastGenerate001 as object ??
             Veo31Generate001 as object ??
+            CreatifyAurora2 as object ??
             CreatifyAurora as object
             ;
 
@@ -487,6 +550,7 @@ namespace ElevenLabs
         /// </summary>
         public override string? ToString() =>
             CreatifyAurora?.ToString() ??
+            CreatifyAurora2?.ToString() ??
             Veo31Generate001?.ToString() ??
             Veo31FastGenerate001?.ToString() ??
             BytedanceSeedanceV2?.ToString() ??
@@ -500,7 +564,7 @@ namespace ElevenLabs
         /// </summary>
         public bool Validate()
         {
-            return IsCreatifyAurora && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsVeo31Generate001 && IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && IsBytedanceSeedanceV25;
+            return IsCreatifyAurora && !IsCreatifyAurora2 && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && IsCreatifyAurora2 && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsCreatifyAurora2 && IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsCreatifyAurora2 && !IsVeo31Generate001 && IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsCreatifyAurora2 && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsCreatifyAurora2 && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsCreatifyAurora2 && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && IsBytedanceSeedanceV2Mini && !IsBytedanceSeedanceV25 || !IsCreatifyAurora && !IsCreatifyAurora2 && !IsVeo31Generate001 && !IsVeo31FastGenerate001 && !IsBytedanceSeedanceV2 && !IsBytedanceSeedanceV2Fast && !IsBytedanceSeedanceV2Mini && IsBytedanceSeedanceV25;
         }
 
         /// <summary>
@@ -508,6 +572,7 @@ namespace ElevenLabs
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::ElevenLabs.CreatifyAuroraRequest, TResult>? creatifyAurora = null,
+            global::System.Func<global::ElevenLabs.CreatifyAurora2Request, TResult>? creatifyAurora2 = null,
             global::System.Func<global::ElevenLabs.Veo31Request, TResult>? veo31Generate001 = null,
             global::System.Func<global::ElevenLabs.Veo31FastRequest, TResult>? veo31FastGenerate001 = null,
             global::System.Func<global::ElevenLabs.BytedanceSeedance2Request, TResult>? bytedanceSeedanceV2 = null,
@@ -525,29 +590,33 @@ namespace ElevenLabs
             {
                 return creatifyAurora(__value0);
             }
-            else if (Veo31Generate001 is { } __value1 && veo31Generate001 != null)
+            else if (CreatifyAurora2 is { } __value1 && creatifyAurora2 != null)
             {
-                return veo31Generate001(__value1);
+                return creatifyAurora2(__value1);
             }
-            else if (Veo31FastGenerate001 is { } __value2 && veo31FastGenerate001 != null)
+            else if (Veo31Generate001 is { } __value2 && veo31Generate001 != null)
             {
-                return veo31FastGenerate001(__value2);
+                return veo31Generate001(__value2);
             }
-            else if (BytedanceSeedanceV2 is { } __value3 && bytedanceSeedanceV2 != null)
+            else if (Veo31FastGenerate001 is { } __value3 && veo31FastGenerate001 != null)
             {
-                return bytedanceSeedanceV2(__value3);
+                return veo31FastGenerate001(__value3);
             }
-            else if (BytedanceSeedanceV2Fast is { } __value4 && bytedanceSeedanceV2Fast != null)
+            else if (BytedanceSeedanceV2 is { } __value4 && bytedanceSeedanceV2 != null)
             {
-                return bytedanceSeedanceV2Fast(__value4);
+                return bytedanceSeedanceV2(__value4);
             }
-            else if (BytedanceSeedanceV2Mini is { } __value5 && bytedanceSeedanceV2Mini != null)
+            else if (BytedanceSeedanceV2Fast is { } __value5 && bytedanceSeedanceV2Fast != null)
             {
-                return bytedanceSeedanceV2Mini(__value5);
+                return bytedanceSeedanceV2Fast(__value5);
             }
-            else if (BytedanceSeedanceV25 is { } __value6 && bytedanceSeedanceV25 != null)
+            else if (BytedanceSeedanceV2Mini is { } __value6 && bytedanceSeedanceV2Mini != null)
             {
-                return bytedanceSeedanceV25(__value6);
+                return bytedanceSeedanceV2Mini(__value6);
+            }
+            else if (BytedanceSeedanceV25 is { } __value7 && bytedanceSeedanceV25 != null)
+            {
+                return bytedanceSeedanceV25(__value7);
             }
 
             return default(TResult);
@@ -559,6 +628,8 @@ namespace ElevenLabs
         public void Match(
             global::System.Action<global::ElevenLabs.CreatifyAuroraRequest>? creatifyAurora = null,
 
+            global::System.Action<global::ElevenLabs.CreatifyAurora2Request>? creatifyAurora2 = null,
+
             global::System.Action<global::ElevenLabs.Veo31Request>? veo31Generate001 = null,
 
             global::System.Action<global::ElevenLabs.Veo31FastRequest>? veo31FastGenerate001 = null,
@@ -581,29 +652,33 @@ namespace ElevenLabs
             {
                 creatifyAurora?.Invoke(__value0);
             }
-            else if (Veo31Generate001 is { } __value1)
+            else if (CreatifyAurora2 is { } __value1)
             {
-                veo31Generate001?.Invoke(__value1);
+                creatifyAurora2?.Invoke(__value1);
             }
-            else if (Veo31FastGenerate001 is { } __value2)
+            else if (Veo31Generate001 is { } __value2)
             {
-                veo31FastGenerate001?.Invoke(__value2);
+                veo31Generate001?.Invoke(__value2);
             }
-            else if (BytedanceSeedanceV2 is { } __value3)
+            else if (Veo31FastGenerate001 is { } __value3)
             {
-                bytedanceSeedanceV2?.Invoke(__value3);
+                veo31FastGenerate001?.Invoke(__value3);
             }
-            else if (BytedanceSeedanceV2Fast is { } __value4)
+            else if (BytedanceSeedanceV2 is { } __value4)
             {
-                bytedanceSeedanceV2Fast?.Invoke(__value4);
+                bytedanceSeedanceV2?.Invoke(__value4);
             }
-            else if (BytedanceSeedanceV2Mini is { } __value5)
+            else if (BytedanceSeedanceV2Fast is { } __value5)
             {
-                bytedanceSeedanceV2Mini?.Invoke(__value5);
+                bytedanceSeedanceV2Fast?.Invoke(__value5);
             }
-            else if (BytedanceSeedanceV25 is { } __value6)
+            else if (BytedanceSeedanceV2Mini is { } __value6)
             {
-                bytedanceSeedanceV25?.Invoke(__value6);
+                bytedanceSeedanceV2Mini?.Invoke(__value6);
+            }
+            else if (BytedanceSeedanceV25 is { } __value7)
+            {
+                bytedanceSeedanceV25?.Invoke(__value7);
             }
         }
 
@@ -612,6 +687,7 @@ namespace ElevenLabs
         /// </summary>
         public void Switch(
             global::System.Action<global::ElevenLabs.CreatifyAuroraRequest>? creatifyAurora = null,
+            global::System.Action<global::ElevenLabs.CreatifyAurora2Request>? creatifyAurora2 = null,
             global::System.Action<global::ElevenLabs.Veo31Request>? veo31Generate001 = null,
             global::System.Action<global::ElevenLabs.Veo31FastRequest>? veo31FastGenerate001 = null,
             global::System.Action<global::ElevenLabs.BytedanceSeedance2Request>? bytedanceSeedanceV2 = null,
@@ -629,29 +705,33 @@ namespace ElevenLabs
             {
                 creatifyAurora?.Invoke(__value0);
             }
-            else if (Veo31Generate001 is { } __value1)
+            else if (CreatifyAurora2 is { } __value1)
             {
-                veo31Generate001?.Invoke(__value1);
+                creatifyAurora2?.Invoke(__value1);
             }
-            else if (Veo31FastGenerate001 is { } __value2)
+            else if (Veo31Generate001 is { } __value2)
             {
-                veo31FastGenerate001?.Invoke(__value2);
+                veo31Generate001?.Invoke(__value2);
             }
-            else if (BytedanceSeedanceV2 is { } __value3)
+            else if (Veo31FastGenerate001 is { } __value3)
             {
-                bytedanceSeedanceV2?.Invoke(__value3);
+                veo31FastGenerate001?.Invoke(__value3);
             }
-            else if (BytedanceSeedanceV2Fast is { } __value4)
+            else if (BytedanceSeedanceV2 is { } __value4)
             {
-                bytedanceSeedanceV2Fast?.Invoke(__value4);
+                bytedanceSeedanceV2?.Invoke(__value4);
             }
-            else if (BytedanceSeedanceV2Mini is { } __value5)
+            else if (BytedanceSeedanceV2Fast is { } __value5)
             {
-                bytedanceSeedanceV2Mini?.Invoke(__value5);
+                bytedanceSeedanceV2Fast?.Invoke(__value5);
             }
-            else if (BytedanceSeedanceV25 is { } __value6)
+            else if (BytedanceSeedanceV2Mini is { } __value6)
             {
-                bytedanceSeedanceV25?.Invoke(__value6);
+                bytedanceSeedanceV2Mini?.Invoke(__value6);
+            }
+            else if (BytedanceSeedanceV25 is { } __value7)
+            {
+                bytedanceSeedanceV25?.Invoke(__value7);
             }
         }
 
@@ -664,6 +744,8 @@ namespace ElevenLabs
             {
                 CreatifyAurora,
                 typeof(global::ElevenLabs.CreatifyAuroraRequest),
+                CreatifyAurora2,
+                typeof(global::ElevenLabs.CreatifyAurora2Request),
                 Veo31Generate001,
                 typeof(global::ElevenLabs.Veo31Request),
                 Veo31FastGenerate001,
@@ -693,6 +775,7 @@ namespace ElevenLabs
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreatifyAuroraRequest?>.Default.Equals(CreatifyAurora, other.CreatifyAurora) &&
+                global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.CreatifyAurora2Request?>.Default.Equals(CreatifyAurora2, other.CreatifyAurora2) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Veo31Request?>.Default.Equals(Veo31Generate001, other.Veo31Generate001) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.Veo31FastRequest?>.Default.Equals(Veo31FastGenerate001, other.Veo31FastGenerate001) &&
                 global::System.Collections.Generic.EqualityComparer<global::ElevenLabs.BytedanceSeedance2Request?>.Default.Equals(BytedanceSeedanceV2, other.BytedanceSeedanceV2) &&

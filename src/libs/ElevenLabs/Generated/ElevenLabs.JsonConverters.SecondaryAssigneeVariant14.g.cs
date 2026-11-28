@@ -1,0 +1,74 @@
+#nullable enable
+#pragma warning disable CS0618 // Type or member is obsolete
+
+namespace ElevenLabs.JsonConverters
+{
+    /// <inheritdoc />
+    public class SecondaryAssigneeVariant14JsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::ElevenLabs.SecondaryAssigneeVariant14>
+    {
+        /// <inheritdoc />
+        public override global::ElevenLabs.SecondaryAssigneeVariant14 Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            typeInfoResolver = global::ElevenLabs.AutoSDKJsonMetadataCachedResolver.Instance;
+
+
+            var readerCopy = reader;
+            var discriminatorTypeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TicketListItemResponseSecondaryAssigneeVariant1Discriminator), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TicketListItemResponseSecondaryAssigneeVariant1Discriminator> ??
+                            throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TicketListItemResponseSecondaryAssigneeVariant1Discriminator)}");
+            var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
+
+            global::ElevenLabs.TicketAIAgentAssigneeResponse? aiAgent = default;
+            if (discriminator?.Type == global::ElevenLabs.TicketListItemResponseSecondaryAssigneeVariant1DiscriminatorType.AiAgent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TicketAIAgentAssigneeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TicketAIAgentAssigneeResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TicketAIAgentAssigneeResponse)}");
+                aiAgent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+            global::ElevenLabs.TicketHumanAgentAssigneeResponse? humanAgent = default;
+            if (discriminator?.Type == global::ElevenLabs.TicketListItemResponseSecondaryAssigneeVariant1DiscriminatorType.HumanAgent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TicketHumanAgentAssigneeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TicketHumanAgentAssigneeResponse> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::ElevenLabs.TicketHumanAgentAssigneeResponse)}");
+                humanAgent = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
+            }
+
+            var __value = new global::ElevenLabs.SecondaryAssigneeVariant14(
+                discriminator?.Type,
+                aiAgent,
+
+                humanAgent
+                );
+
+            return __value;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::ElevenLabs.SecondaryAssigneeVariant14 value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            options = options ?? throw new global::System.ArgumentNullException(nameof(options));
+            var typeInfoResolver = options.TypeInfoResolver ?? throw new global::System.InvalidOperationException("TypeInfoResolver is not set.");
+            typeInfoResolver = global::ElevenLabs.AutoSDKJsonMetadataCachedResolver.Instance;
+
+            if (value.IsAiAgent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TicketAIAgentAssigneeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TicketAIAgentAssigneeResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TicketAIAgentAssigneeResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickAiAgent(), typeInfo);
+            }
+            else if (value.IsHumanAgent)
+            {
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::ElevenLabs.TicketHumanAgentAssigneeResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::ElevenLabs.TicketHumanAgentAssigneeResponse?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::ElevenLabs.TicketHumanAgentAssigneeResponse).Name}");
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickHumanAgent(), typeInfo);
+            }
+        }
+    }
+}

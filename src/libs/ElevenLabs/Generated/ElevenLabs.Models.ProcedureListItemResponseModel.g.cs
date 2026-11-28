@@ -73,10 +73,22 @@ namespace ElevenLabs
         public global::System.Collections.Generic.IList<string>? ReferencedDynamicVariables { get; set; }
 
         /// <summary>
+        /// Dynamic variable names written by Update state steps
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("written_dynamic_variables")]
+        public global::System.Collections.Generic.IList<string>? WrittenDynamicVariables { get; set; }
+
+        /// <summary>
         /// Procedure ID of the folder this procedure is placed in. None means root.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("folder_parent_id")]
         public string? FolderParentId { get; set; }
+
+        /// <summary>
+        /// The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("visibility")]
+        public global::ElevenLabs.ProcedureVisibilityOutput? Visibility { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -118,8 +130,14 @@ namespace ElevenLabs
         /// <param name="referencedDynamicVariables">
         /// Dynamic variable names used in the procedure content
         /// </param>
+        /// <param name="writtenDynamicVariables">
+        /// Dynamic variable names written by Update state steps
+        /// </param>
         /// <param name="folderParentId">
         /// Procedure ID of the folder this procedure is placed in. None means root.
+        /// </param>
+        /// <param name="visibility">
+        /// The condition that controls if the procedure is visible to the agent in its procedure menu. None means always visible.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -135,7 +153,9 @@ namespace ElevenLabs
             global::System.Collections.Generic.IList<string>? referencedKbIds,
             global::System.Collections.Generic.IList<string>? referencedProcedureIds,
             global::System.Collections.Generic.IList<string>? referencedDynamicVariables,
-            string? folderParentId)
+            global::System.Collections.Generic.IList<string>? writtenDynamicVariables,
+            string? folderParentId,
+            global::ElevenLabs.ProcedureVisibilityOutput? visibility)
         {
             this.ProcedureId = procedureId ?? throw new global::System.ArgumentNullException(nameof(procedureId));
             this.VersionId = versionId;
@@ -147,7 +167,9 @@ namespace ElevenLabs
             this.ReferencedKbIds = referencedKbIds;
             this.ReferencedProcedureIds = referencedProcedureIds;
             this.ReferencedDynamicVariables = referencedDynamicVariables;
+            this.WrittenDynamicVariables = writtenDynamicVariables;
             this.FolderParentId = folderParentId;
+            this.Visibility = visibility;
         }
 
         /// <summary>

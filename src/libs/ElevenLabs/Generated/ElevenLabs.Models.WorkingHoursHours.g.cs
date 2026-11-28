@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    ///
+    /// Open time ranges per day of the week, keyed 0 (Monday) to 6 (Sunday). A day with no ranges is closed.
     /// </summary>
     public sealed partial class WorkingHoursHours
     {

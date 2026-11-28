@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"available_service_tiers":["standard"],"is_checkpoint":false,"llm":"gemini-2.5-flash","max_context_limit":1048576,"max_tokens_limit":8192,"supports_document_input":true,"supports_image_input":true,"supports_parallel_tool_calls":true}
+    /// Example: {"available_reasoning_efforts":["minimal","low","medium","high"],"available_service_tiers":["standard"],"is_checkpoint":false,"llm":"gemini-3.5-flash","max_context_limit":1048576,"max_tokens_limit":65535,"supports_document_input":true,"supports_image_input":true,"supports_parallel_tool_calls":true}
     /// </summary>
     public sealed partial class LLMInfoModel
     {

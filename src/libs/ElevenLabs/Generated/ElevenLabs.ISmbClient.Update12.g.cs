@@ -15,10 +15,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAgentInfoResponse> Update12Async(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAgentInfoResponse> Update12Async(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentInfoRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -32,10 +32,10 @@ namespace ElevenLabs
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.SMBAgentInfoResponse>> Update12AsResponseAsync(
+        global::System.Threading.Tasks.Task<global::ElevenLabs.AutoSDKHttpResponse<global::ElevenLabs.ReceptionAgentInfoResponse>> Update12AsResponseAsync(
+            string xiWorkspaceId,
 
-            global::ElevenLabs.SMBUpdateAgentInfoRequest request,
-            string? xiWorkspaceId = default,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequest request,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -54,25 +54,29 @@ namespace ElevenLabs
         /// <param name="businessDescription">
         /// What the business does, given to the receptionist.
         /// </param>
-        /// <param name="timezone"></param>
+        /// <param name="timezone">
+        /// IANA timezone of the business.
+        /// </param>
         /// <param name="currency">
         /// Currency code for all prices (ISO 4217)<br/>
         /// Default Value: USD
         /// </param>
-        /// <param name="operatingHours"></param>
+        /// <param name="operatingHours">
+        /// Default business hours. Each location's own operating_hours decide when that location is open.
+        /// </param>
         /// <param name="toolCallSound">
         /// Ambient sound played while any receptionist runs a tool (e.g. checking availability or looking up a client), filling the silence callers would otherwise hear. One sound for the whole workspace, because custom webhook and MCP tools are shared by every receptionist. Off when null.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        global::System.Threading.Tasks.Task<global::ElevenLabs.SMBAgentInfoResponse> Update12Async(
-            string? xiWorkspaceId = default,
+        global::System.Threading.Tasks.Task<global::ElevenLabs.ReceptionAgentInfoResponse> Update12Async(
+            string xiWorkspaceId,
             string? businessName = default,
             string? businessCountry = default,
             string? businessDescription = default,
             string? timezone = default,
-            global::ElevenLabs.SMBUpdateAgentInfoRequestCurrency? currency = default,
+            global::ElevenLabs.ReceptionUpdateAgentInfoRequestCurrency? currency = default,
             global::ElevenLabs.WorkingHours? operatingHours = default,
             global::ElevenLabs.ToolCallSoundType? toolCallSound = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,

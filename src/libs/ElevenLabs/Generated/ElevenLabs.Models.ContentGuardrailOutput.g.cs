@@ -25,8 +25,8 @@ namespace ElevenLabs
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger_action")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TriggerAction2JsonConverter))]
-        public global::ElevenLabs.TriggerAction2? TriggerAction { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.TriggerAction3JsonConverter))]
+        public global::ElevenLabs.TriggerAction3? TriggerAction { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -48,7 +48,7 @@ namespace ElevenLabs
         public ContentGuardrailOutput(
             global::ElevenLabs.GuardrailExecutionMode? executionMode,
             global::ElevenLabs.ContentConfig? config,
-            global::ElevenLabs.TriggerAction2? triggerAction)
+            global::ElevenLabs.TriggerAction3? triggerAction)
         {
             this.ExecutionMode = executionMode;
             this.Config = config;

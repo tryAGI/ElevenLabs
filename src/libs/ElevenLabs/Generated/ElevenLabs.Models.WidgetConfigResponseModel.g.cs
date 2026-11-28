@@ -331,6 +331,14 @@ namespace ElevenLabs
         public bool? TranscriptSpeechSyncEnabled { get; set; }
 
         /// <summary>
+        /// Whether the widget floats over a corner of the page or opens as a full-height side panel<br/>
+        /// Default Value: default
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("layout")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::ElevenLabs.JsonConverters.WidgetLayoutJsonConverter))]
+        public global::ElevenLabs.WidgetLayout? Layout { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language")]
@@ -564,6 +572,10 @@ namespace ElevenLabs
         /// Whether voice call transcripts are revealed as the agent speaks<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="layout">
+        /// Whether the widget floats over a corner of the page or opens as a full-height side panel<br/>
+        /// Default Value: default
+        /// </param>
         /// <param name="supportedLanguageOverrides"></param>
         /// <param name="languagePresets">
         /// Language presets for the widget
@@ -636,6 +648,7 @@ namespace ElevenLabs
             bool? endConfirmationEnabled,
             bool? mobileFullscreen,
             bool? transcriptSpeechSyncEnabled,
+            global::ElevenLabs.WidgetLayout? layout,
             global::System.Collections.Generic.IList<string>? supportedLanguageOverrides,
             global::System.Collections.Generic.Dictionary<string, global::ElevenLabs.WidgetLanguagePresetResponse>? languagePresets,
             bool? textOnly,
@@ -692,6 +705,7 @@ namespace ElevenLabs
             this.EndConfirmationEnabled = endConfirmationEnabled;
             this.MobileFullscreen = mobileFullscreen;
             this.TranscriptSpeechSyncEnabled = transcriptSpeechSyncEnabled;
+            this.Layout = layout;
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.SupportedLanguageOverrides = supportedLanguageOverrides;
             this.LanguagePresets = languagePresets;

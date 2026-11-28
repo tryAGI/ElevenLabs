@@ -39,6 +39,10 @@ namespace ElevenLabs
         /// <summary>
         ///
         /// </summary>
+        SupportTickets,
+        /// <summary>
+        ///
+        /// </summary>
         VoiceLibraryRemovalNotices,
     }
 
@@ -61,6 +65,7 @@ namespace ElevenLabs
                 WebhookUsageType.Dubbing => "Dubbing",
                 WebhookUsageType.Flows => "Flows",
                 WebhookUsageType.SpeechToText => "Speech to Text",
+                WebhookUsageType.SupportTickets => "Support Tickets",
                 WebhookUsageType.VoiceLibraryRemovalNotices => "Voice Library Removal Notices",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -79,6 +84,7 @@ namespace ElevenLabs
                 "Dubbing" => WebhookUsageType.Dubbing,
                 "Flows" => WebhookUsageType.Flows,
                 "Speech to Text" => WebhookUsageType.SpeechToText,
+                "Support Tickets" => WebhookUsageType.SupportTickets,
                 "Voice Library Removal Notices" => WebhookUsageType.VoiceLibraryRemovalNotices,
                 _ => null,
             };

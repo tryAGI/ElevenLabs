@@ -35,7 +35,8 @@ namespace ElevenLabs
             int? dateAfterUnix,
             ref global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection,
             ref string? search,
-            ref global::ElevenLabs.GetSpeechHistorySource? source);
+            ref global::ElevenLabs.GetSpeechHistorySource? source,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetSpeechHistorySourcesVariant1Item>? sources);
         partial void PrepareListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -47,7 +48,8 @@ namespace ElevenLabs
             int? dateAfterUnix,
             global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection,
             string? search,
-            global::ElevenLabs.GetSpeechHistorySource? source);
+            global::ElevenLabs.GetSpeechHistorySource? source,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetSpeechHistorySourcesVariant1Item>? sources);
         partial void ProcessListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -90,6 +92,9 @@ namespace ElevenLabs
         /// <param name="source">
         /// Source of the generated history item
         /// </param>
+        /// <param name="sources">
+        /// Sources of the generated history items, matching any of them. Cannot be combined with source.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -103,6 +108,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
             global::ElevenLabs.GetSpeechHistorySource? source = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetSpeechHistorySourcesVariant1Item>? sources = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -116,6 +122,7 @@ namespace ElevenLabs
                 sortDirection: sortDirection,
                 search: search,
                 source: source,
+                sources: sources,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -155,6 +162,9 @@ namespace ElevenLabs
         /// <param name="source">
         /// Source of the generated history item
         /// </param>
+        /// <param name="sources">
+        /// Sources of the generated history items, matching any of them. Cannot be combined with source.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::ElevenLabs.ApiException"></exception>
@@ -168,6 +178,7 @@ namespace ElevenLabs
             global::ElevenLabs.GetSpeechHistorySortDirection? sortDirection = default,
             string? search = default,
             global::ElevenLabs.GetSpeechHistorySource? source = default,
+            global::System.Collections.Generic.IList<global::ElevenLabs.GetSpeechHistorySourcesVariant1Item>? sources = default,
             global::ElevenLabs.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -185,7 +196,8 @@ namespace ElevenLabs
                 dateAfterUnix: dateAfterUnix,
                 sortDirection: ref sortDirection,
                 search: ref search,
-                source: ref source);
+                source: ref source,
+                sources: sources);
 
 
             var __authorizations = global::ElevenLabs.EndPointSecurityResolver.ResolveAuthorizations(
@@ -223,6 +235,7 @@ namespace ElevenLabs
                                 .AddOptionalParameter("sort_direction", sortDirection?.ToValueString())
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("source", source?.ToValueString())
+                                .AddOptionalParameter("sources", sources, selector: static x => x.ToValueString(), delimiter: ",", explode: true)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::ElevenLabs.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -272,7 +285,8 @@ namespace ElevenLabs
                     dateAfterUnix: dateAfterUnix,
                     sortDirection: sortDirection,
                     search: search,
-                    source: source);
+                    source: source,
+                    sources: sources);
 
                 return __httpRequest;
             }
@@ -462,13 +476,13 @@ namespace ElevenLabs
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_422 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_422 = global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
+                                        __value_422 = __content_422 is not { Length: > 0 } ? null : global::ElevenLabs.HTTPValidationError.FromJson(__content_422, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -479,7 +493,7 @@ namespace ElevenLabs
 
                                 throw global::ElevenLabs.ApiException<global::ElevenLabs.HTTPValidationError>.Create(
                                     statusCode: __response.StatusCode,
-                                    message: __content_422 ?? __response.ReasonPhrase ?? string.Empty,
+                                    message: __content_422 is { Length: > 0 } ? __content_422 : __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_422,
                                     responseBody: __content_422,
                                     responseObject: __value_422,
@@ -522,7 +536,7 @@ namespace ElevenLabs
                                 {
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(
@@ -567,7 +581,7 @@ namespace ElevenLabs
 
                                     throw global::ElevenLabs.ApiException.Create(
                                         statusCode: __response.StatusCode,
-                                        message: __content ?? __response.ReasonPhrase ?? string.Empty,
+                                        message: __content is { Length: > 0 } ? __content : __response.ReasonPhrase ?? string.Empty,
                                         innerException: __ex,
                                         responseBody: __content,
                                         responseHeaders: global::System.Linq.Enumerable.ToDictionary(

@@ -19,6 +19,12 @@ namespace ElevenLabs
         public required string TierId { get; set; }
 
         /// <summary>
+        /// Price frozen at grant for the current billing cadence, not the live catalog price.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("subscription_price_usd")]
+        public double? SubscriptionPriceUsd { get; set; }
+
+        /// <summary>
         /// Cadence being billed. None only for a subscription mid-provisioning.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("billing_period")]
@@ -62,6 +68,9 @@ namespace ElevenLabs
         /// <param name="billingPeriodEndUnix">
         /// When the current period ends, and so when a deferred change lands.
         /// </param>
+        /// <param name="subscriptionPriceUsd">
+        /// Price frozen at grant for the current billing cadence, not the live catalog price.
+        /// </param>
         /// <param name="billingPeriod">
         /// Cadence being billed. None only for a subscription mid-provisioning.
         /// </param>
@@ -80,12 +89,14 @@ namespace ElevenLabs
         public ResellerWorkspaceSubscription(
             string tierId,
             int billingPeriodEndUnix,
+            double? subscriptionPriceUsd,
             global::ElevenLabs.ResellerWorkspaceSubscriptionBillingPeriod? billingPeriod,
             int? cancelAtUnix,
             string? pendingDowngradeTier,
             int? pendingDowngradeAtUnix)
         {
             this.TierId = tierId ?? throw new global::System.ArgumentNullException(nameof(tierId));
+            this.SubscriptionPriceUsd = subscriptionPriceUsd;
             this.BillingPeriod = billingPeriod;
             this.BillingPeriodEndUnix = billingPeriodEndUnix;
             this.CancelAtUnix = cancelAtUnix;

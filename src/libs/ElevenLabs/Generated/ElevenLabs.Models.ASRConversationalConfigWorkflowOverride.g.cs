@@ -4,7 +4,7 @@
 namespace ElevenLabs
 {
     /// <summary>
-    /// Example: {"keywords":["hello","world"],"provider":"scribe_realtime","quality":"high","user_input_audio_format":"pcm_16000"}
+    /// Example: {"keywords":["hello","world"],"provider":"scribe_v3_live","quality":"high","user_input_audio_format":"pcm_16000"}
     /// </summary>
     public sealed partial class ASRConversationalConfigWorkflowOverride
     {
